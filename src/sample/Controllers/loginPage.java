@@ -11,8 +11,9 @@ public class loginPage implements Initializable {
 
     public AnchorPane paneBackground;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        System.out.println("hi baby");
     }
 }

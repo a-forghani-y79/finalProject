@@ -3,13 +3,25 @@ package sample.DataCenter;
 public class NewStudent {
 
     //ساختار داده برای دانشجویان جدیدالورود و مطابق لیست دریافتی از سازمان سنجش
-    //نام-نام خانوادگی-رتبه -شماره ملی- رشته - روزانه/شبانه
+    // نام-نام خانوادگی-رتبه -شماره ملی- رشته - روزانه/شبانه - شماره پرونده
     private String firstName;
     private String lastName;
-    private long  rate;
+    private long rate;
     private long ID;
     private String field;
     private boolean isDay;
+    private long fileNumber;
+
+
+    public boolean isDay() {
+        return isDay;
+    }
+
+
+    public long getFileNumber() {
+        return fileNumber;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -59,6 +71,13 @@ public class NewStudent {
         this.isDay = day_night;
     }
 
+    public void setDay(boolean day) {
+        isDay = day;
+    }
+
+    public void setFileNumber(long fileNumber) {
+        this.fileNumber = fileNumber;
+    }
 
 
 }

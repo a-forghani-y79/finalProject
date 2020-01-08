@@ -17,11 +17,9 @@ public class NewStudent {
         return isDay;
     }
 
-
     public long getFileNumber() {
         return fileNumber;
     }
-
 
     public String getFirstName() {
         return firstName;

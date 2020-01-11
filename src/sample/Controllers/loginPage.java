@@ -10,6 +10,7 @@ import sample.DataCenter.Hashing;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class loginPage implements Initializable {
@@ -20,6 +21,43 @@ public class loginPage implements Initializable {
     public PasswordField txtPass;
     public Label status;
 
+    public void AnchorTime(){
+        LocalDateTime KnowTime = LocalDateTime.now();
+        if (KnowTime.getHour()>2&&KnowTime.getHour()<4){
+
+        }
+        if (KnowTime.getHour()>4&&KnowTime.getHour()<5){
+
+        }
+        if (KnowTime.getHour()>5&&KnowTime.getHour()<7){
+
+        }
+        if (KnowTime.getHour()>7&&KnowTime.getHour()<9){
+
+        }
+        if (KnowTime.getHour()>9&&KnowTime.getHour()<12){
+
+        }
+        if (KnowTime.getHour()>12&&KnowTime.getHour()<16){
+
+        }
+        if (KnowTime.getHour()>16&&KnowTime.getHour()<17){
+
+        }
+        if (KnowTime.getHour()>17&&KnowTime.getHour()<18){
+
+        }
+        if (KnowTime.getHour()>18&&KnowTime.getHour()<19){
+
+        }
+        if (KnowTime.getHour()>19&&KnowTime.getHour()<24){
+
+        }
+        if (KnowTime.getHour()>0&&KnowTime.getHour()<2){
+
+        }
+
+    }
 
 
     Hashing hashing;

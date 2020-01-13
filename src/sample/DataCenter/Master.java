@@ -1,7 +1,5 @@
 package sample.DataCenter;
 
-import java.security.SecureRandom;
-
 public class Master {
 
     private String firstName;

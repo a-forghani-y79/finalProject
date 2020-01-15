@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -20,6 +21,8 @@ public class loginPage implements Initializable {
     public TextField txtUser;
     public PasswordField txtPass;
     public Label status;
+    public JFXTextField ghader;
+
 
     public void AnchorTime(){
         LocalDateTime KnowTime = LocalDateTime.now();
@@ -62,7 +65,7 @@ public class loginPage implements Initializable {
 
     Hashing hashing;
 
-    void omClickSignIn() {
+    public void onClickSignIn() {
         String user = txtUser.getText();
         String pass = txtPass.getText();
         auth(user,pass);

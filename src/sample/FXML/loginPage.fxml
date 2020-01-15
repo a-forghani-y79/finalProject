@@ -17,7 +17,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXTextField labelFloat="true" layoutX="46.0" layoutY="74.0" prefHeight="35.0" prefWidth="237.0" promptText="Enter your FirdtName" unFocusColor="#e40a0a" />
+            <JFXTextField fx:id="ghader" labelFloat="true" layoutX="46.0" layoutY="74.0" prefHeight="35.0" prefWidth="237.0" promptText="Enter your FirdtName" unFocusColor="#e40a0a" />
             <JFXTextField layoutX="46.0" layoutY="128.0" prefHeight="35.0" prefWidth="237.0" promptText="Enter your LastName" unFocusColor="#eb0a0a" />
             <JFXTextField layoutX="46.0" layoutY="187.0" prefHeight="35.0" prefWidth="237.0" promptText="ID" unFocusColor="#eb0303" />
             <JFXComboBox layoutX="132.0" layoutY="259.0" prefHeight="25.0" prefWidth="151.0" unFocusColor="#fa0a0a" />

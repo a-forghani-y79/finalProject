@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.DataCenter.Hashing;
 
@@ -22,42 +24,58 @@ public class loginPage implements Initializable {
     public PasswordField txtPass;
     public Label status;
     public JFXTextField ghader;
+    public ImageView imgbackpane;
 
 
     public void AnchorTime(){
+        Image img ;
+
         LocalDateTime KnowTime = LocalDateTime.now();
-        if (KnowTime.getHour()>2&&KnowTime.getHour()<4){
+        System.out.println(KnowTime.getHour());
 
+        if (KnowTime.getHour()>=2&&KnowTime.getHour()<4){
+             img = new Image( "../src/sample/PNG/1pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>4&&KnowTime.getHour()<5){
-
+        if (KnowTime.getHour()>=4&&KnowTime.getHour()<5){
+            img = new Image("../src/sample/PNG/2pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>5&&KnowTime.getHour()<7){
-
+        if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
+            img = new Image("../src/sample/PNG/3pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>7&&KnowTime.getHour()<9){
-
+        if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
+            img = new Image("../src/sample/PNG/4pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>9&&KnowTime.getHour()<12){
-
+        if (KnowTime.getHour()>=9&&KnowTime.getHour()<12){
+            img = new Image("../src/sample/PNG/5pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>12&&KnowTime.getHour()<16){
-
+        if (KnowTime.getHour()>=12&&KnowTime.getHour()<16){
+            img = new Image("..src/sample/PNG/6pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>16&&KnowTime.getHour()<17){
-
+        if (KnowTime.getHour()>=16&&KnowTime.getHour()<17){
+            img  =new Image("..src/sample/PNG/7pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>17&&KnowTime.getHour()<18){
-
+        if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
+            img = new Image("..src/sample/PNG/8pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>18&&KnowTime.getHour()<19){
-
+        if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
+            img = new Image("..src/sample/PNG/9pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>19&&KnowTime.getHour()<24){
-
+        if (KnowTime.getHour()>=19&&KnowTime.getHour()<24){
+            img = new Image("./sample/PNG/10pic.png");
+            imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>0&&KnowTime.getHour()<2){
-
+        if (KnowTime.getHour()>=0&&KnowTime.getHour()<2){
+            img = new Image("..src/sample/PNG/11pic.png");
+            imgbackpane.setImage(img);
         }
 
     }
@@ -108,6 +126,8 @@ public class loginPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
+
+
         System.out.println("hi baby");
 
     }

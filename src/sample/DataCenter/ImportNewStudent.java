@@ -14,17 +14,13 @@ public class ImportNewStudent {
 
     private String CSV_addr;
     private String Bin_addr;
-    private String Bin_name;
     private ArrayList<NewStudent> students;
 
 
-    FileReader fileReader;
-    Scanner scanner;
-    FileOutputStream fileOutputStream;
-    ObjectOutputStream objectOutputStream;
-    NewStudent student;
-    String line;
-    String[] information;
+    private FileReader fileReader;
+    private Scanner scanner;
+    private FileOutputStream fileOutputStream;
+    private ObjectOutputStream objectOutputStream;
 
 
     private String status;
@@ -41,10 +37,8 @@ public class ImportNewStudent {
 
     }
 
-//TODO read information from csv-file , make new student object and write in bin file
 
-
-    void writeListToFile() {
+    private void writeListToFile() {
         NewStudent std ;
 
         for (int i = 0; i < students.size() ; i++) {
@@ -61,13 +55,13 @@ public class ImportNewStudent {
     }
 
 
-    void compleateList() {
+    private void compleateList() {
         try {
             scanner.nextLine();
             while (scanner.hasNext()) {
-                line = scanner.nextLine();
-                information = line.split(",");
-                student = new NewStudent();
+                String line = scanner.nextLine();
+                String[] information = line.split(",");
+                NewStudent student = new NewStudent();
                 student.setFirstName(information[0]);
                 student.setLastName(information[1]);
                 student.setRate(Long.valueOf(information[2]));

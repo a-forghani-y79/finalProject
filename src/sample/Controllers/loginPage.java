@@ -1,8 +1,11 @@
 package sample.Controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -28,6 +31,7 @@ public class loginPage implements Initializable {
     public Label status;
 
     public ImageView imgbackpane;
+    private Object manager;
 
 
     public void AnchorTime(){
@@ -135,11 +139,17 @@ public class loginPage implements Initializable {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
-    void openFXML(Node node, String FXML_address){
-//        Stage stage = node.getS
-
+    void openFXML(Node node, String FXML_address) {
+        try {
+            Stage stage;
+            stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/MainMenu.fxml"));
+            loader.setController(manager);
+            Parent root = loader.load();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-
 
 
 

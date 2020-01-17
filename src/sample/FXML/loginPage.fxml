@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneBackground" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.loginPage">
+<AnchorPane fx:id="paneBackground" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.loginPage">
     <children>
-      <ImageView fx:id="imgbackpane" fitHeight="600.0" fitWidth="1058.0" pickOnBounds="true" preserveRatio="true" />
-        <AnchorPane layoutX="365.0" layoutY="81.0" prefHeight="383.0" prefWidth="328.0">
+      <ImageView fx:id="imgbackpane" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+        <AnchorPane layoutX="148.0" layoutY="8.0" prefHeight="383.0" prefWidth="328.0">
             <children>
                 <Label layoutX="118.0" layoutY="23.0" prefHeight="35.0" prefWidth="248.0" style="-fx-background-color: #cdd0e0;" text="             Welcome" textAlignment="CENTER" textFill="#132eb9" textOverrun="CLIP" AnchorPane.bottomAnchor="325.0" AnchorPane.rightAnchor="39.0">
                     <font>
@@ -27,7 +27,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <JFXButton buttonType="RAISED" layoutX="47.0" layoutY="321.0" onMouseClicked="#onClickSignIn" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="Login" textFill="#dd1616">
+                <JFXButton buttonType="RAISED" onMouseClicked="#onClickSignIn" layoutX="47.0" layoutY="321.0" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="Login" textFill="#dd1616">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>

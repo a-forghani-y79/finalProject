@@ -1,6 +1,8 @@
 package sample.DataCenter;
 
-public class NewStudent {
+import java.io.Serializable;
+
+public class NewStudent implements Serializable {
 
     //ساختار داده برای دانشجویان جدیدالورود و مطابق لیست دریافتی از سازمان سنجش
     // نام-نام خانوادگی-رتبه -شماره ملی- رشته - روزانه/شبانه - شماره پرونده
@@ -9,13 +11,10 @@ public class NewStudent {
     private long rate;
     private long ID;
     private String field;
-    private boolean isDay;
+    private boolean isDay; //true for roozaneh
     private long fileNumber;
 
 
-    public boolean isDay() {
-        return isDay;
-    }
 
     public long getFileNumber() {
         return fileNumber;
@@ -69,9 +68,6 @@ public class NewStudent {
         this.isDay = day_night;
     }
 
-    public void setDay(boolean day) {
-        isDay = day;
-    }
 
     public void setFileNumber(long fileNumber) {
         this.fileNumber = fileNumber;

@@ -2,12 +2,15 @@ package sample.Controllers;
 
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import sample.DataCenter.Hashing;
 
 import java.io.BufferedReader;
@@ -43,9 +46,7 @@ public class loginPage implements Initializable {
         }
         if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
             img = new Image("./sample/PNG/3pic.png");
-
             imgbackpane.setImage(img);
-
         }
         if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
             img = new Image("./sample/PNG/4pic.png");
@@ -133,6 +134,10 @@ public class loginPage implements Initializable {
      void alert(String message, Label lbl, String color) {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
+    }
+    void openFXML(Node node, String FXML_address){
+//        Stage stage = node.getS
+
     }
 
 

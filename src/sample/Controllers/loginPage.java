@@ -21,10 +21,12 @@ public class loginPage implements Initializable {
 
     public AnchorPane paneBackground;
     public JFXTextField txtUser;
-    public PasswordField txtPass;
+    public JFXTextField txtPass;
     public Label status;
 
     public ImageView imgbackpane;
+    public Label UserJustNumber;
+    public Label lblAlert;
 
 
     public void AnchorTime(){
@@ -90,14 +92,15 @@ public class loginPage implements Initializable {
 
         String user = txtUser.getText();
         String pass = txtPass.getText();
+        System.out.println(user);
 
         for (int i = 0; i <user.length() ; i++) {
-            if(user.charAt(i)>=0 && user.charAt(i)<=9);
-
+            if(!(user.charAt(i)>=0 && user.charAt(i)<=9))
+            alert("User or Pass is Wrong",lblAlert,"Red");
         }
         for (int j = 0; j <pass.length() ; j++) {
             if(!(user.charAt(j)>=0 && user.charAt(j)<=9));
-            // show error Massage
+            alert("User or Pass  or is Wrong",lblAlert , "red");
         }
 
 
@@ -141,6 +144,7 @@ public class loginPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
+
 
 
         System.out.println("hi baby");

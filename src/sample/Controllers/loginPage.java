@@ -1,19 +1,13 @@
 package sample.Controllers;
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import sample.DataCenter.Hashing;
 
 import java.io.BufferedReader;
@@ -31,7 +25,6 @@ public class loginPage implements Initializable {
     public Label status;
 
     public ImageView imgbackpane;
-    private Object manager;
 
 
     public void AnchorTime(){
@@ -50,7 +43,9 @@ public class loginPage implements Initializable {
         }
         if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
             img = new Image("./sample/PNG/3pic.png");
+
             imgbackpane.setImage(img);
+
         }
         if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
             img = new Image("./sample/PNG/4pic.png");
@@ -139,17 +134,7 @@ public class loginPage implements Initializable {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
-    void openFXML(Node node, String FXML_address) {
-        try {
-            Stage stage;
-            stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/MainMenu.fxml"));
-            loader.setController(manager);
-            Parent root = loader.load();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
+
 
 
 

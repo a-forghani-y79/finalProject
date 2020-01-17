@@ -34,39 +34,40 @@ public class loginPage implements Initializable {
         System.out.println(KnowTime.getHour());
 
         if (KnowTime.getHour()>=2&&KnowTime.getHour()<4){
-             img = new Image( "../src/sample/PNG/1pic.png");
+             img = new Image( "./sample/PNG/1pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=4&&KnowTime.getHour()<5){
-            img = new Image("../src/sample/PNG/2pic.png");
+            img = new Image("./sample/PNG/2pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
-            img = new Image("../src/sample/PNG/3pic.png");
+            img = new Image("./sample/PNG/3pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
-            img = new Image("../src/sample/PNG/4pic.png");
+            img = new Image("./sample/PNG/4pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=9&&KnowTime.getHour()<12){
-            img = new Image("../src/sample/PNG/5pic.png");
+            img = new Image("./sample/PNG/5pic.png");
             imgbackpane.setImage(img);
+
         }
         if (KnowTime.getHour()>=12&&KnowTime.getHour()<16){
-            img = new Image("..src/sample/PNG/6pic.png");
+            img = new Image("./sample/PNG/6pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=16&&KnowTime.getHour()<17){
-            img  =new Image("..src/sample/PNG/7pic.png");
+            img  =new Image("./sample/PNG/7pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
-            img = new Image("..src/sample/PNG/8pic.png");
+            img = new Image("./sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
-            img = new Image("..src/sample/PNG/9pic.png");
+            img = new Image("./sample/PNG/9pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=19&&KnowTime.getHour()<24){
@@ -74,7 +75,7 @@ public class loginPage implements Initializable {
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=0&&KnowTime.getHour()<2){
-            img = new Image("..src/sample/PNG/11pic.png");
+            img = new Image("./sample/PNG/11pic.png");
             imgbackpane.setImage(img);
         }
 

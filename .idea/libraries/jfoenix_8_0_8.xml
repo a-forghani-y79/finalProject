@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://C:/Program Files/Java/jfoenix-8.0.8.jar!/" />
       <root url="jar://$USER_HOME$/Desktop/jfoenix-9.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jars/jfoenix-9.0.8.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

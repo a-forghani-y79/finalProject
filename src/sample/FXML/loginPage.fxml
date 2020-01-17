@@ -27,7 +27,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <JFXButton buttonType="RAISED" layoutX="47.0" layoutY="321.0" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="Login" textFill="#dd1616">
+                <JFXButton buttonType="RAISED" onMouseClicked="#onClickSignIn" layoutX="47.0" layoutY="321.0" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="Login" textFill="#dd1616">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>

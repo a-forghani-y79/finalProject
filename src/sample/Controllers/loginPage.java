@@ -85,8 +85,20 @@ public class loginPage implements Initializable {
     Hashing hashing;
 
     public void onClickSignIn() {
+
         String user = txtUser.getText();
         String pass = txtPass.getText();
+
+        for (int i = 0; i <user.length() ; i++) {
+            if(user.charAt(i)>=0 && user.charAt(i)<=9);
+                // show error Massage
+        }
+        for (int j = 0; j <pass.length() ; j++) {
+            if(!(user.charAt(j)>=0 && user.charAt(j)<=9));
+            // show error Massage
+        }
+
+
         auth(user,pass);
 
 

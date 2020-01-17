@@ -43,7 +43,9 @@ public class loginPage implements Initializable {
         }
         if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
             img = new Image("./sample/PNG/3pic.png");
+
             imgbackpane.setImage(img);
+
         }
         if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
             img = new Image("./sample/PNG/4pic.png");

@@ -20,10 +20,10 @@ public class loginPage implements Initializable {
 
 
     public AnchorPane paneBackground;
-    public TextField txtUser;
+    public JFXTextField txtUser;
     public PasswordField txtPass;
     public Label status;
-    public JFXTextField ghader;
+
     public ImageView imgbackpane;
 
 
@@ -90,7 +90,7 @@ public class loginPage implements Initializable {
 
         for (int i = 0; i <user.length() ; i++) {
             if(user.charAt(i)>=0 && user.charAt(i)<=9);
-                // show error Massage
+
         }
         for (int j = 0; j <pass.length() ; j++) {
             if(!(user.charAt(j)>=0 && user.charAt(j)<=9));

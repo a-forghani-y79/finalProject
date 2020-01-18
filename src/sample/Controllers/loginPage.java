@@ -3,8 +3,6 @@ package sample.Controllers;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -63,11 +61,11 @@ public class loginPage implements Initializable {
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=16&&KnowTime.getHour()<17){
-            img  =new Image("./sample/PNG/7pic.png");
+            img  =new Image("sample/PNG/7pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
-            img = new Image("./sample/PNG/8pic.png");
+            img = new Image("sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
@@ -144,8 +142,6 @@ public class loginPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
-
-
 
         System.out.println("hi baby");
 

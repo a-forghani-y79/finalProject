@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab closable="true" text="سیستم انتخاب واحد">
+                    <content>
+                        <GridPane gridLinesVisible="true" minHeight="100" minWidth="100" prefHeight="1000" prefWidth="700">
+                     </GridPane>
+                    </content>
+                </Tab>
+                <Tab closable="true" text="اطلاعات فردی" >
+                    <content>
+                        <GridPane gridLinesVisible="true" minHeight="100" minWidth="100" prefHeight="1000" prefWidth="700">
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab closable="true" text="نمایس برنامه درسی " />
+                <Tab closable="true" text="انتقاد و پیشنهاد" />
+                <Tab closable="true" text="سوالق تحصیلی" />
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

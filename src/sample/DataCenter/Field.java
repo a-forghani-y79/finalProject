@@ -6,7 +6,7 @@ public class Field {
     private long fieldNumber;
     private int unit;
     private Master master;
-
+    //TODO زمان امتحان و برگذاری درس اضافه شود
 
 
 

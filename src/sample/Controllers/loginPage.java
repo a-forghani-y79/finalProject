@@ -103,9 +103,9 @@ public class loginPage implements Initializable {
 
     public void Test ()
     {
-//        Alert alert =new Alert(Alert.AlertType.CONFIRMATION,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
-//
-//        alert.showAndWait();
+        Alert alert =new Alert(Alert.AlertType.CONFIRMATION,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
+
+        alert.showAndWait();
         System.out.println(UseCaseCombo.getSelectionModel().getSelectedIndex());
 
     }

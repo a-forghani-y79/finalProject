@@ -30,7 +30,7 @@ public class Archive {
     void readStudent() {
     }
 
-    void writeStudent() {
+    public void writeStudent() {
     }
 
     void readMaster() {

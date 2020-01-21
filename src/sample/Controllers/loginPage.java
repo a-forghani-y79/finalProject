@@ -1,7 +1,15 @@
 package sample.Controllers;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.geometry.NodeOrientation;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +33,7 @@ public class loginPage implements Initializable {
     public ImageView imgbackpane;
     public Label UserJustNumber;
     public Label lblAlert;
+    public JFXComboBox UseCaseCombo;
 
 
     public void AnchorTime(){
@@ -84,31 +93,96 @@ public class loginPage implements Initializable {
     }
 
 
+
+
+
     Hashing hashing;
+
+    FXMessageDialog fxMessageDialog ;
+
+
+    public void Test ()
+    {
+//        Alert alert =new Alert(Alert.AlertType.CONFIRMATION,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
+//
+//        alert.showAndWait();
+        System.out.println(UseCaseCombo.getSelectionModel().getSelectedIndex());
+
+    }
 
     public void onClickSignIn() {
 
         String user = txtUser.getText();
         String pass = txtPass.getText();
-        System.out.println(user);
 
-        for (int i = 0; i <user.length() ; i++) {
-            if(!(user.charAt(i)>=0 && user.charAt(i)<=9))
-            alert("User or Pass is Wrong",lblAlert,"Red");
+        long UserNum =0;
+        long PassNum =0;
+
+
+
+
+
+
+
+        if(user.equals("")&&user.equals(""))
+            alert("لطفا نام کاربری و رمز عبور را وارد کنید",lblAlert,"red");
+
+
+        else {
+            if (user.equals(""))
+                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
+            if (user.equals(""))
+                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
         }
-        for (int j = 0; j <pass.length() ; j++) {
-            if(!(user.charAt(j)>=0 && user.charAt(j)<=9));
-            alert("User or Pass  or is Wrong",lblAlert , "red");
-        }
+
+         if(!user.equals("")||!pass.equals("")) {
+              UserNum =Long.parseLong(txtUser.getText());
+              PassNum =Long.parseLong(txtPass.getText());
 
 
+
+             for (int i = 0; i < user.length(); i++) {
+                 if (!(user.charAt(i) >= 0 && user.charAt(i) <= 9))
+                     alert("لطفا فقط عدد وارد کنید", lblAlert, "Red");
+             }
+             for (int j = 0; j < pass.length(); j++) {
+                 if (!(pass.charAt(j) >= 0 && user.charAt(j) <= 9)) ;
+                 alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
+             }
+
+         }
         auth(user,pass);
+
+         int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
+
+         switch (UseCaseIndex){
+             case 0 :
+                AuthNewStudent(UserNum,PassNum);
+                 break;
+             case 1 :
+                AuthStudent(UserNum,PassNum);
+                 break;
+             case 2:
+                AuthMaster(UserNum,PassNum);
+                 break;
+             case 3:
+                AuthManager(UserNum,PassNum);
+                 break;
+
+         }
+
 
 
 
     }
 
      boolean auth(String user, String pass) {
+
+
+
+
+
+
 
         try {
             hashing = new Hashing(null);
@@ -145,5 +219,45 @@ public class loginPage implements Initializable {
 
         System.out.println("hi baby");
 
+        String[] comboItems = {"دانشجو جدید الورود","دانشجو","استاد","کارمند آموزش"};
+
+
+        UseCaseCombo.getItems().addAll(comboItems);
+        UseCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+
+
+
+
+
+
+
+
     }
+
+    public  void AuthNewStudent(long UserName,long PassWord){
+
+
+    }
+    public  void AuthStudent(long UserName,long PassWord){
+
+
+
+    }
+    public  void AuthMaster(long UserName,long PassWord){
+
+
+
+    }
+    public  void AuthManager(long UserName,long PassWord){
+
+
+
+    }
+
 }
+
+
+
+
+
+

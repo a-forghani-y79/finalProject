@@ -62,7 +62,7 @@ public class Archive {
 
     }
 
-    void writeStudent() {
+    public void writeStudent() {
     }
 
     void readMaster() {

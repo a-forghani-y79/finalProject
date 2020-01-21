@@ -10,6 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.image.Image?>
+<?import com.sun.javafx.scene.control.skin.SplitPaneSkin.Content?>
+
 <AnchorPane fx:id="paneBackground" prefHeight="600.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.loginPage">
     <children>

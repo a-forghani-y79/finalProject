@@ -9,150 +9,218 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="602.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <tabs>
-      <Tab text="پروفایل شخصی">
-        <content>
-          <AnchorPane depthTest="ENABLE" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="648.0" prefWidth="1022.0">
-               <children>
-                  <AnchorPane layoutX="65.0" layoutY="102.0" prefHeight="398.0" prefWidth="906.0">
-                     <children>
-                        <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="41.0" prefHeight="22.0" prefWidth="53.0" text="نام :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="630.0" layoutY="41.0" prefHeight="22.0" prefWidth="88.0" text="نام خانوادگی :" />
-                        <Label alignment="TOP_RIGHT" layoutX="356.0" layoutY="41.0" prefHeight="22.0" prefWidth="119.0" text="شماره دانشجویی :" />
-                        <Label alignment="TOP_RIGHT" layoutX="837.0" layoutY="120.0" prefHeight="22.0" prefWidth="54.0" text="دانشکده:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="599.0" layoutY="120.0" prefHeight="22.0" prefWidth="118.0" text="شماره تلفن:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="80.0" prefHeight="22.0" prefWidth="88.0" text="رشته: " />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="80.0" prefHeight="22.0" prefWidth="53.0" text="نام پدر :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="610.0" layoutY="80.0" prefHeight="22.0" prefWidth="108.0" text="شماره شناسنامه :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="1.0" layoutY="155.0" prefHeight="32.0" prefWidth="830.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="120.0" prefHeight="22.0" prefWidth="88.0" text="دوره: " />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="41.0" prefHeight="22.0" prefWidth="119.0" text="مقطع تحصیلی: " />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="356.0" layoutY="120.0" prefHeight="22.0" prefWidth="119.0" text="شماره تلفن پدر:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="357.0" layoutY="80.0" prefHeight="22.0" prefWidth="130.0" text="محل صدور شناسنامه:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" text="درحال تحصیل/فارغ التحصیل" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="200.0" prefHeight="22.0" prefWidth="43.0" text="ملیت:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="241.0" prefHeight="22.0" prefWidth="43.0" text="دین:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="284.0" prefHeight="22.0" prefWidth="43.0" text="مذهب:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="195.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="616.0" layoutY="202.0" prefHeight="22.0" prefWidth="101.0" text="نیم سال ورودی:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="484.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="615.0" layoutY="241.0" prefHeight="22.0" prefWidth="102.0" text="استان محل تولد:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="616.0" layoutY="284.0" prefHeight="22.0" prefWidth="101.0" text="شهر محل تولد :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="619.0" layoutY="326.0" prefHeight="22.0" prefWidth="98.0" text="بخش محل تولد:" />
-                        <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="284.0" prefHeight="22.0" prefWidth="88.0" text="کد پستی :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="370.0" layoutY="284.0" prefHeight="22.0" prefWidth="105.0" text="شماره داوطلبی :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="387.0" layoutY="326.0" prefHeight="22.0" prefWidth="88.0" text="شماره پرونده:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="202.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="241.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت تاهل:" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="404.0" layoutY="202.0" prefHeight="22.0" prefWidth="69.0" text="نوع دیپلم :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="326.0" prefHeight="22.0" prefWidth="119.0" text="ایمیل :" />
-                        <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="384.0" layoutY="241.0" prefHeight="22.0" prefWidth="90.0" text="سال اخذ دیپلم:" />
-                        <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="326.0" prefHeight="22.0" prefWidth="64.0" text="تاریخ تولد:" />
-                        <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="159.0" prefHeight="22.0" prefWidth="43.0" text="آدرس: " />
-                     </children>
-                  </AnchorPane>
-                  <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../PNG/logoUni.png" />
-                     </image></ImageView>
-               </children>
-            </AnchorPane>
-        </content>
-         <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/ersonalinfoIcon.png" />
-               </image></ImageView>
-         </graphic>
-      </Tab>
-    <Tab text="سیستم انتخاب واحد">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-         <graphic>
-            <ImageView fx:id="imageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/choosUnit.png" />
-               </image></ImageView>
-         </graphic>
-    </Tab>
-    <Tab text="گزارش">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TabPane layoutX="-3.0" prefHeight="602.0" prefWidth="1018.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="کارنامه">
+    <tabs>
+        <Tab text="پروفایل شخصی">
+            <content>
+                <AnchorPane depthTest="ENABLE" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="648.0" prefWidth="1022.0">
+                    <children>
+                        <AnchorPane layoutX="65.0" layoutY="102.0" prefHeight="398.0" prefWidth="906.0">
+                            <children>
+                                <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="41.0" prefHeight="22.0" prefWidth="53.0" text="نام :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="630.0" layoutY="41.0" prefHeight="22.0" prefWidth="88.0" text="نام خانوادگی :" />
+                                <Label alignment="TOP_RIGHT" layoutX="356.0" layoutY="41.0" prefHeight="22.0" prefWidth="119.0" text="شماره دانشجویی :" />
+                                <Label alignment="TOP_RIGHT" layoutX="837.0" layoutY="120.0" prefHeight="22.0" prefWidth="54.0" text="دانشکده:" />
+                                <TextField fx:id="txtLastName" alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtID" alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtName" alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="599.0" layoutY="120.0" prefHeight="22.0" prefWidth="118.0" text="شماره تلفن:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="80.0" prefHeight="22.0" prefWidth="88.0" text="رشته: " />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="80.0" prefHeight="22.0" prefWidth="53.0" text="نام پدر :" />
+                                <TextField fx:id="txtFatherName" alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="610.0" layoutY="80.0" prefHeight="22.0" prefWidth="108.0" text="شماره شناسنامه :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtAddress" alignment="CENTER_RIGHT" editable="false" layoutX="1.0" layoutY="155.0" prefHeight="32.0" prefWidth="830.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="120.0" prefHeight="22.0" prefWidth="88.0" text="دوره: " />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="41.0" prefHeight="22.0" prefWidth="119.0" text="مقطع تحصیلی: " />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="36.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="356.0" layoutY="120.0" prefHeight="22.0" prefWidth="119.0" text="شماره تلفن پدر:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="75.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="357.0" layoutY="80.0" prefHeight="22.0" prefWidth="130.0" text="محل صدور شناسنامه:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" text="درحال تحصیل/فارغ التحصیل" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="200.0" prefHeight="22.0" prefWidth="43.0" text="ملیت:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="241.0" prefHeight="22.0" prefWidth="43.0" text="دین:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="284.0" prefHeight="22.0" prefWidth="43.0" text="مذهب:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="723.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="195.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="616.0" layoutY="202.0" prefHeight="22.0" prefWidth="101.0" text="نیم سال ورودی:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="484.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="615.0" layoutY="241.0" prefHeight="22.0" prefWidth="102.0" text="استان محل تولد:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="616.0" layoutY="284.0" prefHeight="22.0" prefWidth="101.0" text="شهر محل تولد :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="485.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="619.0" layoutY="326.0" prefHeight="22.0" prefWidth="98.0" text="بخش محل تولد:" />
+                                <Label alignment="TOP_RIGHT" layoutX="147.0" layoutY="284.0" prefHeight="22.0" prefWidth="88.0" text="کد پستی :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="197.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="370.0" layoutY="284.0" prefHeight="22.0" prefWidth="105.0" text="شماره داوطلبی :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="387.0" layoutY="326.0" prefHeight="22.0" prefWidth="88.0" text="شماره پرونده:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="242.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="202.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="115.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="241.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت تاهل:" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="236.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="404.0" layoutY="202.0" prefHeight="22.0" prefWidth="69.0" text="نوع دیپلم :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="279.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="116.0" layoutY="326.0" prefHeight="22.0" prefWidth="119.0" text="ایمیل :" />
+                                <TextField alignment="CENTER_RIGHT" editable="false" layoutX="2.0" layoutY="321.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="384.0" layoutY="241.0" prefHeight="22.0" prefWidth="90.0" text="سال اخذ دیپلم:" />
+                                <Label alignment="TOP_RIGHT" layoutX="838.0" layoutY="326.0" prefHeight="22.0" prefWidth="64.0" text="تاریخ تولد:" />
+                                <Label alignment="TOP_RIGHT" layoutX="848.0" layoutY="159.0" prefHeight="22.0" prefWidth="43.0" text="آدرس: " />
+                            </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNG/logoUni.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </content>
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/ersonalinfoIcon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Tab>
+
+        <Tab closable="false" text="سیستم انتخاب واحد">
+            <graphic>
+                <ImageView fx:id="imageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/choosUnit.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <content>
+                <TabPane nodeOrientation="RIGHT_TO_LEFT" side="LEFT">
+                    <Tab closable="false" text="انتخاب واحد">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TableView layoutX="106.0" layoutY="58.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="416.0" prefWidth="787.0">
-                                      <columns>
-                                        <TableColumn prefWidth="50.40002518892288" text="ردبف" />
-                                        <TableColumn prefWidth="131.99999618530273" text="درس" />
-                                          <TableColumn prefWidth="75.0" text="واحد" />
-                                          <TableColumn prefWidth="75.0" text="نمره" />
-                                          <TableColumn prefWidth="75.0" text="وضع" />
-                                      </columns>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                <children>
+                                    <TableView prefHeight="538.0" prefWidth="986.0">
+                                        <columns>
+                                            <TableColumn prefWidth="40.80004960298538" text="ردیف" />
+                                            <TableColumn prefWidth="64.79997634887695" text="کد درس" />
+                                            <TableColumn prefWidth="147.20001220703125" text="درس" />
+                                            <TableColumn prefWidth="68.00001525878906" text="تعداد واحد" />
+                                            <TableColumn prefWidth="152.0" text="استاد" />
+                                            <TableColumn prefWidth="208.80001831054688" text="زمان کلاس" />
+                                            <TableColumn prefWidth="177.5999755859375" text="زمان برگذاری امتحان" />
+                                            <TableColumn prefWidth="128.0" text="انتخاب" />
+
+                                        </columns>
                                     </TableView>
-                                 </children></AnchorPane>
+                                </children>
+                            </AnchorPane>
+
                         </content>
-                      </Tab>
-                      <Tab text="برنامه درسی">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TableView layoutX="4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="975.0">
-                                      <columns>
-                                        <TableColumn prefWidth="42.400083899497986" text="ردیف" />
-                                        <TableColumn prefWidth="249.59998321533203" text="درس" />
-                                          <TableColumn prefWidth="104.00006103515625" text="استاد" />
-                                          <TableColumn prefWidth="187.199951171875" text="زمان برگذاری کلاس ها" />
-                                          <TableColumn prefWidth="243.20001220703125" text="تاریخ امتحان" />
-                                          <TableColumn prefWidth="72.00006103515625" text="تعداد واحد" />
-                                          <TableColumn prefWidth="76.0" text="تعداد غیبت" />
-                                      </columns>
-                                    </TableView>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-               </children></AnchorPane>
-      </content>
-         <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/report.png" />
-               </image></ImageView>
-         </graphic>
-    </Tab>
-  </tabs>
+                    </Tab>
+                    <Tab closable="false" text="حذف اضافه" />
+                </TabPane>
+            </content>
+        </Tab>
+        <Tab text="گزارش">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TabPane layoutX="-3.0" prefHeight="602.0" prefWidth="1018.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="کارنامه">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <TableView layoutX="168.0" layoutY="93.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="416.0" prefWidth="646.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="50.40002518892288" text="ردبف" />
+                                                        <TableColumn prefWidth="192.79998397827148" text="درس" />
+                                                        <TableColumn prefWidth="44.00001525878906" text="واحد" />
+                                                        <TableColumn prefWidth="164.0" text="استاد" />
+                                                        <TableColumn prefWidth="116.79998779296875" text="نمره" />
+                                                        <TableColumn prefWidth="75.0" text="وضع" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="برنامه درسی">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <TableView layoutX="4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="975.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="42.400083899497986" text="ردیف" />
+                                                        <TableColumn prefWidth="249.59998321533203" text="درس" />
+                                                        <TableColumn prefWidth="104.00006103515625" text="استاد" />
+                                                        <TableColumn prefWidth="187.199951171875" text="زمان برگذاری کلاس ها" />
+                                                        <TableColumn prefWidth="243.20001220703125" text="تاریخ امتحان" />
+                                                        <TableColumn prefWidth="72.00006103515625" text="تعداد واحد" />
+                                                        <TableColumn prefWidth="76.0" text="تعداد غیبت" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="دروس پاس شده">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <TableView layoutX="441.0" layoutY="62.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="531.0" prefWidth="468.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="44.00006181001663" text="ردیف" />
+                                                        <TableColumn prefWidth="150.40008163452148" text="درس" />
+                                                        <TableColumn prefWidth="122.40003967285156" text="استاد" />
+                                                        <TableColumn prefWidth="77.60000610351562" text="تعداد واحد" />
+                                                        <TableColumn prefWidth="71.20001220703125" text="نمره" />
+                                                    </columns>
+                                                </TableView>
+                                                <TableView layoutX="109.0" layoutY="63.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="530.0" prefWidth="228.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="75.0" text="ردیف" />
+                                                        <TableColumn prefWidth="75.0" text="درس" />
+                                                        <TableColumn prefWidth="75.0" text="واحد" />
+                                                    </columns>
+                                                </TableView>
+                                                <Label contentDisplay="CENTER" layoutX="170.0" layoutY="24.0" prefHeight="38.0" prefWidth="110.0" text="دروس مانده" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label contentDisplay="CENTER" layoutX="604.0" layoutY="26.0" prefHeight="35.0" prefWidth="142.0" text="دروس پاس شده" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+            </content>
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/report.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Tab>
+    </tabs>
 </TabPane>

@@ -10,7 +10,13 @@ import java.io.ObjectOutputStream;
 
 public class Archive {
 
+    public Archive(int year) {
+        this.year = year;
+
+    }
+
     //addresses
+    private int year;
     String STUDENT_FILE = "";
     String MASTER_FILE = "";
     String AGENT_FILE = "";
@@ -26,7 +32,6 @@ public class Archive {
     private ObjectInputStream objectInputStream;
 
 
-
     void readStudent() {
     }
 
@@ -40,11 +45,19 @@ public class Archive {
     }
 
 
-    void readAgent() {
+    void readManager() {
     }
 
-    void writeAgent() {
+    void writeManager() {
     }
+
+    void readNewStudent(long id) {
+    }
+
+    void writeNewStudent() {
+    }
+    void readAllMasters(){}
+    void readAllStudents(){}
 
 
     boolean isAllowed() {
@@ -78,9 +91,7 @@ public class Archive {
     public static void main(String[] args) {
 
 
-
     }
-
 
 
 }

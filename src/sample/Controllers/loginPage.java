@@ -70,7 +70,7 @@ public class loginPage implements Initializable {
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=16&&KnowTime.getHour()<17){
-            img  =new Image("sample/PNG/7pic.png");
+            img  =new Image("./sample/PNG/7pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){

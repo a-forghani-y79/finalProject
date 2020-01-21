@@ -21,13 +21,17 @@ public class ImportNewStudent {
     private Scanner scanner;
     private FileOutputStream fileOutputStream;
     private ObjectOutputStream objectOutputStream;
+    private File file;
 
 
     private String status;
     private int statusCode = 0;
 
-    public ImportNewStudent(String CSV_address, String Binary_address) {
-        this.Bin_addr = Binary_address;
+
+    public ImportNewStudent(String CSV_address,int year) {
+        file = new File("./src/sample/Files/y"+year+"");
+        file.mkdir();
+        this.Bin_addr = ".\\src\\sample\\Files\\y"+year+"\\newStudent.dat";
         this.CSV_addr = CSV_address;
         setup();
         compleateList();
@@ -39,7 +43,7 @@ public class ImportNewStudent {
 
 
     private void writeListToFile() {
-        NewStudent std ;
+        NewStudent std = new NewStudent();
 
         for (int i = 0; i < students.size() ; i++) {
             std=students.get(i);

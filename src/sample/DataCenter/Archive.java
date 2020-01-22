@@ -31,6 +31,9 @@ public class Archive {
     }
 
     public void writeStudent() {
+        String name = "" ;
+
+
     }
 
     void readMaster() {

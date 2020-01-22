@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import sample.DataCenter.Hashing;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -74,11 +75,12 @@ public class loginPage implements Initializable {
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
-            img = new Image("sample/PNG/8pic.png");
+            img = new Image("./sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
-            img = new Image("./sample/PNG/9pic.png");
+
+            img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=19&&KnowTime.getHour()<24){
@@ -215,7 +217,7 @@ public class loginPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        AnchorTime();
+      //  AnchorTime();
 
         System.out.println("hi baby");
 

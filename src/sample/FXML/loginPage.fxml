@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.image.Image?>
-<?import com.sun.javafx.scene.control.skin.SplitPaneSkin.Content?>
 
 <AnchorPane fx:id="paneBackground" prefHeight="600.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.loginPage">
@@ -41,7 +40,7 @@
                     </font>
                 </JFXButton>
             <Label fx:id="lblAlert" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="37.0" layoutY="478.0" prefHeight="17.0" prefWidth="279.0" />
-            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url='@../PNG/user.png';">
+            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" >
                <image>
                   <Image url="@../PNG/user.png" />
                </image>
@@ -53,6 +52,8 @@
             <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="311.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" />
 
             </children>
+
+
         </AnchorPane>
     </children>
 </AnchorPane>

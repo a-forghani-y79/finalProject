@@ -2,6 +2,7 @@ package sample.Controllers;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -42,7 +43,6 @@ public class NewStudent implements Initializable {
     public JFXComboBox comboCondition;
     public JFXComboBox comboCourse;
     public JFXComboBox comboNationality;
-    public JFXComboBox comboDiplomType;
     public JFXComboBox comboMaterimony;
     public DatePicker DataPicker;
     public TextField txtCourse;
@@ -53,7 +53,7 @@ public class NewStudent implements Initializable {
     public TextField txtFatherPhoneNumber;
     public ImageView Tab1PIC;
     public TextField txtRate1;
-
+    public ComboBox combodiplomType;
 
 
     sample.DataCenter.NewStudent std ;
@@ -121,8 +121,7 @@ public class NewStudent implements Initializable {
 
 
 
-         String[] array = {"sick","ggg"};
-         comboDiplomType.getItems().addAll(array);
+         combodiplomType.getItems().addAll("yes");
 
 
 

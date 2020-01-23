@@ -4,8 +4,9 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
-import javax.swing.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,8 +24,6 @@ public class NewStudent implements Initializable {
     public TextField txtPhoneNumber;
     public TextField txtLocalBorn;
     public TextField txtFatherName;
-    public TextField txtINNumber;
-    public TextField txtFatherPhoneNumber;
     public TextField txtFiled1;
     public TextField txtReligion;
     public TextField txtCityBorn;
@@ -35,17 +34,24 @@ public class NewStudent implements Initializable {
     public TextField txtZIPCode;
     public TextField txtEmail;
     public TextField txtNationalID1;
-    public JFXComboBox comboFaith;
-    public JFXComboBox comboStartSeason;
-    public JFXComboBox comboCondition;
-    public JFXComboBox comboCourse;
-    public JFXComboBox comboNationality;
-    public JFXComboBox comboDiplomType;
-    public JFXComboBox comboMaterimony;
+    public JFXComboBox<String> comboFaith;
+    public JFXComboBox<String> comboStartSeason;
+    public JFXComboBox<String> comboCondition;
+
+    public JFXComboBox<String> comboNationality;
+    public JFXComboBox<String> comboMatrimony;
     public DatePicker DataPicker;
-    public JFXComboBox comboCourse1;
-    public TextField txtEducation;
     public TextField txtCourse;
+    public TextField txtAddress;
+    public TextField txtIDCardNumber;
+    public TextField txtFiledNumber;
+    public TextField txtSectionEducation;
+    public TextField txtFatherPhoneNumber;
+    public ImageView Tab1PIC;
+    public TextField txtRate1;
+    public TextField txtCourse1;
+    public JFXComboBox<String> comboDyplomType;
+
 
     sample.DataCenter.NewStudent std ;
 
@@ -59,19 +65,82 @@ public class NewStudent implements Initializable {
        txtLastName1.setText(std.getLastName());
        txtLastName.setText(std.getLastName());
        txtNationalID.setText(String.valueOf(std.getID()));
+       txtFileNumber1.setText(String.valueOf(std.getID()));
        txtRate.setText(String.valueOf(std.getRate()));
+       txtRate1.setText(String.valueOf(std.getRate()));
        txtField.setText(String.valueOf(std.getField()));
        txtFiled1.setText(String.valueOf(std.getField()));
        txtFileNumber.setText(String.valueOf(std.getFileNumber()));
        txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
-       txtCourse.setText(String.valueOf(std.isDay_night()));
+       if (std.isDay_night()==true){
+           txtCourse.setText("day");
+
+       }else {
+           txtCourse.setText("night");
+       }
+
+
+    }
+
+    public void Student()  {
+         String firstName;
+         String lastName;
+         long rate;
+         long ID;
+         String field;
+         boolean isDay; //true for roozaneh
+         long fileNumber;
+         long PhoneNumber ;
+         Long FatherPhoneNumber;
+         String FatherName ;
+         String Faculty;
+         long IDCardNumber ;
+         String Address;
+         String SectionEducation;
+         String Condition;
+         String StartSeason;
+         String Nationality;
+         String Course ;
+         String DiplomType;
+         String Matrimony;
+         String LocalBorn;
+         int DiplomYear;
+         String UBorn;
+         String Faith ;
+         String Religion;
+         String CityBorn;
+         String Email ;
+         long ZIPCode ;
+         String AreaBorn ;
+         String FileNumber1 ;
+
+
+
+
+
+
+
+
+
 
 
     }
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+    String [] Faith = {"زرتشت","یهودی","مسیهی","مسلمان"};
+    comboFaith.getItems().addAll(Faith);
+    String [] StartSeason ={"نیمسال اول","نیمسال دوم"};
+    comboStartSeason.getItems().addAll(StartSeason) ;
+    String [] Nationality = {"بومی","غیر بومی"};
+    comboNationality.getItems().addAll(Nationality);
+    String [] Matrimony = {"مجرد","متاهل"};
+    comboMatrimony.getItems().addAll(Matrimony);
+    String [] condition = {"فارق تحصیل","درحال تحصیل"};
+    comboCondition.getItems().addAll(condition);
+    String [] diplomType = {"قیولی","ردی"};
+    comboDyplomType.getItems().addAll(diplomType);
     }
 }

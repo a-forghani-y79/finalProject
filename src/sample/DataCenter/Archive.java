@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Archive {
 
+
     public Archive(int year, int mode) {
         switch (mode) {
             case 0:
@@ -31,10 +32,10 @@ public class Archive {
 
 
     //values of modes
-    int NEW_STUDENT = 0;
-    int STUDENT = 1;
-    int MASTER = 2;
-    int MANAGER = 3;
+   public static int NEW_STUDENT = 0;
+    public static int STUDENT = 1;
+    public static int MASTER = 2;
+    public static int MANAGER = 3;
 
 
     //addresses
@@ -78,7 +79,7 @@ public class Archive {
     void writeManager() {
     }
 
-    NewStudent readNewStudent(long nationalNumber)  {
+    public NewStudent readNewStudent(long nationalNumber)  {
         NewStudent std = new NewStudent();
         boolean flag = true;
         try {

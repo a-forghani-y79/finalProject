@@ -29,7 +29,7 @@
                                  <children>
                                     <AnchorPane layoutX="23.0" layoutY="90.0" prefHeight="210.0" prefWidth="730.0" style="-fx-background-color: F4B0AA;">
                                        <children>
-                                          <ImageView fitHeight="122.0" fitWidth="119.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="MasterFaceImage" fitHeight="122.0" fitWidth="119.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../PNG/MasIcon.png" />
                                              </image>
@@ -54,10 +54,10 @@
                                                 <Font name="System Bold" size="22.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="523.0" layoutY="63.0" />
-                                          <TextField layoutX="425.0" layoutY="141.0" />
-                                          <TextField layoutX="181.0" layoutY="63.0" />
-                                          <TextField layoutX="163.0" layoutY="132.0" />
+                                          <TextField fx:id="txtNameMaster" layoutX="523.0" layoutY="63.0" />
+                                          <TextField fx:id="txtFamilyMaster" layoutX="425.0" layoutY="141.0" />
+                                          <TextField fx:id="txtPersonalCodeMaster" layoutX="181.0" layoutY="63.0" />
+                                          <TextField fx:id="txtNationalCodeMater" layoutX="163.0" layoutY="132.0" />
                                        </children>
                                     </AnchorPane>
                                     <ImageView fitHeight="44.0" fitWidth="60.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -70,7 +70,7 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton alignment="CENTER_RIGHT" layoutX="193.0" layoutY="311.0" prefHeight="46.0" prefWidth="413.0" ripplerFill="#1c38b0" text="برای تکمیل پروفایل شخصی خود به طور تخصصی کلیک کنید" textFill="#9a0303">
+                                    <JFXButton fx:id="btnCompleteInfoMaster" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="311.0" prefHeight="46.0" prefWidth="413.0" ripplerFill="#1c38b0" text="برای تکمیل پروفایل شخصی خود به طور تخصصی کلیک کنید" textFill="#9a0303">
                                        <font>
                                           <Font name="System Bold" size="16.0" />
                                        </font>
@@ -106,13 +106,13 @@
                                     </ImageView>
                                     <AnchorPane layoutX="79.0" layoutY="61.0" prefHeight="287.0" prefWidth="698.0" style="-fx-background-color: F4B0AA;">
                                        <children>
-                                          <TableView layoutX="20.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0" prefWidth="660.0">
+                                          <TableView fx:id="weeklyTableMasterRecord" layoutX="20.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0" prefWidth="660.0">
                                             <columns>
-                                              <TableColumn prefWidth="124.0" text="دروس تدریس شده" />
-                                              <TableColumn prefWidth="160.0" text="کد درس" />
-                                                <TableColumn prefWidth="92.0" text="واحد" />
-                                                <TableColumn prefWidth="136.0" text="تعداد دانشجویان" />
-                                                <TableColumn prefWidth="147.0" text="تعداد قبولی" />
+                                              <TableColumn fx:id="MasterLessonsWeeklyRecord" prefWidth="124.0" text="دروس تدریس شده" />
+                                              <TableColumn fx:id="LessonCodeMaster" prefWidth="160.0" text="کد درس" />
+                                                <TableColumn fx:id="LessonUnitMasterRecord" prefWidth="92.0" text="واحد" />
+                                                <TableColumn fx:id="StudentNumberMasterRecord" prefWidth="136.0" text="تعداد دانشجویان" />
+                                                <TableColumn fx:id="PassedStudentNumberMasterRecord" prefWidth="147.0" text="تعداد قبولی" />
                                             </columns>
                                           </TableView>
                                        </children>

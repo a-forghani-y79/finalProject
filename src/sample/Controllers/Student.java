@@ -1,12 +1,15 @@
 package sample.Controllers;
 
 
+import com.jfoenix.controls.JFXButton;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import sample.DataCenter.person;
 
 import java.net.URL;
@@ -133,7 +136,13 @@ public class Student implements Initializable {
     public void onActionChooseUnit() {
 
 
-        Button btn = new Button("choose");
+        JFXButton btn = new JFXButton("choose");
+        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("1234");
+            }
+        });
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));

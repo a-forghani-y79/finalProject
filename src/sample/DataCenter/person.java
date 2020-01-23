@@ -19,7 +19,7 @@ public class person {
     private int numberOfAbsence ;
 
     //Choose units
-    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit) {
+    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;

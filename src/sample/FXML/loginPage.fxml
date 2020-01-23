@@ -50,7 +50,7 @@
                           </font>
                       </JFXButton>
                   <Label fx:id="lblAlert" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="37.0" layoutY="478.0" prefHeight="17.0" prefWidth="279.0" />
-                  <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: ';">
+                  <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../PNG/user.png" />
                      </image>
@@ -85,7 +85,7 @@
                                                 </children>
               </AnchorPane>
          </children></AnchorPane>
-      <TextArea fx:id="txtInfo" layoutX="255.0" layoutY="66.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="147.0" prefWidth="409.0" text="راهنمایی:&#10;برای دانشجویان جدیدالورود نام کاربری&#10;ورمز عبور به صورت پیش فرض کد ملی و شماره&#10;پرونده در نظر گرفته شده است!&#10;&#10;برای اساتید و کارمندان آموزش نیز نام کاربری و رمز عبور نیز به صورت پیش&#10;فرض کد ملی وکد پرسنلی در نظر گرفته شده است!" visible="false">
+      <TextArea fx:id="txtInfo" layoutX="207.0" layoutY="66.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="147.0" prefWidth="442.0" text="راهنمایی:&#10;برای دانشجویان جدیدالورود نام کاربری&#10;ورمز عبور به صورت پیش فرض کد ملی و شماره پرونده در نظر گرفته شده است!&#10;&#10;برای اساتید و کارمندان آموزش نیز نام کاربری و رمز عبور نیز به صورت پیش&#10;فرض کد ملی وکد پرسنلی در نظر گرفته شده است!">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -101,7 +101,7 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton fx:id="btnExit" layoutY="14.0" prefHeight="47.0" prefWidth="42.0" text="  " textFill="#000dff" onMouseClicked="#exitAlert">
+      <JFXButton fx:id="btnExit" layoutY="14.0" onMouseClicked="#exitAlert" prefHeight="47.0" prefWidth="42.0" text="  " textFill="#000dff">
 
          <graphic>
             <ImageView fx:id="exitButton" fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">

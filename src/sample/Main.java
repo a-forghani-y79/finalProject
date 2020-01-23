@@ -15,7 +15,7 @@ public class Main extends Application {
       //  primaryStage.setTitle("سیستم سما");
 
         primaryStage.setScene(new Scene(root, 1058, 600));
-       // primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
 
 

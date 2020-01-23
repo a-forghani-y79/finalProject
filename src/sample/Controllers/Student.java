@@ -2,6 +2,7 @@ package sample.Controllers;
 
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -10,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import sample.DataCenter.Archive;
 import sample.DataCenter.person;
 
 import java.net.URL;
@@ -136,7 +138,7 @@ public class Student implements Initializable {
     public void onActionChooseUnit() {
 
 
-        JFXButton btn = new JFXButton("choose");
+        JFXToggleButton btn = new JFXToggleButton();
         btn.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -151,6 +153,7 @@ public class Student implements Initializable {
         classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+
         tableViewChoose.getItems().add(new sample.DataCenter.person(1, "math", 123456, "tanha", 3, "32,45,76", "8234869", btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 

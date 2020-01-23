@@ -2,6 +2,7 @@ package sample.DataCenter;
 
 import com.jfoenix.controls.JFXButton;
 
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Button;
 
 
@@ -13,13 +14,13 @@ public class person {
     private int unit ;
     private String classStartTime = null;
     private String timeToTakeExam = null;
-    private Button btnChooseUnit = null;
+    private JFXToggleButton btnChooseUnit = null;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
 
     //Choose units
-    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXButton btnChooseUnit) {
+    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -125,11 +126,11 @@ public class person {
         this.timeToTakeExam = timeToTakeExam;
     }
 
-    public Button getBtnChooseUnit() {
+    public JFXToggleButton getBtnChooseUnit() {
         return btnChooseUnit;
     }
 
-    public void setBtnChooseUnit(Button btnChooseUnit) {
+    public void setBtnChooseUnit(JFXToggleButton btnChooseUnit) {
         this.btnChooseUnit = btnChooseUnit;
     }
 

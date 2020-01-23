@@ -2,7 +2,7 @@ package sample.DataCenter;
 
 public class Field {
 
-    private String name;
+    private String fieldName;
     private long fieldNumber;
     private int unit;
     private Master master;
@@ -11,11 +11,11 @@ public class Field {
     //TODO زمان امتحان و برگذاری درس اضافه شود
 
     public String getName() {
-        return name;
+        return fieldName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.fieldName = name;
     }
 
     public long getFieldNumber() {

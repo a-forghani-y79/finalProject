@@ -106,7 +106,7 @@
                                     </ImageView>
                                     <AnchorPane layoutX="79.0" layoutY="61.0" prefHeight="287.0" prefWidth="698.0" style="-fx-background-color: F4B0AA;">
                                        <children>
-                                          <TableView fx:id="weeklyTableMasterRecord" layoutX="20.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0" prefWidth="660.0">
+                                          <TableView fx:id="weeklyTableView" layoutX="20.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0" prefWidth="660.0">
                                             <columns>
                                               <TableColumn fx:id="MasterLessonsWeeklyRecord" prefWidth="124.0" text="دروس تدریس شده" />
                                               <TableColumn fx:id="LessonCodeMaster" prefWidth="160.0" text="کد درس" />

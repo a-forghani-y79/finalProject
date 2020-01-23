@@ -18,6 +18,11 @@ public class person {
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
+    private int studentNumber;
+
+
+
+    private int passedStudentNumber;
 
     //Choose units
     public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
@@ -76,6 +81,17 @@ public class person {
 
     public void setRow(int row) {
         this.row = row;
+    }
+
+    public  person(String lesson,int lessonCod,int unit,int studentNumber,int passedStudentNumber){
+        this.lesson = lesson;
+        this.lessonCod = lessonCod;
+        this.unit = unit;
+        this.studentNumber = studentNumber;
+        this.passedStudentNumber = passedStudentNumber;
+
+
+
     }
 
     public String getLesson() {
@@ -152,6 +168,23 @@ public class person {
 
     public int getNumberOfAbsence() {
         return numberOfAbsence;
+    }
+    public int getStudentNumber() {
+        System.out.println("124");
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public int getPassedStudentNumber() {
+        System.out.println("124");
+        return passedStudentNumber;
+    }
+
+    public void setPassedStudentNumber(int passedStudentNumber) {
+        this.passedStudentNumber = passedStudentNumber;
     }
 
     public void setNumberOfAbsence(int numberOfAbsence) {

@@ -5,17 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML/loginPage.fxml"));
-      //  primaryStage.setTitle("سیستم سما");
+        Parent root = FXMLLoader.load(getClass().getResource("FXML/Student.fxml"));
+        primaryStage.setTitle("Hello World");
 
         primaryStage.setScene(new Scene(root, 1058, 600));
-       // primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
 
 

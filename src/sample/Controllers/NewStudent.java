@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import sample.DataCenter.Student;
 
 
 import java.net.URL;
@@ -37,7 +38,6 @@ public class NewStudent implements Initializable {
     public JFXComboBox<String> comboFaith;
     public JFXComboBox<String> comboStartSeason;
     public JFXComboBox<String> comboCondition;
-
     public JFXComboBox<String> comboNationality;
     public JFXComboBox<String> comboMatrimony;
     public DatePicker DataPicker;
@@ -84,46 +84,86 @@ public class NewStudent implements Initializable {
 
     }
 
+    public int findComboIndex(JFXComboBox Box){
+        int index= Box.getSelectionModel().getSelectedIndex();
+        return index;
+    }
+
+    Student student ;
     public void Student()  {
-         String firstName;
-         String lastName;
-         long rate;
-         long ID;
-         String field;
-         boolean isDay; //true for roozaneh
-         long fileNumber;
-         long PhoneNumber ;
-         Long FatherPhoneNumber;
-         String FatherName ;
-         String Faculty;
-         long IDCardNumber ;
-         String Address;
-         String SectionEducation;
-         String Condition;
-         String StartSeason;
-         String Nationality;
-         String Course ;
-         String DiplomType;
-         String Matrimony;
-         String LocalBorn;
-         int DiplomYear;
-         String UBorn;
-         String Faith ;
-         String Religion;
-         String CityBorn;
-         String Email ;
-         long ZIPCode ;
-         String AreaBorn ;
-         String FileNumber1 ;
+      student.setFirstName(txtFirstName.getText());
+      student.setLastName(txtLastName.getText());
+      student.setNationalCode(Long.parseLong(txtNationalID.getText()));
+      student.setRate(Long.parseLong(txtRate.getText()));
+      student.setField(txtField.getText());
+        if (std.isDay_night()==true){
+            student.setDay(true);
 
 
+        }else {
+            student.setDay(false);
+        }
+        student.setFileNumber(Long.parseLong(txtFileNumber.getText()));
+        student.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
+        student.setFatherPhoneNumber(Long.parseLong(txtFatherPhoneNumber.getText()));
+        student.setFatherName(txtFatherName.getText());
+        student.setFaculty(txtFaculty.getText());
+        student.setIDCardNumber(Long.parseLong(txtIDCardNumber.getText()));
+        student.setAddress(txtAddress.getText());
+        student.setSectionEducation(txtSectionEducation.getText());
+        student.setCourse(txtCourse.getText());
+        student.setLocalBorn(txtLocalBorn.getText());
+        student.setDiplomYear(Integer.parseInt(txtDiplomYear.getText()));
+        student.setUBorn(txtUBorn.getText());
+        student.setUBorn(txtUBorn.getText());
+        student.setReligion(txtReligion.getText());
+        student.setCityBorn(txtCityBorn.getText());
+        student.setEmail(txtEmail.getText());
+        student.setZIPCode(Integer.parseInt(txtZIPCode.getText()));
+        student.setAreaBorn(txtAreaBorn.getText());
+        student.setFileNumber(Long.parseLong(txtFileNumber.getText()));
 
 
-
-
-
-
-
+        int IndexFaith  = findComboIndex(comboFaith);
+        if (IndexFaith==0){
+            student.setFaith("زرتشت");
+        }if(IndexFaith==1){
+            student.setFaith("یهودی");
+        }if (IndexFaith==2){
+            student.setFaith("مسیهی");
+        }if (IndexFaith==3){
+            student.setFaith("مسلمان");
+        }
+        int IndexStartSeason = findComboIndex(comboStartSeason);
+        if (IndexStartSeason==0){
+            student.setStartSeason("نیمسال اول");
+        }if (IndexStartSeason==1){
+            student.setStartSeason("نمیمسال دوم");
+        }
+        int IndexCondition = findComboIndex(comboCondition);
+        if (IndexCondition==0){
+            student.setCondition("فارق التخصیل");
+        }if (IndexCondition==1){
+            student.setCondition("در حال تحصیل");
+        }
+        int IndexNationality = findComboIndex(comboNationality);
+        if (IndexNationality==0){
+            student.setNationality("بومی");
+        }if (IndexNationality==1){
+            student.setNationality("غیر بومی");
+        }
+        int IndexMatrimony = findComboIndex(comboMatrimony);
+        if (IndexMatrimony==0){
+            student.setMatrimony("مجرد");
+        }if (IndexMatrimony==1){
+            student.setMatrimony("متاهل");
+        }
+        int IndexDyplomType = findComboIndex(comboMatrimony);
+        if (IndexDyplomType==0){
+            student.setDiplomType("قبولی");
+        }if (IndexDyplomType==1){
+            student.setDiplomType("ردی");
+        }
 
 
     }
@@ -132,6 +172,7 @@ public class NewStudent implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        student = new Student();
     String [] Faith = {"زرتشت","یهودی","مسیهی","مسلمان"};
     comboFaith.getItems().addAll(Faith);
     String [] StartSeason ={"نیمسال اول","نیمسال دوم"};

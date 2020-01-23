@@ -1,43 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTabPane?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" rotateGraphic="true" side="RIGHT" tabDragPolicy="REORDER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <tabs>
-      <Tab text="Untitled Tab">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ColorPicker layoutX="198.0" layoutY="115.0" />
-               </children></AnchorPane>
-         </content>
-         <graphic>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Desktop/image/Hack-the-Hacker-photo-by-istockphoto-gorodenkoff.jpg" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Tab>
-      <Tab text="Untitled Tab">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-
-                  <DatePicker layoutX="136.0" layoutY="159.0" />
-               </children></AnchorPane>
-         </content>
-      </Tab>
-      <Tab text="Untitled Tab">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-      </Tab>
-   </tabs>
-</JFXTabPane>
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Controllers.manager"
+            prefHeight="400.0" prefWidth="600.0">
+    <JFXButton fx:id="btnBrowse" minHeight="50" minWidth="50" onMouseClicked="#onClickBrowse"/>
+    <JFXButton fx:id="btnImport" alignment="CENTER" minHeight="50" minWidth="50" onMouseClicked="#onClickImport"/>
+</AnchorPane>

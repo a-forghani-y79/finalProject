@@ -2,6 +2,7 @@ package sample.DataCenter;
 
 import com.jfoenix.controls.JFXButton;
 
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Button;
 
 
@@ -13,13 +14,18 @@ public class person {
     private int unit ;
     private String classStartTime = null;
     private String timeToTakeExam = null;
-    private Button btnChooseUnit = null;
+    private JFXToggleButton btnChooseUnit = null;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
+    private int studentNumber;
+
+
+
+    private int passedStudentNumber;
 
     //Choose units
-    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXButton btnChooseUnit) {
+    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -77,6 +83,17 @@ public class person {
         this.row = row;
     }
 
+    public  person(String lesson,int lessonCod,int unit,int studentNumber,int passedStudentNumber){
+        this.lesson = lesson;
+        this.lessonCod = lessonCod;
+        this.unit = unit;
+        this.studentNumber = studentNumber;
+        this.passedStudentNumber = passedStudentNumber;
+
+
+
+    }
+
     public String getLesson() {
         return lesson;
     }
@@ -125,11 +142,11 @@ public class person {
         this.timeToTakeExam = timeToTakeExam;
     }
 
-    public Button getBtnChooseUnit() {
+    public JFXToggleButton getBtnChooseUnit() {
         return btnChooseUnit;
     }
 
-    public void setBtnChooseUnit(Button btnChooseUnit) {
+    public void setBtnChooseUnit(JFXToggleButton btnChooseUnit) {
         this.btnChooseUnit = btnChooseUnit;
     }
 
@@ -151,6 +168,23 @@ public class person {
 
     public int getNumberOfAbsence() {
         return numberOfAbsence;
+    }
+    public int getStudentNumber() {
+        System.out.println("124");
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public int getPassedStudentNumber() {
+        System.out.println("124");
+        return passedStudentNumber;
+    }
+
+    public void setPassedStudentNumber(int passedStudentNumber) {
+        this.passedStudentNumber = passedStudentNumber;
     }
 
     public void setNumberOfAbsence(int numberOfAbsence) {

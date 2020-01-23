@@ -4,24 +4,32 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import sample.DataCenter.Archive;
 import sample.DataCenter.Hashing;
+import sample.DataCenter.NewStudent;
+import sample.DataCenter.Student;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class loginPage<imageView> implements Initializable {
+public class loginPage implements Initializable {
 
 
     public AnchorPane paneBackground;
@@ -35,6 +43,10 @@ public class loginPage<imageView> implements Initializable {
     public JFXComboBox UseCaseCombo;
     public TextArea txtInfo;
     public JFXButton btnExit;
+    Archive archive;
+    StringBuilder stringBuilder;
+    int year;
+    String strYear;
 
 
     public TextArea getTxtInfo() {
@@ -46,59 +58,57 @@ public class loginPage<imageView> implements Initializable {
     }
 
 
-
-
-    public void AnchorTime(){
-        Image img ;
+    public void AnchorTime() {
+        Image img;
 
         LocalDateTime KnowTime = LocalDateTime.now();
         System.out.println(KnowTime.getHour());
 
-        if (KnowTime.getHour()>=2&&KnowTime.getHour()<4){
-             img = new Image( "./sample/PNG/1pic.png");
+        if (KnowTime.getHour() >= 2 && KnowTime.getHour() < 4) {
+            img = new Image("./sample/PNG/1pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=4&&KnowTime.getHour()<5){
+        if (KnowTime.getHour() >= 4 && KnowTime.getHour() < 5) {
             img = new Image("./sample/PNG/2pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=5&&KnowTime.getHour()<7){
+        if (KnowTime.getHour() >= 5 && KnowTime.getHour() < 7) {
             img = new Image("./sample/PNG/3pic.png");
 
             imgbackpane.setImage(img);
 
         }
-        if (KnowTime.getHour()>=7&&KnowTime.getHour()<9){
+        if (KnowTime.getHour() >= 7 && KnowTime.getHour() < 9) {
             img = new Image("./sample/PNG/4pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=9&&KnowTime.getHour()<12){
+        if (KnowTime.getHour() >= 9 && KnowTime.getHour() < 12) {
             img = new Image("./sample/PNG/5pic.png");
             imgbackpane.setImage(img);
 
         }
-        if (KnowTime.getHour()>=12&&KnowTime.getHour()<16){
+        if (KnowTime.getHour() >= 12 && KnowTime.getHour() < 16) {
             img = new Image("./sample/PNG/6pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=16&&KnowTime.getHour()<17){
-            img  =new Image("./sample/PNG/7pic.png");
+        if (KnowTime.getHour() >= 16 && KnowTime.getHour() < 17) {
+            img = new Image("./sample/PNG/7pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
+        if (KnowTime.getHour() >= 17 && KnowTime.getHour() < 18) {
             img = new Image("./sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
+        if (KnowTime.getHour() >= 18 && KnowTime.getHour() < 19) {
 
             img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=19&&KnowTime.getHour()<24){
+        if (KnowTime.getHour() >= 19 && KnowTime.getHour() < 24) {
             img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour()>=0&&KnowTime.getHour()<2){
+        if (KnowTime.getHour() >= 0 && KnowTime.getHour() < 2) {
             img = new Image("./sample/PNG/11pic.png");
             imgbackpane.setImage(img);
         }
@@ -106,40 +116,31 @@ public class loginPage<imageView> implements Initializable {
     }
 
 
+    private Hashing hashing;
+
+    FXMessageDialog fxMessageDialog;
 
 
-
-    Hashing hashing;
-
-    FXMessageDialog fxMessageDialog ;
-
-
-    public  void DeleteUser (){
+    public void DeleteUser() {
         txtUser.setText("");
 
     }
 
-    public void  DeletePass(){
+    public void DeletePass() {
         txtPass.setText("");
 
     }
 
 
+    public void exitAlert() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
 
 
-    public void exitAlert ()
-    {
-        Alert alert =new Alert(Alert.AlertType.WARNING,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
+        Optional<ButtonType> result = alert.showAndWait();
 
+        if (result.get() == ButtonType.YES)
 
-
-       Optional<ButtonType> result = alert.showAndWait();
-
-       if(result.get()== ButtonType.YES)
-
-           System.exit(0);
-
-
+            System.exit(0);
 
 
     }
@@ -150,64 +151,41 @@ public class loginPage<imageView> implements Initializable {
         String user = txtUser.getText();
         String pass = txtPass.getText();
 
-        long UserNum =0;
-        long PassNum =0;
-
-//        UserNum = Long.parseLong(user);
-//        PassNum = Long.parseLong(pass);
+        long UserNum = 0;
+        long PassNum = 0;
 
 
-            considerEmpty();
-            considerRight();
+        considerEmpty();
+        considerRight();
 
 
-        auth(user,pass);
+        int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
 
-//        if(!(user.equals("")&&pass.equals(""))) {
-//            UserNum = Long.parseLong(user);
-//            PassNum = Long.parseLong(pass);
-//        }
-//        else {
-//            if (user.equals(""))
-//                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
-//            if (pass.equals(""))
-//                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
-//        }
+        switch (UseCaseIndex) {
+            case 0:
+                if (true) {
+                    sample.Controllers.Student studentController = new sample.Controllers.Student();
+                    openFXML("FXML/NewStudent.fxml", paneBackground, studentController);
+                }
+                break;
+            case 1:
+               // AuthStudent(UserNum, PassNum);
+                sample.Controllers.Student studentController = new sample.Controllers.Student();
+                openFXML("./../src/sample/FXML/NewStudent.fxml", paneBackground, studentController);
+                break;
+            case 2:
+                AuthMaster(UserNum, PassNum);
+                break;
+            case 3:
+                AuthManager(UserNum, PassNum);
+                break;
 
-
-
-
-
-
-         int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
-
-         switch (UseCaseIndex){
-             case 0 :
-                AuthNewStudent(UserNum,PassNum);
-                 break;
-             case 1 :
-                AuthStudent(UserNum,PassNum);
-                 break;
-             case 2:
-                AuthMaster(UserNum,PassNum);
-                 break;
-             case 3:
-                AuthManager(UserNum,PassNum);
-                 break;
-
-         }
-
-
+        }
 
 
     }
 
-     boolean auth(String user, String pass) {
-
-
-
-
-
+    boolean auth(String user, String pass) {
 
 
         try {
@@ -231,18 +209,17 @@ public class loginPage<imageView> implements Initializable {
 
     }
 
-     void alert(String message, Label lbl, String color) {
+    void alert(String message, Label lbl, String color) {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
 
-    public void showText()
-    {
-       txtInfo.setVisible(true);
+    public void showText() {
+        txtInfo.setVisible(true);
 
     }
-    public void hideText()
-    {
+
+    public void hideText() {
         txtInfo.setVisible(false);
 
     }
@@ -253,50 +230,61 @@ public class loginPage<imageView> implements Initializable {
         AnchorTime();
 
 
-
-        String[] comboItems = {"دانشجو جدید الورود","دانشجو","استاد","کارمند آموزش"};
+        String[] comboItems = {"دانشجو جدید الورود", "دانشجو", "استاد", "کارمند آموزش"};
 
 
         UseCaseCombo.getItems().addAll(comboItems);
         UseCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 
 
+    }
 
+    public boolean AuthNewStudent(long userName, long passWord) {
+        stringBuilder = new StringBuilder("" + userName);
+        strYear = (String) stringBuilder.subSequence(0, 2);
+        year = Integer.parseInt(strYear);
+        archive = new Archive(year, Archive.NEW_STUDENT);
+        NewStudent std = archive.readNewStudent(userName);
+        if (!(std == null))
+            if (std.getFileNumber() == passWord)
+                return true;
+            else
+                return false;
+        else return false;
+    }
 
+    public boolean AuthStudent(long userName, long passWord) {
+        stringBuilder = new StringBuilder("" + userName);
+        strYear = (String) stringBuilder.subSequence(0, 2);
+        year = Integer.parseInt(strYear);
+        archive = new Archive(year, Archive.STUDENT);
+        Student std = archive.readStudent(userName);
+        if (!(std == null))
+            if (std.getFileNumber() == passWord)
+                return true;
+            else
+                return false;
+        else return false;
+    }
 
-
-
+    public boolean AuthMaster(long userName, long passWord) {
+        return true;
 
     }
 
-    public  void AuthNewStudent(long UserName,long PassWord){
+    public boolean AuthManager(long userName, long passWord) {
 
 
-    }
-    public  void AuthStudent(long UserName,long PassWord){
-
-
-
-    }
-    public  void AuthMaster(long UserName,long PassWord){
-
-
-
-    }
-    public  void AuthManager(long UserName,long PassWord){
-
-
-
+        return true;
     }
 
 
-    public void considerEmpty()
-    {
+    public void considerEmpty() {
         String user = txtUser.getText();
         String pass = txtPass.getText();
 
-        if(user.equals("")&&pass.equals(""))
-            alert("لطفا نام کاربری و رمز عبور را وارد کنید",lblAlert,"red");
+        if (user.equals("") && pass.equals(""))
+            alert("لطفا نام کاربری و رمز عبور را وارد کنید", lblAlert, "red");
 
 
         else {
@@ -307,50 +295,72 @@ public class loginPage<imageView> implements Initializable {
         }
 
 
-
     }
 
-      public void considerRight()
-    {
+    public void considerRight() {
 
         String user = txtUser.getText();
         String pass = txtPass.getText();
 
-       int a= 0;
-       int b=0;
+        int a = 0;
+        int b = 0;
 
-        if(!user.equals("")&&!pass.equals("")) {
-
+        if (!user.equals("") && !pass.equals("")) {
 
 
             for (int i = 0; i < user.length(); i++) {
-                a= user.charAt(i);b=a-48;
-                if (!(b >= 0 &&   b <= 9))
+                a = user.charAt(i);
+                b = a - 48;
+                if (!(b >= 0 && b <= 9))
                     alert("لطفا فقط عدد وارد کنید", lblAlert, "Red");
 
             }
-            int c= 0;
-            int g=0;
+            int c = 0;
+            int g = 0;
 
             for (int j = 0; j < pass.length(); j++) {
-                c= user.charAt(j);g=a-48;
+                c = user.charAt(j);
+                g = c - 48;
                 if (!(g >= 0 && g <= 9))
-                alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
+                    alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
             }
 
         }
 
 
-
     }
 
+    void openFXML(String FXML_address, Node node, Object controller) {
+        Parent root;
+
+        try {
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
 
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_address));
 
+            root = loader.load();
+            loader.setController(controller);
+            stage = new Stage();
+//            root.setOnMousePressed(event -> {
+//                x = event.getSceneX();
+//                y = event.getSceneY();
+//            });
+            Stage finalStage = stage;
+//            root.setOnMouseDragged(event -> {
+//                finalStage.setX(event.getScreenX() - x);
+//                finalStage.setY(event.getScreenY() - y);
+//            });
+            finalStage.setResizable(false);
+            //   finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(new Scene(root));
+            stage.show();
 
-
-
-
+        } catch (IOException e) {
+            alert(e.getMessage(), lblAlert, "blue");
+        }
+    }
 
 
 }

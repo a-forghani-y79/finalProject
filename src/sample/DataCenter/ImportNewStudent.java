@@ -68,7 +68,7 @@ public class ImportNewStudent {
                 NewStudent student = new NewStudent();
                 student.setFirstName(information[0]);
                 student.setLastName(information[1]);
-                student.setRate(Long.valueOf(information[2]));
+                student.setRate(Long.parseLong(information[2]));
                 student.setID(Long.parseLong(information[3]));
                 student.setField(information[4]);
                 student.setDay_night(information[5].equals("روزانه"));

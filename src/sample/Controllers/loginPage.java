@@ -3,22 +3,27 @@ package sample.Controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.deploy.security.SelectableSecurityManager;
 import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.DataCenter.Archive;
 import sample.DataCenter.Hashing;
 import sample.DataCenter.NewStudent;
+import sample.DataCenter.Student;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -42,7 +47,6 @@ public class loginPage implements Initializable {
     StringBuilder stringBuilder;
     int year;
     String strYear;
-
 
 
     public TextArea getTxtInfo() {
@@ -112,7 +116,7 @@ public class loginPage implements Initializable {
     }
 
 
-    Hashing hashing;
+    private Hashing hashing;
 
     FXMessageDialog fxMessageDialog;
 
@@ -150,36 +154,24 @@ public class loginPage implements Initializable {
         long UserNum = 0;
         long PassNum = 0;
 
-//        UserNum = Long.parseLong(user);
-//        PassNum = Long.parseLong(pass);
-
 
         considerEmpty();
         considerRight();
-
-
-        auth(user, pass);
-
-//        if(!(user.equals("")&&pass.equals(""))) {
-//            UserNum = Long.parseLong(user);
-//            PassNum = Long.parseLong(pass);
-//        }
-//        else {
-//            if (user.equals(""))
-//                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
-//            if (pass.equals(""))
-//                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
-//        }
 
 
         int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
 
         switch (UseCaseIndex) {
             case 0:
-                AuthNewStudent(UserNum, PassNum);
+                if (true) {
+                    sample.Controllers.Student studentController = new sample.Controllers.Student();
+                    openFXML("FXML/NewStudent.fxml", paneBackground, studentController);
+                }
                 break;
             case 1:
-                AuthStudent(UserNum, PassNum);
+               // AuthStudent(UserNum, PassNum);
+                sample.Controllers.Student studentController = new sample.Controllers.Student();
+                openFXML("./../src/sample/FXML/NewStudent.fxml", paneBackground, studentController);
                 break;
             case 2:
                 AuthMaster(UserNum, PassNum);
@@ -249,23 +241,30 @@ public class loginPage implements Initializable {
 
     public boolean AuthNewStudent(long userName, long passWord) {
         stringBuilder = new StringBuilder("" + userName);
-        strYear = (String) stringBuilder.subSequence(0,2);
+        strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new Archive(year , Archive.NEW_STUDENT);
+        archive = new Archive(year, Archive.NEW_STUDENT);
         NewStudent std = archive.readNewStudent(userName);
-        if (std.getFileNumber() == passWord)
-            return true;
+        if (!(std == null))
+            if (std.getFileNumber() == passWord)
+                return true;
             else
-                return  false;
+                return false;
+        else return false;
     }
 
     public boolean AuthStudent(long userName, long passWord) {
         stringBuilder = new StringBuilder("" + userName);
-        strYear = (String) stringBuilder.subSequence(0,2);
+        strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new Archive(year , Archive.STUDENT);
-
-        return true;
+        archive = new Archive(year, Archive.STUDENT);
+        Student std = archive.readStudent(userName);
+        if (!(std == null))
+            if (std.getFileNumber() == passWord)
+                return true;
+            else
+                return false;
+        else return false;
     }
 
     public boolean AuthMaster(long userName, long passWord) {
@@ -274,6 +273,7 @@ public class loginPage implements Initializable {
     }
 
     public boolean AuthManager(long userName, long passWord) {
+
 
         return true;
     }
@@ -320,7 +320,7 @@ public class loginPage implements Initializable {
 
             for (int j = 0; j < pass.length(); j++) {
                 c = user.charAt(j);
-                g = a - 48;
+                g = c - 48;
                 if (!(g >= 0 && g <= 9))
                     alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
             }
@@ -328,6 +328,38 @@ public class loginPage implements Initializable {
         }
 
 
+    }
+
+    void openFXML(String FXML_address, Node node, Object controller) {
+        Parent root;
+
+        try {
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
+
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_address));
+
+            root = loader.load();
+            loader.setController(controller);
+            stage = new Stage();
+//            root.setOnMousePressed(event -> {
+//                x = event.getSceneX();
+//                y = event.getSceneY();
+//            });
+            Stage finalStage = stage;
+//            root.setOnMouseDragged(event -> {
+//                finalStage.setX(event.getScreenX() - x);
+//                finalStage.setY(event.getScreenY() - y);
+//            });
+            finalStage.setResizable(false);
+            //   finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            alert(e.getMessage(), lblAlert, "blue");
+        }
     }
 
 

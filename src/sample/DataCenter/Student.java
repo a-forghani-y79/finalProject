@@ -7,7 +7,6 @@ public class Student {
     private long nationalCode;
     private long studentNumber;
     private Field[] fields;
-
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh

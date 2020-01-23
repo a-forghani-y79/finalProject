@@ -32,7 +32,7 @@ public class Archive {
 
 
     //values of modes
-   public static int NEW_STUDENT = 0;
+    public static int NEW_STUDENT = 0;
     public static int STUDENT = 1;
     public static int MASTER = 2;
     public static int MANAGER = 3;
@@ -61,31 +61,31 @@ public class Archive {
         Student std = new Student();
         boolean flag = true;
         try {
-            while (flag){
-                objectInputStream.readObject();
-                if (std.get  ()==studentNumber)
+            while (flag) {
+                std = (Student) objectInputStream.readObject();
+                if (std.getStudentNumber() == studentNumber)
                     flag = false;
             }
 
-        }catch (EOFException e){
+        } catch (EOFException e) {
             erroreMessage += (e.getMessage() + "\n");
             if (flag) {
                 erroreMessage += ("student not found\n");
                 std = null;
             }
-        }catch (IOException | ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e) {
             erroreMessage += (e.getMessage() + "\n");
         }
         return std;
 
-        return student
     }
-    void writeStudentList(){
+
+    void writeStudentList() {
 
     }
 
     public void writeStudent() {
-        String name = "" ;
+        String name = "";
 
 
     }
@@ -98,50 +98,51 @@ public class Archive {
 
 
     void readManager() {
+
     }
 
     void writeManager() {
     }
 
-    public NewStudent readNewStudent(long nationalNumber)  {
+    public NewStudent readNewStudent(long nationalNumber) {
         NewStudent std = new NewStudent();
         boolean flag = true;
         try {
-            while (flag){
-                objectInputStream.readObject();
-                if (std.getID()==nationalNumber)
+            while (flag) {
+                std = (NewStudent) objectInputStream.readObject();
+                if (std.getID() == nationalNumber)
                     flag = false;
             }
 
-        }catch (EOFException e){
+        } catch (EOFException e) {
             erroreMessage += (e.getMessage() + "\n");
             if (flag) {
                 erroreMessage += ("student not found\n");
                 std = null;
             }
-        }catch (IOException | ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e) {
             erroreMessage += (e.getMessage() + "\n");
         }
         return std;
     }
 
 
-
     void readAllMasters() {
     }
 
-    ArrayList<Student> readAllStudents()  {
-        ArrayList<Student> list = new ArrayList<Student>() {};
+    ArrayList<Student> readAllStudents() {
+        ArrayList<Student> list = new ArrayList<Student>() {
+        };
         Student std = new Student();
 
-            try {
-                while(true) {
-                    std = (Student) objectInputStream.readObject();
-                    list.add(std);
-                }
-            } catch (ClassNotFoundException | IOException e) {
-                erroreMessage += (e.getMessage() + "\n");
+        try {
+            while (true) {
+                std = (Student) objectInputStream.readObject();
+                list.add(std);
             }
+        } catch (ClassNotFoundException | IOException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
         return list;
     }
 

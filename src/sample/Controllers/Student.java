@@ -160,6 +160,10 @@ public class Student implements Initializable {
 
     }
 
+    public void onActionSetInfoOfStudent(){
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         onActionChooseUnit();

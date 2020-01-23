@@ -9,6 +9,7 @@ import sample.DataCenter.Student;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class NewStudent implements Initializable {
@@ -165,8 +166,13 @@ public class NewStudent implements Initializable {
             student.setDiplomType("ردی");
         }
 
-
+        LocalDate localDate = DataPicker.getValue();
+        student.setBYear(localDate.getYear());
+        student.setBMonth(localDate.getMonthValue());
+        student.setBDay(localDate.getDayOfMonth());
     }
+
+
 
 
 
@@ -185,5 +191,7 @@ public class NewStudent implements Initializable {
     comboCondition.getItems().addAll(condition);
     String [] diplomType = {"قیولی","ردی"};
     comboDyplomType.getItems().addAll(diplomType);
+
     }
+
 }

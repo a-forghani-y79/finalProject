@@ -35,6 +35,34 @@ public class Student {
     private String AreaBorn;
     private long FileNumber1;
 
+    public int getBYear() {
+        return BYear;
+    }
+
+    public void setBYear(int BYear) {
+        this.BYear = BYear;
+    }
+
+    public int getBMonth() {
+        return BMonth;
+    }
+
+    public void setBMonth(int BMonth) {
+        this.BMonth = BMonth;
+    }
+
+    public int getBDay() {
+        return BDay;
+    }
+
+    public void setBDay(int BDay) {
+        this.BDay = BDay;
+    }
+
+    private int BYear ;
+    private int BMonth ;
+    private int BDay ;
+
     public String getFirstName() {
         return firstName;
     }

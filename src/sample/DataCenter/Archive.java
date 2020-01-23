@@ -57,7 +57,28 @@ public class Archive {
     private File file;
 
 
-    void readStudent() {
+    public Student readStudent(long studentNumber) {
+        Student std = new Student();
+        boolean flag = true;
+        try {
+            while (flag){
+                objectInputStream.readObject();
+                if (std.get  ()==studentNumber)
+                    flag = false;
+            }
+
+        }catch (EOFException e){
+            erroreMessage += (e.getMessage() + "\n");
+            if (flag) {
+                erroreMessage += ("student not found\n");
+                std = null;
+            }
+        }catch (IOException | ClassNotFoundException e){
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return std;
+
+        return student
     }
     void writeStudentList(){
 

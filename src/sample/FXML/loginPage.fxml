@@ -5,6 +5,8 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,44 +18,98 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="sample.Controllers.loginPage">
     <children>
-      <ImageView fx:id="imgbackpane" fitHeight="600.0" fitWidth="1058.0" pickOnBounds="true" preserveRatio="true" />
-      <AnchorPane layoutX="661.0" layoutY="1.0" prefHeight="600.0" prefWidth="395.0" style="-fx-background-color: rgba(255,176,76,0.5);" />
-        <AnchorPane layoutX="663.0" layoutY="1.0" prefHeight="600.0" prefWidth="395.0">
-            <children>
-            <ImageView fitHeight="102.0" fitWidth="85.0" layoutX="125.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/17059-th2.png" />
-               </image>
-            </ImageView>
-                <JFXTextField fx:id="txtUser" alignment="CENTER_RIGHT" focusColor="#101011" labelFloat="true" layoutX="28.0" layoutY="190.0" prefHeight="51.0" prefWidth="279.0" promptText="نام کاربری" unFocusColor="#111111">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </JFXTextField>
-                <JFXTextField fx:id="txtPass" alignment="CENTER_RIGHT" focusColor="#171717" labelFloat="true" layoutX="28.0" layoutY="300.0" prefHeight="51.0" prefWidth="279.0" promptText="رمز عبور" unFocusColor="#111111">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </JFXTextField>
-                <JFXComboBox fx:id="UseCaseCombo" focusColor="#141414" layoutX="32.0" layoutY="413.0" prefHeight="39.0" prefWidth="279.0" promptText="نوع کاربری                                               " unFocusColor="#141414" />
-                <JFXButton buttonType="RAISED" layoutX="70.0" layoutY="517.0" onMouseClicked="#onClickSignIn" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="ورود" textFill="#dd1616">
-                    <font>
-                        <Font name="System Bold" size="18.0" />
-                    </font>
-                </JFXButton>
-            <Label fx:id="lblAlert" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="37.0" layoutY="478.0" prefHeight="17.0" prefWidth="279.0" />
-            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" >
-               <image>
-                  <Image url="@../PNG/user.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="311.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/pass.png" />
-               </image></ImageView>
-            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="311.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgbackpane" fitHeight="618.0" fitWidth="1147.0" layoutY="1.0" onMouseClicked="#hideText" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutX="670.0" layoutY="1.0" prefHeight="619.0" prefWidth="393.0" style="-fx-background-color: rgba(250,250,255245,0.5);">
+         <children>
+              <AnchorPane layoutY="-8.0" prefHeight="619.0" prefWidth="390.0">
+                  <children>
+                      <JFXTextField fx:id="txtUser" alignment="CENTER_RIGHT" focusColor="#101011" labelFloat="true" layoutX="28.0" layoutY="190.0" prefHeight="51.0" prefWidth="279.0" promptText="نام کاربری" unFocusColor="#111111">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="باتوجه به راهنمایی تکمیل کنید" />
+                     </tooltip>
+                  </JFXTextField>
+                      <JFXTextField fx:id="txtPass" alignment="CENTER_RIGHT" focusColor="#171717" labelFloat="true" layoutX="28.0" layoutY="300.0" prefHeight="51.0" prefWidth="279.0" promptText="رمز عبور" unFocusColor="#111111">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="با توجه به راهنمایی تکمیل کنید" />
+                     </tooltip>
+                  </JFXTextField>
+                      <JFXComboBox fx:id="UseCaseCombo" focusColor="#141414" labelFloat="true" layoutX="32.0" layoutY="413.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="279.0" promptText="نوع کاربری                                               " unFocusColor="#141414">
+                     <tooltip>
+                        <Tooltip text="نوع کاربری را مشخص کنید!!!!" />
+                     </tooltip>
+                  </JFXComboBox>
+                      <JFXButton buttonType="RAISED" layoutX="70.0" layoutY="517.0" onMouseClicked="#onClickSignIn" prefHeight="39.0" prefWidth="237.0" ripplerFill="#0141f2" style="-fx-background-color: #cdd0e0;" text="ورود" textFill="#dd1616">
+                          <font>
+                              <Font name="System Bold" size="18.0" />
+                          </font>
+                      </JFXButton>
+                  <Label fx:id="lblAlert" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="37.0" layoutY="478.0" prefHeight="17.0" prefWidth="279.0" />
+                  <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="317.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: ';">
+                     <image>
+                        <Image url="@../PNG/user.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="311.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNG/pass.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="311.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="136.0" fitWidth="150.0" layoutX="114.0" layoutY="35.0">
+                     <image>
+                        <Image url="@../PNG/logoUni.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="315.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNG/img_4746.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="btnDeleteUser" layoutX="23.0" layoutY="200.0" onMouseClicked="#DeleteUser" prefHeight="39.0" prefWidth="69.0" ripplerFill="#f80000" text="پاک کردن" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnDeletePass" layoutX="23.0" layoutY="313.0" onMouseClicked="#DeletePass" prefHeight="39.0" prefWidth="69.0" ripplerFill="RED" text="پاک کردن" textFill="RED">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </JFXButton>
 
-            </children>
-        </AnchorPane>
+                                                </children>
+              </AnchorPane>
+         </children></AnchorPane>
+      <TextArea fx:id="txtInfo" layoutX="255.0" layoutY="66.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="147.0" prefWidth="409.0" text="راهنمایی:&#10;برای دانشجویان جدیدالورود نام کاربری&#10;ورمز عبور به صورت پیش فرض کد ملی و شماره&#10;پرونده در نظر گرفته شده است!&#10;&#10;برای اساتید و کارمندان آموزش نیز نام کاربری و رمز عبور نیز به صورت پیش&#10;فرض کد ملی وکد پرسنلی در نظر گرفته شده است!" visible="false">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextArea>
+      <JFXButton layoutX="63.0" layoutY="14.0" onMouseClicked="#showText" prefHeight="52.0" prefWidth="61.0" ripplerFill="#ff0202" text=" ">
+         <tooltip>
+            <Tooltip text="برای راهنمایی کلیک کنید!!!" />
+         </tooltip>
+         <graphic>
+            <ImageView fx:id="infoBtn" fitHeight="56.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../PNG/Blue_question_mark_icon.svg.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="btnExit" layoutY="14.0" prefHeight="47.0" prefWidth="42.0" text="  " textFill="#000dff" onMouseClicked="#exitAlert">
+
+         <graphic>
+            <ImageView fx:id="exitButton" fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../PNG/43-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
     </children>
 </AnchorPane>

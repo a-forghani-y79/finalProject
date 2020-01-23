@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
@@ -7,21 +8,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.DataCenter.Hashing;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class loginPage implements Initializable {
+public class loginPage<imageView> implements Initializable {
 
 
     public AnchorPane paneBackground;
@@ -33,6 +33,19 @@ public class loginPage implements Initializable {
     public Label UserJustNumber;
     public Label lblAlert;
     public JFXComboBox UseCaseCombo;
+    public TextArea txtInfo;
+    public JFXButton btnExit;
+
+
+    public TextArea getTxtInfo() {
+        return txtInfo;
+    }
+
+    public void setTxtInfo(TextArea txtInfo) {
+        this.txtInfo = txtInfo;
+    }
+
+
 
 
     public void AnchorTime(){
@@ -73,11 +86,12 @@ public class loginPage implements Initializable {
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=17&&KnowTime.getHour()<18){
-            img = new Image("sample/PNG/8pic.png");
+            img = new Image("./sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=18&&KnowTime.getHour()<19){
-            img = new Image("./sample/PNG/9pic.png");
+
+            img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
         if (KnowTime.getHour()>=19&&KnowTime.getHour()<24){
@@ -100,14 +114,36 @@ public class loginPage implements Initializable {
     FXMessageDialog fxMessageDialog ;
 
 
-    public void Test ()
-    {
-//        Alert alert =new Alert(Alert.AlertType.CONFIRMATION,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
-//
-//        alert.showAndWait();
-        System.out.println(UseCaseCombo.getSelectionModel().getSelectedIndex());
+    public  void DeleteUser (){
+        txtUser.setText("");
 
     }
+
+    public void  DeletePass(){
+        txtPass.setText("");
+
+    }
+
+
+
+
+    public void exitAlert ()
+    {
+        Alert alert =new Alert(Alert.AlertType.WARNING,"Are you sure "+ "?", ButtonType.YES,ButtonType.NO);
+
+
+
+       Optional<ButtonType> result = alert.showAndWait();
+
+       if(result.get()== ButtonType.YES)
+
+           System.exit(0);
+
+
+
+
+    }
+
 
     public void onClickSignIn() {
 
@@ -117,40 +153,31 @@ public class loginPage implements Initializable {
         long UserNum =0;
         long PassNum =0;
 
+//        UserNum = Long.parseLong(user);
+//        PassNum = Long.parseLong(pass);
 
 
+            considerEmpty();
+            considerRight();
 
 
-
-
-        if(user.equals("")&&user.equals(""))
-            alert("لطفا نام کاربری و رمز عبور را وارد کنید",lblAlert,"red");
-
-
-        else {
-            if (user.equals(""))
-                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
-            if (user.equals(""))
-                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
-        }
-
-         if(!user.equals("")||!pass.equals("")) {
-              UserNum =Long.parseLong(txtUser.getText());
-              PassNum =Long.parseLong(txtPass.getText());
-
-
-
-             for (int i = 0; i < user.length(); i++) {
-                 if (!(user.charAt(i) >= 0 && user.charAt(i) <= 9))
-                     alert("لطفا فقط عدد وارد کنید", lblAlert, "Red");
-             }
-             for (int j = 0; j < pass.length(); j++) {
-                 if (!(pass.charAt(j) >= 0 && user.charAt(j) <= 9)) ;
-                 alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
-             }
-
-         }
         auth(user,pass);
+
+//        if(!(user.equals("")&&pass.equals(""))) {
+//            UserNum = Long.parseLong(user);
+//            PassNum = Long.parseLong(pass);
+//        }
+//        else {
+//            if (user.equals(""))
+//                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
+//            if (pass.equals(""))
+//                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
+//        }
+
+
+
+
+
 
          int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
 
@@ -209,14 +236,23 @@ public class loginPage implements Initializable {
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
 
+    public void showText()
+    {
+       txtInfo.setVisible(true);
 
+    }
+    public void hideText()
+    {
+        txtInfo.setVisible(false);
+
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        AnchorTime();
+      //  AnchorTime();
 
-        System.out.println("hi baby");
+
 
         String[] comboItems = {"دانشجو جدید الورود","دانشجو","استاد","کارمند آموزش"};
 
@@ -253,8 +289,71 @@ public class loginPage implements Initializable {
 
     }
 
-}
 
+    public void considerEmpty()
+    {
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+
+        if(user.equals("")&&pass.equals(""))
+            alert("لطفا نام کاربری و رمز عبور را وارد کنید",lblAlert,"red");
+
+
+        else {
+            if (user.equals(""))
+                alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
+            if (pass.equals(""))
+                alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
+        }
+
+
+
+    }
+
+      public void considerRight()
+    {
+
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+
+       int a= 0;
+       int b=0;
+
+        if(!user.equals("")&&!pass.equals("")) {
+
+
+
+            for (int i = 0; i < user.length(); i++) {
+                a= user.charAt(i);b=a-48;
+                if (!(b >= 0 &&   b <= 9))
+                    alert("لطفا فقط عدد وارد کنید", lblAlert, "Red");
+
+            }
+            int c= 0;
+            int g=0;
+
+            for (int j = 0; j < pass.length(); j++) {
+                c= user.charAt(j);g=a-48;
+                if (!(g >= 0 && g <= 9))
+                alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
+            }
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+}
 
 
 

@@ -1,13 +1,10 @@
 package sample.Controllers;
 
-
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.DataCenter.person;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,9 +49,39 @@ public class Student implements Initializable {
     public TableColumn lessonNotPassed;
     public TableColumn unitNotPassed;
     public Button btnChoose;
+    //profile
+    public TextField txtCollegeProfile;
+    public TextField txtLastNameProfile;
+    public TextField txtIdProfile;
+    public TextField txtNameProfile;
+    public TextField txtPhoneNumberProfile;
+    public TextField txtPlaceShenaseProfile;
+    public TextField txtFatherNameProfile;
+    public TextField txtAddressProfile;
+    public TextField txtShenaseCodProfile;
+    public TextField txtFatherPhoneNumberProfile;
+    public TextField txtGradeProfile;
+    public TextField txtFieldProfile;
+    public TextField txtDateOfBirthProfile;
+    public TextField txtIncomingSemesterProfile;
+    public TextField txtProvinceOfBirthProfile;
+    public TextField txtCityOfBirthProfile;
+    public TextField txtTypeOfDiplomaProfile;
+    public TextField txtDiplomaYearProfile;
+    public TextField txtCourseProfile;
+    public TextField txtNumbeOfDucProfile;
+    public TextField txtConditionProfile;
+    public TextField txtMaritalStatusProfile;
+    public TextField txtPostalCodeProfile;
+    public TextField txtEmailProfile;
+    public TextField txtNationalCodProfile;
+    public TextField txtNationalityProfile;
+    public TextField txtReligionProfile;
+    public TextField txtReligion2Profile;
 
-    // sample.DataCenter.Student student;
-
+    public void onActionSetProfile(){
+        txtAddressProfile.setText("تبریز بلوار منجم");
+    }
     public void onActionPassed() {
         rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -63,7 +90,6 @@ public class Student implements Initializable {
         scorePassed.setCellValueFactory(new PropertyValueFactory<>("score"));
         tableViewPassed.getItems().add(new sample.DataCenter.person(1, "math", 3, "sahandi", 3.14));
         ///                                             (int row, String lesson, int unit, String master, double score)
-
     }
 
     public void onActionNotPassed() {
@@ -87,7 +113,6 @@ public class Student implements Initializable {
     }
 
     public void onActionReport() {
-
          rowReport.setCellValueFactory(new PropertyValueFactory<>("row"));
          lessonReport.setCellValueFactory(new PropertyValueFactory<>("lesson"));
          unitReport.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -95,14 +120,11 @@ public class Student implements Initializable {
          scoreReport.setCellValueFactory(new PropertyValueFactory<>("score"));
          situationReport.setCellValueFactory(new PropertyValueFactory<>("situation"));
          taleViewReport.getItems().add(new person(1,"farsi",3,"khtijeh",12.9,"درحال تحصیل"));
-      //  (int row, String lesson, int unit, String master, double Score, String situation)
+      //                                      (int row, String lesson, int unit, String master, double Score, String situation)
     }
 
     public void onActionChooseUnit() {
-
-
-        Button btn = new Button("choose");
-
+        JFXButton btn = new JFXButton("choose");
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -112,17 +134,17 @@ public class Student implements Initializable {
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
         tableViewChoose.getItems().add(new sample.DataCenter.person(1, "math", 123456, "tanha", 3, "32,45,76", "8234869", btn));
-//                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
-
-
+//                                                                 (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         onActionChooseUnit();
         onActionPassed();
         onActionNotPassed();
         onActionCurriculum();
         onActionReport();
+        onActionSetProfile();
     }
 }

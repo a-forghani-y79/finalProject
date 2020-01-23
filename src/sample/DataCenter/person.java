@@ -1,6 +1,9 @@
 package sample.DataCenter;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.scene.control.Button;
+
 
 public class person {
     private int row ;
@@ -16,8 +19,7 @@ public class person {
     private int numberOfAbsence ;
 
     //Choose units
-    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam,Button btnChooseUnit) {
-        System.out.println("dcx");
+    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -69,7 +71,6 @@ public class person {
     }
 
     public String getLesson() {
-        System.out.println("efds");
         return lesson;
     }
 

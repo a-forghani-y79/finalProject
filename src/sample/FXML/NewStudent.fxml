@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -104,16 +103,17 @@
                   <JFXComboBox fx:id="comboFaith" editable="true" layoutX="824.0" layoutY="304.0" prefHeight="28.0" prefWidth="110.0" />
                   <JFXComboBox fx:id="comboStartSeason" layoutX="583.0" layoutY="265.0" prefHeight="28.0" prefWidth="109.0" promptText="اول / دوم" />
                   <JFXComboBox fx:id="comboNationality" layoutX="824.0" layoutY="267.0" prefHeight="28.0" prefWidth="106.0" promptText="داخلی/خارجی" />
-                  <JFXComboBox fx:id="comboCourse" layoutX="103.0" layoutY="181.0" prefHeight="28.0" prefWidth="109.0" promptText="روزانه / شبانه" />
                   <TextField fx:id="txtNationalID1" editable="false" layoutX="587.0" layoutY="139.0" prefHeight="32.0" prefWidth="110.0" />
                   <Label layoutX="743.0" layoutY="146.0" prefHeight="18.0" prefWidth="71.0" text="شماره ملی :" />
                   <DatePicker fx:id="DataPicker" layoutX="824.0" layoutY="388.0" prefHeight="26.0" prefWidth="112.0" />
-                  <JFXComboBox fx:id="comboMaterimony" layoutX="104.0" layoutY="304.0" prefHeight="28.0" prefWidth="102.0" promptText="متاهل/مجرد" />
+                  <JFXComboBox fx:id="comboMatrimony" layoutX="104.0" layoutY="304.0" prefHeight="28.0" prefWidth="102.0" promptText="متاهل/مجرد" />
                   <TextField fx:id="txtEmail" layoutX="343.0" layoutY="347.0" prefHeight="26.0" prefWidth="112.0" />
                   <TextField fx:id="txtSectionEducation" layoutX="101.0" layoutY="104.0" prefHeight="26.0" prefWidth="117.0" />
                   <TextField fx:id="txtRate1" layoutX="825.0" layoutY="183.0" prefHeight="26.0" prefWidth="109.0" />
                   <Label alignment="CENTER" layoutX="949.0" layoutY="180.0" prefHeight="32.0" prefWidth="50.0" text="رتبه" />
-                  <ComboBox fx:id="combodiplomType" layoutX="346.0" layoutY="266.0" prefHeight="28.0" prefWidth="106.0" promptText="ردی / قبولی" />
+                  
+                  <TextField fx:id="txtCourse1" layoutX="99.0" layoutY="180.0" prefHeight="30.0" prefWidth="116.0" />
+                  <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" prefHeight="28.0" prefWidth="108.0" promptText="ردی/قبولی" />
                </children></AnchorPane>
       </content>
          <graphic>

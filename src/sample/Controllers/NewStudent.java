@@ -2,15 +2,11 @@ package sample.Controllers;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,12 +34,12 @@ public class NewStudent implements Initializable {
     public TextField txtZIPCode;
     public TextField txtEmail;
     public TextField txtNationalID1;
-    public JFXComboBox comboFaith;
-    public JFXComboBox comboStartSeason;
-    public JFXComboBox comboCondition;
-    public JFXComboBox comboCourse;
-    public JFXComboBox comboNationality;
-    public JFXComboBox comboMaterimony;
+    public JFXComboBox<String> comboFaith;
+    public JFXComboBox<String> comboStartSeason;
+    public JFXComboBox<String> comboCondition;
+
+    public JFXComboBox<String> comboNationality;
+    public JFXComboBox<String> comboMatrimony;
     public DatePicker DataPicker;
     public TextField txtCourse;
     public TextField txtAddress;
@@ -53,7 +49,8 @@ public class NewStudent implements Initializable {
     public TextField txtFatherPhoneNumber;
     public ImageView Tab1PIC;
     public TextField txtRate1;
-    public ComboBox combodiplomType;
+    public TextField txtCourse1;
+    public JFXComboBox<String> comboDyplomType;
 
 
     sample.DataCenter.NewStudent std ;
@@ -77,6 +74,7 @@ public class NewStudent implements Initializable {
        txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
        if (std.isDay_night()==true){
            txtCourse.setText("day");
+
        }else {
            txtCourse.setText("night");
        }
@@ -98,7 +96,7 @@ public class NewStudent implements Initializable {
          String Faculty;
          long IDCardNumber ;
          String Address;
-         long SectionEducation;
+         String SectionEducation;
          String Condition;
          String StartSeason;
          String Nationality;
@@ -112,31 +110,37 @@ public class NewStudent implements Initializable {
          String Religion;
          String CityBorn;
          String Email ;
-         int ZIPCode ;
+         long ZIPCode ;
          String AreaBorn ;
          String FileNumber1 ;
 
-         Address=txtAddress.getText();
 
 
 
 
-         combodiplomType.getItems().addAll("yes");
 
 
 
-    }
-    public  void  SetPIC(){
-    Image img ;
-    img = new Image("./sample/PNG/Student.png");
-        Tab1PIC.setImage(img);
+
 
 
     }
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+    String [] Faith = {"زرتشت","یهودی","مسیهی","مسلمان"};
+    comboFaith.getItems().addAll(Faith);
+    String [] StartSeason ={"نیمسال اول","نیمسال دوم"};
+    comboStartSeason.getItems().addAll(StartSeason) ;
+    String [] Nationality = {"بومی","غیر بومی"};
+    comboNationality.getItems().addAll(Nationality);
+    String [] Matrimony = {"مجرد","متاهل"};
+    comboMatrimony.getItems().addAll(Matrimony);
+    String [] condition = {"فارق تحصیل","درحال تحصیل"};
+    comboCondition.getItems().addAll(condition);
+    String [] diplomType = {"قیولی","ردی"};
+    comboDyplomType.getItems().addAll(diplomType);
     }
 }

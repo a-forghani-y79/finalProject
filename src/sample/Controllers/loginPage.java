@@ -250,7 +250,7 @@ public class loginPage<imageView> implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      //  AnchorTime();
+        AnchorTime();
 
 
 

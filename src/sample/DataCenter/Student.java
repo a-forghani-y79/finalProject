@@ -33,7 +33,7 @@ public class Student {
     private String Email;
     private long ZIPCode;
     private String AreaBorn;
-    private String FileNumber1;
+    private long FileNumber1;
 
     public String getFirstName() {
         return firstName;
@@ -283,11 +283,11 @@ public class Student {
         AreaBorn = areaBorn;
     }
 
-    public String getFileNumber1() {
+    public long getFileNumber1() {
         return FileNumber1;
     }
 
-    public void setFileNumber1(String fileNumber1) {
+    public void setFileNumber1(long fileNumber1) {
         FileNumber1 = fileNumber1;
     }
 }

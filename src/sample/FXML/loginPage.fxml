@@ -76,7 +76,7 @@
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </JFXButton>
-      
+
                                                 </children>
               </AnchorPane>
          </children></AnchorPane>
@@ -85,7 +85,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </TextArea>
-      <JFXButton layoutX="63.0" layoutY="14.0" onMouseClicked="#showText" prefHeight="52.0" prefWidth="61.0" ripplerFill="#3b03ff" text=" ">
+      <JFXButton layoutX="63.0" layoutY="14.0" onMouseClicked="#showText" prefHeight="52.0" prefWidth="61.0" ripplerFill="#ff0202" text=" ">
          <tooltip>
             <Tooltip text="برای راهنمایی کلیک کنید!!!" />
          </tooltip>
@@ -96,7 +96,8 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton fx:id="btnExit" layoutY="14.0" onMouseClicked="#exitAlert" prefHeight="47.0" prefWidth="42.0" ripplerFill="#ff0101" text="  " textFill="#000dff">
+      <JFXButton fx:id="btnExit" layoutY="14.0" prefHeight="47.0" prefWidth="42.0" text="  " textFill="#000dff" onMouseClicked="#exitAlert">
+
          <graphic>
             <ImageView fx:id="exitButton" fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -104,9 +105,6 @@
                </image>
             </ImageView>
          </graphic>
-         <tooltip>
-            <Tooltip text="خروج" />
-         </tooltip>
       </JFXButton>
     </children>
 </AnchorPane>

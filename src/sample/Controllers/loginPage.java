@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.DataCenter.Hashing;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.net.URL;

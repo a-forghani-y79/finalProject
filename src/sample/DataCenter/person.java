@@ -170,7 +170,6 @@ public class person {
         return numberOfAbsence;
     }
     public int getStudentNumber() {
-        System.out.println("124");
         return studentNumber;
     }
 
@@ -179,7 +178,6 @@ public class person {
     }
 
     public int getPassedStudentNumber() {
-        System.out.println("124");
         return passedStudentNumber;
     }
 

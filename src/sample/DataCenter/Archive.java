@@ -58,6 +58,11 @@ public class Archive {
 
     private File file;
 
+    public int readNumberOfStudent() {
+        int numberOfStudent = 0;
+
+        return numberOfStudent;
+    }
 
     public Student readStudent(long studentNumber) {
         Student std = new Student();
@@ -129,9 +134,24 @@ public class Archive {
     }
 
 
-    void readAllMasters() {
+    //    void readAllMasters() {
+//    }
+    //read All Masters
+    ArrayList<Student> readAllMasters() {
+        ArrayList<Student> list = new ArrayList<Student>(){};
+        Student std = new Student();
+        try {
+            while (true) {
+                std = (Student) objectInputStream.readObject();
+                list.add(std);
+            }
+        } catch (ClassNotFoundException | IOException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return list;
     }
 
+    //read All Students
     ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
         };
@@ -147,7 +167,18 @@ public class Archive {
         }
         return list;
     }
-
+    //read All Managers
+    ArrayList<Student> readAllManagers(){
+        ArrayList<Student> list = new ArrayList<Student>(){};
+        Student std = new Student();
+        try {
+            std=(Student)objectInputStream.readObject();
+            list.add(std);
+        }catch (ClassNotFoundException | IOException e){
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return list;
+    }
 
     boolean isAllowed() {
         if (erroreMessage.length() == 0)

@@ -2,17 +2,28 @@ package sample.Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.DataCenter.NewStudentDataCenter;
 import sample.DataCenter.StudentDataCenter;
+import sample.DataCenter.StudentIdGeneratorDataCenter;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class NewStudentController implements Initializable {
@@ -48,7 +59,6 @@ public class NewStudentController implements Initializable {
     public TextField txtCourse;
     public TextField txtAddress;
     public TextField txtIDCardNumber;
-
     public TextField txtSectionEducation;
     public TextField txtFatherPhoneNumber;
     public ImageView Tab1PIC;
@@ -57,8 +67,21 @@ public class NewStudentController implements Initializable {
     public JFXComboBox<String> comboDyplomType;
     public TextField txtGender;
     public JFXButton btnSubmit;
+    public ImageView imageViewBack;
+    public ImageView imageExit1;
+    public ImageView imageExit2;
+    public ImageView imageBack2;
+    public ImageView imageBack3;
+    public ImageView imageExit3;
+    public JFXButton btnExit1;
+    public JFXButton btnBack1;
+    public JFXButton btnExit2;
+    public JFXButton btnBack2;
+    public JFXButton btnExit3;
+    public JFXButton btnBack3;
 
     NewStudentDataCenter std;
+
 
     public void setStd(sample.DataCenter.NewStudentDataCenter std) {
         this.std = std;
@@ -111,6 +134,8 @@ public class NewStudentController implements Initializable {
     }
 
     StudentDataCenter student;
+    StudentIdGeneratorDataCenter studentIdGeneratorDataCenter;
+
 
     private void student() {
         student.setFirstName(txtFirstName.getText());
@@ -205,237 +230,237 @@ public class NewStudentController implements Initializable {
         //TODO move color setting to emptyFinder method
         boolean flag = true;
 
-        LocalDate localDate =DataPicker.getValue();
+        LocalDate localDate = DataPicker.getValue();
 
         try {
             localDate.getYear();
             localDate.getMonth();
             localDate.getDayOfMonth();
 
-        }catch (NullPointerException e){
-            DataPicker.setStyle(DataPicker.getStyle()+"-fx-background-color: #D70406 ;");
-            flag =false;
+        } catch (NullPointerException e) {
+            DataPicker.setStyle(DataPicker.getStyle() + "-fx-background-color: #D70406 ;");
+            flag = false;
         }
 
         if (!(emptyFinder(txtIDCardNumber))) {
-            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-background-color: #D70406 ;");
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-background-color: #D70406 ;");
             flag = false;
         } else if (!StringFinder(txtIDCardNumber)) {
-            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtIDCardNumber)) {
-            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtIDCardNumber)) {
-            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-text-inner-color: #000000;");
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-background-color: #D70406;");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-text-inner-color: #000000;");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-background-color: #D70406;");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-text-inner-color: #000000;");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtZIPCode)) {
-            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-background-color: #D70406;");
+            txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtZIPCode)) {
-            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-text-inner-color: #D70406;");
         }
         if (emptyFinder(txtZIPCode)) {
-            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtZIPCode)) {
-            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-text-inner-color: #000000;");
+            txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-background-color: #D70406;");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-text-inner-color: #000000;");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-background-color: #D70406;");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (StringFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-text-inner-color: #000000;");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtRate)) {
-            txtRate.setStyle(txtRate.getStyle()+"-fx-background-color: #D70406;");
+            txtRate.setStyle(txtRate.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!StringFinder(txtRate)) {
-            txtRate.setStyle(txtRate.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtRate.setStyle(txtRate.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtRate)) {
-            txtRate.setStyle(txtRate.getStyle()+"-fx-background-color:#FFFFFF ;");
+            txtRate.setStyle(txtRate.getStyle() + "-fx-background-color:#FFFFFF ;");
         } else if (StringFinder(txtRate)) {
-            txtRate.setStyle(txtRate.getStyle()+"-fx-text-inner-color: #000000;");
+            txtRate.setStyle(txtRate.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-background-color: #D70406;");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-text-inner-color: #000000;");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFatherName)) {
-            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-background-color: #D70406;");
+            txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtFatherName)) {
-            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtFatherName)) {
-            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtFatherName)) {
-            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-text-inner-color: #000000;");
+            txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-background-color: #D70406;");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-text-inner-color: #000000;");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFiled1)) {
-            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-background-color: #D70406;");
+            txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtFiled1)) {
-            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtFiled1)) {
-            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtFiled1)) {
-            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-text-inner-color: #000000;");
+            txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtUBorn)) {
-            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-background-color: #D70406;");
+            txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtUBorn)) {
-            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtUBorn)) {
-            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtUBorn)) {
-            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-text-inner-color: #000000;");
+            txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtReligion)) {
-            txtReligion.setStyle(txtReligion.getStyle()+"-fx-background-color: #D70406;");
+            txtReligion.setStyle(txtReligion.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtReligion)) {
-            txtReligion.setStyle(txtReligion.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtReligion.setStyle(txtReligion.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtReligion)) {
-            txtReligion.setStyle(txtReligion.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtReligion.setStyle(txtReligion.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtReligion)) {
-            txtReligion.setStyle(txtReligion.getStyle()+"-fx-text-inner-color: #000000;");
+            txtReligion.setStyle(txtReligion.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtCityBorn)) {
-            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-background-color: #D70406;");
+            txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtCityBorn)) {
-            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtCityBorn)) {
-            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtCityBorn)) {
-            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-text-inner-color: #000000;");
+            txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
 
         if (!emptyFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-background-color: #D70406;");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-text-inner-color: #000000;");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-background-color: #D70406;");
+            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-text-inner-color: #000000;");
+            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle()+"-fx-background-color: #D70406;");
+            txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         } else if (!NumberFinder(txtFaculty)) {
-            txtAddress.setStyle(txtAddress.getStyle()+"-fx-text-inner-color: #D70406;");
+            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
         if (emptyFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle()+"-fx-background-color: #FFFFFF;");
+            txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle()+"-fx-text-inner-color: #000000;");
+            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
 
@@ -483,21 +508,69 @@ public class NewStudentController implements Initializable {
         return flag;
     }
 
+    @FXML
+    private void exit() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+                System.exit(0);
+            }
+        }
+    }
+
+    @FXML
+    private void back() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+
+                Parent root;
+
+                try {
+                    Stage stage = (Stage) btnBack1.getScene().getWindow();
+                    stage.close();
+
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
+                    root = loader.load();
+                    stage = new Stage();
+
+                    Stage finalStage = stage;
+
+                    finalStage.setResizable(false);
+                    finalStage.initStyle(StageStyle.TRANSPARENT);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
     public void btnSubmit() {
         if (scanner()) {
             student();
+            student.setStudentNumber(studentIdGeneratorDataCenter.creatIdStudent());
+
 
             //TODO show student number from Generator
-        }else{
+        } else {
             //TODO show suitable message
         }
 
     }
 
 
-    public boolean emptyFinder(TextField txtField) {
+    private boolean emptyFinder(TextField txtField) {
         boolean empty = true;
         if (txtField.getText().equals("")) {
             empty = false;
@@ -506,7 +579,7 @@ public class NewStudentController implements Initializable {
         return empty;
     }
 
-    public boolean NumberFinder(TextField txtField) {
+    private boolean NumberFinder(TextField txtField) {
 
         boolean exit = true;
 
@@ -520,18 +593,33 @@ public class NewStudentController implements Initializable {
         return exit;
     }
 
-    public boolean StringFinder(TextField txtField) {
+    private boolean StringFinder(TextField txtField) {
         boolean exit = true;
 
         for (int i = 0; i < txtField.getText().length(); i++) {
             int c = txtField.getText().charAt(i);
-            if (!(c >= 48 && c <= 57) ) {
+            if (!(c >= 48 && c <= 57)) {
                 exit = false;
             }
         }
         return exit;
     }
 
+    private void setImage() {
+        Image img;
+        img = new Image("./sample/PNG/Back.png");
+        imageViewBack.setImage(img);
+        img = new Image("./sample/PNG/Exit.png");
+        imageExit1.setImage(img);
+        img = new Image("./sample/PNG/Exit.png");
+        imageExit2.setImage(img);
+        img = new Image("./sample/PNG/Back.png");
+        imageBack2.setImage(img);
+        img = new Image("./sample/PNG/Exit.png");
+        imageExit3.setImage(img);
+        img = new Image("./sample/PNG/Back.png");
+        imageBack3.setImage(img);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -548,7 +636,7 @@ public class NewStudentController implements Initializable {
         comboCondition.getItems().addAll(condition);
         String[] diplomType = {"قیولی", "ردی"};
         comboDyplomType.getItems().addAll(diplomType);
-
+        setImage();
         Show();
 
     }

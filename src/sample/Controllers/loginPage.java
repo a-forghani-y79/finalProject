@@ -18,7 +18,6 @@ import sample.DataCenter.Archive;
 import sample.DataCenter.Master;
 import sample.DataCenter.NewStudent;
 import sample.DataCenter.Student;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;

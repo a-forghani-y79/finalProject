@@ -149,7 +149,7 @@
                <children>
                   <TabPane layoutX="-2.0" prefHeight="600.0" prefWidth="827.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="مشاهده برنامه درسی">
+                      <Tab fx:id="newWeektableMaster" text="مشاهده برنامه درسی">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="608.0">
                                  <children>
@@ -158,15 +158,15 @@
                                           <Font name="System Bold" size="27.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="43.0" layoutY="82.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="345.0" prefWidth="709.0">
+                                    <TableView fx:id="newWeekMaster" layoutX="43.0" layoutY="82.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="345.0" prefWidth="709.0">
                                       <columns>
-                                          <TableColumn prefWidth="62.0" text="ردیف" />
-                                        <TableColumn prefWidth="130.0" text="دروس درحال تدریس" />
-                                        <TableColumn minWidth="0.0" prefWidth="110.0" text="کد درس" />
-                                          <TableColumn prefWidth="64.0" text="واحد درس" />
-                                          <TableColumn prefWidth="100.0" text="تعداد دانشجو" />
-                                          <TableColumn prefWidth="147.0" text="زمان برگزاری" />
-                                          <TableColumn prefWidth="95.0" text="مکان برگزاری" />
+                                          <TableColumn fx:id="rowNewWeekMaster" prefWidth="62.0" text="ردیف" />
+                                        <TableColumn fx:id="lessonNewWeekMaster" prefWidth="130.0" text="دروس درحال تدریس" />
+                                        <TableColumn fx:id="LessonCodeNewWeekMaster" minWidth="0.0" prefWidth="110.0" text="کد درس" />
+                                          <TableColumn fx:id="UnitNewWeekTableMaster" prefWidth="64.0" text="واحد درس" />
+                                          <TableColumn fx:id="numberStudentNewWeekMaster" prefWidth="100.0" text="تعداد دانشجو" />
+                                          <TableColumn fx:id="startTimeNewWeekTableMaster" prefWidth="147.0" text="زمان برگزاری" />
+                                          <TableColumn fx:id="placeNewWeekMaster" prefWidth="95.0" text="مکان برگزاری" />
                                       </columns>
                                     </TableView>
                                     <JFXButton layoutX="5.0" layoutY="3.0" prefHeight="52.0" prefWidth="43.0" ripplerFill="#f80505" text=" ">
@@ -190,19 +190,17 @@
                                  </children></AnchorPane>
                         </content>
                       </Tab>
-                      <Tab text="حذف و اضافه">
+                      <Tab text="انتخاب درس">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="57.0" layoutY="90.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="229.0" prefWidth="708.0">
+                                    <TableView fx:id="AddTableMaster" layoutX="57.0" layoutY="90.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="229.0" prefWidth="708.0">
                                       <columns>
-                                        <TableColumn prefWidth="120.0" text="دروس در حال تدریس" />
-                                        <TableColumn prefWidth="98.0" text="کد درس" />
-                                          <TableColumn prefWidth="35.0" text="واحد" />
-                                          <TableColumn prefWidth="81.0" text="تعداد دانشجو" />
-                                          <TableColumn prefWidth="146.0" text="ساعت برگزاری" />
-                                          <TableColumn prefWidth="137.0" text="مکان" />
-                                          <TableColumn prefWidth="90.0" text="حذف درس" />
+                                        <TableColumn fx:id="addLessonMaster" prefWidth="120.0" text="دروس ارائه شده" />
+                                        <TableColumn fx:id="addLessonCodeMaster" prefWidth="129.0" text="کد درس" />
+                                          <TableColumn fx:id="addUnitMaster" prefWidth="117.0" text="واحد" />
+                                          <TableColumn fx:id="addPlaceMaster" prefWidth="159.0" text="ساعت برگزاری" />
+                                          <TableColumn fx:id="addMaster" prefWidth="182.0" text="اضافه کردن درس" />
                                       </columns>
                                     </TableView>
                                     <Label alignment="CENTER_RIGHT" layoutX="320.0" layoutY="31.0" prefHeight="43.0" prefWidth="436.0" text="در صورت تمایل می توانید یکی از درس های زیر را حذف کنید....." textFill="#b90404">
@@ -210,17 +208,16 @@
                                           <Font name="System Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TableView layoutX="57.0" layoutY="377.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="707.0">
+                                    <TableView fx:id="DeleteTableMaster" layoutX="57.0" layoutY="377.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="707.0">
                                       <columns>
-                                        <TableColumn prefWidth="116.0" text="درس" />
-                                        <TableColumn prefWidth="126.0" text="کد درس" />
-                                          <TableColumn prefWidth="38.0" text="واحد" />
-                                          <TableColumn prefWidth="231.0" text="ساعت برگزاری" />
-                                          <TableColumn prefWidth="71.0" text="مکان" />
-                                          <TableColumn prefWidth="120.0" text="اضافه کردن درس" />
+                                        <TableColumn fx:id="DeleteLessonMaster" prefWidth="116.0" text="دروس درحال تدریس" />
+                                        <TableColumn fx:id="DeleteLessonCodeMaster" prefWidth="126.0" text="کد درس" />
+                                          <TableColumn fx:id="DeleteUnitMaster" prefWidth="128.0" text="واحد" />
+                                          <TableColumn fx:id="DeletePlaceMaster" prefWidth="154.0" text="ساعت برگزاری" />
+                                          <TableColumn fx:id="DeleteMaster" prefWidth="182.0" text="حذف کردن" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton alignment="CENTER" layoutX="233.0" layoutY="331.0" prefHeight="36.0" prefWidth="370.0" ripplerFill="BLACK" text=" در صورت تمایل برای اضافه کردن درس جدید کلیک کنید!!" textFill="#7c0606">
+                                    <JFXButton alignment="CENTER" layoutX="178.0" layoutY="331.0" prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -243,12 +240,12 @@
                                           </ImageView>
                                        </graphic>
                                     </JFXButton>
+                                    <ImageView fitHeight="53.0" fitWidth="60.0" layoutX="189.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
                                  </children></AnchorPane>
                         </content>
                       </Tab>
                     </tabs>
                   </TabPane>
-                  <ImageView fitHeight="53.0" fitWidth="60.0" layoutX="140.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
       </content>
          <graphic>

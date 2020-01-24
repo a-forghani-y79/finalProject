@@ -147,6 +147,10 @@ public class Archive {
         }
         return list;
     }
+    public Field[] raedFields(){
+        Field[] fields = new Field[0];
+        return fields;
+    }
 
 
     boolean isAllowed() {
@@ -168,6 +172,7 @@ public class Archive {
             erroreMessage += (e.getMessage() + "\n");
         }
     }
+
 
 
     public static void main(String[] args) {

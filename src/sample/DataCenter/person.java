@@ -4,9 +4,10 @@ import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 
 
-public class person {
+public class person<JFXToggleButton> {
     private int row ;
     private String lesson = null;
     private int lessonCod ;
@@ -19,6 +20,9 @@ public class person {
     private String situation = null;
     private int numberOfAbsence ;
     private int studentNumber;
+    private  String classPlace=null;
+
+
 
 
 
@@ -90,9 +94,39 @@ public class person {
         this.studentNumber = studentNumber;
         this.passedStudentNumber = passedStudentNumber;
 
+    }
+
+    public  person (String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit){
+
+        this.lesson = lesson;
+        this.lessonCod = lessonCod;
+        this.unit = unit;
+        this.classStartTime =  classStartTime;
+        this.btnChooseUnit =  btnChooseUnit;
 
 
     }
+
+    public  person(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
+        this.row = row;
+        this.lesson = lesson;
+        this. lessonCod = lessonCod;
+        this.unit = unit;
+        this.studentNumber = studentNumber;
+        this.classStartTime = classStartTime;
+        this.classPlace = classPlace;
+
+    }
+
+//    public  person( int row ,String lesson , int lessonCod , int unit , int ){
+//
+//
+//
+//
+//
+//    }
+
+
 
     public String getLesson() {
         return lesson;

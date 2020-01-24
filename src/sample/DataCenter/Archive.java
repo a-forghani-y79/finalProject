@@ -87,24 +87,57 @@ public class Archive {
 
     }
 
-    void writeStudentList() {
+   public void writeStudentList(Student [] students) {
+        for (int i = 0 ; i<students.length;i++) {
+            try {
+                objectOutputStream.writeObject(students[i]);
+            }catch (IOException e){
+                erroreMessage+=(e.getMessage()+"\n");
+            }
+        }
+    }
+
+    public void writeStudent(Student student) {
+        try {
+            objectOutputStream.writeObject(student);
+        } catch (Exception e) {
+           erroreMessage+=(e.getMessage()+"\n");
+        }
+    }
+
+    public Master readMaster(long personalNumber) {
+        Master master = new Master();
+        boolean flag = true;
+        try {
+            while (flag) {
+                master = (Master) objectInputStream.readObject();
+                if (master.getPersonalNumber() == personalNumber)
+                    flag = false;
+            }
+
+        } catch (EOFException e) {
+            erroreMessage += (e.getMessage() + "\n");
+            if (flag) {
+                erroreMessage += ("student not found\n");
+                master = null;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return master;
+    }
+
+    public void writeMaster(Master master) {
+        try {
+            objectOutputStream.writeObject(master);
+        }catch (IOException e ) {
+            erroreMessage += (e.getMessage()+"\n");
+        }
 
     }
 
-    public void writeStudent() {
-        String name = "";
 
-
-    }
-
-    void readMaster() {
-    }
-
-    void writeMaster() {
-    }
-
-
-    void readManager() {
+   public void readManager(long ManagerID) {
 
     }
 
@@ -196,6 +229,9 @@ public class Archive {
     private void loadBinaryFile(String dist) {
         try {
             fileInputStream = new FileInputStream(dist);
+            fileOutputStream = new FileOutputStream(dist,true);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectInputStream = new ObjectInputStream(fileInputStream);
         } catch (Exception e) {
             erroreMessage += (e.getMessage() + "\n");
         }

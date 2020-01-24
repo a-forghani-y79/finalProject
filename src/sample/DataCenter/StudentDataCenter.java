@@ -1,12 +1,16 @@
 package sample.DataCenter;
 
-public class Student {
+import java.util.ArrayList;
+
+public class StudentDataCenter {
 
     private String firstName;
     private String lastName;
     private long nationalCode;
     private long studentNumber;
-    private Field[] fields;
+
+
+    private ArrayList<FieldDataCenter> fieldsList;
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh
@@ -18,9 +22,9 @@ public class Student {
     private long IDCardNumber;
     private String Address;
     private String SectionEducation;
-    private  String Condition;
-    private  String StartSeason;
-    private  String Nationality;
+    private String Condition;
+    private String StartSeason;
+    private String Nationality;
     private String Course;
     private String DiplomType;
     private String Matrimony;
@@ -34,6 +38,13 @@ public class Student {
     private long ZIPCode;
     private String AreaBorn;
     private long FileNumber1;
+    private int BYear;
+    private int BMonth;
+    private int BDay;
+    private double score;
+
+
+
 
     public int getGender() {
         return Gender;
@@ -69,10 +80,6 @@ public class Student {
         this.BDay = BDay;
     }
 
-    private int BYear ;
-    private int BMonth ;
-    private int BDay ;
-
     public String getFirstName() {
         return firstName;
     }
@@ -105,13 +112,7 @@ public class Student {
         this.studentNumber = studentNumber;
     }
 
-    public Field[] getFields() {
-        return fields;
-    }
 
-    public void setFields(Field[] fields) {
-        this.fields = fields;
-    }
 
     public long getRate() {
         return rate;
@@ -328,4 +329,25 @@ public class Student {
     public void setFileNumber1(long fileNumber1) {
         FileNumber1 = fileNumber1;
     }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public ArrayList<FieldDataCenter> getFieldsList() {
+        return fieldsList;
+    }
+    public void addField(FieldDataCenter field){
+        fieldsList.add(field);
+
+    }
+
+    public void setFieldsList(ArrayList<FieldDataCenter> fieldsList) {
+        this.fieldsList = fieldsList;
+    }
+
 }

@@ -2,7 +2,7 @@ package sample.DataCenter;
 
 import java.io.Serializable;
 
-public class NewStudent implements Serializable {
+public class NewStudentDataCenter implements Serializable {
 
     //ساختار داده برای دانشجویان جدیدالورود و مطابق لیست دریافتی از سازمان سنجش
     // نام-نام خانوادگی-رتبه -شماره ملی- رشته - روزانه/شبانه - شماره پرونده
@@ -23,7 +23,6 @@ public class NewStudent implements Serializable {
     }
 
     private  int Gender ;
-
 
     public long getFileNumber() {
         return fileNumber;

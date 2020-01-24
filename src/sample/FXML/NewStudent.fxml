@@ -75,7 +75,7 @@
                    <Label alignment="TOP_RIGHT" layoutX="245.0" layoutY="184.0" prefHeight="22.0" prefWidth="88.0" text="دوره: " />
                    <TextField fx:id="txtFatherPhoneNumber" layoutX="344.0" layoutY="179.0" prefHeight="32.0" prefWidth="110.0" />
                    <Label alignment="TOP_RIGHT" layoutX="214.0" layoutY="105.0" prefHeight="22.0" prefWidth="119.0" text="مقطع تحصیلی: " />
-                   
+
                    <Label alignment="TOP_RIGHT" layoutX="454.0" layoutY="184.0" prefHeight="22.0" prefWidth="119.0" text="شماره تلفن پدر:" />
                    <TextField fx:id="txtFiled1" editable="false" layoutX="104.0" layoutY="139.0" prefHeight="32.0" prefWidth="110.0" />
                    <Label alignment="TOP_RIGHT" layoutX="455.0" layoutY="144.0" prefHeight="22.0" prefWidth="130.0" text="محل صدور شناسنامه:" />
@@ -99,7 +99,7 @@
                    <Label alignment="TOP_RIGHT" layoutX="502.0" layoutY="266.0" prefHeight="22.0" prefWidth="69.0" text="نوع دیپلم :" />
                    <TextField fx:id="txtZIPCode" layoutX="104.0" layoutY="343.0" prefHeight="32.0" prefWidth="110.0" />
                    <Label alignment="TOP_RIGHT" layoutX="484.0" layoutY="348.0" prefHeight="22.0" prefWidth="85.0" text="ایمیل :" />
-                  
+
                    <Label alignment="TOP_RIGHT" layoutX="482.0" layoutY="305.0" prefHeight="22.0" prefWidth="90.0" text="سال اخذ دیپلم:" />
                    <Label alignment="TOP_RIGHT" layoutX="936.0" layoutY="390.0" prefHeight="22.0" prefWidth="64.0" text="تاریخ تولد:" />
                   <JFXComboBox fx:id="comboCondition" layoutX="104.0" layoutY="265.0" prefHeight="28.0" prefWidth="103.0" promptText="درحال تحصیل / فارق تحصیل" />
@@ -114,7 +114,7 @@
                   <TextField fx:id="txtSectionEducation" layoutX="101.0" layoutY="104.0" prefHeight="26.0" prefWidth="117.0" />
                   <TextField fx:id="txtRate1" layoutX="825.0" layoutY="183.0" prefHeight="26.0" prefWidth="109.0" />
                   <Label alignment="CENTER" layoutX="949.0" layoutY="180.0" prefHeight="32.0" prefWidth="50.0" text="رتبه" />
-                  
+
                   <TextField fx:id="txtCourse1" layoutX="99.0" layoutY="180.0" prefHeight="30.0" prefWidth="116.0" />
                   <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" prefHeight="28.0" prefWidth="108.0" promptText="ردی/قبولی" />
                   <JFXButton fx:id="btnSubmit" layoutX="100.0" layoutY="463.0" onMouseClicked="#btnSubmit" prefHeight="36.0" prefWidth="107.0" text="Submit" />

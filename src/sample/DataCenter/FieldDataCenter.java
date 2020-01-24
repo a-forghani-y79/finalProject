@@ -1,20 +1,38 @@
 package sample.DataCenter;
 
-public class Field {
+public class FieldDataCenter {
 
     private String fieldName;
     private long fieldNumber;
     private int unit;
-    private Master master;
-    private String classStartTime ;
-    private String timeToTakeExam ;
-    //TODO زمان امتحان و برگذاری درس اضافه شود
+    private String masterName;
+    private String classStartTime;
+    private String timeToTakeExam;
+    private double score;
 
-    public String getName() {
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public String getMasterName() {
+        return masterName;
+    }
+
+    public void setMasterName(String masterName) {
+        this.masterName = masterName;
+    }
+
+
+
+    public String getFieldName() {
         return fieldName;
     }
 
-    public void setName(String name) {
+    public void setFieldName(String name) {
         this.fieldName = name;
     }
 
@@ -34,13 +52,7 @@ public class Field {
         this.unit = unit;
     }
 
-    public Master getMaster() {
-        return master;
-    }
 
-    public void setMaster(Master master) {
-        this.master = master;
-    }
 
     public String getClassStartTime() {
         return classStartTime;

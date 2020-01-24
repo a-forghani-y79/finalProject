@@ -1,13 +1,13 @@
 package sample.DataCenter;
 
-public class User {
+public class UserDataCenter {
     private String firstName = null;
     private String lastName = null;
 
-    public User() {
+    public UserDataCenter() {
     }
 
-    public User(String firstName, String lastName) {
+    public UserDataCenter(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

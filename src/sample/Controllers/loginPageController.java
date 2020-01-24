@@ -14,10 +14,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.DataCenter.Archive;
-import sample.DataCenter.Master;
-import sample.DataCenter.NewStudent;
-import sample.DataCenter.Student;
+import sample.DataCenter.ArchiveDataCenter;
+import sample.DataCenter.MasterDataCenter;
+import sample.DataCenter.NewStudentDataCenter;
+import sample.DataCenter.StudentDataCenter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class loginPage implements Initializable {
+public class loginPageController implements Initializable {
 
 
     public AnchorPane paneBackground;
@@ -37,15 +37,15 @@ public class loginPage implements Initializable {
     public JFXComboBox useCaseCombo;
     public TextArea txtInfo;
     public JFXButton btnExit;
-    private Archive archive;
+    private ArchiveDataCenter archive;
     private StringBuilder stringBuilder;
     private int year;
     private String strYear;
 
     //passengers
-    private NewStudent passengerNewStudent;
-    private Master passengerMaster;
-    private Student passengerStudent;
+    private NewStudentDataCenter passengerNewStudent;
+    private MasterDataCenter passengerMaster;
+    private StudentDataCenter passengerStudent;
 
 
     public TextArea getTxtInfo() {
@@ -155,7 +155,7 @@ public class loginPage implements Initializable {
 
         int useCaseIndex = useCaseCombo.getSelectionModel().getSelectedIndex();
         if (useCaseIndex == -1) {
-            alert("نوع کاربری خود را انتخاب کنید",lblAlert,"red");
+            alert("نوع کاربری خود را انتخاب کنید", lblAlert, "red");
             return;
         }
 
@@ -253,8 +253,8 @@ public class loginPage implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new Archive(year, Archive.NEW_STUDENT);
-        NewStudent std = archive.readNewStudent(userName);
+        archive = new ArchiveDataCenter(year, ArchiveDataCenter.NEW_STUDENT);
+        NewStudentDataCenter std = archive.readNewStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)
                 return true;
@@ -267,8 +267,8 @@ public class loginPage implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new Archive(year, Archive.STUDENT);
-        Student std = archive.readStudent(userName);
+        archive = new ArchiveDataCenter(year, ArchiveDataCenter.STUDENT);
+        StudentDataCenter std = archive.readStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)
                 return true;
@@ -281,8 +281,8 @@ public class loginPage implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new Archive(year, Archive.STUDENT);
-        Student std = archive.readStudent(userName);
+        archive = new ArchiveDataCenter(year, ArchiveDataCenter.STUDENT);
+        StudentDataCenter std = archive.readStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)
                 return true;
@@ -366,7 +366,7 @@ public class loginPage implements Initializable {
         try {
             Stage stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
-            sample.Controllers.NewStudent newStudentController = new sample.Controllers.NewStudent();
+            NewStudentController newStudentController = new NewStudentController();
             newStudentController.setStd(passengerNewStudent);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/NewStudent.fxml"));
@@ -392,7 +392,7 @@ public class loginPage implements Initializable {
         try {
             Stage stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
-            Manager manager = new Manager();
+            ManagerController manager = new ManagerController();
 
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Manager.fxml"));
@@ -418,7 +418,7 @@ public class loginPage implements Initializable {
         try {
             Stage stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
-            sample.Controllers.Student studentController = new sample.Controllers.Student();
+            StudentController studentController = new StudentController();
             studentController.setStudent(passengerStudent);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Student.fxml"));
@@ -444,7 +444,7 @@ public class loginPage implements Initializable {
         try {
             Stage stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
-            sample.Controllers.Master masterController = new sample.Controllers.Master();
+            MasterController masterController = new MasterController();
             masterController.setMaster(passengerMaster);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Master.fxml"));

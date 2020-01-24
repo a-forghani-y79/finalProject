@@ -1,6 +1,6 @@
 package sample.DataCenter;
 
-public class Manager {
+public class ManagerDataCenter {
     public String getFirstName() {
         return firstName;
     }
@@ -38,7 +38,7 @@ public class Manager {
     private String userNameHash;
     private String passwordNameHash;
 
-    public Manager() {
+    public ManagerDataCenter() {
         firstName = "علی";
         lastName = "پاکزاد";
         userNameHash = "7689fdb8267556981974c94fab9d7a77ba62efa8605329264e0c39bbfc486ce2";

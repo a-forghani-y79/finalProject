@@ -58,6 +58,11 @@ public class Archive {
 
     private File file;
 
+    public int readNumberOfStudent() {
+        int numberOfStudent = 0;
+
+        return numberOfStudent;
+    }
 
     public Student readStudent(long studentNumber) {
         Student std = new Student();

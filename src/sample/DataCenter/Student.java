@@ -33,7 +33,35 @@ public class Student {
     private String Email;
     private long ZIPCode;
     private String AreaBorn;
-    private String FileNumber1;
+    private long FileNumber1;
+
+    public int getBYear() {
+        return BYear;
+    }
+
+    public void setBYear(int BYear) {
+        this.BYear = BYear;
+    }
+
+    public int getBMonth() {
+        return BMonth;
+    }
+
+    public void setBMonth(int BMonth) {
+        this.BMonth = BMonth;
+    }
+
+    public int getBDay() {
+        return BDay;
+    }
+
+    public void setBDay(int BDay) {
+        this.BDay = BDay;
+    }
+
+    private int BYear ;
+    private int BMonth ;
+    private int BDay ;
 
     public String getFirstName() {
         return firstName;
@@ -283,11 +311,11 @@ public class Student {
         AreaBorn = areaBorn;
     }
 
-    public String getFileNumber1() {
+    public long getFileNumber1() {
         return FileNumber1;
     }
 
-    public void setFileNumber1(String fileNumber1) {
+    public void setFileNumber1(long fileNumber1) {
         FileNumber1 = fileNumber1;
     }
 }

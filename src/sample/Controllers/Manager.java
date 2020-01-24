@@ -12,7 +12,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class manager implements Initializable {
+public class Manager implements Initializable {
     public JFXButton btnBrowse;
     public JFXButton btnImport;
     TextField txtAddress;

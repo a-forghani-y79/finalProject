@@ -87,6 +87,15 @@ public class Student implements Initializable {
     public TextField txtReligionProfile;
     public TextField txtReligion2Profile;
 
+
+    //
+    private sample.DataCenter.Student student;
+
+    public void setStudent(sample.DataCenter.Student student) {
+        this.student = student;
+    }
+
+
     // sample.DataCenter.Student student;
 
     public void onActionSetProfile(){
@@ -157,6 +166,10 @@ public class Student implements Initializable {
         tableViewChoose.getItems().add(new sample.DataCenter.person(1, "math", 123456, "tanha", 3, "32,45,76", "8234869", btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
+
+    }
+
+    public void onActionSetInfoOfStudent(){
 
     }
 

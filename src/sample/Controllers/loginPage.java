@@ -7,7 +7,6 @@ import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.DataCenter.Archive;
 import sample.DataCenter.Hashing;
+import sample.DataCenter.Master;
 import sample.DataCenter.NewStudent;
 import sample.DataCenter.Student;
 
@@ -35,18 +35,22 @@ public class loginPage implements Initializable {
     public AnchorPane paneBackground;
     public JFXTextField txtUser;
     public JFXTextField txtPass;
-    public Label status;
 
     public ImageView imgbackpane;
-    public Label UserJustNumber;
     public Label lblAlert;
     public JFXComboBox UseCaseCombo;
     public TextArea txtInfo;
     public JFXButton btnExit;
-    Archive archive;
-    StringBuilder stringBuilder;
-    int year;
-    String strYear;
+    private Archive archive;
+    private StringBuilder stringBuilder;
+    private int year;
+    private String strYear;
+
+    //passengers
+    private NewStudent passengerNewStudent;
+    private Master passengerMaster;
+    private Student passengerStudent;
+
 
 
     public TextArea getTxtInfo() {
@@ -58,7 +62,7 @@ public class loginPage implements Initializable {
     }
 
 
-    public void AnchorTime() {
+    private void AnchorTime() {
         Image img;
 
         LocalDateTime KnowTime = LocalDateTime.now();
@@ -68,7 +72,7 @@ public class loginPage implements Initializable {
             img = new Image("./sample/PNG/1pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 4 && KnowTime.getHour() < 5) {
+        if (KnowTime.getHour() == 4) {
             img = new Image("./sample/PNG/2pic.png");
             imgbackpane.setImage(img);
         }
@@ -91,34 +95,29 @@ public class loginPage implements Initializable {
             img = new Image("./sample/PNG/6pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 16 && KnowTime.getHour() < 17) {
+        if (KnowTime.getHour() == 16) {
             img = new Image("./sample/PNG/7pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 17 && KnowTime.getHour() < 18) {
+        if (KnowTime.getHour() == 17) {
             img = new Image("./sample/PNG/8pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 18 && KnowTime.getHour() < 19) {
+        if (KnowTime.getHour() == 18) {
 
             img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 19 && KnowTime.getHour() < 24) {
+        if (KnowTime.getHour() >= 19) {
             img = new Image("./sample/PNG/10pic.png");
             imgbackpane.setImage(img);
         }
-        if (KnowTime.getHour() >= 0 && KnowTime.getHour() < 2) {
+        if (KnowTime.getHour() < 2) {
             img = new Image("./sample/PNG/11pic.png");
             imgbackpane.setImage(img);
         }
 
     }
-
-
-    private Hashing hashing;
-
-    FXMessageDialog fxMessageDialog;
 
 
     public void DeleteUser() {
@@ -137,10 +136,10 @@ public class loginPage implements Initializable {
 
 
         Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent())
+            if (result.get() == ButtonType.YES)
 
-        if (result.get() == ButtonType.YES)
-
-            System.exit(0);
+                System.exit(0);
 
 
     }
@@ -150,34 +149,32 @@ public class loginPage implements Initializable {
 
         String user = txtUser.getText();
         String pass = txtPass.getText();
-
         long UserNum = 0;
         long PassNum = 0;
-
-
-        considerEmpty();
-        considerRight();
-
+        if (considerEmpty() && considerRight()) {
+            UserNum = Long.parseLong(user);
+            PassNum = Long.parseLong(pass);
+        }
 
         int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
 
         switch (UseCaseIndex) {
             case 0:
-                if (true) {
-                    sample.Controllers.Student studentController = new sample.Controllers.Student();
-                    openFXML("FXML/NewStudent.fxml", paneBackground, studentController);
-                }
+                AuthNewStudent(UserNum, PassNum);
+
                 break;
             case 1:
-               // AuthStudent(UserNum, PassNum);
-                sample.Controllers.Student studentController = new sample.Controllers.Student();
-                openFXML("./../src/sample/FXML/NewStudent.fxml", paneBackground, studentController);
+                AuthStudent(UserNum, PassNum);
+
+
                 break;
             case 2:
                 AuthMaster(UserNum, PassNum);
+
                 break;
             case 3:
                 AuthManager(UserNum, PassNum);
+
                 break;
 
         }
@@ -185,31 +182,31 @@ public class loginPage implements Initializable {
 
     }
 
-    boolean auth(String user, String pass) {
+//    boolean auth(String user, String pass) {
+//
+//
+//        try {
+//            Hashing hashing = new Hashing(null);
+//            BufferedReader bf = new BufferedReader(new FileReader("./src/sample/Files/Auth"));
+//            String userHash = bf.readLine();
+//            String passHash = bf.readLine();
+//            hashing.setMessage(user);
+//            user = hashing.getHash();
+//            hashing.setMessage(pass);
+//            pass = hashing.getHash();
+//            if (userHash.equals(user) && passHash.equals(pass))
+//                return true;
+//            else
+//                return false;
+//        } catch (Exception e) {
+//            alert("Error: " + e.getMessage(), lblAlert, "red");
+//            return false;
+//        }
+//
+//
+//    }
 
-
-        try {
-            hashing = new Hashing(null);
-            BufferedReader bf = new BufferedReader(new FileReader("./src/sample/Files/Auth"));
-            String userHash = bf.readLine();
-            String passHash = bf.readLine();
-            hashing.setMessage(user);
-            user = hashing.getHash();
-            hashing.setMessage(pass);
-            pass = hashing.getHash();
-            if (userHash.equals(user) && passHash.equals(pass))
-                return true;
-            else
-                return false;
-        } catch (Exception e) {
-            alert("Error: " + e.getMessage(), status, "red");
-            return false;
-        }
-
-
-    }
-
-    void alert(String message, Label lbl, String color) {
+    private void alert(String message,Label lbl, String color) {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
@@ -228,18 +225,14 @@ public class loginPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
-
-
         String[] comboItems = {"دانشجو جدید الورود", "دانشجو", "استاد", "کارمند آموزش"};
-
-
         UseCaseCombo.getItems().addAll(comboItems);
         UseCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 
 
     }
 
-    public boolean AuthNewStudent(long userName, long passWord) {
+    private boolean AuthNewStudent(long userName, long passWord) {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
@@ -253,7 +246,7 @@ public class loginPage implements Initializable {
         else return false;
     }
 
-    public boolean AuthStudent(long userName, long passWord) {
+    private boolean AuthStudent(long userName, long passWord) {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
@@ -267,38 +260,45 @@ public class loginPage implements Initializable {
         else return false;
     }
 
-    public boolean AuthMaster(long userName, long passWord) {
+    private boolean AuthMaster(long userName, long passWord) {
         return true;
 
     }
 
-    public boolean AuthManager(long userName, long passWord) {
+    private boolean AuthManager(long userName, long passWord) {
 
 
         return true;
     }
 
 
-    public void considerEmpty() {
+    private boolean considerEmpty() {
+        boolean flag = true;
         String user = txtUser.getText();
         String pass = txtPass.getText();
 
-        if (user.equals("") && pass.equals(""))
+        if (user.equals("") && pass.equals("")) {
             alert("لطفا نام کاربری و رمز عبور را وارد کنید", lblAlert, "red");
+            flag = false;
+        } else {
 
-
-        else {
-            if (user.equals(""))
+            if (user.equals("")) {
                 alert("لطفا نام کاربری را وارد کنید", lblAlert, "red");
-            if (pass.equals(""))
+                flag = false;
+            }
+            if (pass.equals("")) {
                 alert("لطفا رمز عبور را وارد کنید", lblAlert, "red");
+                flag = false;
+            }
         }
+
+        return flag;
 
 
     }
 
-    public void considerRight() {
-
+    private boolean considerRight() {
+        boolean flag = true;
         String user = txtUser.getText();
         String pass = txtPass.getText();
 
@@ -311,9 +311,10 @@ public class loginPage implements Initializable {
             for (int i = 0; i < user.length(); i++) {
                 a = user.charAt(i);
                 b = a - 48;
-                if (!(b >= 0 && b <= 9))
+                if (!(b >= 0 && b <= 9)) {
                     alert("لطفا فقط عدد وارد کنید", lblAlert, "Red");
-
+                    flag = false;
+                }
             }
             int c = 0;
             int g = 0;
@@ -321,44 +322,119 @@ public class loginPage implements Initializable {
             for (int j = 0; j < pass.length(); j++) {
                 c = user.charAt(j);
                 g = c - 48;
-                if (!(g >= 0 && g <= 9))
+                if (!(g >= 0 && g <= 9)) {
                     alert("لطفا فقط عدد وارد کنید", lblAlert, "red");
+                    flag = false;
+                }
             }
 
         }
 
-
+        return flag;
     }
 
-    void openFXML(String FXML_address, Node node, Object controller) {
+    private void openFxmlNewStudent() {
         Parent root;
 
         try {
-            Stage stage = (Stage) node.getScene().getWindow();
+            Stage stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
+            sample.Controllers.NewStudent newStudentController = new sample.Controllers.NewStudent();
+            newStudentController.setStd(passengerNewStudent);
 
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_address));
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/NewStudent.fxml"));
+            loader.setController(newStudentController);
             root = loader.load();
-            loader.setController(controller);
             stage = new Stage();
-//            root.setOnMousePressed(event -> {
-//                x = event.getSceneX();
-//                y = event.getSceneY();
-//            });
+
             Stage finalStage = stage;
-//            root.setOnMouseDragged(event -> {
-//                finalStage.setX(event.getScreenX() - x);
-//                finalStage.setY(event.getScreenY() - y);
-//            });
+
             finalStage.setResizable(false);
-            //   finalStage.initStyle(StageStyle.TRANSPARENT);
+            finalStage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(new Scene(root));
             stage.show();
 
         } catch (IOException e) {
-            alert(e.getMessage(), lblAlert, "blue");
+            e.printStackTrace();
+        }
+    }
+
+    private void openFxmlManager() {
+        Parent root;
+
+        try {
+            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage.close();
+            Manager manager = new Manager();
+
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Manager.fxml"));
+            loader.setController(manager);
+            root = loader.load();
+            stage = new Stage();
+
+            Stage finalStage = stage;
+
+            finalStage.setResizable(false);
+            finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openFxmlStudent() {
+        Parent root;
+
+        try {
+            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage.close();
+            sample.Controllers.Student studentController = new sample.Controllers.Student();
+            studentController.setStudent(passengerStudent);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Student.fxml"));
+            loader.setController(studentController);
+            root = loader.load();
+            stage = new Stage();
+
+            Stage finalStage = stage;
+
+            finalStage.setResizable(false);
+            finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openFxmlMaster() {
+        Parent root;
+
+        try {
+            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage.close();
+            sample.Controllers.Master masterController = new sample.Controllers.Master();
+            masterController.setMaster(passengerMaster);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Master.fxml"));
+            loader.setController(masterController);
+            root = loader.load();
+            stage = new Stage();
+
+            Stage finalStage = stage;
+
+            finalStage.setResizable(false);
+            finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

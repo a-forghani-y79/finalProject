@@ -17,7 +17,7 @@ public class Master implements Initializable {
     public TableColumn LessonUnitMasterRecord;
     public TableColumn StudentNumberMasterRecord;
     public TableColumn PassedStudentNumberMasterRecord;
-   // public TableView weeklyTable;
+    public TableView weeklyTable;
     public TableView weeklyTableView;
 
     public TableView AddTableMaster;
@@ -51,6 +51,11 @@ public class Master implements Initializable {
 //    public Master(sample.DataCenter.Master master){
 //        this.master = master;
 //    }
+    public void setMaster(sample.DataCenter.Master master) {
+        this.master = master;
+    }
+
+
     public  void UnVisible()
     {
 
@@ -97,7 +102,7 @@ public class Master implements Initializable {
 
 
     }
-    
+
    public  void  newWeekMaster(){
        rowNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
        lessonNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -123,12 +128,6 @@ public class Master implements Initializable {
 
 
 
-
-
-
-
-
-//   
 
 
     @Override

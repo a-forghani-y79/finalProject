@@ -204,7 +204,6 @@ public class person<JFXToggleButton> {
         return numberOfAbsence;
     }
     public int getStudentNumber() {
-        System.out.println("124");
         return studentNumber;
     }
 
@@ -213,7 +212,6 @@ public class person<JFXToggleButton> {
     }
 
     public int getPassedStudentNumber() {
-        System.out.println("124");
         return passedStudentNumber;
     }
 

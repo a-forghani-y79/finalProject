@@ -134,8 +134,24 @@ public class Archive {
     }
 
 
-    void readAllMasters() {
+    //    void readAllMasters() {
+//    }
+    //read All Masters
+    ArrayList<Master> readAllMasters() {
+        ArrayList<Master> list = new ArrayList<Master>(){};
+        Master std = new Master();
+        try {
+            while (true) {
+                std = (Master)objectInputStream.readObject();
+                list.add(std);
+            }
+        } catch (ClassNotFoundException | IOException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return list;
     }
+
+    //read All Students
 
     ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
@@ -152,11 +168,18 @@ public class Archive {
         }
         return list;
     }
-    public Field[] raedFields(){
-        Field[] fields = new Field[0];
-        return fields;
+    //read All Managers
+    ArrayList<Student> readAllManagers(){
+        ArrayList<Student> list = new ArrayList<Student>(){};
+        Student std = new Student();
+        try {
+            std=(Student)objectInputStream.readObject();
+            list.add(std);
+        }catch (ClassNotFoundException | IOException e){
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return list;
     }
-
 
     boolean isAllowed() {
         if (erroreMessage.length() == 0)
@@ -177,7 +200,6 @@ public class Archive {
             erroreMessage += (e.getMessage() + "\n");
         }
     }
-
 
 
     public static void main(String[] args) {

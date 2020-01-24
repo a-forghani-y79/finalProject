@@ -2,11 +2,14 @@ package sample.DataCenter;
 
 public class Master {
 
+
+
     private String firstName;
     private String lastName;
     private long nationalNumber;
     private long  personalNumber;
-    private String gender;
+    private Master master;
+
 
     public String getFirstName() {
         return firstName;
@@ -38,14 +41,6 @@ public class Master {
 
     public void setPersonalNumber(long personalNumber) {
         this.personalNumber = personalNumber;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
 

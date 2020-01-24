@@ -73,6 +73,11 @@ public class ImportNewStudentDataCenter {
                 student.setField(information[4]);
                 student.setDay_night(information[5].equals("روزانه"));
                 student.setFileNumber(Long.parseLong(information[6]));
+                if (information[7].equals("مذکر")){
+                    student.setGender(1);
+                }else if (information[7].equals("مونث")){
+                    student.setGender(0);
+                }
                 students.add(student);
             }
 

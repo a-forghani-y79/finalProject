@@ -1,9 +1,11 @@
 package sample.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sample.DataCenter.NewStudentDataCenter;
 import sample.DataCenter.StudentDataCenter;
@@ -46,34 +48,51 @@ public class NewStudentController implements Initializable {
     public TextField txtCourse;
     public TextField txtAddress;
     public TextField txtIDCardNumber;
-    public TextField txtFiledNumber;
+
     public TextField txtSectionEducation;
     public TextField txtFatherPhoneNumber;
     public ImageView Tab1PIC;
     public TextField txtRate1;
     public TextField txtCourse1;
     public JFXComboBox<String> comboDyplomType;
+    public TextField txtGender;
+    public JFXButton btnSubmit;
 
     NewStudentDataCenter std;
 
-    public void setStd(NewStudentDataCenter std) {
+    public void setStd(sample.DataCenter.NewStudentDataCenter std) {
         this.std = std;
     }
 
 
-    public void Show() {
+    private void Show() {
         txtFirstName.setText(std.getFirstName());
         txtName1.setText(std.getFirstName());
         txtLastName1.setText(std.getLastName());
         txtLastName.setText(std.getLastName());
         txtNationalID.setText(String.valueOf(std.getID()));
-        txtFileNumber1.setText(String.valueOf(std.getID()));
+        txtNationalID1.setText(String.valueOf(std.getID()));
         txtRate.setText(String.valueOf(std.getRate()));
         txtRate1.setText(String.valueOf(std.getRate()));
         txtField.setText(String.valueOf(std.getField()));
         txtFiled1.setText(String.valueOf(std.getField()));
         txtFileNumber.setText(String.valueOf(std.getFileNumber()));
         txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
+
+        Image img;
+
+        if (std.getGender() == 0) {
+            txtGender.setText("خانم");
+            student.setGender(0);
+            img = new Image("./sample/PNG/Female_Student-512.png");
+            Tab1PIC.setImage(img);
+        } else if (std.getGender() == 1) {
+            student.setGender(1);
+            txtGender.setText("مرد");
+            img = new Image("./sample/PNG/Student.png");
+            Tab1PIC.setImage(img);
+        }
+
         if (std.isDay_night() == true) {
             txtCourse.setText("day");
             txtCourse1.setText("day");
@@ -86,14 +105,14 @@ public class NewStudentController implements Initializable {
 
     }
 
-    public int findComboIndex(JFXComboBox Box) {
+    private int findComboIndex(JFXComboBox Box) {
         int index = Box.getSelectionModel().getSelectedIndex();
         return index;
     }
 
     StudentDataCenter student;
 
-    public void Student() {
+    private void student() {
         student.setFirstName(txtFirstName.getText());
         student.setLastName(txtLastName.getText());
         student.setNationalCode(Long.parseLong(txtNationalID.getText()));
@@ -135,7 +154,7 @@ public class NewStudentController implements Initializable {
             student.setFaith("یهودی");
         }
         if (IndexFaith == 2) {
-            student.setFaith("مسیهی");
+            student.setFaith("مسیحی");
         }
         if (IndexFaith == 3) {
             student.setFaith("مسلمان");
@@ -149,7 +168,7 @@ public class NewStudentController implements Initializable {
         }
         int IndexCondition = findComboIndex(comboCondition);
         if (IndexCondition == 0) {
-            student.setCondition("فارق التخصیل");
+            student.setCondition("فارغ التخصیل");
         }
         if (IndexCondition == 1) {
             student.setCondition("در حال تحصیل");
@@ -182,111 +201,305 @@ public class NewStudentController implements Initializable {
         student.setBDay(localDate.getDayOfMonth());
     }
 
-    public void Scanner() {
-        if (!emptyFinder(txtIDCardNumber)) {
-            txtIDCardNumber.setStyle("-fx-background-color: D70406");
+    private boolean scanner() {
+        //TODO move color setting to emptyFinder method
+        boolean flag = true;
+
+        LocalDate localDate =DataPicker.getValue();
+
+        try {
+            localDate.getYear();
+            localDate.getMonth();
+            localDate.getDayOfMonth();
+
+        }catch (NullPointerException e){
+            DataPicker.setStyle(DataPicker.getStyle()+"-fx-background-color: #D70406 ;");
+            flag =false;
+        }
+
+        if (!(emptyFinder(txtIDCardNumber))) {
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-background-color: #D70406 ;");
+            flag = false;
         } else if (!StringFinder(txtIDCardNumber)) {
-            txtIDCardNumber.setStyle("-fx-text-inner-color: D70406");
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtIDCardNumber)) {
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtIDCardNumber)) {
+            txtIDCardNumber.setStyle(txtIDCardNumber.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle("-fx-background-color: D70406");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtPhoneNumber)) {
-            txtPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtPhoneNumber)) {
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtPhoneNumber)) {
+            txtPhoneNumber.setStyle(txtPhoneNumber.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle("-fx-background-color: D70406");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtFatherPhoneNumber)) {
-            txtFatherPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtFatherPhoneNumber)) {
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtFatherPhoneNumber)) {
+            txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtZIPCode)) {
-            txtZIPCode.setStyle("-fx-background-color: D70406");
+            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtZIPCode)) {
-            txtZIPCode.setStyle("-fx-text-inner-color: D70406");
+            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-text-inner-color: #D70406;");
+        }
+        if (emptyFinder(txtZIPCode)) {
+            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtZIPCode)) {
+            txtZIPCode.setStyle(txtZIPCode.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle("-fx-background-color: D70406");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtFileNumber1)) {
-            txtFileNumber1.setStyle("-fx-text-inner-color: D70406");
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtFileNumber1)) {
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtFileNumber1)) {
+            txtFileNumber1.setStyle(txtFileNumber1.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle("-fx-background-color: D70406");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtDiplomYear)) {
-            txtDiplomYear.setStyle("-fx-text-inner-color: D70406");
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtDiplomYear)) {
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (StringFinder(txtDiplomYear)) {
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtRate)) {
-            txtRate.setStyle("-fx-background-color: D70406");
+            txtRate.setStyle(txtRate.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!StringFinder(txtRate)) {
-            txtRate.setStyle("-fx-text-inner-color: D70406");
+            txtRate.setStyle(txtRate.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtRate)) {
+            txtRate.setStyle(txtRate.getStyle()+"-fx-background-color:#FFFFFF ;");
+        } else if (StringFinder(txtRate)) {
+            txtRate.setStyle(txtRate.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle("-fx-background-color: D70406");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtSectionEducation)) {
-            txtSectionEducation.setStyle("-fx-text-inner-color: D70406");
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtSectionEducation)) {
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtSectionEducation)) {
+            txtSectionEducation.setStyle(txtSectionEducation.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFatherName)) {
-            txtFatherName.setStyle("-fx-background-color: D70406");
+            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtFatherName)) {
-            txtFatherName.setStyle("-fx-text-inner-color: D70406");
+            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtFatherName)) {
+            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtFatherName)) {
+            txtFatherName.setStyle(txtFatherName.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle("-fx-background-color: D70406");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle("-fx-text-inner-color: D70406");
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtLocalBorn)) {
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtLocalBorn)) {
+            txtLocalBorn.setStyle(txtLocalBorn.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFiled1)) {
-            txtFiled1.setStyle("-fx-background-color: D70406");
+            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtFiled1)) {
-            txtFiled1.setStyle("-fx-text-inner-color: D70406");
+            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtFiled1)) {
+            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtFiled1)) {
+            txtFiled1.setStyle(txtFiled1.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtUBorn)) {
-            txtUBorn.setStyle("-fx-background-color: D70406");
+            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtUBorn)) {
-            txtUBorn.setStyle("-fx-text-inner-color: D70406");
+            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtUBorn)) {
+            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtUBorn)) {
+            txtUBorn.setStyle(txtUBorn.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtReligion)) {
-            txtReligion.setStyle("-fx-background-color: D70406");
+            txtReligion.setStyle(txtReligion.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtReligion)) {
-            txtReligion.setStyle("-fx-text-inner-color: D70406");
+            txtReligion.setStyle(txtReligion.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtReligion)) {
+            txtReligion.setStyle(txtReligion.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtReligion)) {
+            txtReligion.setStyle(txtReligion.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtCityBorn)) {
-            txtCityBorn.setStyle("-fx-background-color: D70406");
+            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtCityBorn)) {
-            txtCityBorn.setStyle("-fx-text-inner-color: D70406");
+            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtCityBorn)) {
+            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtCityBorn)) {
+            txtCityBorn.setStyle(txtCityBorn.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
 
         if (!emptyFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle("-fx-background-color: D70406");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtAreaBorn)) {
-            txtAreaBorn.setStyle("-fx-text-inner-color: D70406");
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtAreaBorn)) {
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtAreaBorn)) {
+            txtAreaBorn.setStyle(txtAreaBorn.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
         if (!emptyFinder(txtFaculty)) {
-            txtFaculty.setStyle("-fx-background-color: D70406");
+            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
         } else if (!NumberFinder(txtFaculty)) {
-            txtFaculty.setStyle("-fx-text-inner-color: D70406");
+            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtFaculty)) {
+            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtFaculty)) {
+            txtFaculty.setStyle(txtFaculty.getStyle()+"-fx-text-inner-color: #000000;");
         }
 
+        if (!emptyFinder(txtAddress)) {
+            txtAddress.setStyle(txtAddress.getStyle()+"-fx-background-color: #D70406;");
+            flag = false;
+        } else if (!NumberFinder(txtFaculty)) {
+            txtAddress.setStyle(txtAddress.getStyle()+"-fx-text-inner-color: #D70406;");
+            flag = false;
+        }
+        if (emptyFinder(txtAddress)) {
+            txtAddress.setStyle(txtAddress.getStyle()+"-fx-background-color: #FFFFFF;");
+        } else if (NumberFinder(txtAddress)) {
+            txtAddress.setStyle(txtAddress.getStyle()+"-fx-text-inner-color: #000000;");
+        }
+
+
+        if (findComboIndex(comboFaith) == -1) {
+            comboFaith.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboFaith.setStyle("-fx-background-color: #FFFFFF");
+        }
+
+        if (findComboIndex(comboStartSeason) == -1) {
+            comboStartSeason.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboStartSeason.setStyle("-fx-background-color: #FFFFFF");
+        }
+
+        if (findComboIndex(comboCondition) == -1) {
+            comboCondition.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboCondition.setStyle("-fx-background-color: #FFFFFF");
+        }
+
+        if (findComboIndex(comboNationality) == -1) {
+            comboNationality.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboNationality.setStyle("-fx-background-color: #FFFFFF");
+        }
+
+        if (findComboIndex(comboMatrimony) == -1) {
+            comboMatrimony.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboMatrimony.setStyle("-fx-background-color: #FFFFFF");
+        }
+
+        if (findComboIndex(comboDyplomType) == -1) {
+            comboDyplomType.setStyle("-fx-background-color: #D70406");
+            flag = false;
+        } else {
+            comboDyplomType.setStyle("-fx-background-color: #FFFFFF");
+        }
+        return flag;
+    }
+
+
+
+    public void btnSubmit() {
+        if (scanner()) {
+            student();
+
+            //TODO show student number from Generator
+        }else{
+            //TODO show suitable message
+        }
 
     }
 
 
     public boolean emptyFinder(TextField txtField) {
         boolean empty = true;
-        if (txtField == null) {
+        if (txtField.getText().equals("")) {
             empty = false;
 
         }
@@ -312,7 +525,7 @@ public class NewStudentController implements Initializable {
 
         for (int i = 0; i < txtField.getText().length(); i++) {
             int c = txtField.getText().charAt(i);
-            if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) {
+            if (!(c >= 48 && c <= 57) ) {
                 exit = false;
             }
         }
@@ -336,6 +549,7 @@ public class NewStudentController implements Initializable {
         String[] diplomType = {"قیولی", "ردی"};
         comboDyplomType.getItems().addAll(diplomType);
 
+        Show();
 
     }
 

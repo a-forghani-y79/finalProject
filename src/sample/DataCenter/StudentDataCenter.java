@@ -46,6 +46,16 @@ public class StudentDataCenter {
 
 
 
+    public int getGender() {
+        return Gender;
+    }
+
+    public void setGender(int gender) {
+        Gender = gender;
+    }
+
+    private int Gender ;
+
     public int getBYear() {
         return BYear;
     }

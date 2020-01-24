@@ -6,7 +6,9 @@ public class MasterDataCenter {
     private String firstName;
     private String lastName;
     private long nationalNumber;
-    private long personalNumber;
+    private long  personalNumber;
+    private int gender;
+
 
     public int getGender() {
         return gender;
@@ -16,7 +18,7 @@ public class MasterDataCenter {
         this.gender = gender;
     }
 
-    private int gender;
+
 
 
     public String getFirstName() {

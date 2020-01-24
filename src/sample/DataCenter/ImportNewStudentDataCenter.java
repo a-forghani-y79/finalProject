@@ -9,12 +9,12 @@ import java.util.Scanner;
 // که از سازمان سنجش دریافت شده است
 //سازنده یا contractor کلاس فقط آدرس فایل CSV و آدرس فایل باینری مقصد رو خواهد گرفت
 // و با متد import کار خود را انجام داده و تمام
-public class ImportNewStudent {
+public class ImportNewStudentDataCenter {
 
 
     private String CSV_addr;
     private String Bin_addr;
-    private ArrayList<NewStudent> students;
+    private ArrayList<NewStudentDataCenter> students;
 
 
     private FileReader fileReader;
@@ -28,10 +28,10 @@ public class ImportNewStudent {
     private int statusCode = 0;
 
 
-    public ImportNewStudent(String CSV_address,int year) {
-        file = new File("./src/sample/Files/y"+year+"");
+    public ImportNewStudentDataCenter(String CSV_address, int year) {
+        file = new File("./src/sample/Files/y" + year + "");
         file.mkdir();
-        this.Bin_addr = ".\\src\\sample\\Files\\y"+year+"\\newStudent.dat";
+        this.Bin_addr = ".\\src\\sample\\Files\\y" + year + "\\newStudent.dat";
         this.CSV_addr = CSV_address;
         setup();
         compleateList();
@@ -43,14 +43,14 @@ public class ImportNewStudent {
 
 
     private void writeListToFile() {
-        NewStudent std = new NewStudent();
+        NewStudentDataCenter std = new NewStudentDataCenter();
 
-        for (int i = 0; i < students.size() ; i++) {
-            std=students.get(i);
+        for (int i = 0; i < students.size(); i++) {
+            std = students.get(i);
             try {
                 objectOutputStream.writeObject(std);
             } catch (IOException e) {
-                if (statusCode==0){
+                if (statusCode == 0) {
                     status += e.getMessage();
                     statusCode = -3;
                 }
@@ -65,7 +65,7 @@ public class ImportNewStudent {
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 String[] information = line.split(",");
-                NewStudent student = new NewStudent();
+                NewStudentDataCenter student = new NewStudentDataCenter();
                 student.setFirstName(information[0]);
                 student.setLastName(information[1]);
                 student.setRate(Long.parseLong(information[2]));

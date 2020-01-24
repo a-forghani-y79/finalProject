@@ -6,14 +6,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sample.DataCenter.ImportNewStudent;
+import sample.DataCenter.ImportNewStudentDataCenter;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Manager implements Initializable {
+public class ManagerController implements Initializable {
     public JFXButton btnBrowse;
     public JFXButton btnImport;
     TextField txtAddress;
@@ -22,7 +22,7 @@ public class Manager implements Initializable {
     Stage stage;
     File file;
     String addrCSV = "";
-    ImportNewStudent importNewStudent;
+    ImportNewStudentDataCenter importNewStudent;
     int year;
     public Label status;
 
@@ -42,7 +42,7 @@ public class Manager implements Initializable {
         String str = txtYear.getText();
         if (numChecker(str)) {
             year = Integer.parseInt(str);
-            importNewStudent = new ImportNewStudent(addrCSV, year);
+            importNewStudent = new ImportNewStudentDataCenter(addrCSV, year);
 
         } else {
             status.setText("year not valid");

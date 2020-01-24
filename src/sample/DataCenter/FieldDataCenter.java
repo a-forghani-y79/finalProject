@@ -8,6 +8,15 @@ public class FieldDataCenter {
     private String masterName;
     private String classStartTime;
     private String timeToTakeExam;
+    private double score;
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
 
     public String getMasterName() {
         return masterName;
@@ -19,11 +28,11 @@ public class FieldDataCenter {
 
 
 
-    public String getName() {
+    public String getFieldName() {
         return fieldName;
     }
 
-    public void setName(String name) {
+    public void setFieldName(String name) {
         this.fieldName = name;
     }
 

@@ -146,7 +146,7 @@ public class StudentController implements Initializable {
 
     public void onActionChooseUnit() {
         student = archive.readStudent(1234);
-       ArrayList<FieldDataCenter> field = student.getFieldDataCenters();
+       ArrayList<FieldDataCenter> field = student.getFieldsList();
 
         JFXToggleButton btn = new JFXToggleButton();
 
@@ -159,7 +159,7 @@ public class StudentController implements Initializable {
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
         for (int i = 0; i < field.size(); i++) {
-            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
+            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
         }
@@ -231,7 +231,6 @@ public class StudentController implements Initializable {
                     }
                 }
             });
-          //  ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98,ArchiveDataCenter.STUDENT);
 
         }
         long [] lessonCods = new long[personDataCenters.size()];
@@ -240,6 +239,18 @@ public class StudentController implements Initializable {
             lessonCods[i]=personDataCenters.get(i).getLessonCod();
         }
 
-
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98,ArchiveDataCenter.FIELD);
+        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>(){};
+        fields.addAll(archiveDataCenter.readAllFields());
+        for (int i = 0 ; i< fields.size();i++){
+            for (int j =0 ;j<lessonCods.length;j++){
+                if(lessonCods[j]==fields.get(i).getFieldNumber()){
+                    fields.get(i).setScore(10);
+                   student.addField(fields.get(i));
+                }
+            }
+        }
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98,ArchiveDataCenter.STUDENT);
+        archiveDataCenter1.writeStudent(student);
     }
 }

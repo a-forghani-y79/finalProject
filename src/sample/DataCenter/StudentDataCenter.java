@@ -10,7 +10,7 @@ public class StudentDataCenter {
     private long studentNumber;
 
 
-    private ArrayList<FieldDataCenter>  fieldDataCenters;
+    private ArrayList<FieldDataCenter> fieldsList;
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh
@@ -328,12 +328,16 @@ public class StudentDataCenter {
         this.score = score;
     }
 
-    public ArrayList<FieldDataCenter> getFieldDataCenters() {
-        return fieldDataCenters;
+    public ArrayList<FieldDataCenter> getFieldsList() {
+        return fieldsList;
+    }
+    public void addField(FieldDataCenter field){
+        fieldsList.add(field);
+
     }
 
-    public void setFieldDataCenters(ArrayList<FieldDataCenter> fieldDataCenters) {
-        this.fieldDataCenters = fieldDataCenters;
+    public void setFieldsList(ArrayList<FieldDataCenter> fieldsList) {
+        this.fieldsList = fieldsList;
     }
 
 }

@@ -147,6 +147,14 @@ public class MasterController implements Initializable {
 
     }
 
+    public  void tablePrAb(){
+         RadifPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
+        LastNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+         FirstNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+         IDPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+         AbsentPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
+        TableViewPrAbMaster.getItems().add(new sample.DataCenter.person(1,"sada","sss",98536, 1));
+    }
 
 
 
@@ -202,6 +210,7 @@ public class MasterController implements Initializable {
        // setName();
        // setImage();
         insertGrade();
+        tablePrAb();
 
     }
 

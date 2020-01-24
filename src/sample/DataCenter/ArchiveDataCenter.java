@@ -10,6 +10,7 @@ public class ArchiveDataCenter {
 
     //tedad daneshjoo jadid
     //tedad daneshjoo sabt nam shode
+    //remove master method  make master null;
 
 
     public ArchiveDataCenter(int year, int mode) {

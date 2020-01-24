@@ -62,7 +62,7 @@
                                     </AnchorPane>
                                     <ImageView fitHeight="44.0" fitWidth="60.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../Desktop/Back.png" />
+                                          <Image url="@../PNG/Back.png" />
                                        </image>
                                     </ImageView>
                                     <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="30.0" prefHeight="42.0" prefWidth="395.0" text="خوش آمدید!!!شما به عنوان &quot;استاد&quot;وارد سیستم شده اید" textFill="#b51414">
@@ -96,7 +96,7 @@
                                     <children>
                                         <ImageView fitHeight="61.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../../Desktop/Exit1.png" />
+                                                <Image url="@../PNG/Exit1.png" />
                                             </image>
                                         </ImageView>
                                     <ImageView fitHeight="55.0" fitWidth="54.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
@@ -282,9 +282,9 @@
                                         <TableColumn fx:id="rowInsertGrade" prefWidth="38.0" text="ردیف" />
                                         <TableColumn fx:id="lastNameInsetGrade" prefWidth="112.0" text="نام خانوادگی" />
                                           <TableColumn fx:id="FirstNameInssertGrade" prefWidth="94.0" text="نام" />
-                                          <TableColumn fx:id="IdInsertGrade" prefWidth="202.0" text="شماره دانشجویی" />
-                                          <TableColumn fx:id="genderInsertGrade" prefWidth="115.0" text="جنسیت" />
-                                          <TableColumn fx:id="insertGradeMasterCLM" prefWidth="71.0" text="ثبت نمره" />
+                                          <TableColumn fx:id="IdInsertGrade" prefWidth="221.0" text="شماره دانشجویی" />
+                                          <TableColumn fx:id="genderInsertGrade" prefWidth="143.0" text="جنسیت" />
+                                          <TableColumn fx:id="insertGradeMasterCLM" prefWidth="132.0" text="ثبت نمره" />
                                       </columns>
                                     </TableView>
                                     <JFXButton layoutX="710.0" layoutY="8.0" prefHeight="47.0" prefWidth="67.0" text="  ">
@@ -316,9 +316,8 @@
                                           <TableColumn fx:id="RadifPrAbMaster" prefWidth="64.0" text="ردیف" />
                                         <TableColumn fx:id="LastNamePrAbMaster" prefWidth="136.0" text="نام خوانوادگی" />
                                         <TableColumn fx:id="FirstNamePrAbMaster" prefWidth="128.0" text="نام" />
-                                          <TableColumn fx:id="IDPrAbMaster" prefWidth="112.0" text="شماره دانشجویی" />
-                                          <TableColumn fx:id="AbsentPrAbMaster" prefWidth="142.0" text="تعداد غیبت" />
-                                          <TableColumn prefWidth="122.0" text="کد درس" />
+                                          <TableColumn fx:id="IDPrAbMaster" prefWidth="219.0" text="شماره دانشجویی" />
+                                          <TableColumn fx:id="AbsentPrAbMaster" prefWidth="154.0" text="تعداد غیبت" />
                                       </columns>
                                     </TableView>
                                     <ImageView fitHeight="52.0" fitWidth="37.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">

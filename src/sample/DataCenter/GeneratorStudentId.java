@@ -11,6 +11,12 @@ public class GeneratorStudentId {
     private int NUMBERSTUDENT = 536;
     private int NUMBERMASTER = 546;
     private int NUMBERMANAGER = 556;
+
+    public GeneratorStudentId() {
+        Archive archive = new Archive(98, Archive.STUDENT);
+
+    }
+
     Archive archive = new Archive(98, Archive.STUDENT);
     public int getYearNumber() {
 
@@ -57,7 +63,7 @@ public class GeneratorStudentId {
     }
     //Creat ID For Master
     public long createIdMaster() {
-        ArrayList<Student> masters=new ArrayList<Student>();
+        ArrayList<Master> masters=new ArrayList<Master>();
         masters.addAll(archive.readAllMasters());
         numberOfMasters=masters.size();
         long resultNumber = 0;

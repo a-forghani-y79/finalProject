@@ -137,12 +137,12 @@ public class Archive {
     //    void readAllMasters() {
 //    }
     //read All Masters
-    ArrayList<Student> readAllMasters() {
-        ArrayList<Student> list = new ArrayList<Student>(){};
-        Student std = new Student();
+    ArrayList<Master> readAllMasters() {
+        ArrayList<Master> list = new ArrayList<Master>(){};
+        Master std = new Master();
         try {
             while (true) {
-                std = (Student) objectInputStream.readObject();
+                std = (Master)objectInputStream.readObject();
                 list.add(std);
             }
         } catch (ClassNotFoundException | IOException e) {
@@ -152,6 +152,7 @@ public class Archive {
     }
 
     //read All Students
+
     ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
         };

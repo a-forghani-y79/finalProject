@@ -2,7 +2,7 @@ package sample.DataCenter;
 
 import java.util.ArrayList;
 
-public class GeneratorStudentIdDataCenter {
+public class StudentIdGeneratorDataCenter {
     private int yearNumber = 0;
     private int numberOfStudents = 0;
     private int numberOfManagers = 0;
@@ -12,7 +12,7 @@ public class GeneratorStudentIdDataCenter {
     private int NUMBERMASTER = 546;
     private int NUMBERMANAGER = 556;
 
-    public GeneratorStudentIdDataCenter() {
+    public StudentIdGeneratorDataCenter() {
         ArchiveDataCenter archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
 
     }

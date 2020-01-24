@@ -10,6 +10,11 @@ import java.io.ObjectOutputStream;
 
 public class Archive {
 
+
+    //tedad daneshjoo jadid
+    //tedad daneshjoo sabt nam shode
+
+
     //addresses
     String STUDENT_FILE = "";
     String MASTER_FILE = "";
@@ -34,6 +39,11 @@ public class Archive {
         String name = "" ;
 
 
+    }
+
+    public  Field[]  readFields(){
+        Field[] fields = new Field[0];
+        return fields;
     }
 
     void readMaster() {

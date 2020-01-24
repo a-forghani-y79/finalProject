@@ -9,6 +9,7 @@ import sample.DataCenter.Student;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class NewStudent implements Initializable {
@@ -52,12 +53,14 @@ public class NewStudent implements Initializable {
     public TextField txtCourse1;
     public JFXComboBox<String> comboDyplomType;
 
-
     sample.DataCenter.NewStudent std ;
 
-    NewStudent(sample.DataCenter.NewStudent newStudent) {
-        std = newStudent;
+    public void setStd(sample.DataCenter.NewStudent std) {
+        this.std = std;
     }
+
+
+
 
     public  void Show() {
        txtFirstName.setText(std.getFirstName());
@@ -165,7 +168,147 @@ public class NewStudent implements Initializable {
             student.setDiplomType("ردی");
         }
 
+        LocalDate localDate = DataPicker.getValue();
+        student.setBYear(localDate.getYear());
+        student.setBMonth(localDate.getMonthValue());
+        student.setBDay(localDate.getDayOfMonth());
+    }
+public void Scanner (){
+    if (!emptyFinder(txtIDCardNumber)){
+        txtIDCardNumber.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtIDCardNumber)){
+        txtIDCardNumber.setStyle("-fx-text-inner-color: D70406");
+    }
 
+    if (!emptyFinder(txtPhoneNumber)){
+        txtPhoneNumber.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtPhoneNumber)){
+        txtPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtFatherPhoneNumber)){
+        txtFatherPhoneNumber.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtFatherPhoneNumber)){
+        txtFatherPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtZIPCode)) {
+        txtZIPCode.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtZIPCode)) {
+        txtZIPCode.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtFileNumber1)) {
+        txtFileNumber1.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtFileNumber1)) {
+        txtFileNumber1.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtDiplomYear)) {
+        txtDiplomYear.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtDiplomYear)) {
+        txtDiplomYear.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtRate)) {
+        txtRate.setStyle("-fx-background-color: D70406");
+    }else if (!StringFinder(txtRate)) {
+        txtRate.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtSectionEducation)) {
+        txtSectionEducation.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtSectionEducation)) {
+        txtSectionEducation.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtFatherName)) {
+        txtFatherName.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtFatherName)) {
+        txtFatherName.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtLocalBorn)) {
+        txtLocalBorn.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtLocalBorn)) {
+        txtLocalBorn.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtFiled1)) {
+        txtFiled1.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtFiled1)) {
+        txtFiled1.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtUBorn)) {
+        txtUBorn.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtUBorn)) {
+        txtUBorn.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtReligion)) {
+        txtReligion.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtReligion)) {
+        txtReligion.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtCityBorn)) {
+        txtCityBorn.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtCityBorn)) {
+        txtCityBorn.setStyle("-fx-text-inner-color: D70406");
+    }
+
+
+    if (!emptyFinder(txtAreaBorn)) {
+        txtAreaBorn.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtAreaBorn)) {
+        txtAreaBorn.setStyle("-fx-text-inner-color: D70406");
+    }
+
+    if (!emptyFinder(txtFaculty)) {
+        txtFaculty.setStyle("-fx-background-color: D70406");
+    }else if (!NumberFinder(txtFaculty)) {
+        txtFaculty.setStyle("-fx-text-inner-color: D70406");
+    }
+
+
+}
+
+
+
+
+
+    public boolean emptyFinder (TextField txtField){
+        boolean empty = true;
+        if (txtField==null){
+            empty = false;
+
+        }
+        return empty;
+    }
+    public boolean NumberFinder(TextField txtField){
+
+        boolean exit = true ;
+
+        for (int i = 0;i<txtField.getText().length();i++){
+            int c = txtField.getText().charAt(i);
+            if (c>=48&&c<=57){
+                exit =false;
+
+            }
+        }
+            return exit;
+    }
+    public boolean StringFinder(TextField txtField){
+        boolean exit = true ;
+
+        for (int i = 0;i<txtField.getText().length();i++){
+            int c = txtField.getText().charAt(i);
+            if ((c>=65&&c<=90)||(c>=97&&c<=122)){
+                exit =false;
+            }
+        }
+        return exit;
     }
 
 
@@ -185,5 +328,8 @@ public class NewStudent implements Initializable {
     comboCondition.getItems().addAll(condition);
     String [] diplomType = {"قیولی","ردی"};
     comboDyplomType.getItems().addAll(diplomType);
+
+
     }
+
 }

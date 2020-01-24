@@ -9,7 +9,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Controllers.manager"
+            fx:controller="sample.Controllers.Manager"
             prefHeight="400.0" prefWidth="600.0">
     <JFXButton fx:id="btnBrowse" minHeight="50" minWidth="50" onMouseClicked="#onClickBrowse"/>
     <JFXButton fx:id="btnImport" alignment="CENTER" minHeight="50" minWidth="50" onMouseClicked="#onClickImport"/>

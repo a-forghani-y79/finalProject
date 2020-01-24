@@ -6,13 +6,13 @@ package sample.DataCenter;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Archive {
+public class ArchiveDataCenter {
 
     //tedad daneshjoo jadid
     //tedad daneshjoo sabt nam shode
 
 
-    public Archive(int year, int mode) {
+    public ArchiveDataCenter(int year, int mode) {
         STUDENT_FILE = "../Files/y" + year + "/student.dat";
         MASTER_FILE = "../Files/y" + year + "/master.dat";
         MANAGER_FILE = "../Files/y" + year + "/manager.dat";

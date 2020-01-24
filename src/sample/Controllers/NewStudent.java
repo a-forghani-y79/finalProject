@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sample.DataCenter.Student;
 
@@ -52,6 +53,7 @@ public class NewStudent implements Initializable {
     public TextField txtRate1;
     public TextField txtCourse1;
     public JFXComboBox<String> comboDyplomType;
+    public TextField txtGender;
 
     sample.DataCenter.NewStudent std ;
 
@@ -75,6 +77,21 @@ public class NewStudent implements Initializable {
        txtFiled1.setText(String.valueOf(std.getField()));
        txtFileNumber.setText(String.valueOf(std.getFileNumber()));
        txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
+
+        Image img ;
+
+       if (std.getGender()==0){
+           txtGender.setText("خانم");
+           student.setGender(0);
+           img = new Image("./sample/PNG/Female_Student-512.png");
+           Tab1PIC.setImage(img);
+       }else if (std.getGender()==1){
+           student.setGender(1);
+           txtGender.setText("مرد");
+            img=new Image("./sample/PNG/Student.png");
+            Tab1PIC.setImage(img);
+       }
+
        if (std.isDay_night()==true){
            txtCourse.setText("day");
             txtCourse1.setText("day");
@@ -88,7 +105,7 @@ public class NewStudent implements Initializable {
     }
 
     public int findComboIndex(JFXComboBox Box){
-        int index= Box.getSelectionModel().getSelectedIndex();
+        int index =Box.getSelectionModel().getSelectedIndex()  ;
         return index;
     }
 
@@ -178,84 +195,140 @@ public void Scanner (){
         txtIDCardNumber.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtIDCardNumber)){
         txtIDCardNumber.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtIDCardNumber)){
+        txtIDCardNumber.setStyle("-fx-background-color: 000000");
+    }else if (StringFinder(txtIDCardNumber)){
+        txtIDCardNumber.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtPhoneNumber)){
         txtPhoneNumber.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtPhoneNumber)){
         txtPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtPhoneNumber)){
+        txtPhoneNumber.setStyle("-fx-background-color: 000000");
+    }else if (StringFinder(txtPhoneNumber)){
+        txtPhoneNumber.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtFatherPhoneNumber)){
         txtFatherPhoneNumber.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtFatherPhoneNumber)){
         txtFatherPhoneNumber.setStyle("-fx-text-inner-color: D70406");
+    }if (!emptyFinder(txtFatherPhoneNumber)){
+        txtFatherPhoneNumber.setStyle("-fx-background-color: 000000");
+    }else if (!StringFinder(txtFatherPhoneNumber)){
+        txtFatherPhoneNumber.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtZIPCode)) {
         txtZIPCode.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtZIPCode)) {
         txtZIPCode.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtZIPCode)) {
+        txtZIPCode.setStyle("-fx-background-color: 000000");
+    }else if (StringFinder(txtZIPCode)) {
+        txtZIPCode.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtFileNumber1)) {
         txtFileNumber1.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtFileNumber1)) {
         txtFileNumber1.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtFileNumber1)) {
+        txtFileNumber1.setStyle("-fx-background-color: 000000");
+    }else if (StringFinder(txtFileNumber1)) {
+        txtFileNumber1.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtDiplomYear)) {
         txtDiplomYear.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtDiplomYear)) {
         txtDiplomYear.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtDiplomYear)) {
+        txtDiplomYear.setStyle("-fx-background-color: 000000");
+    }else if (StringFinder(txtDiplomYear)) {
+        txtDiplomYear.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtRate)) {
         txtRate.setStyle("-fx-background-color: D70406");
     }else if (!StringFinder(txtRate)) {
         txtRate.setStyle("-fx-text-inner-color: D70406");
+    } if (emptyFinder(txtRate)) {
+        txtRate.setStyle("-fx-background-color:000000 ");
+    }else if (StringFinder(txtRate)) {
+        txtRate.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtSectionEducation)) {
         txtSectionEducation.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtSectionEducation)) {
         txtSectionEducation.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtSectionEducation)) {
+        txtSectionEducation.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtSectionEducation)) {
+        txtSectionEducation.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtFatherName)) {
         txtFatherName.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtFatherName)) {
         txtFatherName.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtFatherName)) {
+        txtFatherName.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtFatherName)) {
+        txtFatherName.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtLocalBorn)) {
         txtLocalBorn.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtLocalBorn)) {
         txtLocalBorn.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtLocalBorn)) {
+        txtLocalBorn.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtLocalBorn)) {
+        txtLocalBorn.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtFiled1)) {
         txtFiled1.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtFiled1)) {
         txtFiled1.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtFiled1)) {
+        txtFiled1.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtFiled1)) {
+        txtFiled1.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtUBorn)) {
         txtUBorn.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtUBorn)) {
         txtUBorn.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtUBorn)) {
+        txtUBorn.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtUBorn)) {
+        txtUBorn.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtReligion)) {
         txtReligion.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtReligion)) {
         txtReligion.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtReligion)) {
+        txtReligion.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtReligion)) {
+        txtReligion.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtCityBorn)) {
         txtCityBorn.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtCityBorn)) {
         txtCityBorn.setStyle("-fx-text-inner-color: D70406");
+    }if (emptyFinder(txtCityBorn)) {
+        txtCityBorn.setStyle("-fx-background-color: 000000");
+    }else if (NumberFinder(txtCityBorn)) {
+        txtCityBorn.setStyle("-fx-text-inner-color: 000000");
     }
 
 
@@ -263,15 +336,58 @@ public void Scanner (){
         txtAreaBorn.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtAreaBorn)) {
         txtAreaBorn.setStyle("-fx-text-inner-color: D70406");
+    } if (!emptyFinder(txtAreaBorn)) {
+        txtAreaBorn.setStyle("-fx-background-color: 000000");
+    }else if (!NumberFinder(txtAreaBorn)) {
+        txtAreaBorn.setStyle("-fx-text-inner-color: 000000");
     }
 
     if (!emptyFinder(txtFaculty)) {
         txtFaculty.setStyle("-fx-background-color: D70406");
     }else if (!NumberFinder(txtFaculty)) {
         txtFaculty.setStyle("-fx-text-inner-color: D70406");
+    }if (!emptyFinder(txtFaculty)) {
+        txtFaculty.setStyle("-fx-background-color: 000000");
+    }else if (!NumberFinder(txtFaculty)) {
+        txtFaculty.setStyle("-fx-text-inner-color: 000000");
     }
 
 
+    if (findComboIndex(comboFaith)==-1){
+        comboFaith.setStyle("-fx-background-color: D70406");
+    }else{
+        comboFaith.setStyle("-fx-background-color: 000000");
+    }
+
+    if (findComboIndex(comboStartSeason)==-1){
+        comboStartSeason.setStyle("-fx-background-color: D70406");
+    }else{
+        comboStartSeason.setStyle("-fx-background-color: 000000");
+    }
+
+    if (findComboIndex(comboCondition)==-1){
+        comboCondition.setStyle("-fx-background-color: D70406");
+    }else{
+        comboCondition.setStyle("-fx-background-color: 000000");
+    }
+
+    if (findComboIndex(comboNationality)==-1){
+        comboNationality.setStyle("-fx-background-color: D70406");
+    }else{
+        comboNationality.setStyle("-fx-background-color: 000000");
+    }
+
+    if (findComboIndex(comboMatrimony)==-1){
+        comboMatrimony.setStyle("-fx-background-color: D70406");
+    }else{
+        comboMatrimony.setStyle("-fx-background-color: 000000");
+    }
+
+    if (findComboIndex(comboDyplomType)==-1){
+        comboDyplomType.setStyle("-fx-background-color: D70406");
+    }else{
+        comboDyplomType.setStyle("-fx-background-color: 000000");
+    }
 }
 
 

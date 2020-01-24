@@ -14,6 +14,15 @@ public class NewStudent implements Serializable {
     private boolean isDay; //true for roozaneh
     private long fileNumber;
 
+    public int getGender() {
+        return Gender;
+    }
+
+    public void setGender(int gender) {
+        Gender = gender;
+    }
+
+    private  int Gender ;
 
 
     public long getFileNumber() {

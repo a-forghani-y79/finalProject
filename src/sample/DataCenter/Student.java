@@ -35,6 +35,16 @@ public class Student {
     private String AreaBorn;
     private long FileNumber1;
 
+    public int getGender() {
+        return Gender;
+    }
+
+    public void setGender(int gender) {
+        Gender = gender;
+    }
+
+    private int Gender ;
+
     public int getBYear() {
         return BYear;
     }

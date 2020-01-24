@@ -38,6 +38,8 @@
                            <image>
                               <Image url="@../PNG/Student.png" />
                            </image></ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="405.0" prefHeight="32.0" prefWidth="79.0" text="جنسیت :" />
+                        <TextField fx:id="txtGender" layoutX="418.0" layoutY="404.0" prefHeight="32.0" prefWidth="115.0" />
                      </children>
                   </AnchorPane>
                </children></AnchorPane>

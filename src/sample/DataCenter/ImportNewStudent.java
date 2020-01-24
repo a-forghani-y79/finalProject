@@ -73,6 +73,7 @@ public class ImportNewStudent {
                 student.setField(information[4]);
                 student.setDay_night(information[5].equals("روزانه"));
                 student.setFileNumber(Long.parseLong(information[6]));
+
                 students.add(student);
             }
 

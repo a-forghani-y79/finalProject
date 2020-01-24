@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 public class person {
     private int row ;
     private String lesson = null;
-    private int lessonCod ;
+    private long lessonCod ;
     private String master = null;
     private int unit ;
     private String classStartTime = null;
@@ -25,7 +25,7 @@ public class person {
     private int passedStudentNumber;
 
     //Choose units
-    public person(int row, String lesson, int lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
+    public person(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -102,7 +102,7 @@ public class person {
         this.lesson = lesson;
     }
 
-    public int getLessonCod() {
+    public long getLessonCod() {
         return lessonCod;
     }
 

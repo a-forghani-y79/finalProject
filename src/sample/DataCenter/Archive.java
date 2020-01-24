@@ -87,14 +87,22 @@ public class Archive {
 
     }
 
-    void writeStudentList() {
-
+   public void writeStudentList(Student [] students) {
+        for (int i = 0 ; i<students.length;i++) {
+            try {
+                objectOutputStream.writeObject(students[i]);
+            }catch (IOException e){
+                erroreMessage+=(e.getMessage()+"\n");
+            }
+        }
     }
 
-    public void writeStudent() {
-        String name = "";
-
-
+    public void writeStudent(Student student) {
+        try {
+            objectOutputStream.writeObject(student);
+        } catch (Exception e) {
+           erroreMessage+=(e.getMessage()+"\n");
+        }
     }
 
     public Master readMaster(long personalNumber) {
@@ -119,11 +127,17 @@ public class Archive {
         return master;
     }
 
-    void writeMaster() {
+    public void writeMaster(Master master) {
+        try {
+            objectOutputStream.writeObject(master);
+        }catch (IOException e ) {
+            erroreMessage += (e.getMessage()+"\n");
+        }
+
     }
 
 
-    void readManager() {
+   public void readManager(long ManagerID) {
 
     }
 

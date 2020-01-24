@@ -52,7 +52,9 @@ public class StudentIdGeneratorDataCenter {
         numberOfStudents = students.size();
         long resultNumber = 0;
         String str = String.valueOf(numberOfStudents);
-        if (str.length() == 1)
+        if(str.equals("0"))
+            str = "0000" + str;
+         else if (str.length() == 1)
             str = "000" + str;
         else if (str.length() == 2)
             str = "00" + str;

@@ -15,6 +15,7 @@ import sample.DataCenter.StudentDataCenter;
 import sample.DataCenter.personDataCenter;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
@@ -145,15 +146,10 @@ public class StudentController implements Initializable {
 
     public void onActionChooseUnit() {
         student = archive.readStudent(1234);
-        FieldDataCenter[] field = student.getFields();
+       ArrayList<FieldDataCenter> field = student.getFieldsList();
 
         JFXToggleButton btn = new JFXToggleButton();
-        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("1234");
-            }
-        });
+
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -162,8 +158,8 @@ public class StudentController implements Initializable {
         classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        for (int i = 0; i < field.length; i++) {
-            tableViewChoose.getItems().add(new personDataCenter(i + 1, field[i].getName(), field[i].getFieldNumber(), field[i].getMaster().getFirstName() + " " + field[i].getMaster().getLastName(), field[i].getUnit(), field[i].getClassStartTime(), field[i].getTimeToTakeExam(), btn));
+        for (int i = 0; i < field.size(); i++) {
+            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
         }
@@ -215,5 +211,46 @@ public class StudentController implements Initializable {
         onActionCurriculum();
         onActionReport();
         onActionSetProfile();
+    }
+
+    public void choosingUnit() {
+
+    }
+
+    public void onMouseCliked(MouseEvent mouseEvent) {
+        int sizeOfTable = tableViewChoose.getItems().size();
+        ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
+        for (int i = 0; i < sizeOfTable; i++) {
+            personDataCenter personDataCenter = (personDataCenter) tableViewChoose.getItems().get(i);
+            JFXToggleButton jfxToggleButton = personDataCenter.getTogglebtnChooseUnit();
+            jfxToggleButton.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (jfxToggleButton.isSelected()) {
+                        personDataCenters.add(personDataCenter);
+                    }
+                }
+            });
+
+        }
+        long [] lessonCods = new long[personDataCenters.size()];
+
+        for (int i =0 ; i <personDataCenters.size();i++){
+            lessonCods[i]=personDataCenters.get(i).getLessonCod();
+        }
+
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98,ArchiveDataCenter.FIELD);
+        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>(){};
+        fields.addAll(archiveDataCenter.readAllFields());
+        for (int i = 0 ; i< fields.size();i++){
+            for (int j =0 ;j<lessonCods.length;j++){
+                if(lessonCods[j]==fields.get(i).getFieldNumber()){
+                    fields.get(i).setScore(10);
+                   student.addField(fields.get(i));
+                }
+            }
+        }
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98,ArchiveDataCenter.STUDENT);
+        archiveDataCenter1.writeStudent(student);
     }
 }

@@ -155,8 +155,7 @@ public class loginPage implements Initializable {
 
         int useCaseIndex = useCaseCombo.getSelectionModel().getSelectedIndex();
         if (useCaseIndex == -1) {
-            //TODO set suitable message
-
+            alert("نوع کاربری خود را انتخاب کنید",lblAlert,"red");
             return;
         }
 
@@ -166,9 +165,7 @@ public class loginPage implements Initializable {
                 if (AuthNewStudent(UserNum, PassNum))
                     openFxmlNewStudent();
                 else {
-                    //  alert();
-                    //TODO set suitable message
-
+                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -176,8 +173,7 @@ public class loginPage implements Initializable {
                 if (AuthStudent(UserNum, PassNum))
                     openFxmlStudent();
                 else {
-                    //  alert();
-                    //TODO set suitable message
+                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -185,8 +181,7 @@ public class loginPage implements Initializable {
                 if (AuthMaster(UserNum, PassNum))
                     openFxmlMaster();
                 else {
-                    //  alert();
-                    //TODO set suitable message
+                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -194,8 +189,7 @@ public class loginPage implements Initializable {
                 if (AuthManager(UserNum, PassNum))
                     openFxmlManager();
                 else {
-                    //  alert();
-                    //TODO set suitable message
+                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -284,7 +278,17 @@ public class loginPage implements Initializable {
     }
 
     private boolean AuthMaster(long userName, long passWord) {
-        return true;
+        stringBuilder = new StringBuilder("" + userName);
+        strYear = (String) stringBuilder.subSequence(0, 2);
+        year = Integer.parseInt(strYear);
+        archive = new Archive(year, Archive.STUDENT);
+        Student std = archive.readStudent(userName);
+        if (!(std == null))
+            if (std.getFileNumber() == passWord)
+                return true;
+            else
+                return false;
+        else return false;
 
     }
 

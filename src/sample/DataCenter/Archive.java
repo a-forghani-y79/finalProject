@@ -97,13 +97,13 @@ public class Archive {
 
     }
 
-    Master readMaster() {
-        Master master ;
+    public Master readMaster(long personalNumber) {
+        Master master = new Master();
         boolean flag = true;
         try {
             while (flag) {
                 master = (Master) objectInputStream.readObject();
-                if (master.getID() == nationalNumber)
+                if (master.getPersonalNumber() == personalNumber)
                     flag = false;
             }
 
@@ -111,7 +111,7 @@ public class Archive {
             erroreMessage += (e.getMessage() + "\n");
             if (flag) {
                 erroreMessage += ("student not found\n");
-                std = null;
+                master = null;
             }
         } catch (IOException | ClassNotFoundException e) {
             erroreMessage += (e.getMessage() + "\n");
@@ -215,6 +215,9 @@ public class Archive {
     private void loadBinaryFile(String dist) {
         try {
             fileInputStream = new FileInputStream(dist);
+            fileOutputStream = new FileOutputStream(dist,true);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectInputStream = new ObjectInputStream(fileInputStream);
         } catch (Exception e) {
             erroreMessage += (e.getMessage() + "\n");
         }

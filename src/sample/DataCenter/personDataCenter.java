@@ -16,12 +16,12 @@ public class personDataCenter {
     private int unit ;
     private String classStartTime = null;
     private String timeToTakeExam = null;
-    private JFXToggleButton btnChooseUnit = null;
+    private JFXToggleButton togglebtnChooseUnit = null;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
     private int studentNumber;
-    private  String classPlace=null;
+    private String classPlace=null;
     private String firstName = null;
     private String lastName = null;
     private long studentId  ;
@@ -48,7 +48,7 @@ public class personDataCenter {
         this.unit = unit;
         this.classStartTime = classStartTime;
         this.timeToTakeExam = timeToTakeExam;
-        this.btnChooseUnit = btnChooseUnit;
+        this.togglebtnChooseUnit = btnChooseUnit;
 
     }
 
@@ -114,7 +114,7 @@ public class personDataCenter {
         this.lessonCod = lessonCod;
         this.unit = unit;
         this.classStartTime =  classStartTime;
-        this.btnChooseUnit =  btnChooseUnit;
+        this.togglebtnChooseUnit =  btnChooseUnit;
 
 
     }
@@ -201,13 +201,7 @@ public class personDataCenter {
         this.timeToTakeExam = timeToTakeExam;
     }
 
-    public JFXToggleButton getBtnChooseUnit() {
-        return btnChooseUnit;
-    }
 
-    public void setBtnChooseUnit(JFXToggleButton btnChooseUnit) {
-        this.btnChooseUnit = btnChooseUnit;
-    }
 
     public double getScore() {
         return score;
@@ -301,5 +295,11 @@ public class personDataCenter {
         this.txtInsert = txtInsert;
     }
 
+    public JFXToggleButton getTogglebtnChooseUnit() {
+        return togglebtnChooseUnit;
+    }
 
+    public void setTogglebtnChooseUnit(JFXToggleButton togglebtnChooseUnit) {
+        this.togglebtnChooseUnit = togglebtnChooseUnit;
+    }
 }

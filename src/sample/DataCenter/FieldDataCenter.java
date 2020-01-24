@@ -5,9 +5,19 @@ public class FieldDataCenter {
     private String fieldName;
     private long fieldNumber;
     private int unit;
-    private MasterDataCenter master;
+    private String masterName;
     private String classStartTime;
     private String timeToTakeExam;
+
+    public String getMasterName() {
+        return masterName;
+    }
+
+    public void setMasterName(String masterName) {
+        this.masterName = masterName;
+    }
+
+
 
     public String getName() {
         return fieldName;
@@ -33,13 +43,7 @@ public class FieldDataCenter {
         this.unit = unit;
     }
 
-    public MasterDataCenter getMaster() {
-        return master;
-    }
 
-    public void setMaster(MasterDataCenter master) {
-        this.master = master;
-    }
 
     public String getClassStartTime() {
         return classStartTime;

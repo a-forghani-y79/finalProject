@@ -262,10 +262,7 @@ public class ArchiveDataCenter {
     }
 
 
-    public static void main(String[] args) {
 
-
-    }
 
 
 }

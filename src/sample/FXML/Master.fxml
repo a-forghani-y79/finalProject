@@ -14,350 +14,439 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="863.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Master">
-  <tabs>
-    <Tab text="پروفایل شخصی             ">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TabPane prefHeight="600.0" prefWidth="827.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0"
+         prefWidth="863.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.MasterController">
+    <tabs>
+        <Tab text="پروفایل شخصی             ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TabPane prefHeight="600.0" prefWidth="827.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
 
-                      <Tab text="اظلاعات شخصی">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <AnchorPane layoutX="23.0" layoutY="90.0" prefHeight="210.0" prefWidth="730.0" style="-fx-background-color: F4B0AA;">
-                                       <children>
-                                          <ImageView fx:id="MasterFaceImage" fitHeight="122.0" fitWidth="119.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/MasIcon.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER_RIGHT" layoutX="623.0" layoutY="54.0" prefHeight="43.0" prefWidth="97.0" text="نام:">
-                                             <font>
-                                                <Font name="System Bold" size="26.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="559.0" layoutY="123.0" prefHeight="43.0" prefWidth="161.0" text="نام خوانوادگی:">
-                                             <font>
-                                                <Font name="System Bold" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="54.0" prefHeight="43.0" prefWidth="128.0" text="کد پرسنلی:">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="306.0" layoutY="123.0" prefHeight="43.0" prefWidth="97.0" text="کد ملی:">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="txtNameMaster" layoutX="523.0" layoutY="63.0" />
-                                          <TextField fx:id="txtFamilyMaster" layoutX="425.0" layoutY="141.0" />
-                                          <TextField fx:id="txtPersonalCodeMaster" layoutX="181.0" layoutY="63.0" />
-                                          <TextField fx:id="txtNationalCodeMater" layoutX="163.0" layoutY="132.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <ImageView fitHeight="44.0" fitWidth="60.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../../Desktop/Back.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="30.0" prefHeight="42.0" prefWidth="395.0" text="خوش آمدید!!!شما به عنوان &quot;استاد&quot;وارد سیستم شده اید" textFill="#b51414">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <JFXButton fx:id="btnCompleteInfoMaster" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="311.0" prefHeight="46.0" prefWidth="413.0" ripplerFill="#1c38b0" text="برای تکمیل پروفایل شخصی خود به طور تخصصی کلیک کنید" textFill="#9a0303">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="OPEN_HAND" />
-                                       </cursor>
-                                    </JFXButton>
-                                    <ImageView fitHeight="45.0" fitWidth="36.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Exit1.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></AnchorPane>
-                        </content>
-                      </Tab>
+                                <Tab text="اظلاعات شخصی">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <AnchorPane layoutX="23.0" layoutY="90.0" prefHeight="210.0"
+                                                            prefWidth="730.0" style="-fx-background-color: F4B0AA;">
+                                                    <children>
+                                                        <ImageView fx:id="MasterFaceImage" fitHeight="122.0"
+                                                                   fitWidth="119.0" layoutY="4.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/MasIcon.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                        <Label alignment="CENTER_RIGHT" layoutX="623.0" layoutY="54.0"
+                                                               prefHeight="43.0" prefWidth="97.0" text="نام:">
+                                                            <font>
+                                                                <Font name="System Bold" size="26.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER_RIGHT" layoutX="559.0" layoutY="123.0"
+                                                               prefHeight="43.0" prefWidth="161.0"
+                                                               text="نام خوانوادگی:">
+                                                            <font>
+                                                                <Font name="System Bold" size="23.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="54.0"
+                                                               prefHeight="43.0" prefWidth="128.0" text="کد پرسنلی:">
+                                                            <font>
+                                                                <Font name="System Bold" size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER_RIGHT" layoutX="306.0" layoutY="123.0"
+                                                               prefHeight="43.0" prefWidth="97.0" text="کد ملی:">
+                                                            <font>
+                                                                <Font name="System Bold" size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="txtNameMaster" layoutX="523.0"
+                                                                   layoutY="63.0"/>
+                                                        <TextField fx:id="txtFamilyMaster" layoutX="425.0"
+                                                                   layoutY="141.0"/>
+                                                        <TextField fx:id="txtPersonalCodeMaster" layoutX="181.0"
+                                                                   layoutY="63.0"/>
+                                                        <TextField fx:id="txtNationalCodeMater" layoutX="163.0"
+                                                                   layoutY="132.0"/>
+                                                    </children>
+                                                </AnchorPane>
+                                                <ImageView fitHeight="44.0" fitWidth="60.0" layoutX="38.0" layoutY="8.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../../Desktop/Back.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="30.0"
+                                                       prefHeight="42.0" prefWidth="395.0"
+                                                       text="خوش آمدید!!!شما به عنوان &quot;استاد&quot;وارد سیستم شده اید"
+                                                       textFill="#b51414">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXButton fx:id="btnCompleteInfoMaster" alignment="CENTER_RIGHT"
+                                                           layoutX="193.0" layoutY="311.0" prefHeight="46.0"
+                                                           prefWidth="413.0" ripplerFill="#1c38b0"
+                                                           text="برای تکمیل پروفایل شخصی خود به طور تخصصی کلیک کنید"
+                                                           textFill="#9a0303">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0"/>
+                                                    </font>
+                                                    <cursor>
+                                                        <Cursor fx:constant="OPEN_HAND"/>
+                                                    </cursor>
+                                                </JFXButton>
+                                                <ImageView fitHeight="45.0" fitWidth="36.0" layoutX="6.0" layoutY="9.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Exit1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
 
-                        <Tab text="سوابق آموزشی">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <children>
-                                        <ImageView fitHeight="61.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../../Desktop/Exit1.png" />
-                                            </image>
-                                        </ImageView>
-                                    <ImageView fitHeight="55.0" fitWidth="54.0" layoutX="43.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Back.png" />
-                                       </image>
-                                    </ImageView>
-                                    <AnchorPane layoutX="79.0" layoutY="61.0" prefHeight="287.0" prefWidth="698.0" style="-fx-background-color: F4B0AA;">
-                                       <children>
-                                          <TableView fx:id="weeklyTableView" layoutX="20.0" layoutY="23.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0" prefWidth="660.0">
-                                            <columns>
-                                              <TableColumn fx:id="MasterLessonsWeeklyRecord" prefWidth="124.0" text="دروس تدریس شده" />
-                                              <TableColumn fx:id="LessonCodeMaster" prefWidth="160.0" text="کد درس" />
-                                                <TableColumn fx:id="LessonUnitMasterRecord" prefWidth="92.0" text="واحد" />
-                                                <TableColumn fx:id="StudentNumberMasterRecord" prefWidth="136.0" text="تعداد دانشجویان" />
-                                                <TableColumn fx:id="PassedStudentNumberMasterRecord" prefWidth="147.0" text="تعداد قبولی" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                    <Label alignment="CENTER_RIGHT" layoutX="442.0" layoutY="13.0" prefHeight="36.0" prefWidth="335.0" text="سوابق آموزشی شما  از شروع نیمسال آموزشی جدید :" textFill="#047220">
-                                       <font>
-                                          <Font name="System Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <JFXButton layoutX="246.0" layoutY="366.0" text="برای اطلاع از عملکرد خود در طی واحد های ارایه شده کلیک کنید!!!" textFill="#12048d">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                    </JFXButton>
-                                    </children></AnchorPane>
-                            </content>
-                        </Tab>
+                                <Tab text="سوابق آموزشی">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <ImageView fitHeight="61.0" fitWidth="56.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../../Desktop/Exit1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="55.0" fitWidth="54.0" layoutX="43.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Back.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <AnchorPane layoutX="79.0" layoutY="61.0" prefHeight="287.0"
+                                                            prefWidth="698.0" style="-fx-background-color: F4B0AA;">
+                                                    <children>
+                                                        <TableView fx:id="weeklyTableView" layoutX="20.0" layoutY="23.0"
+                                                                   nodeOrientation="RIGHT_TO_LEFT" prefHeight="250.0"
+                                                                   prefWidth="660.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="MasterLessonsWeeklyRecord"
+                                                                             prefWidth="124.0" text="دروس تدریس شده"/>
+                                                                <TableColumn fx:id="LessonCodeMaster" prefWidth="160.0"
+                                                                             text="کد درس"/>
+                                                                <TableColumn fx:id="LessonUnitMasterRecord"
+                                                                             prefWidth="92.0" text="واحد"/>
+                                                                <TableColumn fx:id="StudentNumberMasterRecord"
+                                                                             prefWidth="136.0" text="تعداد دانشجویان"/>
+                                                                <TableColumn fx:id="PassedStudentNumberMasterRecord"
+                                                                             prefWidth="147.0" text="تعداد قبولی"/>
+                                                            </columns>
+                                                        </TableView>
+                                                    </children>
+                                                </AnchorPane>
+                                                <Label alignment="CENTER_RIGHT" layoutX="442.0" layoutY="13.0"
+                                                       prefHeight="36.0" prefWidth="335.0"
+                                                       text="سوابق آموزشی شما  از شروع نیمسال آموزشی جدید :"
+                                                       textFill="#047220">
+                                                    <font>
+                                                        <Font name="System Bold" size="15.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXButton layoutX="246.0" layoutY="366.0"
+                                                           text="برای اطلاع از عملکرد خود در طی واحد های ارایه شده کلیک کنید!!!"
+                                                           textFill="#12048d">
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0"/>
+                                                    </font>
+                                                </JFXButton>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
 
-                    </tabs>
-                  </TabPane>
-               </children></AnchorPane>
-      </content>
-         <graphic>
-            <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/ersonalinfoIcon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-    </Tab>
-    <Tab text="برنامه زمانی            ">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TabPane layoutX="-2.0" prefHeight="600.0" prefWidth="827.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="مشاهده برنامه درسی">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="608.0">
-                                 <children>
-                                    <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="14.0" prefHeight="39.0" prefWidth="135.0" text="سال 98-99" textFill="#a10a0a">
-                                       <font>
-                                          <Font name="System Bold" size="27.0" />
-                                       </font>
-                                    </Label>
-                                    <TableView layoutX="43.0" layoutY="82.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="345.0" prefWidth="709.0">
-                                      <columns>
-                                          <TableColumn prefWidth="62.0" text="ردیف" />
-                                        <TableColumn prefWidth="130.0" text="دروس درحال تدریس" />
-                                        <TableColumn minWidth="0.0" prefWidth="110.0" text="کد درس" />
-                                          <TableColumn prefWidth="64.0" text="واحد درس" />
-                                          <TableColumn prefWidth="100.0" text="تعداد دانشجو" />
-                                          <TableColumn prefWidth="147.0" text="زمان برگزاری" />
-                                          <TableColumn prefWidth="95.0" text="مکان برگزاری" />
-                                      </columns>
-                                    </TableView>
-                                    <JFXButton layoutX="5.0" layoutY="3.0" prefHeight="52.0" prefWidth="43.0" ripplerFill="#f80505" text=" ">
-                                       <graphic>
-                                          <ImageView fitHeight="56.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/Exit1.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                    <JFXButton layoutX="57.0" layoutY="7.0" prefHeight="55.0" prefWidth="61.0" text=" ">
-                                       <graphic>
-                                          <ImageView fitHeight="49.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/Back.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                      <Tab text="حذف و اضافه">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <TableView layoutX="57.0" layoutY="90.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="229.0" prefWidth="708.0">
-                                      <columns>
-                                        <TableColumn prefWidth="120.0" text="دروس در حال تدریس" />
-                                        <TableColumn prefWidth="98.0" text="کد درس" />
-                                          <TableColumn prefWidth="35.0" text="واحد" />
-                                          <TableColumn prefWidth="81.0" text="تعداد دانشجو" />
-                                          <TableColumn prefWidth="146.0" text="ساعت برگزاری" />
-                                          <TableColumn prefWidth="137.0" text="مکان" />
-                                          <TableColumn prefWidth="90.0" text="حذف درس" />
-                                      </columns>
-                                    </TableView>
-                                    <Label alignment="CENTER_RIGHT" layoutX="320.0" layoutY="31.0" prefHeight="43.0" prefWidth="436.0" text="در صورت تمایل می توانید یکی از درس های زیر را حذف کنید....." textFill="#b90404">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <TableView layoutX="57.0" layoutY="377.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="707.0">
-                                      <columns>
-                                        <TableColumn prefWidth="116.0" text="درس" />
-                                        <TableColumn prefWidth="126.0" text="کد درس" />
-                                          <TableColumn prefWidth="38.0" text="واحد" />
-                                          <TableColumn prefWidth="231.0" text="ساعت برگزاری" />
-                                          <TableColumn prefWidth="71.0" text="مکان" />
-                                          <TableColumn prefWidth="120.0" text="اضافه کردن درس" />
-                                      </columns>
-                                    </TableView>
-                                    <JFXButton alignment="CENTER" layoutX="233.0" layoutY="331.0" prefHeight="36.0" prefWidth="370.0" ripplerFill="BLACK" text=" در صورت تمایل برای اضافه کردن درس جدید کلیک کنید!!" textFill="#7c0606">
-                                       <font>
-                                          <Font name="System Bold" size="15.0" />
-                                       </font>
-                                    </JFXButton>
-                                    <JFXButton prefHeight="53.0" prefWidth="26.0" text="  ">
-                                       <graphic>
-                                          <ImageView fitHeight="68.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/Exit1.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                    <JFXButton layoutX="51.0" layoutY="3.0" prefHeight="56.0" prefWidth="69.0" text="  ">
-                                       <graphic>
-                                          <ImageView fitHeight="75.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/Back.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-                  <ImageView fitHeight="53.0" fitWidth="60.0" layoutX="140.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
-               </children></AnchorPane>
-      </content>
-         <graphic>
-            <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/report.png" />
-               </image>
-            </ImageView>
-         </graphic>
-    </Tab>
-      <Tab text="دانشجویان         ">
-          <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="1024.0">
-               <children>
-                  <TabPane layoutX="1.0" prefHeight="613.0" prefWidth="834.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="ثبت نمره">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="582.0" prefWidth="998.0">
-                                 <children>
-                                    <ImageView fitHeight="50.0" fitWidth="55.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Exit1.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="47.0" fitWidth="38.0" layoutX="44.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Back.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ComboBox layoutX="487.0" layoutY="15.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="223.0" promptText="لطفا گروه مرود نظر را انتخاب کنید" />
-                                    <TableView fx:id="insertGradeMaster" layoutX="35.0" layoutY="96.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="483.0" prefWidth="742.0">
-                                      <columns>
-                                        <TableColumn prefWidth="38.0" text="ردیف" />
-                                        <TableColumn prefWidth="112.0" text="نام خانوادگی" />
-                                          <TableColumn prefWidth="94.0" text="نام" />
-                                          <TableColumn prefWidth="202.0" text="شماره دانشجویی" />
-                                          <TableColumn prefWidth="115.0" text="جنسیت" />
-                                          <TableColumn prefWidth="109.0" text="کد درس" />
-                                          <TableColumn prefWidth="71.0" text="ثبت نمره" />
-                                      </columns>
-                                    </TableView>
-                                    <Label alignment="CENTER_RIGHT" layoutX="468.0" layoutY="62.0" prefHeight="28.0" prefWidth="294.0" text="Label" />
-                                    <JFXButton layoutX="710.0" layoutY="8.0" prefHeight="47.0" prefWidth="67.0" text="  ">
-                                       <graphic>
-                                          <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/search-var-flat.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+            </content>
+            <graphic>
+                <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/ersonalinfoIcon.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Tab>
+        <Tab text="برنامه زمانی            ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TabPane layoutX="-2.0" prefHeight="600.0" prefWidth="827.0" side="RIGHT"
+                                 tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="مشاهده برنامه درسی">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="608.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="14.0"
+                                                       prefHeight="39.0" prefWidth="135.0" text="سال 98-99"
+                                                       textFill="#a10a0a">
+                                                    <font>
+                                                        <Font name="System Bold" size="27.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TableView layoutX="43.0" layoutY="82.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                           prefHeight="345.0" prefWidth="709.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="62.0" text="ردیف"/>
+                                                        <TableColumn prefWidth="130.0" text="دروس درحال تدریس"/>
+                                                        <TableColumn minWidth="0.0" prefWidth="110.0" text="کد درس"/>
+                                                        <TableColumn prefWidth="64.0" text="واحد درس"/>
+                                                        <TableColumn prefWidth="100.0" text="تعداد دانشجو"/>
+                                                        <TableColumn prefWidth="147.0" text="زمان برگزاری"/>
+                                                        <TableColumn prefWidth="95.0" text="مکان برگزاری"/>
+                                                    </columns>
+                                                </TableView>
+                                                <JFXButton layoutX="5.0" layoutY="3.0" prefHeight="52.0"
+                                                           prefWidth="43.0" ripplerFill="#f80505" text=" ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="56.0" fitWidth="46.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/Exit1.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                                <JFXButton layoutX="57.0" layoutY="7.0" prefHeight="55.0"
+                                                           prefWidth="61.0" text=" ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="49.0" fitWidth="50.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/Back.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="حذف و اضافه">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <TableView layoutX="57.0" layoutY="90.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                           prefHeight="229.0" prefWidth="708.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="120.0" text="دروس در حال تدریس"/>
+                                                        <TableColumn prefWidth="98.0" text="کد درس"/>
+                                                        <TableColumn prefWidth="35.0" text="واحد"/>
+                                                        <TableColumn prefWidth="81.0" text="تعداد دانشجو"/>
+                                                        <TableColumn prefWidth="146.0" text="ساعت برگزاری"/>
+                                                        <TableColumn prefWidth="137.0" text="مکان"/>
+                                                        <TableColumn prefWidth="90.0" text="حذف درس"/>
+                                                    </columns>
+                                                </TableView>
+                                                <Label alignment="CENTER_RIGHT" layoutX="320.0" layoutY="31.0"
+                                                       prefHeight="43.0" prefWidth="436.0"
+                                                       text="در صورت تمایل می توانید یکی از درس های زیر را حذف کنید....."
+                                                       textFill="#b90404">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0"/>
+                                                    </font>
+                                                </Label>
+                                                <TableView layoutX="57.0" layoutY="377.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0"
+                                                           prefWidth="707.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="116.0" text="درس"/>
+                                                        <TableColumn prefWidth="126.0" text="کد درس"/>
+                                                        <TableColumn prefWidth="38.0" text="واحد"/>
+                                                        <TableColumn prefWidth="231.0" text="ساعت برگزاری"/>
+                                                        <TableColumn prefWidth="71.0" text="مکان"/>
+                                                        <TableColumn prefWidth="120.0" text="اضافه کردن درس"/>
+                                                    </columns>
+                                                </TableView>
+                                                <JFXButton alignment="CENTER" layoutX="233.0" layoutY="331.0"
+                                                           prefHeight="36.0" prefWidth="370.0" ripplerFill="BLACK"
+                                                           text=" در صورت تمایل برای اضافه کردن درس جدید کلیک کنید!!"
+                                                           textFill="#7c0606">
+                                                    <font>
+                                                        <Font name="System Bold" size="15.0"/>
+                                                    </font>
+                                                </JFXButton>
+                                                <JFXButton prefHeight="53.0" prefWidth="26.0" text="  ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="68.0" fitWidth="40.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/Exit1.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                                <JFXButton layoutX="51.0" layoutY="3.0" prefHeight="56.0"
+                                                           prefWidth="69.0" text="  ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="75.0" fitWidth="51.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/Back.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <ImageView fitHeight="53.0" fitWidth="60.0" layoutX="140.0" layoutY="97.0" pickOnBounds="true"
+                                   preserveRatio="true"/>
+                    </children>
+                </AnchorPane>
+            </content>
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/report.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Tab>
+        <Tab text="دانشجویان         ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="1024.0">
+                    <children>
+                        <TabPane layoutX="1.0" prefHeight="613.0" prefWidth="834.0" side="RIGHT"
+                                 tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="ثبت نمره">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="582.0" prefWidth="998.0">
+                                            <children>
+                                                <ImageView fitHeight="50.0" fitWidth="55.0" layoutY="1.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Exit1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="47.0" fitWidth="38.0" layoutX="44.0" layoutY="3.0"
+                                                           pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Back.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ComboBox layoutX="487.0" layoutY="15.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                          prefHeight="35.0" prefWidth="223.0"
+                                                          promptText="لطفا گروه مرود نظر را انتخاب کنید"/>
+                                                <TableView fx:id="insertGradeMaster" layoutX="35.0" layoutY="96.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="483.0"
+                                                           prefWidth="742.0">
+                                                    <columns>
+                                                        <TableColumn prefWidth="38.0" text="ردیف"/>
+                                                        <TableColumn prefWidth="112.0" text="نام خانوادگی"/>
+                                                        <TableColumn prefWidth="94.0" text="نام"/>
+                                                        <TableColumn prefWidth="202.0" text="شماره دانشجویی"/>
+                                                        <TableColumn prefWidth="115.0" text="جنسیت"/>
+                                                        <TableColumn prefWidth="109.0" text="کد درس"/>
+                                                        <TableColumn prefWidth="71.0" text="ثبت نمره"/>
+                                                    </columns>
+                                                </TableView>
+                                                <Label alignment="CENTER_RIGHT" layoutX="468.0" layoutY="62.0"
+                                                       prefHeight="28.0" prefWidth="294.0" text="Label"/>
+                                                <JFXButton layoutX="710.0" layoutY="8.0" prefHeight="47.0"
+                                                           prefWidth="67.0" text="  ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/search-var-flat.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
 
 
-                      <Tab text="لیست حضورغیاب">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="48.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Back.png" />
-                                       </image>
-                                    </ImageView>
-                                    <TableView fx:id="TableViewPrAbMaster" layoutX="51.0" layoutY="85.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="487.0" prefWidth="703.0">
-                                      <columns>
-                                          <TableColumn fx:id="RadifPrAbMaster" prefWidth="64.0" text="ردیف" />
-                                        <TableColumn fx:id="LastNamePrAbMaster" prefWidth="136.0" text="نام خوانوادگی" />
-                                        <TableColumn fx:id="FirstNamePrAbMaster" prefWidth="128.0" text="نام" />
-                                          <TableColumn fx:id="IDPrAbMaster" prefWidth="112.0" text="شماره دانشجویی" />
-                                          <TableColumn fx:id="AbsentPrAbMaster" prefWidth="142.0" text="تعداد غیبت" />
-                                          <TableColumn prefWidth="122.0" text="کد درس" />
-                                      </columns>
-                                    </TableView>
-                                    <ImageView fitHeight="52.0" fitWidth="37.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../PNG/Exit1.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ComboBox layoutX="442.0" layoutY="16.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="235.0" promptText="لطفا گروه مورد نظر خود را انتخاب کنبد" />
-                                    <JFXButton layoutX="680.0" layoutY="10.0" prefHeight="39.0" prefWidth="35.0" text="  ">
-                                       <graphic>
-                                          <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/search-var-flat.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-               </children></AnchorPane>
-          </content>
-         <graphic>
-            <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../PNG/management.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Tab>
+                                <Tab text="لیست حضورغیاب">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="48.0"
+                                                           layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Back.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <TableView fx:id="TableViewPrAbMaster" layoutX="51.0" layoutY="85.0"
+                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="487.0"
+                                                           prefWidth="703.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="RadifPrAbMaster" prefWidth="64.0"
+                                                                     text="ردیف"/>
+                                                        <TableColumn fx:id="LastNamePrAbMaster" prefWidth="136.0"
+                                                                     text="نام خوانوادگی"/>
+                                                        <TableColumn fx:id="FirstNamePrAbMaster" prefWidth="128.0"
+                                                                     text="نام"/>
+                                                        <TableColumn fx:id="IDPrAbMaster" prefWidth="112.0"
+                                                                     text="شماره دانشجویی"/>
+                                                        <TableColumn fx:id="AbsentPrAbMaster" prefWidth="142.0"
+                                                                     text="تعداد غیبت"/>
+                                                        <TableColumn prefWidth="122.0" text="کد درس"/>
+                                                    </columns>
+                                                </TableView>
+                                                <ImageView fitHeight="52.0" fitWidth="37.0" layoutX="11.0"
+                                                           layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../PNG/Exit1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ComboBox layoutX="442.0" layoutY="16.0" nodeOrientation="RIGHT_TO_LEFT"
+                                                          prefHeight="28.0" prefWidth="235.0"
+                                                          promptText="لطفا گروه مورد نظر خود را انتخاب کنبد"/>
+                                                <JFXButton layoutX="680.0" layoutY="10.0" prefHeight="39.0"
+                                                           prefWidth="35.0" text="  ">
+                                                    <graphic>
+                                                        <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true"
+                                                                   preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../PNG/search-var-flat.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </JFXButton>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+            </content>
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNG/management.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Tab>
 
 
-
-  </tabs>
+    </tabs>
 </TabPane>

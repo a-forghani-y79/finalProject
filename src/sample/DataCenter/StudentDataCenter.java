@@ -1,12 +1,12 @@
 package sample.DataCenter;
 
-public class Student {
+public class StudentDataCenter {
 
     private String firstName;
     private String lastName;
     private long nationalCode;
     private long studentNumber;
-    private Field[] fields;
+    private FieldDataCenter[] fields;
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh
@@ -18,9 +18,9 @@ public class Student {
     private long IDCardNumber;
     private String Address;
     private String SectionEducation;
-    private  String Condition;
-    private  String StartSeason;
-    private  String Nationality;
+    private String Condition;
+    private String StartSeason;
+    private String Nationality;
     private String Course;
     private String DiplomType;
     private String Matrimony;
@@ -59,9 +59,9 @@ public class Student {
         this.BDay = BDay;
     }
 
-    private int BYear ;
-    private int BMonth ;
-    private int BDay ;
+    private int BYear;
+    private int BMonth;
+    private int BDay;
 
     public String getFirstName() {
         return firstName;
@@ -95,11 +95,11 @@ public class Student {
         this.studentNumber = studentNumber;
     }
 
-    public Field[] getFields() {
+    public FieldDataCenter[] getFields() {
         return fields;
     }
 
-    public void setFields(Field[] fields) {
+    public void setFields(FieldDataCenter[] fields) {
         this.fields = fields;
     }
 

@@ -6,26 +6,25 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Button;
 
 
-public class person {
-    private int row ;
+public class personDataCenter {
+    private int row;
     private String lesson = null;
-    private long lessonCod ;
+    private long lessonCod;
     private String master = null;
-    private int unit ;
+    private int unit;
     private String classStartTime = null;
     private String timeToTakeExam = null;
     private JFXToggleButton btnChooseUnit = null;
-    private double score ;
+    private double score;
     private String situation = null;
-    private int numberOfAbsence ;
+    private int numberOfAbsence;
     private int studentNumber;
-
 
 
     private int passedStudentNumber;
 
     //Choose units
-    public person(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
+    public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -38,7 +37,7 @@ public class person {
     }
 
     //Report
-    public  person(int row, String lesson, int unit, String master, double Score, String situation) {
+    public personDataCenter(int row, String lesson, int unit, String master, double Score, String situation) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -48,7 +47,7 @@ public class person {
     }
 
     //Curriculum
-    public  person(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
+    public personDataCenter(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -60,7 +59,7 @@ public class person {
     }
 
     //Passed
-    public  person(int row, String lesson, int unit, String master, double score) {
+    public personDataCenter(int row, String lesson, int unit, String master, double score) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -69,12 +68,13 @@ public class person {
     }
 
     //not Passed
-    public  person(int row, String lesson, int unit) {
+    public personDataCenter(int row, String lesson, int unit) {
         this.row = row;
         this.lesson = lesson;
         this.unit = unit;
 
     }
+
     public int getRow() {
         return row;
     }
@@ -83,13 +83,12 @@ public class person {
         this.row = row;
     }
 
-    public  person(String lesson,int lessonCod,int unit,int studentNumber,int passedStudentNumber){
+    public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
         this.lesson = lesson;
         this.lessonCod = lessonCod;
         this.unit = unit;
         this.studentNumber = studentNumber;
         this.passedStudentNumber = passedStudentNumber;
-
 
 
     }
@@ -169,6 +168,7 @@ public class person {
     public int getNumberOfAbsence() {
         return numberOfAbsence;
     }
+
     public int getStudentNumber() {
         return studentNumber;
     }
@@ -188,8 +188,6 @@ public class person {
     public void setNumberOfAbsence(int numberOfAbsence) {
         this.numberOfAbsence = numberOfAbsence;
     }
-
-
 
 
 }

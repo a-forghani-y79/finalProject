@@ -5,24 +5,24 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Hashing {
+public class HashingDataCenter {
     private String text;
     private MessageDigest md;
     private String txtHash;
 
-    public Hashing(int message) {
+    public HashingDataCenter(int message) {
         text = String.valueOf(message);
 
     }
 
 
-    public Hashing(long message) {
+    public HashingDataCenter(long message) {
         text = String.valueOf(message);
 
 
     }
 
-    public Hashing(String message) {
+    public HashingDataCenter(String message) {
         text = message;
     }
 
@@ -42,7 +42,8 @@ public class Hashing {
         hash(text);
         return txtHash;
     }
-    public void setMessage(String txt){
+
+    public void setMessage(String txt) {
         text = txt;
     }
 

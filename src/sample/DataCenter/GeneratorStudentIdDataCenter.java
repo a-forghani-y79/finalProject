@@ -2,22 +2,23 @@ package sample.DataCenter;
 
 import java.util.ArrayList;
 
-public class GeneratorStudentId {
-    private int yearNumber=0;
-    private int numberOfStudents=0;
-    private int numberOfManagers=0;
-    private int numberOfMasters=0;
+public class GeneratorStudentIdDataCenter {
+    private int yearNumber = 0;
+    private int numberOfStudents = 0;
+    private int numberOfManagers = 0;
+    private int numberOfMasters = 0;
 
     private int NUMBERSTUDENT = 536;
     private int NUMBERMASTER = 546;
     private int NUMBERMANAGER = 556;
 
-    public GeneratorStudentId() {
-        Archive archive = new Archive(98, Archive.STUDENT);
+    public GeneratorStudentIdDataCenter() {
+        ArchiveDataCenter archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
 
     }
 
-    Archive archive = new Archive(98, Archive.STUDENT);
+    ArchiveDataCenter archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+
     public int getYearNumber() {
 
 
@@ -43,11 +44,12 @@ public class GeneratorStudentId {
     public void setNUMBER(int NUMBER) {
         this.NUMBERSTUDENT = NUMBER;
     }
+
     //Creat ID For Student
     public long creatIdStudent() {
-        ArrayList<Student> students=new ArrayList<Student>();
-               students.addAll(archive.readAllStudents()) ;
-        numberOfStudents=students.size();
+        ArrayList<StudentDataCenter> students = new ArrayList<StudentDataCenter>();
+        students.addAll(archive.readAllStudents());
+        numberOfStudents = students.size();
         long resultNumber = 0;
         String str = String.valueOf(numberOfStudents);
         if (str.length() == 1)
@@ -61,11 +63,12 @@ public class GeneratorStudentId {
 
         return resultNumber;
     }
+
     //Creat ID For Master
     public long createIdMaster() {
-        ArrayList<Master> masters=new ArrayList<Master>();
+        ArrayList<MasterDataCenter> masters = new ArrayList<MasterDataCenter>();
         masters.addAll(archive.readAllMasters());
-        numberOfMasters=masters.size();
+        numberOfMasters = masters.size();
         long resultNumber = 0;
         String str = String.valueOf(numberOfMasters);
         if (str.length() == 1)
@@ -75,7 +78,7 @@ public class GeneratorStudentId {
         else if (str.length() == 3)
             str = "0" + str;
 
-        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMASTER  * Math.pow(10, 4)) + numberOfMasters);
+        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMASTER * Math.pow(10, 4)) + numberOfMasters);
 
         return resultNumber;
     }

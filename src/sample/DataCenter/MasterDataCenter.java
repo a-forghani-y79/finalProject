@@ -1,14 +1,12 @@
 package sample.DataCenter;
 
-public class Master {
-
-
+public class MasterDataCenter {
 
 
     private String firstName;
     private String lastName;
     private long nationalNumber;
-    private long  personalNumber;
+    private long personalNumber;
 
 
     public String getFirstName() {
@@ -42,11 +40,6 @@ public class Master {
     public void setPersonalNumber(long personalNumber) {
         this.personalNumber = personalNumber;
     }
-
-
-
-
-
 
 
 }

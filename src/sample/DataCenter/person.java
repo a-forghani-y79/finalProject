@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
 
@@ -21,6 +22,16 @@ public class person<JFXToggleButton> {
     private int numberOfAbsence ;
     private int studentNumber;
     private  String classPlace=null;
+    private String firstName = null;
+    private String lastName = null;
+    private long studentId  ;
+    private String gender = null;
+    private TextField txtInsert;
+
+
+
+
+
 
 
 
@@ -126,6 +137,19 @@ public class person<JFXToggleButton> {
 //
 //    }
 
+    public person(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
+
+        this.row= row;
+        this.lastName= lastName;
+        this.firstName=firstName;
+        this.studentId= studentId;
+        this.gender= gender;
+        this.txtInsert = txtInsert;
+
+
+
+
+    }
 
 
     public String getLesson() {
@@ -223,7 +247,57 @@ public class person<JFXToggleButton> {
         this.numberOfAbsence = numberOfAbsence;
     }
 
+    public void setLessonCod(long lessonCod) {
+        this.lessonCod = lessonCod;
+    }
 
+    public String getClassPlace() {
+        return classPlace;
+    }
+
+    public void setClassPlace(String classPlace) {
+        this.classPlace = classPlace;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public TextField getTxtInsert() {
+        return txtInsert;
+    }
+
+    public void setTxtInsert(TextField txtInsert) {
+        this.txtInsert = txtInsert;
+    }
 
 
 }

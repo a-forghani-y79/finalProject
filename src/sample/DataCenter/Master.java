@@ -8,7 +8,16 @@ public class Master {
     private String lastName;
     private long nationalNumber;
     private long  personalNumber;
-    private Master master;
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    private int gender;
 
 
     public String getFirstName() {

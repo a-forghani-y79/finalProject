@@ -1,23 +1,27 @@
 package sample.Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Master implements Initializable {
 
-    public TableView insertGradeMaster;
+
     public TableColumn MasterLessonsWeeklyRecord;
     public TableColumn LessonCodeMaster;
     public TableColumn LessonUnitMasterRecord;
     public TableColumn StudentNumberMasterRecord;
     public TableColumn PassedStudentNumberMasterRecord;
-    public TableView weeklyTable;
+//    public TableView weeklyTable;
     public TableView weeklyTableView;
 
     public TableView AddTableMaster;
@@ -45,6 +49,23 @@ public class Master implements Initializable {
     public TableColumn numberStudentNewWeekMaster;
     public TableColumn startTimeNewWeekTableMaster;
     public TableColumn placeNewWeekMaster;
+    public JFXButton showDeleteTable;
+    public TextField txtNameMaster;
+    public TextField txtFamilyMaster;
+    public TextField txtPersonalCodeMaster;
+    public TextField txtNationalCodeMater;
+
+    public ImageView MasterFaceImage;
+
+
+    public TableView insertGradeMaster;
+    public TableColumn rowInsertGrade;
+    public TableColumn lastNameInsetGrade;
+    public TableColumn FirstNameInssertGrade;
+    public TableColumn IdInsertGrade;
+    public TableColumn genderInsertGrade;
+    public TableColumn lessonCodeInsertGrade;
+    public TableColumn insertGradeMasterCLM;
 
     sample.DataCenter.Master master;
     //
@@ -115,7 +136,50 @@ public class Master implements Initializable {
 
 
    }
+// do ta table mondeh
 
+    public  void  insertGrade(){
+        rowInsertGrade.setCellValueFactory(new PropertyValueFactory<>("row"));
+        lastNameInsetGrade.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        FirstNameInssertGrade.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        IdInsertGrade.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        genderInsertGrade.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        insertGradeMasterCLM.setCellValueFactory(new PropertyValueFactory<>("txtInsert"));
+        insertGradeMaster.getItems().add(new sample.DataCenter.person(1,"sada","sss",98536, "Male", new TextField()));
+
+    }
+
+
+
+
+
+
+   public  void  showDeleteTable(){
+
+        DeleteTableMaster.setVisible(true);
+
+
+   }
+
+   public  void  setName(){
+        txtNameMaster.setText(master.getFirstName());
+        txtFamilyMaster.setText(master.getLastName());
+        txtNationalCodeMater.setText(master.getNationalNumber()+"");
+        txtPersonalCodeMaster.setText(master.getPersonalNumber()+"");
+   }
+
+   public  void  setImage(){
+
+       Image imageFM = new Image("./sample/PNG/MasterFM.png");
+       Image imageM = new Image("./sample/PNG/MasIcon.png");
+
+    if(master.getGender()==0)
+    MasterFaceImage.setImage(imageFM);
+    if(master.getGender()==1)
+    MasterFaceImage.setImage(imageM);
+
+
+   }
 
 
 
@@ -136,6 +200,9 @@ public class Master implements Initializable {
         AddFields();
         DeleteField();
         newWeekMaster();
+       // setName();
+       // setImage();
+        insertGrade();
 
     }
 

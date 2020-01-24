@@ -87,19 +87,12 @@ public class StudentController implements Initializable {
     public TextField txtNationalityProfile;
     public TextField txtReligionProfile;
     public TextField txtReligion2Profile;
-
-
-    //
     private StudentDataCenter student;
+    public ArchiveDataCenter archive;
 
     public void setStudent(StudentDataCenter student) {
         this.student = student;
     }
-
-
-    // sample.DataCenter.Student student;
-    public ArchiveDataCenter archive;
-
 
     public void onActionPassed() {
         rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
@@ -145,8 +138,8 @@ public class StudentController implements Initializable {
     }
 
     public void onActionChooseUnit() {
-        student = archive.readStudent(1234);
-       ArrayList<FieldDataCenter> field = student.getFieldsList();
+        student = archive.readStudent(student.getStudentNumber());
+        ArrayList<FieldDataCenter> field = student.getFieldsList();
 
         JFXToggleButton btn = new JFXToggleButton();
 
@@ -166,7 +159,8 @@ public class StudentController implements Initializable {
     }
 
     public void onActionSetProfile() {
-        student = archive.readStudent(1234);
+        student = archive.readStudent(student.getStudentNumber());
+
         txtCollegeProfile.setText(student.getFaculty());
         txtLastNameProfile.setText(student.getLastName());
         txtNameProfile.setText(student.getFirstName());
@@ -174,31 +168,27 @@ public class StudentController implements Initializable {
         txtFatherNameProfile.setText(student.getFatherName());
         txtAddressProfile.setText(student.getAddress());
         txtFatherPhoneNumberProfile.setText(String.valueOf(student.getFatherPhoneNumber()));
-        //   txtDateOfBirthProfile.setText(student.g());//UBorn
-        txtProvinceOfBirthProfile.setText(student.getUBorn());//استان
+        txtDateOfBirthProfile.setText(student.getBYear() + "-" + student.getBMonth() + "-" + student.getBDay());
+        txtProvinceOfBirthProfile.setText(student.getUBorn());
         txtCityOfBirthProfile.setText(student.getCityBorn());
         txtTypeOfDiplomaProfile.setText(student.getDiplomType());
-        // txtDiplomaYearProfile.setText(student.get);//چرا تاریح احذ دیپلم یوخدی
         txtCourseProfile.setText(student.getCourse());
         txtNumbeOfDucProfile.setText(String.valueOf(student.getFileNumber()));
         txtConditionProfile.setText(student.getCondition());
-        ///  txtPostalCodeProfile.setText(student.get);
+        txtPostalCodeProfile.setText(student.getZIPCode() + "");
         txtEmailProfile.setText(student.getEmail());
         txtNationalityProfile.setText(student.getNationality());
-        txtReligionProfile.setText(student.getReligion());//DIN
+        txtReligionProfile.setText(student.getFaith());
         txtIdProfile.setText(String.valueOf(student.getStudentNumber()));
-//        public TextField txtPlaceShenaseProfile;
-//        public TextField txtShenaseCodProfile;
-//        public TextField txtGradeProfile;
-//        public TextField txtFieldProfile;
-//        public TextField txtDateOfBirthProfile;
-//        public TextField txtIncomingSemesterProfile;
+        txtPlaceShenaseProfile.setText(student.getLocalBorn());
+        txtShenaseCodProfile.setText(student.getIDCardNumber() + "");
+        txtGradeProfile.setText(student.getSectionEducation());
+        txtFieldProfile.setText(student.getField());
+        txtIncomingSemesterProfile.setText(student.getStartSeason());
 
-//        public TextField txtDiplomaYearProfile;
-//        public TextField txtPostalCodeProfile;
-//        public TextField txtNationalCodProfile;
-//    public TextField txtMaritalStatusProfile;
-//        public TextField txtReligion2Profile;//MAZHAB
+        txtNationalCodProfile.setText(student.getNationalCode() + "");
+        txtMaritalStatusProfile.setText(student.getMatrimony());
+        txtReligion2Profile.setText(student.getReligion());
     }
 
     @Override
@@ -233,24 +223,25 @@ public class StudentController implements Initializable {
             });
 
         }
-        long [] lessonCods = new long[personDataCenters.size()];
+        long[] lessonCods = new long[personDataCenters.size()];
 
-        for (int i =0 ; i <personDataCenters.size();i++){
-            lessonCods[i]=personDataCenters.get(i).getLessonCod();
+        for (int i = 0; i < personDataCenters.size(); i++) {
+            lessonCods[i] = personDataCenters.get(i).getLessonCod();
         }
 
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98,ArchiveDataCenter.FIELD);
-        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>(){};
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
+        };
         fields.addAll(archiveDataCenter.readAllFields());
-        for (int i = 0 ; i< fields.size();i++){
-            for (int j =0 ;j<lessonCods.length;j++){
-                if(lessonCods[j]==fields.get(i).getFieldNumber()){
+        for (int i = 0; i < fields.size(); i++) {
+            for (int j = 0; j < lessonCods.length; j++) {
+                if (lessonCods[j] == fields.get(i).getFieldNumber()) {
                     fields.get(i).setScore(10);
-                   student.addField(fields.get(i));
+                    student.addField(fields.get(i));
                 }
             }
         }
-        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98,ArchiveDataCenter.STUDENT);
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
         archiveDataCenter1.writeStudent(student);
     }
 }

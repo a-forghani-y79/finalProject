@@ -3,6 +3,8 @@ package sample.DataCenter;
 //this is a tool for up/downloading data to/from file
 //Every communications with Files should  be done by THIS class
 
+import com.sun.istack.internal.NotNull;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -87,12 +89,13 @@ public class Archive {
 
     }
 
-   public void writeStudentList(Student [] students) {
-        for (int i = 0 ; i<students.length;i++) {
+
+    public void writeStudentList(Student[] students) {
+        for (int i = 0; i < students.length; i++) {
             try {
                 objectOutputStream.writeObject(students[i]);
-            }catch (IOException e){
-                erroreMessage+=(e.getMessage()+"\n");
+            } catch (IOException e) {
+                erroreMessage += (e.getMessage() + "\n");
             }
         }
     }
@@ -101,7 +104,7 @@ public class Archive {
         try {
             objectOutputStream.writeObject(student);
         } catch (Exception e) {
-           erroreMessage+=(e.getMessage()+"\n");
+            erroreMessage += (e.getMessage() + "\n");
         }
     }
 
@@ -130,19 +133,18 @@ public class Archive {
     public void writeMaster(Master master) {
         try {
             objectOutputStream.writeObject(master);
-        }catch (IOException e ) {
-            erroreMessage += (e.getMessage()+"\n");
+        } catch (IOException e) {
+            erroreMessage += (e.getMessage() + "\n");
         }
 
     }
 
 
-   public void readManager(long ManagerID) {
-
+    public Manager readManager(long ManagerID) {
+        Manager manager = new Manager();
+        return manager;
     }
 
-    void writeManager() {
-    }
 
     public NewStudent readNewStudent(long nationalNumber) {
         NewStudent std = new NewStudent();
@@ -170,12 +172,13 @@ public class Archive {
     //    void readAllMasters() {
 //    }
     //read All Masters
-    ArrayList<Master> readAllMasters() {
-        ArrayList<Master> list = new ArrayList<Master>(){};
+    public ArrayList<Master> readAllMasters() {
+        ArrayList<Master> list = new ArrayList<Master>() {
+        };
         Master std = new Master();
         try {
             while (true) {
-                std = (Master)objectInputStream.readObject();
+                std = (Master) objectInputStream.readObject();
                 list.add(std);
             }
         } catch (ClassNotFoundException | IOException e) {
@@ -186,7 +189,7 @@ public class Archive {
 
     //read All Students
 
-    ArrayList<Student> readAllStudents() {
+    public ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
         };
         Student std = new Student();
@@ -201,14 +204,16 @@ public class Archive {
         }
         return list;
     }
+
     //read All Managers
-    ArrayList<Student> readAllManagers(){
-        ArrayList<Student> list = new ArrayList<Student>(){};
+    public ArrayList<Student> readAllManagers() {
+        ArrayList<Student> list = new ArrayList<Student>() {
+        };
         Student std = new Student();
         try {
-            std=(Student)objectInputStream.readObject();
+            std = (Student) objectInputStream.readObject();
             list.add(std);
-        }catch (ClassNotFoundException | IOException e){
+        } catch (ClassNotFoundException | IOException e) {
             erroreMessage += (e.getMessage() + "\n");
         }
         return list;
@@ -229,7 +234,7 @@ public class Archive {
     private void loadBinaryFile(String dist) {
         try {
             fileInputStream = new FileInputStream(dist);
-            fileOutputStream = new FileOutputStream(dist,true);
+            fileOutputStream = new FileOutputStream(dist, true);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectInputStream = new ObjectInputStream(fileInputStream);
         } catch (Exception e) {

@@ -6,14 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.DataCenter.NewStudent;
-import sample.DataCenter.Student;
+import sample.DataCenter.NewStudentDataCenter;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        NewStudent std = new NewStudent();
+      //  Parent root = FXMLLoader.load(getClass().getResource("FXML/Master.fxml"));
+        NewStudentDataCenter std = new NewStudentDataCenter();
         FXMLLoader loader = new FXMLLoader();
         Parent root;
         std.setGender(0);
@@ -24,7 +24,7 @@ public class Main extends Application {
         std.setRate(1800);
         std.setID(1362942138);
         std.setLastName("فرقانی");
-        sample.Controllers.NewStudent newStudent = new sample.Controllers.NewStudent();
+        sample.Controllers.NewStudentController newStudent = new sample.Controllers.NewStudentController();
         newStudent.setStd(std);
 
         loader.setController(newStudent);
@@ -32,8 +32,7 @@ public class Main extends Application {
 
         root = loader.load();
 
-
-      //  primaryStage.setTitle("سیستم سما");
+        //  primaryStage.setTitle("سیستم سما");
 
         primaryStage.setScene(new Scene(root, 1058, 600));
         primaryStage.initStyle(StageStyle.TRANSPARENT);

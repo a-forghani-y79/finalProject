@@ -149,7 +149,7 @@ public class personDataCenter {
 
     }
 
-    public person(int row,String lastName,String firstName,long studentId, int numberOfAbsence){
+    public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
        this.row=row;
        this.lastName=lastName;
        this.firstName=firstName;

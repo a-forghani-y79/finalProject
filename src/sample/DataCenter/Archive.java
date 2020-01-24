@@ -137,12 +137,12 @@ public class Archive {
     }
 
 
-   public void readManager(long ManagerID) {
-
+   public Manager readManager() {
+    Manager manager = new Manager();
+    return manager;
     }
 
-    void writeManager() {
-    }
+
 
     public NewStudent readNewStudent(long nationalNumber) {
         NewStudent std = new NewStudent();
@@ -170,7 +170,7 @@ public class Archive {
     //    void readAllMasters() {
 //    }
     //read All Masters
-    ArrayList<Master> readAllMasters() {
+     public ArrayList<Master> readAllMasters() {
         ArrayList<Master> list = new ArrayList<Master>(){};
         Master std = new Master();
         try {
@@ -183,10 +183,19 @@ public class Archive {
         }
         return list;
     }
+    public void writeAllMaster(Master[] masters){
+        try {
+            for (int i = 0; i<masters.length;i++){
+                objectOutputStream.writeObject(masters[i]);
+            }
+        }catch (IOException e){
+            erroreMessage += (e.getMessage()+"\n");
+        }
+    }
 
     //read All Students
 
-    ArrayList<Student> readAllStudents() {
+   public ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
         };
         Student std = new Student();
@@ -201,18 +210,7 @@ public class Archive {
         }
         return list;
     }
-    //read All Managers
-    ArrayList<Student> readAllManagers(){
-        ArrayList<Student> list = new ArrayList<Student>(){};
-        Student std = new Student();
-        try {
-            std=(Student)objectInputStream.readObject();
-            list.add(std);
-        }catch (ClassNotFoundException | IOException e){
-            erroreMessage += (e.getMessage() + "\n");
-        }
-        return list;
-    }
+
 
     boolean isAllowed() {
         if (erroreMessage.length() == 0)

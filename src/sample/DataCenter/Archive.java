@@ -87,29 +87,62 @@ public class Archive {
 
     }
 
-    void writeStudentList() {
+   public void writeStudentList(Student [] students) {
+        for (int i = 0 ; i<students.length;i++) {
+            try {
+                objectOutputStream.writeObject(students[i]);
+            }catch (IOException e){
+                erroreMessage+=(e.getMessage()+"\n");
+            }
+        }
+    }
+
+    public void writeStudent(Student student) {
+        try {
+            objectOutputStream.writeObject(student);
+        } catch (Exception e) {
+           erroreMessage+=(e.getMessage()+"\n");
+        }
+    }
+
+    public Master readMaster(long personalNumber) {
+        Master master = new Master();
+        boolean flag = true;
+        try {
+            while (flag) {
+                master = (Master) objectInputStream.readObject();
+                if (master.getPersonalNumber() == personalNumber)
+                    flag = false;
+            }
+
+        } catch (EOFException e) {
+            erroreMessage += (e.getMessage() + "\n");
+            if (flag) {
+                erroreMessage += ("student not found\n");
+                master = null;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return master;
+    }
+
+    public void writeMaster(Master master) {
+        try {
+            objectOutputStream.writeObject(master);
+        }catch (IOException e ) {
+            erroreMessage += (e.getMessage()+"\n");
+        }
 
     }
 
-    public void writeStudent() {
-        String name = "";
 
-
-    }
-
-    void readMaster() {
-    }
-
-    void writeMaster() {
+   public Manager readManager() {
+    Manager manager = new Manager();
+    return manager;
     }
 
 
-    void readManager() {
-
-    }
-
-    void writeManager() {
-    }
 
     public NewStudent readNewStudent(long nationalNumber) {
         NewStudent std = new NewStudent();
@@ -137,7 +170,7 @@ public class Archive {
     //    void readAllMasters() {
 //    }
     //read All Masters
-    ArrayList<Master> readAllMasters() {
+     public ArrayList<Master> readAllMasters() {
         ArrayList<Master> list = new ArrayList<Master>(){};
         Master std = new Master();
         try {
@@ -150,10 +183,19 @@ public class Archive {
         }
         return list;
     }
+    public void writeAllMaster(Master[] masters){
+        try {
+            for (int i = 0; i<masters.length;i++){
+                objectOutputStream.writeObject(masters[i]);
+            }
+        }catch (IOException e){
+            erroreMessage += (e.getMessage()+"\n");
+        }
+    }
 
     //read All Students
 
-    ArrayList<Student> readAllStudents() {
+   public ArrayList<Student> readAllStudents() {
         ArrayList<Student> list = new ArrayList<Student>() {
         };
         Student std = new Student();
@@ -168,18 +210,7 @@ public class Archive {
         }
         return list;
     }
-    //read All Managers
-    ArrayList<Student> readAllManagers(){
-        ArrayList<Student> list = new ArrayList<Student>(){};
-        Student std = new Student();
-        try {
-            std=(Student)objectInputStream.readObject();
-            list.add(std);
-        }catch (ClassNotFoundException | IOException e){
-            erroreMessage += (e.getMessage() + "\n");
-        }
-        return list;
-    }
+
 
     boolean isAllowed() {
         if (erroreMessage.length() == 0)
@@ -196,6 +227,9 @@ public class Archive {
     private void loadBinaryFile(String dist) {
         try {
             fileInputStream = new FileInputStream(dist);
+            fileOutputStream = new FileOutputStream(dist,true);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectInputStream = new ObjectInputStream(fileInputStream);
         } catch (Exception e) {
             erroreMessage += (e.getMessage() + "\n");
         }

@@ -79,22 +79,5 @@ public class GeneratorStudentId {
 
         return resultNumber;
     }
-    //Creat ID For Manager
-    public long createIdManager() {
-        ArrayList<Student> managers = new ArrayList<>();
-        managers.addAll(archive.readAllManagers());
-        numberOfManagers=managers.size();
-        long resultNumber = 0;
-        String str = String.valueOf(numberOfManagers);
-        if (str.length() == 1)
-            str = "000" + str;
-        else if (str.length() == 2)
-            str = "00" + str;
-        else if (str.length() == 3)
-            str = "0" + str;
 
-        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMANAGER * Math.pow(10, 4)) + numberOfManagers);
-
-        return resultNumber;
-    }
 }

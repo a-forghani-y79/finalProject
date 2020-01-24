@@ -9,11 +9,18 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Archive {
+
     //tedad daneshjoo jadid
     //tedad daneshjoo sabt nam shode
 
 
     public Archive(int year, int mode) {
+        STUDENT_FILE = "../Files/y" + year + "/student.dat";
+        MASTER_FILE = "../Files/y" + year + "/master.dat";
+        MANAGER_FILE = "../Files/y" + year + "/manager.dat";
+        NEW_STUDENT_FILE = "../Files/y" + year + "/manager.dat";
+        FIELDS_FILE = "../Files/Fields.dat";
+
         switch (mode) {
             case 0:
                 loadBinaryFile(NEW_STUDENT_FILE);
@@ -27,11 +34,12 @@ public class Archive {
             case 3:
                 loadBinaryFile(MANAGER_FILE);
                 break;
+            case 4:
+                loadBinaryFile(FIELDS_FILE);
+                break;
+
         }
-        STUDENT_FILE = "../Files/y" + year + "/student.dat";
-        MASTER_FILE = "../Files/y" + year + "/master.dat";
-        MANAGER_FILE = "../Files/y" + year + "/manager.dat";
-        NEW_STUDENT_FILE = "../Files/y" + year + "/manager.dat";
+
     }
 
 
@@ -40,6 +48,7 @@ public class Archive {
     public static int STUDENT = 1;
     public static int MASTER = 2;
     public static int MANAGER = 3;
+    public static int FIELD = 4;
 
 
     //addresses
@@ -47,6 +56,7 @@ public class Archive {
     private String STUDENT_FILE = "";
     private String MASTER_FILE = "";
     private String MANAGER_FILE = "";
+    private String FIELDS_FILE = "";
 
 
     private String erroreMessage = "";

@@ -8,7 +8,7 @@ public class Field {
     private Master master;
     private String classStartTime ;
     private String timeToTakeExam ;
-    //TODO زمان امتحان و برگذاری درس اضافه شود
+
 
     public String getName() {
         return fieldName;

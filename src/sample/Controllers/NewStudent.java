@@ -53,12 +53,14 @@ public class NewStudent implements Initializable {
     public TextField txtCourse1;
     public JFXComboBox<String> comboDyplomType;
 
-
     sample.DataCenter.NewStudent std ;
 
-    NewStudent(sample.DataCenter.NewStudent newStudent) {
-        std = newStudent;
+    public void setStd(sample.DataCenter.NewStudent std) {
+        this.std = std;
     }
+
+
+
 
     public  void Show() {
        txtFirstName.setText(std.getFirstName());

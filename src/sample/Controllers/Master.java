@@ -20,6 +20,12 @@ public class Master implements Initializable {
     public TableView weeklyTable;
     public TableView weeklyTableView;
 
+    public void setMaster(sample.DataCenter.Master master) {
+        this.master = master;
+    }
+
+    private sample.DataCenter.Master master;
+
     public  void UnVisible()
     {
 

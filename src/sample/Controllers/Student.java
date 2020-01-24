@@ -87,6 +87,15 @@ public class Student implements Initializable {
     public TextField txtReligionProfile;
     public TextField txtReligion2Profile;
 
+
+    //
+    private sample.DataCenter.Student student;
+
+    public void setStudent(sample.DataCenter.Student student) {
+        this.student = student;
+    }
+
+
     // sample.DataCenter.Student student;
 
     public void onActionSetProfile(){

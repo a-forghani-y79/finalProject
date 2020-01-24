@@ -74,9 +74,11 @@ public class NewStudent implements Initializable {
        txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
        if (std.isDay_night()==true){
            txtCourse.setText("day");
+            txtCourse1.setText("day");
 
        }else {
            txtCourse.setText("night");
+           txtCourse1.setText("night");
        }
 
 

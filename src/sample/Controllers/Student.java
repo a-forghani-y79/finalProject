@@ -1,13 +1,19 @@
 package sample.Controllers;
 
 
-import javafx.fxml.FXML;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXToggleButton;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import sample.DataCenter.Archive;
 import sample.DataCenter.person;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -51,8 +57,41 @@ public class Student implements Initializable {
     public TableColumn rowNotPassed;
     public TableColumn lessonNotPassed;
     public TableColumn unitNotPassed;
-    public Button btnChoose;
+    //Profile
+    public TextField txtCollegeProfile;
+    public TextField txtLastNameProfile;
+    public TextField txtIdProfile;
+    public TextField txtNameProfile;
+    public TextField txtPhoneNumberProfile;
+    public TextField txtPlaceShenaseProfile;
+    public TextField txtFatherNameProfile;
+    public TextField txtAddressProfile;
+    public TextField txtShenaseCodProfile;
+    public TextField txtFatherPhoneNumberProfile;
+    public TextField txtGradeProfile;
+    public TextField txtFieldProfile;
+    public TextField txtDateOfBirthProfile;
+    public TextField txtIncomingSemesterProfile;
+    public TextField txtProvinceOfBirthProfile;
+    public TextField txtCityOfBirthProfile;
+    public TextField txtTypeOfDiplomaProfile;
+    public TextField txtDiplomaYearProfile;
+    public TextField txtCourseProfile;
+    public TextField txtNumbeOfDucProfile;
+    public TextField txtConditionProfile;
+    public TextField txtMaritalStatusProfile;
+    public TextField txtPostalCodeProfile;
+    public TextField txtEmailProfile;
+    public TextField txtNationalCodProfile;
+    public TextField txtNationalityProfile;
+    public TextField txtReligionProfile;
+    public TextField txtReligion2Profile;
 
+    // sample.DataCenter.Student student;
+
+    public void onActionSetProfile(){
+        txtAddressProfile.setText("uhjnerxck");
+    }
     public void onActionPassed() {
         rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -99,8 +138,13 @@ public class Student implements Initializable {
     public void onActionChooseUnit() {
 
 
-        Button btn = new Button("choose");
-
+        JFXToggleButton btn = new JFXToggleButton();
+        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("1234");
+            }
+        });
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -109,6 +153,7 @@ public class Student implements Initializable {
         classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+
         tableViewChoose.getItems().add(new sample.DataCenter.person(1, "math", 123456, "tanha", 3, "32,45,76", "8234869", btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
@@ -122,5 +167,6 @@ public class Student implements Initializable {
         onActionNotPassed();
         onActionCurriculum();
         onActionReport();
+        onActionSetProfile();
     }
 }

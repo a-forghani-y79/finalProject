@@ -3,7 +3,6 @@ package sample.Controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
@@ -16,13 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.DataCenter.Archive;
-import sample.DataCenter.Hashing;
 import sample.DataCenter.Master;
 import sample.DataCenter.NewStudent;
 import sample.DataCenter.Student;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -38,7 +34,7 @@ public class loginPage implements Initializable {
 
     public ImageView imgbackpane;
     public Label lblAlert;
-    public JFXComboBox UseCaseCombo;
+    public JFXComboBox useCaseCombo;
     public TextArea txtInfo;
     public JFXButton btnExit;
     private Archive archive;
@@ -50,7 +46,6 @@ public class loginPage implements Initializable {
     private NewStudent passengerNewStudent;
     private Master passengerMaster;
     private Student passengerStudent;
-
 
 
     public TextArea getTxtInfo() {
@@ -154,27 +149,55 @@ public class loginPage implements Initializable {
         if (considerEmpty() && considerRight()) {
             UserNum = Long.parseLong(user);
             PassNum = Long.parseLong(pass);
+        } else
+            return;
+
+
+        int useCaseIndex = useCaseCombo.getSelectionModel().getSelectedIndex();
+        if (useCaseIndex == -1) {
+            //TODO set suitable message
+
+            return;
         }
 
-        int UseCaseIndex = UseCaseCombo.getSelectionModel().getSelectedIndex();
 
-        switch (UseCaseIndex) {
+        switch (useCaseIndex) {
             case 0:
-                AuthNewStudent(UserNum, PassNum);
+                if (AuthNewStudent(UserNum, PassNum))
+                    openFxmlNewStudent();
+                else {
+                    //  alert();
+                    //TODO set suitable message
 
+                    return;
+                }
                 break;
             case 1:
-                AuthStudent(UserNum, PassNum);
-
-
+                if (AuthStudent(UserNum, PassNum))
+                    openFxmlStudent();
+                else {
+                    //  alert();
+                    //TODO set suitable message
+                    return;
+                }
                 break;
             case 2:
-                AuthMaster(UserNum, PassNum);
-
+                if (AuthMaster(UserNum, PassNum))
+                    openFxmlMaster();
+                else {
+                    //  alert();
+                    //TODO set suitable message
+                    return;
+                }
                 break;
             case 3:
-                AuthManager(UserNum, PassNum);
-
+                if (AuthManager(UserNum, PassNum))
+                    openFxmlManager();
+                else {
+                    //  alert();
+                    //TODO set suitable message
+                    return;
+                }
                 break;
 
         }
@@ -206,7 +229,7 @@ public class loginPage implements Initializable {
 //
 //    }
 
-    private void alert(String message,Label lbl, String color) {
+    private void alert(String message, Label lbl, String color) {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
     }
@@ -226,8 +249,8 @@ public class loginPage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
         String[] comboItems = {"دانشجو جدید الورود", "دانشجو", "استاد", "کارمند آموزش"};
-        UseCaseCombo.getItems().addAll(comboItems);
-        UseCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        useCaseCombo.getItems().addAll(comboItems);
+        useCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 
 
     }

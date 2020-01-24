@@ -97,7 +97,26 @@ public class Archive {
 
     }
 
-    void readMaster() {
+    Master readMaster() {
+        Master master ;
+        boolean flag = true;
+        try {
+            while (flag) {
+                master = (Master) objectInputStream.readObject();
+                if (master.getID() == nationalNumber)
+                    flag = false;
+            }
+
+        } catch (EOFException e) {
+            erroreMessage += (e.getMessage() + "\n");
+            if (flag) {
+                erroreMessage += ("student not found\n");
+                std = null;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            erroreMessage += (e.getMessage() + "\n");
+        }
+        return master;
     }
 
     void writeMaster() {

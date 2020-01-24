@@ -8,6 +8,16 @@ public class MasterDataCenter {
     private long nationalNumber;
     private long personalNumber;
 
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    private int gender;
+
 
     public String getFirstName() {
         return firstName;

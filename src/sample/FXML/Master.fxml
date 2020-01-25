@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="863.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="863.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.MasterController">
   <tabs>
     <Tab text="پروفایل شخصی             ">
       <content>
@@ -166,7 +166,6 @@
                                           <TableColumn fx:id="UnitNewWeekTableMaster" prefWidth="64.0" text="واحد درس" />
                                           <TableColumn fx:id="numberStudentNewWeekMaster" prefWidth="100.0" text="تعداد دانشجو" />
                                           <TableColumn fx:id="startTimeNewWeekTableMaster" prefWidth="147.0" text="زمان برگزاری" />
-                                          <TableColumn fx:id="placeNewWeekMaster" prefWidth="95.0" text="مکان برگزاری" />
                                       </columns>
                                     </TableView>
                                     <JFXButton layoutX="5.0" layoutY="3.0" prefHeight="52.0" prefWidth="43.0" ripplerFill="#f80505" text=" ">
@@ -276,7 +275,7 @@
                                           <Image url="@../PNG/Back.png" />
                                        </image>
                                     </ImageView>
-                                    <ComboBox layoutX="493.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="223.0" promptText="لطفا گروه مرود نظر را انتخاب کنید" />
+                                    <ComboBox fx:id="combolessonMaster" layoutX="493.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="223.0" promptText="لطفا گروه مرود نظر را انتخاب کنید" />
                                     <TableView fx:id="insertGradeMaster" layoutX="35.0" layoutY="96.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="483.0" prefWidth="742.0">
                                       <columns>
                                         <TableColumn fx:id="rowInsertGrade" prefWidth="38.0" text="ردیف" />

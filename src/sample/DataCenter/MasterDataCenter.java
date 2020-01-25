@@ -8,17 +8,21 @@ public class MasterDataCenter {
     private long nationalNumber;
     private long  personalNumber;
     private int gender;
+    private String lesson;
+    private int lessonCode;
+    private int unit;
+    private int studentNumber;
+    private int passedStudent;
 
-
-    public int getGender() {
-        return gender;
+    public FieldDataCenter[] getMasField() {
+        return masField;
     }
 
-    public void setGender(int gender) {
-        this.gender = gender;
+    public void setMasField(FieldDataCenter[] masField) {
+        this.masField = masField;
     }
 
-
+    private  FieldDataCenter [] masField;
 
 
     public String getFirstName() {
@@ -53,5 +57,51 @@ public class MasterDataCenter {
         this.personalNumber = personalNumber;
     }
 
+    public int getGender() {
+        return gender;
+    }
 
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public String getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
+
+    public int getLessonCode() {
+        return lessonCode;
+    }
+
+    public void setLessonCode(int lessonCode) {
+        this.lessonCode = lessonCode;
+    }
+
+    public int getUnit() {
+        return unit;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public int getPassedStudent() {
+        return passedStudent;
+    }
+
+    public void setPassedStudent(int passedStudent) {
+        this.passedStudent = passedStudent;
+    }
 }

@@ -3,6 +3,7 @@ package sample.Controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -10,10 +11,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import sample.DataCenter.MasterDataCenter;
-import sample.DataCenter.personDataCenter;
+import sample.DataCenter.*;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MasterController implements Initializable {
@@ -60,7 +61,7 @@ public class MasterController implements Initializable {
     public ImageView MasterFaceImage;
 
 
-    public TableView insertGradeMaster;
+ //   public TableView insertGradeMaster;
     public TableColumn rowInsertGrade;
     public TableColumn lastNameInsetGrade;
     public TableColumn FirstNameInssertGrade;
@@ -68,12 +69,27 @@ public class MasterController implements Initializable {
     public TableColumn genderInsertGrade;
     public TableColumn lessonCodeInsertGrade;
     public TableColumn insertGradeMasterCLM;
+    public TableView TableViewPrAbMaster;
+    public TableColumn LastNamePrAbMaster;
+    public TableColumn FirstNamePrAbMaster;
+    public TableColumn RadifPrAbMaster;
+    public TableColumn IDPrAbMaster;
+    public TableColumn AbsentPrAbMaster;
+    public ArchiveDataCenter archive;
+    public ComboBox combolessonMaster;
+    private MasterDataCenter master;
+    private StudentDataCenter student;
+    private  FieldDataCenter[]MField;
+
+
+
+
 
     public void setMaster(MasterDataCenter master) {
         this.master = master;
     }
 
-    private MasterDataCenter master;
+
 
     public void UnVisible() {
 
@@ -82,14 +98,24 @@ public class MasterController implements Initializable {
     }
 
 
+
+
     public void WeeklyTable() {
+        master = archive.readMaster(master.getPersonalNumber());
+
+
+
         MasterLessonsWeeklyRecord.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         LessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         LessonUnitMasterRecord.setCellValueFactory(new PropertyValueFactory<>("unit"));
         StudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         PassedStudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("passedStudentNumber"));
-        weeklyTableView.getItems().add(new personDataCenter("math", 1322, 3, 243, 54));
-        weeklyTableView.getItems().add(new sample.DataCenter.person("math",1322,3,243,54));
+    //    weeklyTableView.getItems().add(new personDataCenter("math", 1322, 3, 243, 54));
+
+
+        weeklyTableView.getItems().add(new sample.DataCenter.personDataCenter(master.getLesson(),master.getLessonCode(),master.getUnit(),master.getStudentNumber(),master.getPassedStudent()));
+
+
 
     }
 
@@ -101,7 +127,7 @@ public class MasterController implements Initializable {
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         addPlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         addMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        AddTableMaster.getItems().add(new sample.DataCenter.person("riazi",512,3,"do shanba",new JFXToggleButton()));
+        AddTableMaster.getItems().add(new sample.DataCenter.personDataCenter("riazi",512,3,"do shanba",new JFXToggleButton()));
 
 
 
@@ -115,7 +141,7 @@ public class MasterController implements Initializable {
         DeleteUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         DeletePlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         DeleteMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        DeleteTableMaster.getItems().add(new sample.DataCenter.person("sas",515,5,"seshanbe", new JFXToggleButton()));
+        DeleteTableMaster.getItems().add(new sample.DataCenter.personDataCenter("sas",515,5,"seshanbe", new JFXToggleButton()));
 
 
 
@@ -123,27 +149,38 @@ public class MasterController implements Initializable {
     }
 
    public  void  newWeekMaster(){
+
+        FieldDataCenter[]masField = master.getMasField();
+
+
        rowNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
        lessonNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
        LessonCodeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
        UnitNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
        numberStudentNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
        startTimeNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-       placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
-       newWeekMaster.getItems().add(new sample.DataCenter.person(1,"sada",5542424,4, 45,"pang","dgbd"));
+
+       for (int i = 0; i <masField.length ; i++) {
+           newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i+1, masField[i].getName(), masField[i].getFieldNumber(), masField[i].getUnit(), 45, masField[i].getClassStartTime()));
+       }
 
 
    }
 // do ta table mondeh
 
     public  void  insertGrade(){
+        student = archive.readStudent(student.getStudentNumber());
+
+
+
+
         rowInsertGrade.setCellValueFactory(new PropertyValueFactory<>("row"));
         lastNameInsetGrade.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         FirstNameInssertGrade.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         IdInsertGrade.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         genderInsertGrade.setCellValueFactory(new PropertyValueFactory<>("gender"));
         insertGradeMasterCLM.setCellValueFactory(new PropertyValueFactory<>("txtInsert"));
-        insertGradeMaster.getItems().add(new sample.DataCenter.person(1,"sada","sss",98536, "Male", new TextField()));
+        insertGradeMaster.getItems().add(new sample.DataCenter.personDataCenter(1,"sada","sss",98536, "Male", new TextField()));
 
     }
 
@@ -153,7 +190,7 @@ public class MasterController implements Initializable {
          FirstNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("firstName"));
          IDPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("studentId"));
          AbsentPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
-        TableViewPrAbMaster.getItems().add(new sample.DataCenter.person(1,"sada","sss",98536, 1));
+        TableViewPrAbMaster.getItems().add(new sample.DataCenter.personDataCenter(1,"sada","sss",98536, 1));
     }
 
 
@@ -189,10 +226,39 @@ public class MasterController implements Initializable {
    }
 
 
+public void choseField(){
+
+
+        int ind = combolessonMaster.getSelectionModel().getSelectedIndex();
+        long lessonCode  = MField[ind].getFieldNumber();
 
 
 
 
+
+
+        insertGrade();
+
+
+
+    }
+
+
+
+    public ArrayList<StudentDataCenter>findList(long lessonCode){
+        ArrayList<StudentDataCenter> students = new ArrayList<StudentDataCenter>();
+        ArrayList<StudentDataCenter> findStudents = new ArrayList<StudentDataCenter>();
+         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98,ArchiveDataCenter.STUDENT);
+        students.addAll(archiveDataCenter.readAllStudents()) ;
+        for (int i = 0; i <students.size() ; i++) {
+        //    ArrayList<FieldDataCenter> Field=students.get(i).getF
+        }
+
+        return  findStudents;
+    }
+
+
+//.getSelectionModel().getSelectedIndex();
 
 
 
@@ -203,13 +269,25 @@ public class MasterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        History();
+        archive = new ArchiveDataCenter(98,ArchiveDataCenter.MASTER);
+        master= new MasterDataCenter();
+
+        master= archive.readMaster(master.getPersonalNumber());
+        MField = master.getMasField();
+
+        for (int i = 0; i <MField.length ; i++) {
+            String comboItem = MField[i].getName();
+            combolessonMaster.getItems().add(comboItem);
+        }
+
+
+        WeeklyTable();
         AddFields();
         DeleteField();
         newWeekMaster();
        // setName();
        // setImage();
-        insertGrade();
+
         tablePrAb();
 
     }

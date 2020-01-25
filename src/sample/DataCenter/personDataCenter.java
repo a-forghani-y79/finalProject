@@ -119,14 +119,14 @@ public class personDataCenter {
 
     }
 
-    public  personDataCenter(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
+    public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ){
         this.row = row;
         this.lesson = lesson;
         this. lessonCod = lessonCod;
         this.unit = unit;
         this.studentNumber = studentNumber;
         this.classStartTime = classStartTime;
-        this.classPlace = classPlace;
+
 
     }
 
@@ -149,7 +149,7 @@ public class personDataCenter {
 
     }
 
-    public person(int row,String lastName,String firstName,long studentId, int numberOfAbsence){
+    public personDataCenter(int row,String lastName,String firstName,long studentId, int numberOfAbsence){
        this.row=row;
        this.lastName=lastName;
        this.firstName=firstName;

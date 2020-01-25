@@ -9,8 +9,6 @@ public class FieldDataCenter {
     private String timeToTakeExam ;
 
     private MasterDataCenter master;
-    private String classStartTime;
-    private String timeToTakeExam;
 
     public String getName() {
         return fieldName;

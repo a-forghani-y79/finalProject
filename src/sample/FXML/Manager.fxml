@@ -32,12 +32,12 @@
                      </font>
                   </Label>
                   <JFXButton fx:id="btnConfirm" buttonType="RAISED" layoutX="203.0" layoutY="417.0" onMouseClicked="#onClickConfirm" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="تایید" />
-                  <JFXButton fx:id="btnExit1" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnExit1" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack1" onMouseClicked="#back" layoutX="85.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnBack1" layoutX="85.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -55,12 +55,12 @@
                   <Separator layoutX="230.0" layoutY="227.0" prefHeight="6.0" prefWidth="522.0" />
                   <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="188.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
                    <JFXComboBox fx:id="comboGenderMaster" focusColor="#141414" labelFloat="true" layoutX="619.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="136.0" promptText="جنسیت" unFocusColor="#141414" />
-                  <JFXButton fx:id="btnExit2" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageExit2"  fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack2" onMouseClicked="#back" layoutX="82.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnBack2" layoutX="82.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -70,18 +70,18 @@
     </Tab>
       <Tab text="اضافه کردن درس">
           <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#gridPne" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                   <children>
-                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="603.0" layoutY="220.0" promptText="نام درس" />
-                      <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="420.0" layoutY="220.0" promptText="تعداد واحد" />
-                      <JFXTextField fx:id="txtFieldCode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="244.0" layoutY="220.0" promptText="کد درس" />
+                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="603.0" layoutY="171.0" promptText="نام درس" />
+                      <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="419.0" layoutY="171.0" promptText="تعداد واحد" />
+                      <JFXTextField fx:id="txtFieldCode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="244.0" layoutY="171.0" promptText="کد درس" />
                       <Separator layoutX="253.0" layoutY="330.0" prefHeight="1.0" prefWidth="521.0" />
-                  <GridPane fx:id="gridPaneProgram" alignment="CENTER" gridLinesVisible="true" layoutX="312.0" layoutY="314.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: center;">
+                  <GridPane fx:id="gridPaneProgram" alignment="CENTER" gridLinesVisible="true" layoutX="311.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: center;" visible="false">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="gridPane" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -129,36 +129,64 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefWidth="70.0" text="12-2" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" prefWidth="70.0" text="12-14" GridPane.columnIndex="5" GridPane.rowIndex="3">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefWidth="70.0" text="2-4" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                        <Label alignment="CENTER" prefWidth="70.0" text="14-16" GridPane.columnIndex="5" GridPane.rowIndex="4">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefWidth="70.0" text="4-6" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                        <Label alignment="CENTER" prefWidth="70.0" text="16-18" GridPane.columnIndex="5" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
+                         <JFXButton fx:id="btn14" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                         <JFXButton fx:id="btn13" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                         <JFXButton fx:id="btn12" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                         <JFXButton fx:id="btn11" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                         <JFXButton fx:id="btn10" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                         <JFXButton fx:id="btn24" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                         <JFXButton fx:id="btn23" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                         <JFXButton fx:id="btn22" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                         <JFXButton fx:id="btn21" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                         <JFXButton fx:id="btn20" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                         <JFXButton fx:id="btn34" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                         <JFXButton fx:id="btn33" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                         <JFXButton fx:id="btn32" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                         <JFXButton fx:id="btn31" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                         <JFXButton fx:id="btn30" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                         <JFXButton fx:id="btn44" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                         <JFXButton fx:id="btn43" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                         <JFXButton fx:id="btn42" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                         <JFXButton fx:id="btn41" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                         <JFXButton fx:id="btn40" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                         <JFXButton fx:id="btn54" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                         <JFXButton fx:id="btn53" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                         <JFXButton fx:id="btn52" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                         <JFXButton fx:id="btn51" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                         <JFXButton fx:id="btn50" onMouseClicked="#onClickGridPane" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
                      </children>
                   </GridPane>
-                  <JFXButton fx:id="btnChooseClassTime" buttonType="RAISED" layoutX="430.0" layoutY="260.0" prefHeight="25.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب زمان کلاس" />
-                  <JFXTimePicker fx:id="timePicker" layoutX="244.0" layoutY="294.0" />
-                  <JFXDatePicker fx:id="datePicker" layoutX="603.0" layoutY="286.0" />
-                  <JFXButton fx:id="btnExit3" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnChooseClassTime" onMouseClicked="#gridPaneVisible" buttonType="RAISED" layoutX="429.0" layoutY="246.0" prefHeight="25.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب زمان کلاس" />
+                  <JFXTimePicker fx:id="timePicker" layoutX="244.0" layoutY="245.0" />
+                  <JFXDatePicker fx:id="datePicker" layoutX="603.0" layoutY="245.0" />
+                  <JFXButton fx:id="btnExit3" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack3" onMouseClicked="#back" layoutX="96.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnBack3" layoutX="96.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
+                  <JFXButton fx:id="btnSubmit" onMouseClicked="#btnSubmit" buttonType="RAISED" layoutX="82.0" layoutY="442.0" prefHeight="32.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="SUBMIT" />
+                  <Label fx:id="lblAlert" alignment="CENTER" layoutX="64.0" layoutY="393.0" prefHeight="34.0" prefWidth="151.0" text="لطفا اطلاعات را کامل کنید !" textFill="#f83e3e" visible="false" />
                   </children></AnchorPane>
           </content>
       </Tab>

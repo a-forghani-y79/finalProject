@@ -106,6 +106,20 @@ public class StudentController implements Initializable {
     public TableColumn classStartTimeAddAndDeleteUnitChooseUnit;
     public TableColumn timeToTakeTheExamAddAndDeleteUnitChooseUnit;
     public TableView tableViewAddAndDeleteUnitChooseUnit;
+    public JFXButton btnExit3;
+    public Button btnConfirmChoose;
+    public ImageView imageExit3;
+    public JFXButton btnBack3;
+    public ImageView imageBack3;
+    public ImageView imageView;
+    public ImageView imageBack2;
+    public JFXButton btnBack2;
+    public ImageView imageExit2;
+    public JFXButton btnExit2;
+    public ImageView imageBack1;
+    public ImageView imageExit1;
+    public JFXButton btnBack1;
+    public JFXButton btnBack;
     private StudentDataCenter student;
     public ArchiveDataCenter archive;
 
@@ -149,7 +163,7 @@ public class StudentController implements Initializable {
         timeToTakeTheExamCurriculum.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         NumberOfََََAbsencesCurriculum.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
         for (int i = 0; i < fieldsList.size(); i++) {
-            tableViewCurriculum.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam(), fieldsList.get(i).getNumberOfAbsence()));
+            tableViewCurriculum.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam()+"", fieldsList.get(i).getNumberOfAbsence()));
             //(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence)
         }
     }

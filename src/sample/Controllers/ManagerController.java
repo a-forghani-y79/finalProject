@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -22,6 +24,8 @@ import sample.DataCenter.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -57,6 +61,8 @@ public class ManagerController implements Initializable {
     public JFXButton btnBack3;
     public ImageView imageExit3;
     public ImageView imageBack3;
+    public Label lblAlert;
+    public ColumnConstraints gridPane;
     TextField txtAddress;
     TextField txtYear;
     private FileChooser fileChooser;
@@ -67,6 +73,9 @@ public class ManagerController implements Initializable {
     private ArchiveDataCenter archive;
     private int year;
 
+    public boolean [] flag = {true};
+
+    public  boolean [] flagGrid = {false};
     StudentIdGeneratorDataCenter idGenerator;
 
     //passengers
@@ -190,6 +199,169 @@ public class ManagerController implements Initializable {
         imageBack3.setImage(img);
     }
 
+
+    public void onClickGridPane(MouseEvent event){
+        JFXButton btn = (JFXButton) event.getSource();
+        if (btn.getStyle().equals(""))
+            btn.setStyle("-fx-background-color: green;");
+        else
+            btn.setStyle("");
+
+        if (btn.getId().charAt(4)=='4'){
+            flagGrid[0]=true;
+           fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime()+","+"شنبه");
+        }else if (btn.getId().charAt(4)=='3') {
+            flagGrid[0]=true;
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "یکشنبه");
+        }else if (btn.getId().charAt(4)=='2'){
+            flagGrid[0]=true;
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "دو شنبه");
+        }else if (btn.getId().charAt(4)=='1'){
+            flagGrid[0]=true;
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "سه شنبه");
+        }
+        else if (btn.getId().charAt(4)=='0'){
+            flagGrid[0]=true;
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "چهار شنبه");
+        }
+
+        if (btn.getId().charAt(3)=='4'){
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime()+","+"14-16");
+        }else if (btn.getId().charAt(3)=='3') {
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "12-14");
+        }else if (btn.getId().charAt(3)=='2'){
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "10-12");
+        }else if (btn.getId().charAt(3)=='1'){
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," +"8-10");
+        }
+        else if (btn.getId().charAt(3)=='5'){
+            fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "14-16");
+        }
+
+    }
+    private void emptyFinder(TextField txtField) {
+
+        if (txtField.getText().equals("")) {
+
+            txtField.setStyle(txtField.getStyle()+"-fx-background-color: red;");
+            flag[0]=false;
+        }
+        else {
+            txtField.setStyle(txtField.getStyle()+"-fx-background-color: #d6d6d6;");
+            flag[0]=true;
+        }
+
+    }
+    private void NumberFinder(TextField txtField) {
+        for (int i = 0; i < txtField.getText().length(); i++) {
+            int c = txtField.getText().charAt(i);
+            if (c >= 48 && c <= 57) {
+                txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #D70406;");
+                flag[0]=false;
+            }else {
+                txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #000000;");
+                flag[0]=true;
+            }
+        }
+
+    }
+
+    private void StringFinder(TextField txtField) {
+
+
+        for (int i = 0; i < txtField.getText().length(); i++) {
+            int c = txtField.getText().charAt(i);
+            if (!(c >= 48 && c <= 57)) {
+                txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #D70406;");
+                flag[0]=false;
+            }else {
+                txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #000000;");
+                flag[0]=true;
+            }
+        }
+
+    }
+
+    public void gridPne(MouseEvent event){
+
+        if (!event.getEventType().equals( new JFXButton())){
+            gridPaneProgram.setVisible(false);
+
+        }
+
+
+    }
+
+    public void gridPaneVisible(){
+        gridPaneProgram.setVisible(true);
+    }
+
+    public void  btnSubmit(){
+
+
+        emptyFinder(txtFieldCode);
+        emptyFinder(txtFieldName);
+        emptyFinder(txtFieldUnit);
+        NumberFinder(txtFieldName);
+        StringFinder(txtFieldUnit);
+        StringFinder(txtFieldCode);
+
+        LocalDate localDate = datePicker.getValue();
+        LocalTime localTime = timePicker.getValue();
+
+        try {
+
+            localDate.getYear();
+            localDate.getMonth();
+            localDate.getDayOfMonth();
+            datePicker.setStyle(datePicker.getStyle() + "-fx-background-color: #ffffff ;");
+            flag[0]=true;
+        } catch (NullPointerException e) {
+            datePicker.setStyle(datePicker.getStyle() + "-fx-background-color: #D70406 ;");
+            flag[0]=false;
+        }
+        try {
+
+            localTime.getHour();
+            localTime.getMinute();
+
+            timePicker.setStyle(timePicker.getStyle() + "-fx-background-color: #ffffff ;");
+            flag[0]=true;
+        } catch (NullPointerException e) {
+            timePicker.setStyle(timePicker.getStyle() + "-fx-background-color: #D70406 ;");
+            flag[0]=false;
+        }
+
+
+        if (flag[0]&&flagGrid[0]){
+            completeFieldDataCenter();
+
+        }else if (flag[0]&&(!flagGrid[0])){
+            lblAlert.setText("لطفا حدافل یکی از برنامه های درسی را انتحاب کنید");
+        }
+       else {
+           lblAlert.setVisible(true);
+        }
+
+    }
+
+    FieldDataCenter fieldDataCenter =new FieldDataCenter();
+    public  void completeFieldDataCenter(){
+        fieldDataCenter.setFieldName(txtFieldName.getText());
+        fieldDataCenter.setFieldNumber(Long.parseLong(txtFieldCode.getText()));
+        fieldDataCenter.setUnit(Integer.parseInt(txtFieldUnit.getText()));
+        LocalDate localDate = datePicker.getValue();
+        LocalTime localTime = timePicker.getValue();
+        fieldDataCenter.setTimeToTakeExam("year :"+localDate.getYear());
+        fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam()+","+"month :"+localDate.getMonth());
+        fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam()+","+"day :"+localDate.getDayOfMonth());
+
+        fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam()+","+"hour :"+localTime.getHour());
+        fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam()+","+"minute :"+localTime.getMinute());
+
+
+    }
+
     @FXML
     private void exit() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
@@ -202,6 +374,7 @@ public class ManagerController implements Initializable {
             }
         }
     }
+
 
     @FXML
     private void back() {

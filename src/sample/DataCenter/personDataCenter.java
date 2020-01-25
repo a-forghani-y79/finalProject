@@ -25,8 +25,7 @@ public class personDataCenter {
     private String firstName = null;
     private String lastName = null;
     private long studentId  ;
-
-    private int gender ;
+    private String gender = null;
     private TextField txtInsert;
 
 
@@ -37,40 +36,8 @@ public class personDataCenter {
 
 
 
+
     private int passedStudentNumber;
-    private  JFXToggleButton toggleButtonAddUnitMaster;
-
-
-
-
-
-
-
-
-
-
-    public JFXToggleButton getToggleButtonAddUnitMaster() {
-        return toggleButtonAddUnitMaster;
-    }
-
-    public void setToggleButtonAddUnitMaster(JFXToggleButton toggleButtonAddUnitMaster) {
-        this.toggleButtonAddUnitMaster = toggleButtonAddUnitMaster;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //Choose units
     public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
@@ -124,13 +91,9 @@ public class personDataCenter {
 
     }
 
-    public int getRow() {
-        return row;
-    }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
+
+
 
     public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
         this.lesson = lesson;
@@ -152,14 +115,14 @@ public class personDataCenter {
 
     }
 
-    public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ){
+    public  personDataCenter(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
         this.row = row;
         this.lesson = lesson;
         this. lessonCod = lessonCod;
         this.unit = unit;
         this.studentNumber = studentNumber;
         this.classStartTime = classStartTime;
-
+        this.classPlace = classPlace;
 
     }
 
@@ -171,7 +134,7 @@ public class personDataCenter {
 //
 //    }
 
-    public personDataCenter(int row,String lastName, String firstName,long studentId,int gender, TextField txtInsert){
+    public personDataCenter(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
 
         this.row= row;
         this.lastName= lastName;
@@ -182,7 +145,8 @@ public class personDataCenter {
 
     }
 
-    public personDataCenter(int row,String lastName,String firstName,long studentId, TextField txtInsert){
+
+    public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
        this.row=row;
        this.lastName=lastName;
        this.firstName=firstName;
@@ -190,16 +154,6 @@ public class personDataCenter {
        this.numberOfAbsence= numberOfAbsence;
 
     }
-
-
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
-
 
 
 
@@ -329,6 +283,13 @@ public class personDataCenter {
         this.studentId = studentId;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public TextField getTxtInsert() {
         return txtInsert;
@@ -344,5 +305,12 @@ public class personDataCenter {
 
     public void setTogglebtnChooseUnit(JFXToggleButton togglebtnChooseUnit) {
         this.togglebtnChooseUnit = togglebtnChooseUnit;
+    }
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

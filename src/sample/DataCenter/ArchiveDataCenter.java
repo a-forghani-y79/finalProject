@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class ArchiveDataCenter {
 
-    //TODO remove master method  make master null;
-
     private String STUDENT_FILE;
     private String MASTER_FILE;
     private String NEW_STUDENT_FILE;
@@ -140,7 +138,7 @@ public class ArchiveDataCenter {
     }
 
     public ArrayList<NewStudentDataCenter> readAllNewStudents() {
-        ArrayList<NewStudentDataCenter> list = null;
+        ArrayList<NewStudentDataCenter> list = new ArrayList<NewStudentDataCenter>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(NEW_STUDENT_FILE));
             list = (ArrayList<NewStudentDataCenter>) objectInputStream.readObject();
@@ -153,19 +151,20 @@ public class ArchiveDataCenter {
     }
 
     public ArrayList<MasterDataCenter> readAllMasters() {
-        ArrayList<MasterDataCenter> list = null;
+        ArrayList<MasterDataCenter> list = new ArrayList<MasterDataCenter>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(MASTER_FILE));
             list = (ArrayList<MasterDataCenter>) objectInputStream.readObject();
             objectInputStream.close();
         } catch (Exception e) {
             System.out.println("problem in readAllMasters");
+            e.printStackTrace();
         }
         return list;
     }
 
     public ArrayList<StudentDataCenter> readAllStudents() {
-        ArrayList<StudentDataCenter> list = null;
+        ArrayList<StudentDataCenter> list = new ArrayList<StudentDataCenter>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(STUDENT_FILE));
             list = (ArrayList<StudentDataCenter>) objectInputStream.readObject();
@@ -187,5 +186,30 @@ public class ArchiveDataCenter {
             }
         }
         return field;
+    }
+
+    public boolean removeMaster(long personalNumber) {
+        boolean flag = false;
+        ArrayList<MasterDataCenter> list = readAllMasters();
+        for (MasterDataCenter master : list
+        ) {
+            if (master.getPersonalNumber() == personalNumber) {
+                flag = list.remove(master);
+                break;
+            }
+        }
+        return flag;
+    }
+
+    public boolean removeField(long fieldNumber) {
+        ArrayList<FieldDataCenter> list = readAllFields();
+        boolean flag = false;
+        for (FieldDataCenter field : list) {
+            if (field.getFieldNumber() == fieldNumber){
+                flag = list.remove(field);
+                break;
+            }
+        }
+        return flag;
     }
 }

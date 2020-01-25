@@ -87,5 +87,4 @@ public class StudentIdGeneratorDataCenter {
         System.out.println(resultNumber);
         return resultNumber;
     }
-
 }

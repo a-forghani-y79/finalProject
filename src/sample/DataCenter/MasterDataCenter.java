@@ -1,6 +1,7 @@
 package sample.DataCenter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class MasterDataCenter implements Serializable {
 
@@ -10,16 +11,31 @@ public class MasterDataCenter implements Serializable {
     private long nationalNumber;
     private long  personalNumber;
     private int gender;
+    private String lesson;
+    private long lessonCode;
+    private int unit;
+    private int studentNumber;
+    private int passedStudent;
+    private ArrayList<FieldDataCenter>  masField;
 
 
-    public int getGender() {
-        return gender;
+    public ArrayList<FieldDataCenter> getMasField() {
+        return masField;
     }
 
-    public void setGender(int gender) {
-        this.gender = gender;
+    public void setMasField(ArrayList<FieldDataCenter> masField) {
+        this.masField = masField;
     }
 
+
+
+    public long getLessonCode() {
+        return lessonCode;
+    }
+
+    public void setLessonCode(long lessonCode) {
+        this.lessonCode = lessonCode;
+    }
 
 
 
@@ -55,5 +71,51 @@ public class MasterDataCenter implements Serializable {
         this.personalNumber = personalNumber;
     }
 
+    public int getGender() {
+        return gender;
+    }
 
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public String getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
+
+//    public int getLessonCode() {
+//        return lessonCode;
+//    }
+//
+//    public void setLessonCode(int lessonCode) {
+//        this.lessonCode = lessonCode;
+//    }
+
+    public int getUnit() {
+        return unit;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public int getPassedStudent() {
+        return passedStudent;
+    }
+
+    public void setPassedStudent(int passedStudent) {
+        this.passedStudent = passedStudent;
+    }
 }

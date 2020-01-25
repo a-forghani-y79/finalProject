@@ -12,10 +12,12 @@ public class MasterDataCenter implements Serializable {
     private long  personalNumber;
     private int gender;
     private String lesson;
-    private int lessonCode;
+    private long lessonCode;
     private int unit;
     private int studentNumber;
     private int passedStudent;
+    private ArrayList<FieldDataCenter>  masField;
+
 
     public ArrayList<FieldDataCenter> getMasField() {
         return masField;
@@ -25,10 +27,15 @@ public class MasterDataCenter implements Serializable {
         this.masField = masField;
     }
 
-    private ArrayList<FieldDataCenter>  masField;
 
 
+    public long getLessonCode() {
+        return lessonCode;
+    }
 
+    public void setLessonCode(long lessonCode) {
+        this.lessonCode = lessonCode;
+    }
 
 
 
@@ -80,13 +87,13 @@ public class MasterDataCenter implements Serializable {
         this.lesson = lesson;
     }
 
-    public int getLessonCode() {
-        return lessonCode;
-    }
-
-    public void setLessonCode(int lessonCode) {
-        this.lessonCode = lessonCode;
-    }
+//    public int getLessonCode() {
+//        return lessonCode;
+//    }
+//
+//    public void setLessonCode(int lessonCode) {
+//        this.lessonCode = lessonCode;
+//    }
 
     public int getUnit() {
         return unit;

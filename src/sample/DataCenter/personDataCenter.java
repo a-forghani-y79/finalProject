@@ -82,6 +82,15 @@ public class personDataCenter {
 
     }
 
+    public personDataCenter  (String lesson, long lessonCode,int unit,int studentNumber,int passedStudentNumber){
+    this.lesson=lesson;
+    this.lessonCod = lessonCode;
+    this.unit=unit;
+    this.studentNumber=studentNumber;
+    this.passedStudentNumber=passedStudentNumber;
+
+    }
+
     //Report
     public personDataCenter(int row, String lesson, int unit, String master, double Score, String situation) {
         this.row = row;

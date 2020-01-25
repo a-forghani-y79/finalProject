@@ -88,10 +88,10 @@ public class MasterController implements Initializable {
     public JFXButton backButtonMaster2;
     public JFXButton exitButtonMaster3;
     public JFXButton backButtonMaster3;
-    //   public JFXButton backButtonMaster3;
+
     public JFXButton exitButtonMaster4;
     public JFXButton backButtonMaster4;
-    //   public JFXButton backButtonMaster4;
+
     public JFXButton choseLesson1;
     public JFXButton exitButtonMaster5;
     public JFXButton backButtonMaster5;
@@ -103,12 +103,16 @@ public class MasterController implements Initializable {
     public JFXButton finalConfirmDelete;
     private MasterDataCenter master;
     private StudentDataCenter student;
-    //  private  FieldDataCenter [] MField;
+
     private ArrayList<StudentDataCenter> findStudent;
     private ArrayList<FieldDataCenter> MField;
     private ArrayList<FieldDataCenter> masField;
     private ArrayList<personDataCenter> masterChoseUnit;
     private ArrayList<FieldDataCenter> listStd;
+    private ArrayList<Double> passedNumber;
+    private boolean flag;
+
+
     private long lessonCode;
 
     public void setMaster(MasterDataCenter master) {
@@ -124,7 +128,8 @@ public class MasterController implements Initializable {
 
 
     public void WeeklyTable() {
-        //  master = archive.readMaster(master.getPersonalNumber());
+
+
 
 
         MasterLessonsWeeklyRecord.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -132,19 +137,19 @@ public class MasterController implements Initializable {
         LessonUnitMasterRecord.setCellValueFactory(new PropertyValueFactory<>("unit"));
         StudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         PassedStudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("passedStudentNumber"));
-        //   weeklyTableView.getItems().add(new personDataCenter("math", 1322, 3, 243, 54));
-        //   weeklyTableView.getItems().add(new personDataCenter("math",1322,3,243,54));
-        //    weeklyTableView.getItems().add(new personDataCenter("math", 1322, 3, 243, 54));
 
 
-        weeklyTableView.getItems().add(new personDataCenter(master.getLesson(), master.getLessonCode(), master.getUnit(), master.getStudentNumber(), master.getPassedStudent()));
+        for (int i = 0; i <masterChoseUnit.size() ; i++) {
+            weeklyTableView.getItems().add(new personDataCenter(masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(),numberOfStudent(masField.get(i).getFieldNumber()) , 0));
+
+        }
 
 
     }
 
     //Takmil
     public void AddFields() {
-//        master = archive.readMaster(master.getPersonalNumber());
+
         ArrayList<FieldDataCenter> fieldMaster = master.getMasField();
 
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -175,7 +180,7 @@ public class MasterController implements Initializable {
 //
 //    }
 
-    ///Takmil
+
     public void newWeekMaster() {
 
 
@@ -192,7 +197,7 @@ public class MasterController implements Initializable {
 
 
     }
-// takmil Shavad
+
 
     public void insertGrade() {
 
@@ -205,7 +210,6 @@ public class MasterController implements Initializable {
 
         for (int i = 0; i < findStudent.size(); i++) {
             insertGradeMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), findStudent.get(i).getGender(), new TextField()));
-////////                                                                        (int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert)
         }
 
     }
@@ -250,17 +254,23 @@ public class MasterController implements Initializable {
     public void choseField() {
 
         int ind = combolessonMaster.getSelectionModel().getSelectedIndex();
-        lessonCode = MField.get(ind).getFieldNumber();
+        if(ind>0) {
+            lessonCode = MField.get(ind).getFieldNumber();
 
-        findStudent.addAll(findList(lessonCode));
-        insertGrade();
+            findStudent.addAll(findList(lessonCode));
+            insertGrade();
+        }
+
+
+
+
     }
 
 
     public ArrayList<StudentDataCenter> findList(long lessonCode) {
         ArrayList<StudentDataCenter> students = new ArrayList<StudentDataCenter>();
         ArrayList<StudentDataCenter> findStudents = new ArrayList<StudentDataCenter>();
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         students.addAll(archiveDataCenter.readAllStudents());
         for (int i = 0; i < students.size(); i++) {
             ArrayList<FieldDataCenter> Field = students.get(i).getFieldsList();
@@ -276,7 +286,7 @@ public class MasterController implements Initializable {
     }
 
 
-//.getSelectionModel().getSelectedIndex();
+
 
 
     public void exit() {
@@ -329,7 +339,7 @@ public class MasterController implements Initializable {
         }
 
     }
-
+//chose unit
     public void finalConfirm() {
         int tableSize = AddTableMaster.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
@@ -358,7 +368,7 @@ public class MasterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        archive = new ArchiveDataCenter(98, ArchiveDataCenter.MASTER);
+        archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
 
         master = archive.readMaster(master.getPersonalNumber());
@@ -368,44 +378,54 @@ public class MasterController implements Initializable {
             String comboItem = MField.get(i).getFieldName();
             combolessonMaster.getItems().add(comboItem);
         }
+        finalConfirm();
+//        if(flag)
         choseField();
         insertGrade();
         WeeklyTable();
         AddFields();
 //        DeleteField();
         newWeekMaster();
-        // setName();
-        // setImage();
-        insertGrade();
+         setName();
+         setImage();
+      //  insertGrade();
         tablePrAb();
 
     }
 
-
+// braye sabte nomre
     public void confirmGrade(MouseEvent mouseEvent) {
         int tableSize = insertGradeMaster.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
         for (int i = 0; i < tableSize; i++) {
             personDataCenter person = (personDataCenter) insertGradeMaster.getItems().get(i);
             Double grade = Double.parseDouble(person.getTxtInsert().getText());
+            if(grade>=10){
+                passedNumber.add(grade);
+            }
+
             long id = person.getStudentId();
-            archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+            archive = new ArchiveDataCenter();
 
             student = archive.readStudent(id);
             for (int j = 0; j < student.getFieldsList().size(); j++) {
                 if (student.getFieldsList().get(i).getFieldNumber() == lessonCode) {
 
                 }
-                //  student.getFieldsList().get(i).set
+
             }
 
 
         }
     }
 
+
+
+
+
     public int numberOfStudent(long lessonCode) {
         ArrayList<StudentDataCenter> allStudent = new ArrayList<>();
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         allStudent.addAll(archiveDataCenter.readAllStudents());
         int numberOfStudent = 0;
         for (int i = 0; i < allStudent.size(); i++) {
@@ -420,6 +440,7 @@ public class MasterController implements Initializable {
             }
 
         }
+
         return numberOfStudent;
     }
 

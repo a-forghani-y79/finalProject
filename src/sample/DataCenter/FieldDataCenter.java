@@ -9,6 +9,15 @@ public class FieldDataCenter {
     private String classStartTime;
     private String timeToTakeExam;
     private double score;
+    private int numberOfAbsence;
+
+    public int getNumberOfAbsence() {
+        return numberOfAbsence;
+    }
+
+    public void setNumberOfAbsence(int numberOfAbsence) {
+        this.numberOfAbsence = numberOfAbsence;
+    }
 
     public double getScore() {
         return score;

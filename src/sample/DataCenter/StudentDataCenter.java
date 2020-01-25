@@ -9,8 +9,7 @@ public class StudentDataCenter implements Serializable {
     private String lastName;
     private long nationalCode;
     private long studentNumber;
-
-
+    private double average;
     private ArrayList<FieldDataCenter> fieldsList;
     private long rate;
     private String field;
@@ -43,9 +42,23 @@ public class StudentDataCenter implements Serializable {
     private int BMonth;
     private int BDay;
     private double score;
+    private String position;
 
+    public String getPosition() {
+        return position;
+    }
 
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
+    public double getAverage() {
+        return average;
+    }
+
+    public void setAverage(double average) {
+        this.average = average;
+    }
 
     public int getGender() {
         return Gender;
@@ -112,8 +125,6 @@ public class StudentDataCenter implements Serializable {
     public void setStudentNumber(long studentNumber) {
         this.studentNumber = studentNumber;
     }
-
-
 
     public long getRate() {
         return rate;

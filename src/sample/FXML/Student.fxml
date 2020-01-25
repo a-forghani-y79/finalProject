@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -12,148 +13,87 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1058.0" side="RIGHT"
-         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <tabs>
         <Tab text="پروفایل شخصی">
             <content>
-                <AnchorPane depthTest="ENABLE" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT"
-                            prefHeight="600.0" prefWidth="1440.0">
+                <AnchorPane depthTest="ENABLE" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1440.0">
                     <children>
-                        <AnchorPane layoutY="107.0" prefHeight="436.0" prefWidth="1007.0"
-                                    style="-fx-background-color: F2A1CC;">
+                        <AnchorPane layoutY="107.0" prefHeight="436.0" prefWidth="1007.0" style="-fx-background-color: F2A1CC;">
                             <children>
-                                <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="30.0" prefHeight="22.0"
-                                       prefWidth="66.0" text="نام :"/>
+                                <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="30.0" prefHeight="22.0" prefWidth="66.0" text="نام :" />
                                 <!--                                <TextField fx:id="txtCollegeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="111.0" prefHeight="32.0" prefWidth="110.0" />-->
-                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="30.0" prefHeight="22.0"
-                                       prefWidth="121.0" text="نام خانوادگی :"/>
-                                <Label alignment="TOP_RIGHT" layoutX="414.0" layoutY="30.0" prefHeight="22.0"
-                                       prefWidth="137.0" text="شماره دانشجویی :"/>
+                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="30.0" prefHeight="22.0" prefWidth="121.0" text="نام خانوادگی :" />
+                                <Label alignment="TOP_RIGHT" layoutX="414.0" layoutY="30.0" prefHeight="22.0" prefWidth="137.0" text="شماره دانشجویی :" />
                                 <!--                                <Label alignment="TOP_RIGHT" layoutX="922.0" layoutY="120.0" prefHeight="22.0" prefWidth="70.0" text="دانشکده:" />-->
-                                <TextField fx:id="txtLastNameProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtIdProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="291.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtNameProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="808.0" layoutY="25.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="685.0" layoutY="115.0" prefHeight="22.0"
-                                       prefWidth="118.0" text="شماره تلفن:"/>
-                                <TextField fx:id="txtPhoneNumberProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="190.0" layoutY="80.0" prefHeight="22.0"
-                                       prefWidth="88.0" text="رشته: "/>
-                                <TextField fx:id="txtPlaceShenaseProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="291.0" layoutY="67.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="73.0" prefHeight="22.0"
-                                       prefWidth="67.0" text="نام پدر :"/>
-                                <TextField fx:id="txtFatherNameProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="808.0" layoutY="68.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="670.0" layoutY="73.0" prefHeight="22.0"
-                                       prefWidth="134.0" text="شماره شناسنامه :"/>
-                                <TextField fx:id="txtAddressProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="70.0" layoutY="154.0" prefHeight="32.0" prefWidth="868.0"/>
-                                <TextField fx:id="txtShenaseCodProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="67.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="190.0" layoutY="120.0" prefHeight="22.0"
-                                       prefWidth="88.0" text="دوره: "/>
-                                <TextField fx:id="txtFatherPhoneNumberProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="291.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="166.0" layoutY="30.0" prefHeight="22.0"
-                                       prefWidth="123.0" text="مقطع تحصیلی: "/>
-                                <TextField fx:id="txtGradeProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="22.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="431.0" layoutY="120.0" prefHeight="22.0"
-                                       prefWidth="119.0" text="شماره تلفن پدر:"/>
-                                <TextField fx:id="txtFieldProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="66.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="393.0" layoutY="73.0" prefHeight="22.0"
-                                       prefWidth="161.0" text="محل صدورشناسنامه:"/>
-                                <TextField fx:id="txtDateOfBirthProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="199.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtIncomingSemesterProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="200.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="171.0" layoutY="204.0" prefHeight="22.0"
-                                       prefWidth="118.0" text="نیم سال ورودی:"/>
-                                <TextField fx:id="txtProvinceOfBirthProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="288.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="666.0" layoutY="294.0" prefHeight="22.0"
-                                       prefWidth="136.0" text="استان محل تولد:"/>
-                                <TextField fx:id="txtCityOfBirthProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="555.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="338.0" prefHeight="22.0"
-                                       prefWidth="121.0" text="شهر محل تولد :"/>
-                                <TextField fx:id="txtTypeOfDiplomaProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtDiplomaYearProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtCourseProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="207.0" layoutY="294.0" prefHeight="22.0"
-                                       prefWidth="78.0" text="نوع دیپلم :"/>
-                                <Label alignment="TOP_RIGHT" layoutX="163.0" layoutY="338.0" prefHeight="22.0"
-                                       prefWidth="122.0" text="سال اخذ دیپلم:"/>
-                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="206.0" prefHeight="22.0"
-                                       prefWidth="119.0" text="تاریخ تولد:"/>
-                                <Label alignment="TOP_RIGHT" layoutX="933.0" layoutY="159.0" prefHeight="22.0"
-                                       prefWidth="61.0" text="آدرس: "/>
-                                <Label alignment="TOP_RIGHT" layoutX="165.0" layoutY="249.0" prefHeight="22.0"
-                                       prefWidth="122.0" text="شماره پرونده:"/>
-                                <TextField fx:id="txtNumbeOfDucProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="52.0" layoutY="244.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtConditionProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="291.0" layoutY="200.0" prefHeight="32.0" prefWidth="110.0"
-                                           text="درحال تحصیل/فارغ التحصیل"/>
-                                <Label alignment="TOP_RIGHT" layoutX="456.0" layoutY="292.0" prefHeight="22.0"
-                                       prefWidth="88.0" text="کد پستی :"/>
-                                <Label alignment="TOP_RIGHT" layoutX="425.0" layoutY="205.0" prefHeight="22.0"
-                                       prefWidth="119.0" text="وضعیت:"/>
-                                <Label alignment="TOP_RIGHT" layoutX="428.0" layoutY="249.0" prefHeight="22.0"
-                                       prefWidth="119.0" text="وضعیت تاهل:"/>
-                                <TextField fx:id="txtMaritalStatusProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="290.0" layoutY="244.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtPostalCodeProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="290.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="431.0" layoutY="338.0" prefHeight="22.0"
-                                       prefWidth="119.0" text="ایمیل :"/>
-                                <TextField fx:id="txtEmailProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="290.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <TextField fx:id="txtNationalCodProfile" layoutX="555.0" layoutY="243.0"
-                                           prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="683.0" layoutY="249.0" prefHeight="22.0"
-                                       prefWidth="118.0" text="کد ملی :"/>
-                                <TextField fx:id="txtNationalityProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="808.0" layoutY="199.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="928.0" layoutY="204.0" prefHeight="22.0"
-                                       prefWidth="61.0" text="ملیت:"/>
-                                <TextField fx:id="txtReligionProfile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="808.0" layoutY="243.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="935.0" layoutY="244.0" prefHeight="22.0"
-                                       prefWidth="56.0" text="دین:"/>
-                                <TextField fx:id="txtReligion2Profile" alignment="CENTER_RIGHT" editable="false"
-                                           layoutX="808.0" layoutY="287.0" prefHeight="32.0" prefWidth="110.0"/>
-                                <Label alignment="TOP_RIGHT" layoutX="937.0" layoutY="283.0" prefHeight="22.0"
-                                       prefWidth="55.0" text="مذهب:"/>
+                                <TextField fx:id="txtLastNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtIdProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="25.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="685.0" layoutY="115.0" prefHeight="22.0" prefWidth="118.0" text="شماره تلفن:" />
+                                <TextField fx:id="txtPhoneNumberProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="190.0" layoutY="80.0" prefHeight="22.0" prefWidth="88.0" text="رشته: " />
+                                <TextField fx:id="txtPlaceShenaseProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="67.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="73.0" prefHeight="22.0" prefWidth="67.0" text="نام پدر :" />
+                                <TextField fx:id="txtFatherNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="68.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="670.0" layoutY="73.0" prefHeight="22.0" prefWidth="134.0" text="شماره شناسنامه :" />
+                                <TextField fx:id="txtAddressProfile" alignment="CENTER_RIGHT" editable="false" layoutX="70.0" layoutY="154.0" prefHeight="32.0" prefWidth="868.0" />
+                                <TextField fx:id="txtShenaseCodProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="67.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="190.0" layoutY="120.0" prefHeight="22.0" prefWidth="88.0" text="دوره: " />
+                                <TextField fx:id="txtFatherPhoneNumberProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="166.0" layoutY="30.0" prefHeight="22.0" prefWidth="123.0" text="مقطع تحصیلی: " />
+                                <TextField fx:id="txtGradeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="22.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="431.0" layoutY="120.0" prefHeight="22.0" prefWidth="119.0" text="شماره تلفن پدر:" />
+                                <TextField fx:id="txtFieldProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="66.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="393.0" layoutY="73.0" prefHeight="22.0" prefWidth="161.0" text="محل صدورشناسنامه:" />
+                                <TextField fx:id="txtDateOfBirthProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="199.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtIncomingSemesterProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="200.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="171.0" layoutY="204.0" prefHeight="22.0" prefWidth="118.0" text="نیم سال ورودی:" />
+                                <TextField fx:id="txtProvinceOfBirthProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="288.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="666.0" layoutY="294.0" prefHeight="22.0" prefWidth="136.0" text="استان محل تولد:" />
+                                <TextField fx:id="txtCityOfBirthProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="338.0" prefHeight="22.0" prefWidth="121.0" text="شهر محل تولد :" />
+                                <TextField fx:id="txtTypeOfDiplomaProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtDiplomaYearProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtCourseProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="207.0" layoutY="294.0" prefHeight="22.0" prefWidth="78.0" text="نوع دیپلم :" />
+                                <Label alignment="TOP_RIGHT" layoutX="163.0" layoutY="338.0" prefHeight="22.0" prefWidth="122.0" text="سال اخذ دیپلم:" />
+                                <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="206.0" prefHeight="22.0" prefWidth="119.0" text="تاریخ تولد:" />
+                                <Label alignment="TOP_RIGHT" layoutX="933.0" layoutY="159.0" prefHeight="22.0" prefWidth="61.0" text="آدرس: " />
+                                <Label alignment="TOP_RIGHT" layoutX="165.0" layoutY="249.0" prefHeight="22.0" prefWidth="122.0" text="شماره پرونده:" />
+                                <TextField fx:id="txtNumbeOfDucProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="244.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtConditionProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="200.0" prefHeight="32.0" prefWidth="110.0" text="درحال تحصیل/فارغ التحصیل" />
+                                <Label alignment="TOP_RIGHT" layoutX="456.0" layoutY="292.0" prefHeight="22.0" prefWidth="88.0" text="کد پستی :" />
+                                <Label alignment="TOP_RIGHT" layoutX="425.0" layoutY="205.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت:" />
+                                <Label alignment="TOP_RIGHT" layoutX="428.0" layoutY="249.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت تاهل:" />
+                                <TextField fx:id="txtMaritalStatusProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="244.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtPostalCodeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="431.0" layoutY="338.0" prefHeight="22.0" prefWidth="119.0" text="ایمیل :" />
+                                <TextField fx:id="txtEmailProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtNationalCodProfile" layoutX="555.0" layoutY="243.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="683.0" layoutY="249.0" prefHeight="22.0" prefWidth="118.0" text="کد ملی :" />
+                                <TextField fx:id="txtNationalityProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="199.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="928.0" layoutY="204.0" prefHeight="22.0" prefWidth="61.0" text="ملیت:" />
+                                <TextField fx:id="txtReligionProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="243.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="935.0" layoutY="244.0" prefHeight="22.0" prefWidth="56.0" text="دین:" />
+                                <TextField fx:id="txtReligion2Profile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="287.0" prefHeight="32.0" prefWidth="110.0" />
+                                <Label alignment="TOP_RIGHT" layoutX="937.0" layoutY="283.0" prefHeight="22.0" prefWidth="55.0" text="مذهب:" />
                             </children>
                         </AnchorPane>
-                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="439.0" layoutY="11.0" pickOnBounds="true"
-                                   preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="439.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../PNG/logoUni.png"/>
+                                <Image url="@../PNG/logoUni.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="54.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                   <JFXButton fx:id="btnBack" layoutX="24.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageExit1" onMousePressed="#exit" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnBack1" layoutX="93.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageBack1" onMousePressed="#back" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" onMousePressed="#back" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
                     </children>
@@ -162,7 +102,7 @@
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../PNG/ersonalinfoIcon.png"/>
+                        <Image url="@../PNG/ersonalinfoIcon.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -171,43 +111,30 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1440.0">
                     <children>
-                        <TabPane layoutX="-3.0" prefHeight="602.0" prefWidth="1404.0" side="RIGHT"
-                                 tabClosingPolicy="UNAVAILABLE">
+                        <TabPane layoutX="-3.0" prefHeight="602.0" prefWidth="1404.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
                             <tabs>
                                 <Tab text="کارنامه">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TableView fx:id="taleViewReport" layoutX="235.0"
-                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0"
-                                                           prefWidth="778.0">
+                                                <TableView fx:id="taleViewReport" layoutX="235.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="778.0">
                                                     <columns>
-                                                        <TableColumn fx:id="rowReport" prefWidth="64.00000154972076"
-                                                                     text="ردبف"/>
-                                                        <TableColumn fx:id="lessonReport" prefWidth="179.99999237060547"
-                                                                     text="درس"/>
-                                                        <TableColumn fx:id="unitReport" prefWidth="60.800048828125"
-                                                                     text="واحد"/>
-                                                        <TableColumn fx:id="masterReport" prefWidth="160.0"
-                                                                     text="استاد"/>
-                                                        <TableColumn fx:id="scoreReport" prefWidth="132.00003051757812"
-                                                                     text="نمره"/>
-                                                        <TableColumn fx:id="situationReport"
-                                                                     prefWidth="181.5999755859375" text="وضع"/>
+                                                        <TableColumn fx:id="rowReport" prefWidth="64.00000154972076" text="ردبف" />
+                                                        <TableColumn fx:id="lessonReport" prefWidth="179.99999237060547" text="درس" />
+                                                        <TableColumn fx:id="unitReport" prefWidth="60.800048828125" text="واحد" />
+                                                        <TableColumn fx:id="masterReport" prefWidth="160.0" text="استاد" />
+                                                        <TableColumn fx:id="scoreReport" prefWidth="132.00003051757812" text="نمره" />
+                                                        <TableColumn fx:id="situationReport" prefWidth="181.5999755859375" text="وضع" />
                                                     </columns>
                                                 </TableView>
-                                                <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0"
-                                                           prefHeight="60.0" prefWidth="60.0">
+                                                <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
                                                     <graphic>
-                                                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0"
-                                                                   pickOnBounds="true" preserveRatio="true"/>
+                                                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                                     </graphic>
                                                 </JFXButton>
-                                                <JFXButton fx:id="btnBack2" layoutX="86.0" layoutY="14.0"
-                                                           prefHeight="60.0" prefWidth="60.0">
+                                                <JFXButton fx:id="btnBack2" layoutX="86.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
                                                     <graphic>
-                                                        <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0"
-                                                                   pickOnBounds="true" preserveRatio="true"/>
+                                                        <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                                     </graphic>
                                                 </JFXButton>
                                             </children>
@@ -218,26 +145,15 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TableView fx:id="tableViewCurriculum" layoutX="196.0"
-                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0"
-                                                           prefWidth="975.0">
+                                                <TableView fx:id="tableViewCurriculum" layoutX="196.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="975.0">
                                                     <columns>
-                                                        <TableColumn fx:id="rowCurriculum" prefWidth="37.60009843111038"
-                                                                     text="ردیف"/>
-                                                        <TableColumn fx:id="lessonCurriculum"
-                                                                     prefWidth="291.1999626159668" text="درس"/>
-                                                        <TableColumn fx:id="unitCurriculum" prefWidth="36.800048828125"
-                                                                     text=" واحد"/>
-                                                        <TableColumn fx:id="masterCurriculum"
-                                                                     prefWidth="131.199951171875" text="استاد"/>
-                                                        <TableColumn fx:id="classStartTimeCurriculum"
-                                                                     prefWidth="217.60003662109375"
-                                                                     text="زمان برگذاری کلاس ها"/>
-                                                        <TableColumn fx:id="timeToTakeTheExamCurriculum"
-                                                                     prefWidth="179.20001220703125"
-                                                                     text="تاریخ برگزاری امتحان"/>
-                                                        <TableColumn fx:id="NumberOfََََAbsencesCurriculum"
-                                                                     prefWidth="84.79998779296875" text="تعداد غیبت"/>
+                                                        <TableColumn fx:id="rowCurriculum" prefWidth="37.60009843111038" text="ردیف" />
+                                                        <TableColumn fx:id="lessonCurriculum" prefWidth="291.1999626159668" text="درس" />
+                                                        <TableColumn fx:id="unitCurriculum" prefWidth="36.800048828125" text=" واحد" />
+                                                        <TableColumn fx:id="masterCurriculum" prefWidth="131.199951171875" text="استاد" />
+                                                        <TableColumn fx:id="classStartTimeCurriculum" prefWidth="217.60003662109375" text="زمان برگذاری کلاس ها" />
+                                                        <TableColumn fx:id="timeToTakeTheExamCurriculum" prefWidth="179.20001220703125" text="تاریخ برگزاری امتحان" />
+                                                        <TableColumn fx:id="NumberOfََََAbsencesCurriculum" prefWidth="84.79998779296875" text="تعداد غیبت" />
                                                     </columns>
                                                 </TableView>
                                             </children>
@@ -248,46 +164,30 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TableView fx:id="tableViewPassed" layoutX="693.0" layoutY="55.0"
-                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="531.0"
-                                                           prefWidth="513.0">
+                                                <TableView fx:id="tableViewPassed" layoutX="693.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="531.0" prefWidth="513.0">
                                                     <columns>
-                                                        <TableColumn fx:id="rowPassed" prefWidth="52.799925208091736"
-                                                                     text="ردیف"/>
-                                                        <TableColumn fx:id="lessonPassed" prefWidth="172.80005645751953"
-                                                                     text="درس"/>
-                                                        <TableColumn fx:id="unitPassed" prefWidth="53.5999755859375"
-                                                                     text=" واحد"/>
-                                                        <TableColumn fx:id="masterPassed" prefWidth="164.0"
-                                                                     text="استاد"/>
-                                                        <TableColumn fx:id="scorePassed" prefWidth="72.79995727539062"
-                                                                     text="نمره"/>
+                                                        <TableColumn fx:id="rowPassed" prefWidth="52.799925208091736" text="ردیف" />
+                                                        <TableColumn fx:id="lessonPassed" prefWidth="172.80005645751953" text="درس" />
+                                                        <TableColumn fx:id="unitPassed" prefWidth="53.5999755859375" text=" واحد" />
+                                                        <TableColumn fx:id="masterPassed" prefWidth="164.0" text="استاد" />
+                                                        <TableColumn fx:id="scorePassed" prefWidth="72.79995727539062" text="نمره" />
                                                     </columns>
                                                 </TableView>
-                                                <TableView fx:id="tableViewNotPassed" layoutX="191.0" layoutY="55.0"
-                                                           nodeOrientation="RIGHT_TO_LEFT" prefHeight="530.0"
-                                                           prefWidth="315.0">
+                                                <TableView fx:id="tableViewNotPassed" layoutX="191.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="530.0" prefWidth="315.0">
                                                     <columns>
-                                                        <TableColumn fx:id="rowNotPassed" prefWidth="52.80004960298538"
-                                                                     text="ردیف"/>
-                                                        <TableColumn fx:id="lessonNotPassed"
-                                                                     prefWidth="207.19999313354492" text="درس"/>
-                                                        <TableColumn fx:id="unitNotPassed" prefWidth="56.79998779296875"
-                                                                     text="واحد"/>
+                                                        <TableColumn fx:id="rowNotPassed" prefWidth="52.80004960298538" text="ردیف" />
+                                                        <TableColumn fx:id="lessonNotPassed" prefWidth="207.19999313354492" text="درس" />
+                                                        <TableColumn fx:id="unitNotPassed" prefWidth="56.79998779296875" text="واحد" />
                                                     </columns>
                                                 </TableView>
-                                                <Label contentDisplay="CENTER" layoutX="301.0" layoutY="17.0"
-                                                       prefHeight="38.0" prefWidth="110.0" text="دروس مانده"
-                                                       textAlignment="CENTER">
+                                                <Label contentDisplay="CENTER" layoutX="301.0" layoutY="17.0" prefHeight="38.0" prefWidth="110.0" text="دروس مانده" textAlignment="CENTER">
                                                     <font>
-                                                        <Font name="System Bold" size="20.0"/>
+                                                        <Font name="System Bold" size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" layoutX="878.0" layoutY="20.0"
-                                                       prefHeight="35.0" prefWidth="142.0" text="دروس پاس شده"
-                                                       textAlignment="CENTER">
+                                                <Label contentDisplay="CENTER" layoutX="878.0" layoutY="20.0" prefHeight="35.0" prefWidth="142.0" text="دروس پاس شده" textAlignment="CENTER">
                                                     <font>
-                                                        <Font name="System Bold" size="20.0"/>
+                                                        <Font name="System Bold" size="20.0" />
                                                     </font>
                                                 </Label>
                                             </children>
@@ -312,7 +212,7 @@
             <graphic>
                 <ImageView fx:id="imageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../PNG/choosUnit.png"/>
+                        <Image url="@../PNG/choosUnit.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -322,37 +222,28 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                 <children>
-                                    <TableView fx:id="tableViewChoose" layoutX="1.0" layoutY="100.0" prefHeight="500.0"
-                                               prefWidth="1000.0">
+                                    <TableView fx:id="tableViewChoose" layoutX="1.0" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
                                         <columns>
-                                            <TableColumn fx:id="rowChoose" prefWidth="72.00011521577835" text="ردیف"/>
-                                            <TableColumn fx:id="lessonCodChoose" prefWidth="100.800048828125"
-                                                         text="کد درس"/>
-                                            <TableColumn fx:id="lessonChoose" prefWidth="100.0" text="درس"/>
-                                            <TableColumn fx:id="unitChoose" prefWidth="100.0" text="تعداد واحد"/>
-                                            <TableColumn fx:id="masterChoose" prefWidth="100.0" text="استاد"/>
-                                            <TableColumn fx:id="classStartTimeChoose" prefWidth="150.0"
-                                                         text="زمان برگزاری کلاس"/>
-                                            <TableColumn fx:id="timeToTakeTheExamChoose" prefWidth="150.0"
-                                                         text="زمان برگذاری امتحان"/>
-                                            <TableColumn fx:id="ChooseUnit" prefWidth="101.599853515625" text="انتخاب"/>
+                                            <TableColumn fx:id="rowChoose" prefWidth="72.00011521577835" text="ردیف" />
+                                            <TableColumn fx:id="lessonCodChoose" prefWidth="100.800048828125" text="کد درس" />
+                                            <TableColumn fx:id="lessonChoose" prefWidth="100.0" text="درس" />
+                                            <TableColumn fx:id="unitChoose" prefWidth="100.0" text="تعداد واحد" />
+                                            <TableColumn fx:id="masterChoose" prefWidth="100.0" text="استاد" />
+                                            <TableColumn fx:id="classStartTimeChoose" prefWidth="150.0" text="زمان برگزاری کلاس" />
+                                            <TableColumn fx:id="timeToTakeTheExamChoose" prefWidth="150.0" text="زمان برگذاری امتحان" />
+                                            <TableColumn fx:id="ChooseUnit" prefWidth="101.599853515625" text="انتخاب" />
 
                                         </columns>
                                     </TableView>
-                                    <Button fx:id="btnConfirmChoose" layoutX="1290.0" layoutY="14.0"
-                                            mnemonicParsing="false" onMouseClicked="#onMouseCliked" text="Button"/>
-                                    <JFXButton fx:id="btnExit3" onMouseClicked="#exit" layoutX="927.0" layoutY="14.0"
-                                               prefHeight="60.0" prefWidth="60.0">
+                                    <Button fx:id="btnConfirmChoose" layoutX="1290.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onMouseCliked" text="Button" />
+                                    <JFXButton fx:id="btnExit3" layoutX="927.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                                         <graphic>
-                                            <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0"
-                                                       pickOnBounds="true" preserveRatio="true"/>
+                                            <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                         </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnBack3" onMouseClicked="#back" layoutX="863.0" layoutY="14.0"
-                                               prefHeight="60.0" prefWidth="60.0">
+                                    <JFXButton fx:id="btnBack3" layoutX="863.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                                         <graphic>
-                                            <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0"
-                                                       pickOnBounds="true" preserveRatio="true"/>
+                                            <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                         </graphic>
                                     </JFXButton>
                                 </children>
@@ -364,28 +255,19 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1440.0">
                                 <children>
-                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0"
-                                               onMouseClicked="#deleteAndAddLesson" prefHeight="554.0"
-                                               prefWidth="1367.0">
+                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0"  prefHeight="554.0" prefWidth="1367.0">
                                         <columns>
-                                            <TableColumn fx:id="rowAddAndDeleteUnitChooseUnit" text="ردیف"/>
-                                            <TableColumn fx:id="lessonCodeAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="119.2000732421875" text="کد درس"/>
-                                            <TableColumn fx:id="lessonAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="332.0000915527344" text="درس"/>
-                                            <TableColumn fx:id="unitNumberAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="139.19989013671875" text="تعداد واحد"/>
-                                            <TableColumn fx:id="masterAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="242.4000244140625" text="استاد"/>
-                                            <TableColumn fx:id="classStartTimeAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="205.599853515625" text="زمان برگزاری کلاس"/>
-                                            <TableColumn fx:id="timeToTakeTheExamAddAndDeleteUnitChooseUnit"
-                                                         prefWidth="169.60009765625" text="زمان برگزاری امتحان"/>
-                                            <TableColumn fx:id="chooseUnitAddAndDeleteUnitChooseUnit" text="انتخاب"/>
+                                            <TableColumn fx:id="rowAddAndDeleteUnitChooseUnit" text="ردیف" />
+                                            <TableColumn fx:id="lessonCodeAddAndDeleteUnitChooseUnit" prefWidth="119.2000732421875" text="کد درس" />
+                                            <TableColumn fx:id="lessonAddAndDeleteUnitChooseUnit" prefWidth="150.0" text="درس" />
+                                            <TableColumn fx:id="unitNumberAddAndDeleteUnitChooseUnit" prefWidth="139.19989013671875" text="تعداد واحد" />
+                                            <TableColumn fx:id="masterAddAndDeleteUnitChooseUnit" prefWidth="150.0" text="استاد" />
+                                            <TableColumn fx:id="classStartTimeAddAndDeleteUnitChooseUnit" prefWidth="120.0" text="زمان برگزاری کلاس" />
+                                            <TableColumn fx:id="timeToTakeTheExamAddAndDeleteUnitChooseUnit" prefWidth="120.0" text="زمان برگزاری امتحان" />
+                                            <TableColumn fx:id="chooseUnitAddAndDeleteUnitChooseUnit" text="انتخاب" />
                                         </columns>
                                     </TableView>
-                                    <Button layoutX="1283.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="تایید نهایی" />
-                           <Button layoutX="1293.0" layoutY="8.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="تایید نهایی" />
+                           <JFXButton layoutX="910.0" layoutY="14.0" onMouseClicked="#deletAndAddLesson" prefHeight="26.0" prefWidth="74.0" text="تایید " />
 
                                 </children>
                             </AnchorPane>

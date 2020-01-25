@@ -107,7 +107,7 @@ public class StudentController implements Initializable {
 
     //passed lessons
     public void onActionPassed() {
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsList();
+        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
         rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         unitPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -130,7 +130,7 @@ public class StudentController implements Initializable {
     }
 
     public void onActionCurriculum() {
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsList();
+        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
 
         rowCurriculum.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonCurriculum.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -148,7 +148,7 @@ public class StudentController implements Initializable {
     // report for student
     public void onActionReport() {
 
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsList();
+        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
         rowReport.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonReport.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         unitReport.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -163,7 +163,15 @@ public class StudentController implements Initializable {
 
     public void onActionDeleteAndAddLesson() {
         JFXToggleButton btn = new JFXToggleButton();
+        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            //TODO aya biz btnin handelerin bora goyajax ya table da setelianda
+            public void handle(MouseEvent event) {
 
+
+            }
+        });
+        //TODO read Fields File in field file for chooseLesson
         rowAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -178,10 +186,17 @@ public class StudentController implements Initializable {
     }
 
     public void onActionChooseUnit() {
-        ArrayList<FieldDataCenter> field = student.getFieldsList();
+        ArrayList<FieldDataCenter> field = student.getFieldsListForChooseUnit();
 
         JFXToggleButton btn = new JFXToggleButton();
+        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            //TODO aya biz btnin handelerin bora goyajax ya table da setelianda
+            public void handle(MouseEvent event) {
 
+
+            }
+        });
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -241,46 +256,7 @@ public class StudentController implements Initializable {
         onActionReport();
         onActionSetProfile();
     }
-
-    //Choose Unit
-    public void onMouseCliked(MouseEvent mouseEvent) {
-        int sizeOfTable = tableViewChoose.getItems().size();
-        ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
-        for (int i = 0; i < sizeOfTable; i++) {
-            personDataCenter personDataCenter = (personDataCenter) tableViewChoose.getItems().get(i);
-            JFXToggleButton jfxToggleButton = personDataCenter.getTogglebtnChooseUnit();
-            jfxToggleButton.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    if (jfxToggleButton.isSelected()) {
-                        personDataCenters.add(personDataCenter);
-                    }
-                }
-            });
-
-        }
-        long[] lessonCods = new long[personDataCenters.size()];
-
-        for (int i = 0; i < personDataCenters.size(); i++) {
-            lessonCods[i] = personDataCenters.get(i).getLessonCod();
-        }
-
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
-        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
-        };
-        fields.addAll(archiveDataCenter.readAllFields());
-        for (int i = 0; i < fields.size(); i++) {
-            for (int j = 0; j < lessonCods.length; j++) {
-                if (lessonCods[j] == fields.get(i).getFieldNumber()) {
-                    fields.get(i).setScore(10);
-                    student.addField(fields.get(i));
-                }
-            }
-        }
-        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
-        archiveDataCenter1.writeStudent(student);
-    }
-
+    //creat average
     public void averageUpdate(ArrayList<FieldDataCenter> fields) {
         double average = 0;
         int sumUnit = 0;
@@ -292,9 +268,92 @@ public class StudentController implements Initializable {
         average = sumScore / sumUnit;
         student.setAverage(average);
     }
+    //Choose Unit
+    public void onMouseCliked(MouseEvent mouseEvent) {
+//gereftane size table
+        int sizeOfTable = tableViewChoose.getItems().size();
+
+        ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
+
+        for (int i = 0; i < sizeOfTable; i++) {
+//gereftane yek item az table
+            personDataCenter person = (personDataCenter) tableViewChoose.getItems().get(i);
+
+            JFXToggleButton jfxToggleButton = person.getTogglebtnChooseUnit();
+            //shart true bodane btn
+            if (jfxToggleButton.isSelected())
+                personDataCenters.add(person);
+
+
+        }
+
+        long[] lessonCods = new long[personDataCenters.size()];
+
+        for (int i = 0; i < personDataCenters.size(); i++) {
+//rixtan kod haie droos dar araye
+            lessonCods[i] = personDataCenters.get(i).getLessonCod();
+
+        }
+//ijad objact az kelass archive
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+//ijade arrayList az jense Field  baraye garar dadn tmam droos dar an
+        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>();
+        //ijade arrayList az jense Field baraye garar dadn droos entexab shode
+        ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<FieldDataCenter>();
+
+        fields.addAll(archiveDataCenter.readAllFields());
+//TODO nomre 10 dadn borda olajax
+        for (int i = 0; i < fields.size(); i++) {
+            for (int j = 0; j < lessonCods.length; j++) {
+                if (lessonCods[j] == fields.get(i).getFieldNumber()) {
+                    fields.get(i).setScore(10);
+                    fieldChoosed.add(fields.get(i));
+                    //    student.addField(fields.get(i));
+                }
+            }
+        }
+        student.setFieldsListForChooseUnit(fieldChoosed);
+// zaxire daeshjoo
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        archiveDataCenter1.writeStudent(student);
+    }
+
+
 
 
     public void deleteAndAddLesson(MouseEvent mouseEvent) {
+        //gereftane size table
+        int tableSize = tableViewAddAndDeleteUnitChooseUnit.getItems().size();
+        ArrayList<personDataCenter> personDataCenters = new ArrayList<personDataCenter>();
 
+        for (int i = 0; i < tableSize; i++) {
+            personDataCenter person = (personDataCenter) tableViewAddAndDeleteUnitChooseUnit.getItems().get(i);
+            JFXToggleButton btn = person.getTogglebtnChooseUnit();
+            if (btn.isSelected()) {
+                personDataCenters.add(person);
+            }
+        }
+        //gereftane code dars
+        long [] lessonCode = new long[personDataCenters.size()];
+        for (int i = 0; i <personDataCenters.size() ; i++) {
+            lessonCode[i]=personDataCenters.get(i).getLessonCod();
+        }
+        ArrayList<FieldDataCenter> fieldDataCenters = new ArrayList<>();
+        archive= new ArchiveDataCenter(98,ArchiveDataCenter.FIELD);
+        for (int i = 0; i <lessonCode.length ; i++) {
+            fieldDataCenters.add(archive.readFields(lessonCode[i]));
+        }
+        student.setFieldsListForChooseUnit(fieldDataCenters);
+    }
+
+    public void checkFailOrPassed() {
+        student.setHistoryListField(student.getFieldsListForChooseUnit());
+
+    }
+
+    //TODO megdar dehi tamam droos  be allFields Student
+    public void addFieldsForStudent() {
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+        student.setListAllFields(archiveDataCenter.readAllFields());
     }
 }

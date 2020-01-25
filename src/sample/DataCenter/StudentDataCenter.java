@@ -1,12 +1,16 @@
 package sample.DataCenter;
 
+import java.util.ArrayList;
+
 public class StudentDataCenter {
 
     private String firstName;
     private String lastName;
     private long nationalCode;
     private long studentNumber;
-    private FieldDataCenter[] fields;
+
+
+    private ArrayList<FieldDataCenter> fieldsList;
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh
@@ -34,6 +38,23 @@ public class StudentDataCenter {
     private long ZIPCode;
     private String AreaBorn;
     private long FileNumber1;
+    private int BYear;
+    private int BMonth;
+    private int BDay;
+    private double score;
+
+
+
+
+    public int getGender() {
+        return Gender;
+    }
+
+    public void setGender(int gender) {
+        Gender = gender;
+    }
+
+    private int Gender ;
 
     public int getBYear() {
         return BYear;
@@ -58,10 +79,6 @@ public class StudentDataCenter {
     public void setBDay(int BDay) {
         this.BDay = BDay;
     }
-
-    private int BYear;
-    private int BMonth;
-    private int BDay;
 
     public String getFirstName() {
         return firstName;
@@ -95,13 +112,7 @@ public class StudentDataCenter {
         this.studentNumber = studentNumber;
     }
 
-    public FieldDataCenter[] getFields() {
-        return fields;
-    }
 
-    public void setFields(FieldDataCenter[] fields) {
-        this.fields = fields;
-    }
 
     public long getRate() {
         return rate;
@@ -318,4 +329,25 @@ public class StudentDataCenter {
     public void setFileNumber1(long fileNumber1) {
         FileNumber1 = fileNumber1;
     }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public ArrayList<FieldDataCenter> getFieldsList() {
+        return fieldsList;
+    }
+    public void addField(FieldDataCenter field){
+        fieldsList.add(field);
+
+    }
+
+    public void setFieldsList(ArrayList<FieldDataCenter> fieldsList) {
+        this.fieldsList = fieldsList;
+    }
+
 }

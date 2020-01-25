@@ -188,15 +188,8 @@ public class StudentController implements Initializable {
     public void onActionChooseUnit() {
         ArrayList<FieldDataCenter> field = student.getFieldsListForChooseUnit();
 
-        JFXToggleButton btn = new JFXToggleButton();
-        btn.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            //TODO aya biz btnin handelerin bora goyajax ya table da setelianda
-            public void handle(MouseEvent event) {
 
 
-            }
-        });
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -206,7 +199,7 @@ public class StudentController implements Initializable {
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
         for (int i = 0; i < field.size(); i++) {
-            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
+            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), new JFXToggleButton()));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
         }
@@ -246,8 +239,8 @@ public class StudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
-        student = new StudentDataCenter();
-        student = archive.readStudent(student.getStudentNumber());
+//        student = new StudentDataCenter();
+//        student = archive.readStudent(student.getStudentNumber());
 
         onActionChooseUnit();
         onActionPassed();
@@ -270,38 +263,37 @@ public class StudentController implements Initializable {
     }
     //Choose Unit
     public void onMouseCliked(MouseEvent mouseEvent) {
-//gereftane size table
+
         int sizeOfTable = tableViewChoose.getItems().size();
 
         ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
 
         for (int i = 0; i < sizeOfTable; i++) {
-//gereftane yek item az table
+
             personDataCenter person = (personDataCenter) tableViewChoose.getItems().get(i);
 
             JFXToggleButton jfxToggleButton = person.getTogglebtnChooseUnit();
-            //shart true bodane btn
+
             if (jfxToggleButton.isSelected())
                 personDataCenters.add(person);
-
 
         }
 
         long[] lessonCods = new long[personDataCenters.size()];
 
         for (int i = 0; i < personDataCenters.size(); i++) {
-//rixtan kod haie droos dar araye
+
             lessonCods[i] = personDataCenters.get(i).getLessonCod();
 
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
         };
         }
-//ijad objact az kelass archive
+
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
-//ijade arrayList az jense Field  baraye garar dadn tmam droos dar an
+
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>();
-        //ijade arrayList az jense Field baraye garar dadn droos entexab shode
+
         ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<FieldDataCenter>();
 
         fields.addAll(archiveDataCenter.readAllFields());

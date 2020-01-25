@@ -6,30 +6,43 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.Controllers.StudentController;
+import sample.DataCenter.FieldDataCenter;
 import sample.DataCenter.NewStudentDataCenter;
+import sample.DataCenter.StudentDataCenter;
+
+import java.util.ArrayList;
 
 public class Main extends Application {
 
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-      //  Parent root = FXMLLoader.load(getClass().getResource("FXML/Master.fxml"));
-//        NewStudentDataCenter std = new NewStudentDataCenter();
+        StudentController studentController = new StudentController();
+        StudentDataCenter student = new StudentDataCenter();
+        FieldDataCenter fieldDataCenter = new FieldDataCenter();
+        fieldDataCenter.setScore(12);
+        fieldDataCenter.setClassStartTime("12-12-12");
+        fieldDataCenter.setFieldName("math");
+        fieldDataCenter.setFieldNumber(123456);
+        fieldDataCenter.setMasterName("tanha");
+        fieldDataCenter.setTimeToTakeExam("1398-2-30/12:20");
+        fieldDataCenter.setUnit(3);
+         ArrayList<FieldDataCenter> listField =new ArrayList<>();
+         listField.add(fieldDataCenter);
+        student.setFieldsListForChooseUnit(listField);
+        student.setAddress("1345fccces");
+        student.setAreaBorn("تبزیز");
+        student.setFatherName("2");
+        student.setLastName("hossein");
+        studentController.setStudent(student);
+
         FXMLLoader loader = new FXMLLoader();
         Parent root;
-//        std.setGender(0);
-//        std.setDay_night(true);
-//        std.setField("کامپیدنر");
-//        std.setFileNumber(31222213);
-//        std.setFirstName("علی");
-//        std.setRate(1800);
-//        std.setID(1362942138);
-//        std.setLastName("فرقانی");
-//        sample.Controllers.NewStudentController newStudent = new sample.Controllers.NewStudentController();
-//        newStudent.setStd(std);
+        loader.setController(studentController);
 //
 //        loader.setController(newStudent);
-        loader.setLocation(getClass().getResource("/sample/FXML/Manager.fxml"));
+        loader.setLocation(getClass().getResource("/sample/FXML/Student.fxml"));
 
         root = loader.load();
 

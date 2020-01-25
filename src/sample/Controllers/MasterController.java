@@ -101,6 +101,11 @@ public class MasterController implements Initializable {
     public JFXButton choseLesson2;
     public JFXButton finalConfirmAdd;
     public JFXButton finalConfirmDelete;
+    public JFXButton btnCompleteInfoMaster;
+    public Tab newWeektableMaster;
+    public ImageView btnsearchforGrade;
+    public JFXButton btnConfirmGrade;
+    public ImageView btnSearchPrAb;
     private MasterDataCenter master;
     private StudentDataCenter student;
 

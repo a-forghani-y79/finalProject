@@ -432,7 +432,6 @@ public class ManagerController implements Initializable {
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "hour :" + localTime.getHour());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "minute :" + localTime.getMinute());
 
-
     }
 
     @FXML

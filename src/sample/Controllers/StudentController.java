@@ -113,13 +113,14 @@ public class StudentController implements Initializable {
         unitPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
         masterPassed.setCellValueFactory(new PropertyValueFactory<>("master"));
         scorePassed.setCellValueFactory(new PropertyValueFactory<>("score"));
-        for (int i = 0 ; i<fieldsList.size();i++) {
-            if(fieldsList.get(i).getScore()>=10)
-            tableViewPassed.getItems().add(new personDataCenter(i+1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore()));
+        for (int i = 0; i < fieldsList.size(); i++) {
+            if (fieldsList.get(i).getScore() >= 10)
+                tableViewPassed.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore()));
             ///                                             (int row, String lesson, int unit, String master, double score)
         }
     }
-//TODO
+
+    //TODO
     public void onActionNotPassed() {
         rowNotPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonNotPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -139,11 +140,12 @@ public class StudentController implements Initializable {
         timeToTakeTheExamCurriculum.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         NumberOfََََAbsencesCurriculum.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
         for (int i = 0; i < fieldsList.size(); i++) {
-            tableViewCurriculum.getItems().add(new personDataCenter(i+1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam(),fieldsList.get(i).getNumberOfAbsence()));
+            tableViewCurriculum.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam(), fieldsList.get(i).getNumberOfAbsence()));
             //(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence)
         }
     }
-// report for student
+
+    // report for student
     public void onActionReport() {
 
         ArrayList<FieldDataCenter> fieldsList = student.getFieldsList();
@@ -159,21 +161,22 @@ public class StudentController implements Initializable {
         }
     }
 
-    public void onActionDeleteAndAddLesson(){
+    public void onActionDeleteAndAddLesson() {
         JFXToggleButton btn = new JFXToggleButton();
 
         rowAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("row"));
- lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
- lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new  PropertyValueFactory<>("lesson"));
- unitNumberAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
- chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
- masterAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("master"));
- classStartTimeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
- timeToTakeTheExamAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
- tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1,"math",1234l,"tanha",3,"12-12-12","21-32-34",btn));
+        lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
+        lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+        unitNumberAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
+        chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+        masterAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("master"));
+        classStartTimeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
+        timeToTakeTheExamAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
+        tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1, "math", 1234l, "tanha", 3, "12-12-12", "21-32-34", btn));
         //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
     }
+
     public void onActionChooseUnit() {
         ArrayList<FieldDataCenter> field = student.getFieldsList();
 
@@ -239,7 +242,7 @@ public class StudentController implements Initializable {
         onActionSetProfile();
     }
 
-//Choose Unit
+    //Choose Unit
     public void onMouseCliked(MouseEvent mouseEvent) {
         int sizeOfTable = tableViewChoose.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
@@ -277,17 +280,21 @@ public class StudentController implements Initializable {
         ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
         archiveDataCenter1.writeStudent(student);
     }
-    public void averageUpdate(ArrayList<FieldDataCenter> fields){
-        double average=0;
-        int sumUnit=0;
-        double sumScore=0;
-        for (int i =0 ;i<fields.size();i++){
-            sumUnit+=fields.get(i).getUnit();
-            sumScore+=(fields.get(i).getScore()*fields.get(i).getUnit());
+
+    public void averageUpdate(ArrayList<FieldDataCenter> fields) {
+        double average = 0;
+        int sumUnit = 0;
+        double sumScore = 0;
+        for (int i = 0; i < fields.size(); i++) {
+            sumUnit += fields.get(i).getUnit();
+            sumScore += (fields.get(i).getScore() * fields.get(i).getUnit());
         }
-        average=sumScore/sumUnit;
+        average = sumScore / sumUnit;
         student.setAverage(average);
     }
 
 
+    public void deleteAndAddLesson(MouseEvent mouseEvent) {
+
+    }
 }

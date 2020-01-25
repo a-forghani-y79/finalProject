@@ -308,7 +308,7 @@ public class MasterController implements Initializable {
         }
 
         setName();
-       // AddFields();
+        AddFields();
 
         finalConfirm();
         choseField();

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="پروفایل شخصی             ">
       <content>
@@ -54,10 +54,10 @@
                                                 <Font name="System Bold" size="22.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtNameMaster" layoutX="523.0" layoutY="65.0" />
-                                          <TextField fx:id="txtFamilyMaster" layoutX="523.0" layoutY="143.0" />
-                                          <TextField fx:id="txtPersonalCodeMaster" layoutX="240.0" layoutY="66.0" />
-                                          <TextField fx:id="txtNationalCodeMater" layoutX="240.0" layoutY="144.0" />
+                                          <TextField fx:id="txtNameMaster" editable="false" layoutX="523.0" layoutY="65.0" nodeOrientation="RIGHT_TO_LEFT" />
+                                          <TextField fx:id="txtFamilyMaster" editable="false" layoutX="523.0" layoutY="143.0" nodeOrientation="RIGHT_TO_LEFT" />
+                                          <TextField fx:id="txtPersonalCodeMaster" editable="false" layoutX="240.0" layoutY="66.0" nodeOrientation="RIGHT_TO_LEFT" />
+                                          <TextField fx:id="txtNationalCodeMater" editable="false" layoutX="240.0" layoutY="144.0" nodeOrientation="RIGHT_TO_LEFT" />
                                        </children>
                                     </AnchorPane>
                                     <Label alignment="CENTER_RIGHT" layoutX="351.0" layoutY="30.0" prefHeight="42.0" prefWidth="395.0" text="خوش آمدید!!!شما به عنوان &quot;استاد&quot;وارد سیستم شده اید" textFill="#b51414">
@@ -73,20 +73,20 @@
                                           <Cursor fx:constant="OPEN_HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXButton fx:id="exitButtonMaster1" layoutY="4.0" onMouseClicked="#exit" text=" ">
-                                       <graphic>
-                                          <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../PNG/Exit1.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </JFXButton>
-                                    <JFXButton fx:id="backButtonMaster1" layoutX="44.0" layoutY="4.0" onMouseClicked="#back" text=" ">
+                                    <JFXButton fx:id="backButtonMaster1" layoutX="64.0" layoutY="4.0" onMouseClicked="#back" prefHeight="52.0" prefWidth="48.0" text=" ">
                                        <graphic>
                                           <ImageView fitHeight="44.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../PNG/Back.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="exitButtonMaster1" layoutY="4.0" onMouseClicked="#exit" prefHeight="53.0" prefWidth="42.0" text=" ">
+                                       <graphic>
+                                          <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../PNG/Exit1.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -232,7 +232,7 @@
                                           <TableColumn fx:id="DeleteMaster" prefWidth="182.0" text="حذف کردن" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0"  prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
+                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0" onMouseClicked="#showDeleteTable" prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -296,7 +296,7 @@
                                           <TableColumn fx:id="insertGradeMasterCLM" prefWidth="190.0" text="ثبت نمره" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton fx:id="choseLesson1" layoutX="914.0" layoutY="19.0" prefHeight="46.0" prefWidth="54.0" text="  " onMouseClicked="#choseField">
+                                    <JFXButton fx:id="choseLesson1" layoutX="914.0" layoutY="19.0" prefHeight="46.0" prefWidth="54.0" text="  ">
                                        <graphic>
                                           <ImageView fx:id="btnsearchforGrade" fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -349,7 +349,7 @@
                                     <ComboBox fx:id="comboLessonMaster2" layoutX="669.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="235.0" promptText="لطفا گروه مورد نظر خود را انتخاب کنبد" />
                                     <JFXButton fx:id="choseLesson2" layoutX="915.0" layoutY="21.0" prefHeight="39.0" prefWidth="35.0" text="  ">
                                        <graphic>
-                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0" onMouseClicked="#choseField" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0" onMouseClicked="#" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../PNG/search-var-flat.png" />
                                              </image>

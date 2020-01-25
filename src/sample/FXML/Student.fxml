@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -12,13 +13,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1440.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.StudentController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.StudentController">
     <tabs>
         <Tab text="پروفایل شخصی">
             <content>
                 <AnchorPane depthTest="ENABLE" minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1440.0">
                     <children>
-                        <AnchorPane layoutX="198.0" layoutY="98.0" prefHeight="436.0" prefWidth="1007.0" style="-fx-background-color: F2A1CC;">
+                        <AnchorPane layoutY="107.0" prefHeight="436.0" prefWidth="1007.0" style="-fx-background-color: F2A1CC;">
                             <children>
                                 <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="30.0" prefHeight="22.0" prefWidth="66.0" text="نام :" />
                                 <TextField fx:id="txtCollegeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="111.0" prefHeight="32.0" prefWidth="110.0" />
@@ -35,7 +36,7 @@
                                 <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="73.0" prefHeight="22.0" prefWidth="67.0" text="نام پدر :" />
                                 <TextField fx:id="txtFatherNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="68.0" prefHeight="32.0" prefWidth="110.0" />
                                 <Label alignment="TOP_RIGHT" layoutX="670.0" layoutY="73.0" prefHeight="22.0" prefWidth="134.0" text="شماره شناسنامه :" />
-                                <TextField fx:id="txtAddressProfile" alignment="CENTER_RIGHT" editable="false" layoutX="51.0" layoutY="154.0" prefHeight="32.0" prefWidth="868.0" />
+                                <TextField fx:id="txtAddressProfile" alignment="CENTER_RIGHT" editable="false" layoutX="70.0" layoutY="154.0" prefHeight="32.0" prefWidth="868.0" />
                                 <TextField fx:id="txtShenaseCodProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="67.0" prefHeight="32.0" prefWidth="110.0" />
                                 <Label alignment="TOP_RIGHT" layoutX="190.0" layoutY="120.0" prefHeight="22.0" prefWidth="88.0" text="دوره: " />
                                 <TextField fx:id="txtFatherPhoneNumberProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0" />
@@ -78,13 +79,23 @@
                                 <Label alignment="TOP_RIGHT" layoutX="937.0" layoutY="283.0" prefHeight="22.0" prefWidth="55.0" text="مذهب:" />
                             </children>
                         </AnchorPane>
-                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="657.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="439.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../PNG/logoUni.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="54.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="btnBack" layoutX="24.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack1" layoutX="93.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                     </children>
                 </AnchorPane>
             </content>
@@ -106,7 +117,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TableView fx:id="taleViewReport" layoutX="295.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="778.0">
+                                                <TableView fx:id="taleViewReport" layoutX="235.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="602.0" prefWidth="778.0">
                                                     <columns>
                                                         <TableColumn fx:id="rowReport" prefWidth="64.00000154972076" text="ردبف" />
                                                         <TableColumn fx:id="lessonReport" prefWidth="179.99999237060547" text="درس" />
@@ -116,6 +127,16 @@
                                                         <TableColumn fx:id="situationReport" prefWidth="181.5999755859375" text="وضع" />
                                                     </columns>
                                                 </TableView>
+                                    <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                                       <graphic>
+                                          <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="btnBack2" layoutX="86.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                                       <graphic>
+                                          <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                                       </graphic>
+                                    </JFXButton>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -201,20 +222,30 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                 <children>
-                                    <TableView fx:id="tableViewChoose" layoutX="-5.0" layoutY="49.0" prefHeight="544.0" prefWidth="1366.0">
+                                    <TableView fx:id="tableViewChoose" layoutX="1.0" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
                                         <columns>
                                             <TableColumn fx:id="rowChoose" prefWidth="72.00011521577835" text="ردیف" />
                                             <TableColumn fx:id="lessonCodChoose" prefWidth="100.800048828125" text="کد درس" />
-                                            <TableColumn fx:id="lessonChoose" prefWidth="230.40005493164062" text="درس" />
-                                            <TableColumn fx:id="unitChoose" prefWidth="151.99993896484375" text="تعداد واحد" />
-                                            <TableColumn fx:id="masterChoose" prefWidth="180.79998779296875" text="استاد" />
-                                            <TableColumn fx:id="classStartTimeChoose" prefWidth="256.0" text="زمان برگزاری کلاس" />
-                                            <TableColumn fx:id="timeToTakeTheExamChoose" prefWidth="271.20001220703125" text="زمان برگذاری امتحان" />
+                                            <TableColumn fx:id="lessonChoose" prefWidth="100.0" text="درس" />
+                                            <TableColumn fx:id="unitChoose" prefWidth="100.0" text="تعداد واحد" />
+                                            <TableColumn fx:id="masterChoose" prefWidth="100.0" text="استاد" />
+                                            <TableColumn fx:id="classStartTimeChoose" prefWidth="150.0" text="زمان برگزاری کلاس" />
+                                            <TableColumn fx:id="timeToTakeTheExamChoose" prefWidth="150.0" text="زمان برگذاری امتحان" />
                                             <TableColumn fx:id="ChooseUnit" prefWidth="101.599853515625" text="انتخاب" />
 
                                         </columns>
                                     </TableView>
                            <Button fx:id="btnConfirmChoose" layoutX="1290.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onMouseCliked" text="Button" />
+                           <JFXButton fx:id="btnExit3" onMouseClicked="#exit" layoutX="927.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                              <graphic>
+                                 <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                              </graphic>
+                           </JFXButton>
+                           <JFXButton fx:id="btnBack3" onMouseClicked="#back" layoutX="863.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                              <graphic>
+                                 <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                              </graphic>
+                           </JFXButton>
                                 </children>
                             </AnchorPane>
 

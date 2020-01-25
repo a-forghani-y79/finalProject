@@ -1,21 +1,30 @@
 package sample.Controllers;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.DataCenter.ArchiveDataCenter;
 import sample.DataCenter.FieldDataCenter;
 import sample.DataCenter.StudentDataCenter;
 import sample.DataCenter.personDataCenter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
@@ -87,6 +96,18 @@ public class StudentController implements Initializable {
     public TextField txtNationalityProfile;
     public TextField txtReligionProfile;
     public TextField txtReligion2Profile;
+    public JFXButton btnBack;
+    public ImageView imageExit1;
+    public JFXButton btnBack1;
+    public ImageView imageBack1;
+    public JFXButton btnExit2;
+    public ImageView imageExit2;
+    public JFXButton btnBack2;
+    public ImageView imageBack2;
+    public ImageView imageExit3;
+    public Button btnConfirmChoose;
+    public JFXButton btnBack3;
+    public ImageView imageBack3;
     private StudentDataCenter student;
     public ArchiveDataCenter archive;
 
@@ -201,10 +222,71 @@ public class StudentController implements Initializable {
         onActionCurriculum();
         onActionReport();
         onActionSetProfile();
+
+        setImage();
+    }
+
+
+    @FXML
+    private void back() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+
+                Parent root;
+
+                try {
+                    Stage stage = (Stage) btnBack1.getScene().getWindow();
+                    stage.close();
+
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
+                    root = loader.load();
+                    stage = new Stage();
+
+                    Stage finalStage = stage;
+
+                    finalStage.setResizable(false);
+                    finalStage.initStyle(StageStyle.TRANSPARENT);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    private void exit() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+                System.exit(0);
+            }
+        }
     }
 
     public void choosingUnit() {
 
+    }
+    public void setImage(){
+        Image img ;
+        img = new Image("./sample/PNG/Exit.png");
+        imageExit1.setImage(img);
+        imageExit2.setImage(img);
+        imageExit3.setImage(img);
+        img = new Image("./sample/PNG/Back.png");
+        imageBack1.setImage(img);
+        imageBack2.setImage(img);
+        imageBack3.setImage(img);
     }
 
     public void onMouseCliked(MouseEvent mouseEvent) {

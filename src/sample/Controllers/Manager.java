@@ -1,9 +1,10 @@
 package sample.Controllers;
 
-import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.DataCenter.ImportNewStudent;
@@ -16,6 +17,21 @@ import java.util.ResourceBundle;
 public class Manager implements Initializable {
     public JFXButton btnBrowse;
     public JFXButton btnImport;
+    public JFXTextArea txtAreaPreview;
+    public TextField txtPath;
+    public JFXButton btnConfirm;
+    public JFXTextField txtFirstNameMaster;
+    public JFXTextField txtFamilyMaster;
+    public JFXTextField txtNationalNumberMaster;
+    public JFXButton btnAddMaster;
+    public JFXTextField txtFieldName;
+    public JFXTextField txtFieldCode;
+    public JFXTextField txtFieldUnit;
+    public GridPane gridPaneProgram;
+    public JFXComboBox comboFieldMaster;
+    public JFXButton btnChooseClassTime;
+    public JFXTimePicker timePicker;
+    public JFXDatePicker datePicker;
     TextField txtAddress;
     TextField txtYear;
     FileChooser fileChooser;

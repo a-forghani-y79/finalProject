@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Archive {
     //tedad daneshjoo jadid
     //tedad daneshjoo sabt nam shode
+    //remove master method  make master null;
 
 
     public Archive(int year, int mode) {

@@ -67,6 +67,13 @@ public class Master implements Initializable {
     public TableColumn lessonCodeInsertGrade;
     public TableColumn insertGradeMasterCLM;
 
+    public TableView TableViewPrAbMaster;
+    public TableColumn RadifPrAbMaster;
+    public TableColumn LastNamePrAbMaster;
+    public TableColumn FirstNamePrAbMaster;
+    public TableColumn IDPrAbMaster;
+    public TableColumn AbsentPrAbMaster;
+
     sample.DataCenter.Master master;
     //
 //    public Master(sample.DataCenter.Master master){
@@ -149,6 +156,14 @@ public class Master implements Initializable {
 
     }
 
+    public  void tablePrAb(){
+         RadifPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
+        LastNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+         FirstNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+         IDPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+         AbsentPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
+        TableViewPrAbMaster.getItems().add(new sample.DataCenter.person(1,"sada","sss",98536, 1));
+    }
 
 
 
@@ -203,6 +218,7 @@ public class Master implements Initializable {
        // setName();
        // setImage();
         insertGrade();
+        tablePrAb();
 
     }
 

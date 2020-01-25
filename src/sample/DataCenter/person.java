@@ -146,10 +146,17 @@ public class person<JFXToggleButton> {
         this.gender= gender;
         this.txtInsert = txtInsert;
 
+    }
 
-
+    public person(int row,String lastName,String firstName,long studentId, int numberOfAbsence){
+       this.row=row;
+       this.lastName=lastName;
+       this.firstName=firstName;
+       this.studentId=studentId;
+       this.numberOfAbsence= numberOfAbsence;
 
     }
+
 
 
     public String getLesson() {

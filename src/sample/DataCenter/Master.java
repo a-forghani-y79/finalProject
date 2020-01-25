@@ -9,6 +9,7 @@ public class Master {
     private String lastName;
     private long nationalNumber;
     private long  personalNumber;
+    private int gender;
 
     public int getGender() {
         return gender;
@@ -18,7 +19,7 @@ public class Master {
         this.gender = gender;
     }
 
-    private int gender;
+
 
 
     public String getFirstName() {

@@ -12,14 +12,12 @@ public class ArchiveDataCenter {
 
     private String STUDENT_FILE;
     private String MASTER_FILE;
-    private String MANAGER_FILE;
     private String NEW_STUDENT_FILE;
     private String FIELDS_FILE;
 
     public ArchiveDataCenter() {
         STUDENT_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\student.dat";
         MASTER_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\master.dat";
-        MANAGER_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\manager.dat";
         NEW_STUDENT_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\newStudent.dat";
         FIELDS_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\fields.dat";
     }
@@ -126,8 +124,7 @@ public class ArchiveDataCenter {
     }
 
     public ManagerDataCenter readManager() {
-        ManagerDataCenter manager = new ManagerDataCenter();
-        return manager;
+        return new ManagerDataCenter();
     }
 
     public NewStudentDataCenter readNewStudent(long nationalNumber) {
@@ -142,7 +139,7 @@ public class ArchiveDataCenter {
         return std;
     }
 
-    ArrayList<NewStudentDataCenter> readAllNewStudents() {
+    public ArrayList<NewStudentDataCenter> readAllNewStudents() {
         ArrayList<NewStudentDataCenter> list = null;
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(NEW_STUDENT_FILE));

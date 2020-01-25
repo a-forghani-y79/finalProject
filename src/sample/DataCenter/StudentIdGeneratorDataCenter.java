@@ -12,7 +12,7 @@ public class StudentIdGeneratorDataCenter {
     private int NUMBERMANAGER = 556;
 
     public StudentIdGeneratorDataCenter() {
-         archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+         archive = new ArchiveDataCenter();
 
     }
 
@@ -68,7 +68,7 @@ public class StudentIdGeneratorDataCenter {
     //Creat ID For Master
     public long createIdMaster() {
 
-        archive = new ArchiveDataCenter(98 , ArchiveDataCenter.MASTER);
+        archive = new ArchiveDataCenter();
 
         int numberOfMasters = archive.readAllMasters().size();
         System.out.println(numberOfMasters);

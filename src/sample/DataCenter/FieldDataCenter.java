@@ -1,6 +1,8 @@
 package sample.DataCenter;
 
-public class FieldDataCenter {
+import java.io.Serializable;
+
+public class FieldDataCenter implements Serializable {
 
     private String fieldName;
     private long fieldNumber;

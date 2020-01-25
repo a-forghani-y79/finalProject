@@ -1,14 +1,16 @@
 package sample.DataCenter;
 
-public class Field {
+public class FieldDataCenter {
 
     private String fieldName;
     private long fieldNumber;
     private int unit;
-    private Master master;
     private String classStartTime ;
     private String timeToTakeExam ;
-    //TODO زمان امتحان و برگذاری درس اضافه شود
+
+    private MasterDataCenter master;
+    private String classStartTime;
+    private String timeToTakeExam;
 
     public String getName() {
         return fieldName;
@@ -34,11 +36,11 @@ public class Field {
         this.unit = unit;
     }
 
-    public Master getMaster() {
+    public MasterDataCenter getMaster() {
         return master;
     }
 
-    public void setMaster(Master master) {
+    public void setMaster(MasterDataCenter master) {
         this.master = master;
     }
 

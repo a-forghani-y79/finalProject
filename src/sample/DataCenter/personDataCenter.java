@@ -8,8 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
 
-public class person<JFXToggleButton> {
-    private int row ;
+public class personDataCenter {
+    private int row;
     private String lesson = null;
     private long lessonCod ;
     private String master = null;
@@ -40,7 +40,7 @@ public class person<JFXToggleButton> {
     private int passedStudentNumber;
 
     //Choose units
-    public person(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
+    public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;
         this.lesson = lesson;
         this.lessonCod = lessonCode;
@@ -53,7 +53,7 @@ public class person<JFXToggleButton> {
     }
 
     //Report
-    public  person(int row, String lesson, int unit, String master, double Score, String situation) {
+    public personDataCenter(int row, String lesson, int unit, String master, double Score, String situation) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -63,7 +63,7 @@ public class person<JFXToggleButton> {
     }
 
     //Curriculum
-    public  person(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
+    public personDataCenter(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -75,7 +75,7 @@ public class person<JFXToggleButton> {
     }
 
     //Passed
-    public  person(int row, String lesson, int unit, String master, double score) {
+    public personDataCenter(int row, String lesson, int unit, String master, double score) {
         this.row = row;
         this.lesson = lesson;
         this.master = master;
@@ -84,12 +84,13 @@ public class person<JFXToggleButton> {
     }
 
     //not Passed
-    public  person(int row, String lesson, int unit) {
+    public personDataCenter(int row, String lesson, int unit) {
         this.row = row;
         this.lesson = lesson;
         this.unit = unit;
 
     }
+
     public int getRow() {
         return row;
     }
@@ -98,7 +99,7 @@ public class person<JFXToggleButton> {
         this.row = row;
     }
 
-    public  person(String lesson,int lessonCod,int unit,int studentNumber,int passedStudentNumber){
+    public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
         this.lesson = lesson;
         this.lessonCod = lessonCod;
         this.unit = unit;
@@ -107,7 +108,7 @@ public class person<JFXToggleButton> {
 
     }
 
-    public  person (String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit){
+    public  personDataCenter (String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit){
 
         this.lesson = lesson;
         this.lessonCod = lessonCod;
@@ -118,7 +119,7 @@ public class person<JFXToggleButton> {
 
     }
 
-    public  person(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
+    public  personDataCenter(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
         this.row = row;
         this.lesson = lesson;
         this. lessonCod = lessonCod;
@@ -137,7 +138,7 @@ public class person<JFXToggleButton> {
 //
 //    }
 
-    public person(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
+    public personDataCenter(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
 
         this.row= row;
         this.lastName= lastName;
@@ -234,6 +235,7 @@ public class person<JFXToggleButton> {
     public int getNumberOfAbsence() {
         return numberOfAbsence;
     }
+
     public int getStudentNumber() {
         return studentNumber;
     }

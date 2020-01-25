@@ -140,6 +140,7 @@ public class MasterController implements Initializable {
     //Takmil
     public void AddFields() {
         ArrayList<FieldDataCenter> fieldMaster = master.getMasField();
+
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         addLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -302,11 +303,17 @@ public class MasterController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
+         findStudent = new ArrayList<>();
+          MField= new ArrayList<>();
+          masField  = new ArrayList<>();
+         masterChoseUnit = new ArrayList<>();
+         listStd = new ArrayList<>();
+         passedNumber = new ArrayList<>();
 
 
-        MField = master.getMasField();
+     //   MField =  getmasterChoseUnit();
         for (int i = 0; i < MField.size(); i++) {
-            String comboItem = MField.get(i).getFieldName();
+            String comboItem = masterChoseUnit.get(i).getLesson();
             combolessonMaster.getItems().add(comboItem);
             comboLessonMaster2.getItems().add(comboItem);
         }
@@ -357,6 +364,7 @@ public class MasterController implements Initializable {
                 }
             }
         }
+
         return numberOfStudent;
     }
 }

@@ -45,7 +45,7 @@
                                 <Tooltip text="با توجه به راهنمایی تکمیل کنید"/>
                             </tooltip>
                         </JFXTextField>
-                        <JFXComboBox fx:id="UseCaseCombo" focusColor="#141414" labelFloat="true" layoutX="32.0"
+                        <JFXComboBox fx:id="useCaseCombo" focusColor="#141414" labelFloat="true" layoutX="32.0"
                                      layoutY="413.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="279.0"
                                      promptText="نوع کاربری                                               "
                                      unFocusColor="#141414">

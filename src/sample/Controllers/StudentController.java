@@ -240,11 +240,13 @@ public class StudentController implements Initializable {
         txtMaritalStatusProfile.setText(student.getMatrimony());
         txtReligion2Profile.setText(student.getReligion());
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
-//        student = new StudentDataCenter();
-//        student = archive.readStudent(student.getStudentNumber());
+       // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        student = new StudentDataCenter();
+        student = archive.readStudent(student.getStudentNumber());
+
         onActionChooseUnit();
         onActionPassed();
         onActionNotPassed();
@@ -304,7 +306,6 @@ public class StudentController implements Initializable {
         average = sumScore / sumUnit;
         student.setAverage(average);
     }
-
     //Choose Unit
     public void choosingUnit() {
 
@@ -356,7 +357,6 @@ public class StudentController implements Initializable {
                 }
             }
         }
-
         ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         student.setFieldsListForChooseUnit(fieldChoosed);
 // zaxire daeshjoo

@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
@@ -47,6 +48,34 @@ public class ManagerController implements Initializable {
     public Label status;
     public JFXComboBox comboChooseMaster;
     public JFXComboBox comboGenderMaster;
+
+    public JFXButton btn10;
+    public JFXButton btn11;
+    public JFXButton btn12;
+    public JFXButton btn13;
+    public JFXButton btn14;
+    public JFXButton btn20;
+    public JFXButton btn21;
+    public JFXButton btn22;
+    public JFXButton btn23;
+    public JFXButton btn24;
+    public JFXButton btn30;
+    public JFXButton btn31;
+    public JFXButton btn32;
+    public JFXButton btn33;
+    public JFXButton btn34;
+    public JFXButton btn40;
+    public JFXButton btn41;
+    public JFXButton btn42;
+    public JFXButton btn43;
+    public JFXButton btn44;
+    public JFXButton btn50;
+    public JFXButton btn51;
+    public JFXButton btn52;
+    public JFXButton btn53;
+    public JFXButton btn54;
+    private JFXButton[] btns;
+
 
     public JFXButton btnExit1;
     public JFXButton btnBack1;
@@ -255,11 +284,11 @@ public class ManagerController implements Initializable {
             if (txtField.equals(txtFieldName)) {
                 flag[0] = false;
             }
-            if (txtField.equals(txtFieldUnit)){
-                flag2[0]=false;
+            if (txtField.equals(txtFieldUnit)) {
+                flag2[0] = false;
             }
-            if (txtField.equals(txtFieldCode)){
-                flag3[0]=false;
+            if (txtField.equals(txtFieldCode)) {
+                flag3[0] = false;
             }
 
         } else {
@@ -267,11 +296,11 @@ public class ManagerController implements Initializable {
             if (txtField.equals(txtFieldName)) {
                 flag[0] = true;
             }
-            if (txtField.equals(txtFieldUnit)){
-                flag2[0]=true;
+            if (txtField.equals(txtFieldUnit)) {
+                flag2[0] = true;
             }
-            if (txtField.equals(txtFieldCode)){
-                flag3[0]=true;
+            if (txtField.equals(txtFieldCode)) {
+                flag3[0] = true;
             }
         }
 
@@ -303,19 +332,19 @@ public class ManagerController implements Initializable {
             int c = txtField.getText().charAt(i);
             if (!(c >= 48 && c <= 57)) {
                 txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #D70406;");
-                if (txtField.equals(txtFieldUnit)){
-                    flag2[0]=false;
+                if (txtField.equals(txtFieldUnit)) {
+                    flag2[0] = false;
                 }
-                if (txtField.equals(txtFieldCode)){
-                    flag3[0]=false;
+                if (txtField.equals(txtFieldCode)) {
+                    flag3[0] = false;
                 }
             } else {
                 txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #000000;");
-                if (txtField.equals(txtFieldUnit)){
-                    flag2[0]=true;
+                if (txtField.equals(txtFieldUnit)) {
+                    flag2[0] = true;
                 }
-                if (txtField.equals(txtFieldCode)){
-                    flag3[0]=true;
+                if (txtField.equals(txtFieldCode)) {
+                    flag3[0] = true;
                 }
             }
         }
@@ -373,10 +402,11 @@ public class ManagerController implements Initializable {
         }
 
 
-        if (flag[0]&&flag2[0]&& flag3[0]&& flag4[0]&& flag5[0]&&  flagGrid[0]) {
+        if (flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && flagGrid[0]) {
             completeFieldDataCenter();
+            cleanGradePane();
 
-        } else if (flag[0] && flag[0]&&flag2[0]&& flag3[0]&& flag4[0]&& flag5[0]&& !(flagGrid[0])) {
+        } else if (flag[0] && flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && !(flagGrid[0])) {
             labelAlert2.setVisible(true);
             lblAlert.setVisible(false);
 
@@ -462,6 +492,13 @@ public class ManagerController implements Initializable {
         comboGenderMaster.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         setImage();
         gridPaneProgram.setOpacity(1);
+        btns = new JFXButton[]{btn10, btn11, btn12, btn13, btn14, btn20, btn21, btn22, btn23, btn24, btn30, btn31, btn32, btn33, btn34, btn40, btn41, btn42, btn43, btn44, btn50, btn51, btn52, btn53, btn54};
+archive = new ArchiveDataCenter();
+    }
 
+    void cleanGradePane() {
+        for (int i = 0; i < btns.length; i++) {
+            btns[i].setStyle("");
+        }
     }
 }

@@ -80,6 +80,7 @@ public class NewStudentController implements Initializable {
     public JFXButton btnBack2;
     public JFXButton btnExit3;
     public JFXButton btnBack3;
+    public TextField txtGender2;
 
     NewStudentDataCenter std;
 
@@ -106,24 +107,36 @@ public class NewStudentController implements Initializable {
         Image img;
 
         if (std.getGender() == 0) {
-            txtGender.setText("خانم");
+            txtGender.setText("مونث");
             student.setGender(0);
             img = new Image("./sample/PNG/Female_Student-512.png");
             Tab1PIC.setImage(img);
         } else if (std.getGender() == 1) {
             student.setGender(1);
-            txtGender.setText("مرد");
+            txtGender.setText("مذکر");
             img = new Image("./sample/PNG/Student.png");
             Tab1PIC.setImage(img);
         }
 
+        if (std.getGender() == 0) {
+            txtGender2.setText("مونث");
+            student.setGender(0);
+
+        } else if (std.getGender() == 1) {
+            student.setGender(1);
+            txtGender2.setText("مذکر");
+
+        }
+
+
+
         if (std.isDay_night() == true) {
-            txtCourse.setText("day");
-            txtCourse1.setText("day");
+            txtCourse.setText("روزانه");
+            txtCourse1.setText("روزانه");
 
         } else {
-            txtCourse.setText("night");
-            txtCourse1.setText("night");
+            txtCourse.setText("شبانه");
+            txtCourse1.setText("شبانه");
         }
 
 
@@ -215,11 +228,15 @@ public class NewStudentController implements Initializable {
         }
         int IndexDyplomType = findComboIndex(comboMatrimony);
         if (IndexDyplomType == 0) {
-            student.setDiplomType("قبولی");
+            student.setDiplomType("ریاضی فیزیک");
         }
         if (IndexDyplomType == 1) {
-            student.setDiplomType("ردی");
+            student.setDiplomType("تجربی");
         }
+        if (IndexDyplomType == 2) {
+            student.setDiplomType("انسانی");
+        }
+
 
         LocalDate localDate = DataPicker.getValue();
         student.setBYear(localDate.getYear());
@@ -639,7 +656,7 @@ public class NewStudentController implements Initializable {
         comboMatrimony.getItems().addAll(Matrimony);
         String[] condition = {"فارق تحصیل", "درحال تحصیل"};
         comboCondition.getItems().addAll(condition);
-        String[] diplomType = {"قیولی", "ردی"};
+        String[] diplomType = {"تجربی", "انسانی","ریاضی فیزیک"};
         comboDyplomType.getItems().addAll(diplomType);
         setImage();
         Show();

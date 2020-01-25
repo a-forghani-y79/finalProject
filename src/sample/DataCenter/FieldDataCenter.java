@@ -1,8 +1,6 @@
 package sample.DataCenter;
 
-import java.io.Serializable;
-
-public class FieldDataCenter implements Serializable {
+public class FieldDataCenter {
 
     private String fieldName;
     private long fieldNumber;
@@ -10,8 +8,10 @@ public class FieldDataCenter implements Serializable {
     private String masterName;
     private String classStartTime;
     private String timeToTakeExam;
-    private double score;
+    private double score ;
     private int numberOfAbsence;
+
+    //TODO create place Getter and Setter
 
     public int getNumberOfAbsence() {
         return numberOfAbsence;

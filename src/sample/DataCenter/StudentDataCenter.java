@@ -10,7 +10,9 @@ public class StudentDataCenter implements Serializable {
     private long nationalCode;
     private long studentNumber;
     private double average;
-    private ArrayList<FieldDataCenter> fieldsList;
+    private ArrayList<FieldDataCenter> fieldsListForChooseUnit;
+    private ArrayList<FieldDataCenter> listAllFields;
+    private ArrayList<FieldDataCenter> historyListField;
     private long rate;
     private String field;
     private boolean isDay; //true for roozaneh
@@ -43,6 +45,22 @@ public class StudentDataCenter implements Serializable {
     private int BDay;
     private double score;
     private String position;
+
+    public ArrayList<FieldDataCenter> getHistoryListField() {
+        return historyListField;
+    }
+
+    public void setHistoryListField(ArrayList<FieldDataCenter> historyListField) {
+        this.historyListField = historyListField;
+    }
+
+    public ArrayList<FieldDataCenter> getListAllFields() {
+        return listAllFields;
+    }
+
+    public void setListAllFields(ArrayList<FieldDataCenter> listAllFields) {
+        this.listAllFields = listAllFields;
+    }
 
     public String getPosition() {
         return position;
@@ -350,16 +368,16 @@ public class StudentDataCenter implements Serializable {
         this.score = score;
     }
 
-    public ArrayList<FieldDataCenter> getFieldsList() {
-        return fieldsList;
+    public ArrayList<FieldDataCenter> getFieldsListForChooseUnit() {
+        return fieldsListForChooseUnit;
     }
     public void addField(FieldDataCenter field){
-        fieldsList.add(field);
+        fieldsListForChooseUnit.add(field);
 
     }
 
-    public void setFieldsList(ArrayList<FieldDataCenter> fieldsList) {
-        this.fieldsList = fieldsList;
+    public void setFieldsListForChooseUnit(ArrayList<FieldDataCenter> fieldsListForChooseUnit) {
+        this.fieldsListForChooseUnit = fieldsListForChooseUnit;
     }
 
 }

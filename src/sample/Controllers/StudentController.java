@@ -68,7 +68,7 @@ public class StudentController implements Initializable {
     public TableColumn lessonNotPassed;
     public TableColumn unitNotPassed;
     //Profile
-    public TextField txtCollegeProfile;
+    // public TextField txtCollegeProfile;
     public TextField txtLastNameProfile;
     public TextField txtIdProfile;
     public TextField txtNameProfile;
@@ -130,89 +130,111 @@ public class StudentController implements Initializable {
 
     //passed lessons
     public void onActionPassed() {
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
-        rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        unitPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        masterPassed.setCellValueFactory(new PropertyValueFactory<>("master"));
-        scorePassed.setCellValueFactory(new PropertyValueFactory<>("score"));
-        for (int i = 0; i < fieldsList.size(); i++) {
-            if (fieldsList.get(i).getScore() >= 10)
-                tableViewPassed.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore()));
-            ///                                             (int row, String lesson, int unit, String master, double score)
+        if (student.getFieldsListForChooseUnit() != null) {
+            ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
+            rowPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            unitPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            masterPassed.setCellValueFactory(new PropertyValueFactory<>("master"));
+            scorePassed.setCellValueFactory(new PropertyValueFactory<>("score"));
+            for (int i = 0; i < fieldsList.size(); i++) {
+                if (fieldsList.get(i).getScore() >= 10)
+                    tableViewPassed.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore()));
+                ///                                             (int row, String lesson, int unit, String master, double score)
+            }
         }
     }
+
     //TODO
     public void onActionNotPassed() {
-        rowNotPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonNotPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        unitNotPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        tableViewNotPassed.getItems().add(new personDataCenter(1, "mabani", 3));
+        if (student.getFieldsListForChooseUnit() != null) {
+
+            rowNotPassed.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonNotPassed.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            unitNotPassed.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            tableViewNotPassed.getItems().add(new personDataCenter(1, "mabani", 3));
 //(int row, String lesson, int unit)
-    }
-    public void onActionCurriculum() {
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
-        rowCurriculum.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonCurriculum.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        unitCurriculum.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        masterCurriculum.setCellValueFactory(new PropertyValueFactory<>("master"));
-        classStartTimeCurriculum.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        timeToTakeTheExamCurriculum.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
-        NumberOfََََAbsencesCurriculum.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
-        for (int i = 0; i < fieldsList.size(); i++) {
-            tableViewCurriculum.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam() + "", fieldsList.get(i).getNumberOfAbsence()));
-            //(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence)
         }
     }
+
+    public void onActionCurriculum() {
+        if (student.getFieldsListForChooseUnit() != null) {
+            ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
+            rowCurriculum.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonCurriculum.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            unitCurriculum.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            masterCurriculum.setCellValueFactory(new PropertyValueFactory<>("master"));
+            classStartTimeCurriculum.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
+            timeToTakeTheExamCurriculum.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
+            NumberOfََََAbsencesCurriculum.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
+            for (int i = 0; i < fieldsList.size(); i++) {
+                tableViewCurriculum.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getClassStartTime(), fieldsList.get(i).getTimeToTakeExam() + "", fieldsList.get(i).getNumberOfAbsence()));
+                //(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence)
+            }
+        }
+    }
+
     // report for student
     public void onActionReport() {
-        ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
-        rowReport.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonReport.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        unitReport.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        masterReport.setCellValueFactory(new PropertyValueFactory<>("master"));
-        scoreReport.setCellValueFactory(new PropertyValueFactory<>("score"));
-        situationReport.setCellValueFactory(new PropertyValueFactory<>("situation"));
-        for (int i = 0; i < fieldsList.size(); i++) {
-            taleViewReport.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore(), student.getPosition()));
-            //                                                  (int row, String lesson, int unit, String master, double Score, String situation)
+        if (student.getFieldsListForChooseUnit() != null) {
+
+            ArrayList<FieldDataCenter> fieldsList = student.getFieldsListForChooseUnit();
+            rowReport.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonReport.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            unitReport.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            masterReport.setCellValueFactory(new PropertyValueFactory<>("master"));
+            scoreReport.setCellValueFactory(new PropertyValueFactory<>("score"));
+            situationReport.setCellValueFactory(new PropertyValueFactory<>("situation"));
+            for (int i = 0; i < fieldsList.size(); i++) {
+                taleViewReport.getItems().add(new personDataCenter(i + 1, fieldsList.get(i).getFieldName(), fieldsList.get(i).getUnit(), fieldsList.get(i).getMasterName(), fieldsList.get(i).getScore(), student.getPosition()));
+                //                                                  (int row, String lesson, int unit, String master, double Score, String situation)
+            }
         }
     }
+
     public void onActionDeleteAndAddLesson() {
-        JFXToggleButton btn = new JFXToggleButton();
+        if (student.getFieldsListForChooseUnit() != null) {
 
-        //TODO read Fields File in field file for chooseLesson
-        rowAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
-        lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        unitNumberAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        masterAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("master"));
-        classStartTimeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        timeToTakeTheExamAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
-        tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1, "math", 1234l, "tanha", 3, "12-12-12", "21-32-34", btn));
-        //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
-    }
-    public void onActionChooseUnit() {
-        student = archive.readStudent(student.getStudentNumber());
-        ArrayList<FieldDataCenter> field = student.getFieldsListForChooseUnit();
-        rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
-        lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-        lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
-        unitChoose.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        masterChoose.setCellValueFactory(new PropertyValueFactory<>("master"));
-        classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
-        ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        for (int i = 0; i < field.size(); i++) {
-            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), new JFXToggleButton()));
-//                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
+            JFXToggleButton btn = new JFXToggleButton();
 
+            //TODO read Fields File in field file for chooseLesson
+            rowAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
+            lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            unitNumberAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+            masterAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("master"));
+            classStartTimeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
+            timeToTakeTheExamAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
+            tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1, "math", 1234l, "tanha", 3, "12-12-12", "21-32-34", btn));
+            //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
         }
     }
+
+    public void onActionChooseUnit() {
+        if (student.getFieldsListForChooseUnit() != null) {
+
+            // student = archive.readStudent(student.getStudentNumber());
+            System.out.println(student.getFirstName());
+            ArrayList<FieldDataCenter> field = student.getFieldsListForChooseUnit();
+            rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
+            lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
+            lessonCodChoose.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
+            unitChoose.setCellValueFactory(new PropertyValueFactory<>("unit"));
+            masterChoose.setCellValueFactory(new PropertyValueFactory<>("master"));
+            classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
+            timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
+            ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+            for (int i = 0; i < field.size(); i++) {
+                tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), new JFXToggleButton()));
+//                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
+            }
+        }
+    }
+
     public void onActionSetProfile() {
-        student = archive.readStudent(student.getStudentNumber());
-        txtCollegeProfile.setText(student.getFaculty());
+        // student = archive.readStudent(student.getStudentNumber());
+        //  txtCollegeProfile.setText(student.getFaculty());
         txtLastNameProfile.setText(student.getLastName());
         txtNameProfile.setText(student.getFirstName());
         txtPhoneNumberProfile.setText(String.valueOf(student.getPhoneNumber()));
@@ -239,22 +261,23 @@ public class StudentController implements Initializable {
         txtNationalCodProfile.setText(student.getNationalCode() + "");
         txtMaritalStatusProfile.setText(student.getMatrimony());
         txtReligion2Profile.setText(student.getReligion());
+        txtDiplomaYearProfile.setText(student.getDiplomYear() + "");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
-        student = new StudentDataCenter();
-        student = archive.readStudent(student.getStudentNumber());
+        archive = new ArchiveDataCenter();
+        // student = archive.readStudent(student.getStudentNumber());
 
-        onActionChooseUnit();
-        onActionPassed();
-        onActionNotPassed();
-        onActionCurriculum();
-        onActionReport();
+//FIXME        onActionChooseUnit();
+        //FIXME       onActionPassed();
+        // FIXME  onActionNotPassed();
+        // FIXME  onActionCurriculum();
+        //FIXME    onActionReport();
         onActionSetProfile();
         setImage();
     }
+
     @FXML
     private void back() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
@@ -281,6 +304,7 @@ public class StudentController implements Initializable {
             }
         }
     }
+
     @FXML
     private void exit() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
@@ -306,6 +330,7 @@ public class StudentController implements Initializable {
         average = sumScore / sumUnit;
         student.setAverage(average);
     }
+
     //Choose Unit
     public void choosingUnit() {
 
@@ -346,25 +371,20 @@ public class StudentController implements Initializable {
         ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<FieldDataCenter>();
 
         fields.addAll(archiveDataCenter.readAllFields());
-//TODO nomre 10 dadn borda olajax
-        for (
-                int i = 0; i < fields.size(); i++) {
+        for (int i = 0; i < fields.size(); i++) {
             for (int j = 0; j < lessonCods.length; j++) {
                 if (lessonCods[j] == fields.get(i).getFieldNumber()) {
                     fields.get(i).setScore(10);
                     fieldChoosed.add(fields.get(i));
-                    //    student.addField(fields.get(i));
                 }
             }
         }
         ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         student.setFieldsListForChooseUnit(fieldChoosed);
-// zaxire daeshjoo
         archiveDataCenter1.writeStudent(student);
     }
 
     public void deleteAndAddLesson(MouseEvent mouseEvent) {
-        //gereftane size table
         int tableSize = tableViewAddAndDeleteUnitChooseUnit.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<personDataCenter>();
 
@@ -375,7 +395,6 @@ public class StudentController implements Initializable {
                 personDataCenters.add(person);
             }
         }
-        //gereftane code dars
         long[] lessonCode = new long[personDataCenters.size()];
         for (int i = 0; i < personDataCenters.size(); i++) {
             lessonCode[i] = personDataCenters.get(i).getLessonCod();
@@ -387,9 +406,11 @@ public class StudentController implements Initializable {
         }
         student.setFieldsListForChooseUnit(fieldDataCenters);
     }
+
     public void checkFailOrPassed() {
         student.setHistoryListField(student.getFieldsListForChooseUnit());
     }
+
     //TODO megdar dehi tamam droos  be allFields Student
     public void addFieldsForStudent() {
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();

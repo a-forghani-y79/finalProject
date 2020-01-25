@@ -52,10 +52,8 @@
                                 <TextField fx:id="txtCityOfBirthProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
                                 <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="338.0" prefHeight="22.0" prefWidth="121.0" text="شهر محل تولد :" />
                                 <TextField fx:id="txtTypeOfDiplomaProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0" />
-                                <TextField fx:id="txtDiplomaYearProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
                                 <TextField fx:id="txtCourseProfile" alignment="CENTER_RIGHT" editable="false" layoutX="52.0" layoutY="110.0" prefHeight="32.0" prefWidth="110.0" />
                                 <Label alignment="TOP_RIGHT" layoutX="207.0" layoutY="294.0" prefHeight="22.0" prefWidth="78.0" text="نوع دیپلم :" />
-                                <Label alignment="TOP_RIGHT" layoutX="163.0" layoutY="338.0" prefHeight="22.0" prefWidth="122.0" text="سال اخذ دیپلم:" />
                                 <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="206.0" prefHeight="22.0" prefWidth="119.0" text="تاریخ تولد:" />
                                 <Label alignment="TOP_RIGHT" layoutX="933.0" layoutY="159.0" prefHeight="22.0" prefWidth="61.0" text="آدرس: " />
                                 <Label alignment="TOP_RIGHT" layoutX="165.0" layoutY="249.0" prefHeight="22.0" prefWidth="122.0" text="شماره پرونده:" />
@@ -220,7 +218,27 @@
 
                         </content>
                     </Tab>
-                    <Tab closable="false" text="حذف اضافه" />
+                    <Tab closable="false" text="حذف اضافه">
+                        <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1440.0">
+                                <children>
+                                    <TableView layoutY="46.0" prefHeight="554.0" prefWidth="1367.0">
+                                        <columns>
+                                            <TableColumn text="ردیف" />
+                                            <TableColumn prefWidth="119.2000732421875" text="کد درس" />
+                                            <TableColumn prefWidth="332.0000915527344" text="درس" />
+                                            <TableColumn prefWidth="139.19989013671875" text="تعداد واحد" />
+                                            <TableColumn prefWidth="242.4000244140625" text="استاد" />
+                                            <TableColumn prefWidth="205.599853515625" text="زمان برگزاری کلاس" />
+                                            <TableColumn prefWidth="169.60009765625" text="زمان برگزاری امتحان" />
+                                            <TableColumn text="انتخاب" />
+                                        </columns>
+                                    </TableView>
+                           <Button layoutX="1283.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="تایید نهایی" />
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
                 </TabPane>
             </content>
         </Tab>

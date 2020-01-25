@@ -296,7 +296,7 @@
                                           <TableColumn fx:id="insertGradeMasterCLM" prefWidth="190.0" text="ثبت نمره" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton fx:id="choseLesson1" layoutX="914.0" layoutY="19.0" prefHeight="46.0" prefWidth="54.0" text="  ">
+                                    <JFXButton fx:id="choseLesson1" layoutX="914.0" layoutY="19.0" prefHeight="46.0" prefWidth="54.0" text="  " onMouseClicked="#choseField">
                                        <graphic>
                                           <ImageView fx:id="btnsearchforGrade" fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -323,7 +323,10 @@
                                           </ImageView>
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnConfirmGrade" layoutX="165.0" layoutY="20.0" onMouseClicked="#confirmGrade" prefHeight="44.0" prefWidth="83.0" text="ثبت نمره" />
+                                    <JFXButton fx:id="btnConfirmGrade" buttonType="RAISED" layoutX="165.0" layoutY="20.0" onMouseClicked="#confirmGrade" prefHeight="44.0" prefWidth="83.0" ripplerFill="#07ff28" text="ثبت نمره">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font></JFXButton>
                                  </children>
                               </AnchorPane>
                         </content>
@@ -346,7 +349,7 @@
                                     <ComboBox fx:id="comboLessonMaster2" layoutX="669.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="235.0" promptText="لطفا گروه مورد نظر خود را انتخاب کنبد" />
                                     <JFXButton fx:id="choseLesson2" layoutX="915.0" layoutY="21.0" prefHeight="39.0" prefWidth="35.0" text="  ">
                                        <graphic>
-                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0" onMouseClicked="#choseField" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../PNG/search-var-flat.png" />
                                              </image>

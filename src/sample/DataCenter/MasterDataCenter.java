@@ -1,8 +1,9 @@
 package sample.DataCenter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MasterDataCenter {
+public class MasterDataCenter implements Serializable {
 
 
     private String firstName;

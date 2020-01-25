@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.DataCenter.ArchiveDataCenter;
 import sample.DataCenter.NewStudentDataCenter;
 import sample.DataCenter.StudentDataCenter;
 import sample.DataCenter.StudentIdGeneratorDataCenter;
@@ -559,7 +560,11 @@ public class NewStudentController implements Initializable {
     public void btnSubmit() {
         if (scanner()) {
             student();
-            student.setStudentNumber(studentIdGeneratorDataCenter.creatIdStudent());
+            long id = studentIdGeneratorDataCenter.creatIdStudent();
+            student.setStudentNumber(id);
+            System.out.println(id);
+            ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
+            archiveDataCenter.writeStudent(student);
 
 
             //TODO show student number from Generator
@@ -638,6 +643,8 @@ public class NewStudentController implements Initializable {
         comboDyplomType.getItems().addAll(diplomType);
         setImage();
         Show();
+        studentIdGeneratorDataCenter = new StudentIdGeneratorDataCenter();
+        studentIdGeneratorDataCenter.setYearNumber(98);
 
     }
 

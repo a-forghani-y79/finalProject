@@ -14,10 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.DataCenter.ArchiveDataCenter;
-import sample.DataCenter.MasterDataCenter;
-import sample.DataCenter.NewStudentDataCenter;
-import sample.DataCenter.StudentDataCenter;
+import sample.DataCenter.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -162,8 +159,10 @@ public class loginPageController implements Initializable {
 
         switch (useCaseIndex) {
             case 0:
-                if (AuthNewStudent(UserNum, PassNum))
+                if (AuthNewStudent(UserNum, PassNum)){
+                    passengerNewStudent = archive.readNewStudent(UserNum);
                     openFxmlNewStudent();
+                }
                 else {
                     alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
                     return;
@@ -199,30 +198,6 @@ public class loginPageController implements Initializable {
 
     }
 
-//    boolean auth(String user, String pass) {
-//
-//
-//        try {
-//            Hashing hashing = new Hashing(null);
-//            BufferedReader bf = new BufferedReader(new FileReader("./src/sample/Files/Auth"));
-//            String userHash = bf.readLine();
-//            String passHash = bf.readLine();
-//            hashing.setMessage(user);
-//            user = hashing.getHash();
-//            hashing.setMessage(pass);
-//            pass = hashing.getHash();
-//            if (userHash.equals(user) && passHash.equals(pass))
-//                return true;
-//            else
-//                return false;
-//        } catch (Exception e) {
-//            alert("Error: " + e.getMessage(), lblAlert, "red");
-//            return false;
-//        }
-//
-//
-//    }
-
     private void alert(String message, Label lbl, String color) {
         lbl.setText(message);
         lbl.setStyle("-fx-text-fill: " + color + ";");
@@ -242,6 +217,7 @@ public class loginPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorTime();
+        txtInfo.setVisible(false);
         String[] comboItems = {"دانشجو جدید الورود", "دانشجو", "استاد", "کارمند آموزش"};
         useCaseCombo.getItems().addAll(comboItems);
         useCaseCombo.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
@@ -293,9 +269,19 @@ public class loginPageController implements Initializable {
     }
 
     private boolean AuthManager(long userName, long passWord) {
+        boolean flag = false;
+        String user = String.valueOf(userName);
+        String pass = String.valueOf(passWord);
+        ManagerDataCenter manager = new ManagerDataCenter();
+        HashingDataCenter hashing = new HashingDataCenter(user);
+        user = hashing.getHash();
+        hashing = new HashingDataCenter(pass);
+        pass = hashing.getHash();
 
+        if (user.equals(manager.getUserNameHash()) && pass.equals(manager.getPasswordNameHash()))
+            flag = true;
 
-        return true;
+        return flag;
     }
 
 
@@ -347,7 +333,7 @@ public class loginPageController implements Initializable {
             int g = 0;
 
             for (int j = 0; j < pass.length(); j++) {
-                c = user.charAt(j);
+                c = pass.charAt(j);
                 g = c - 48;
                 if (!(g >= 0 && g <= 9)) {
                     alert("لطفا فقط عدد وارد کنید", lblAlert, "red");

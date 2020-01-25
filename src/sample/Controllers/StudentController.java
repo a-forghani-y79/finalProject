@@ -364,11 +364,6 @@ public class StudentController implements Initializable {
         }
 
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
-        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
-        };
-        }
-
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
 
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>();
 

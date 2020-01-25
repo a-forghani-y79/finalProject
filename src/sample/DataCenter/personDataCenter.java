@@ -91,13 +91,9 @@ public class personDataCenter {
 
     }
 
-    public int getRow() {
-        return row;
-    }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
+
+
 
     public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
         this.lesson = lesson;
@@ -308,5 +304,12 @@ public class personDataCenter {
 
     public void setTogglebtnChooseUnit(JFXToggleButton togglebtnChooseUnit) {
         this.togglebtnChooseUnit = togglebtnChooseUnit;
+    }
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

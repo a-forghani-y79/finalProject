@@ -6,18 +6,17 @@ public class StudentIdGeneratorDataCenter {
     private int yearNumber = 0;
     private int numberOfStudents = 0;
     private int numberOfManagers = 0;
-    private int numberOfMasters = 0;
 
     private int NUMBERSTUDENT = 536;
     private int NUMBERMASTER = 546;
     private int NUMBERMANAGER = 556;
 
     public StudentIdGeneratorDataCenter() {
-        ArchiveDataCenter archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+         archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
 
     }
 
-    ArchiveDataCenter archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+    ArchiveDataCenter archive ;
 
     public int getYearNumber() {
 
@@ -26,7 +25,7 @@ public class StudentIdGeneratorDataCenter {
     }
 
     public void setYearNumber(int yearNumber) {
-        yearNumber = yearNumber;
+        this.yearNumber = yearNumber;
     }
 
     public int getNumberOfStudent() {
@@ -68,20 +67,24 @@ public class StudentIdGeneratorDataCenter {
 
     //Creat ID For Master
     public long createIdMaster() {
-        ArrayList<MasterDataCenter> masters = new ArrayList<MasterDataCenter>();
-        masters.addAll(archive.readAllMasters());
-        numberOfMasters = masters.size();
+
+        archive = new ArchiveDataCenter(98 , ArchiveDataCenter.MASTER);
+
+        int numberOfMasters = archive.readAllMasters().size();
+        System.out.println(numberOfMasters);
         long resultNumber = 0;
         String str = String.valueOf(numberOfMasters);
-        if (str.length() == 1)
+        if(str.equals("0"))
+            str = "0000" ;
+        else if (str.length() == 1)
             str = "000" + str;
         else if (str.length() == 2)
             str = "00" + str;
         else if (str.length() == 3)
             str = "0" + str;
 
-        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMASTER * Math.pow(10, 4)) + numberOfMasters);
-
+        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMASTER * Math.pow(10, 4)) + Integer.valueOf(str));
+        System.out.println(resultNumber);
         return resultNumber;
     }
 

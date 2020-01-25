@@ -1,8 +1,9 @@
 package sample.DataCenter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StudentDataCenter {
+public class StudentDataCenter implements Serializable {
 
     private String firstName;
     private String lastName;

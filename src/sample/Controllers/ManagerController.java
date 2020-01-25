@@ -34,7 +34,6 @@ public class ManagerController implements Initializable {
     public JFXComboBox comboChooseMaster;
     public JFXComboBox comboGenderMaster;
 
-    TextField txtAddress;
     TextField txtYear;
     private FileChooser fileChooser;
     private Stage stage;
@@ -60,7 +59,6 @@ public class ManagerController implements Initializable {
         idGenerator.setYearNumber(98);
         long id = idGenerator.createIdMaster();
         int comboIndex = comboGenderMaster.getSelectionModel().getSelectedIndex();
-
         setDefaultColor();
         if (checkTextFieldMaster() && comboChecker(comboGenderMaster)) {
             master.setFirstName(txtFirstNameMaster.getText());
@@ -68,9 +66,13 @@ public class ManagerController implements Initializable {
             master.setGender(comboIndex);
             master.setNationalNumber(Long.parseLong(txtNationalNumberMaster.getText()));
             master.setPersonalNumber(id);
-            System.out.println(id);
             archive.writeMaster(master);
+            System.out.println(archive.reportErrores());
+
+            archive.close();
         }
+
+        //TODO show master personal id && clear text fields
     }
 
     void setDefaultColor() {

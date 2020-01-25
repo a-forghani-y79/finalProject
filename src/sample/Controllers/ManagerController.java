@@ -106,6 +106,7 @@ public class ManagerController implements Initializable {
 
     public boolean[] flagGrid = {false};
     StudentIdGeneratorDataCenter idGenerator;
+    ArchiveDataCenter archive;
 
     //passengers
     MasterDataCenter master;
@@ -488,7 +489,7 @@ public class ManagerController implements Initializable {
         setImage();
         gridPaneProgram.setOpacity(1);
         btns = new JFXButton[]{btn10, btn11, btn12, btn13, btn14, btn20, btn21, btn22, btn23, btn24, btn30, btn31, btn32, btn33, btn34, btn40, btn41, btn42, btn43, btn44, btn50, btn51, btn52, btn53, btn54};
-archive = new ArchiveDataCenter();
+         archive = new ArchiveDataCenter();
     }
 
     void cleanGradePane() {

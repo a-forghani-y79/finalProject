@@ -27,17 +27,47 @@ public class personDataCenter {
     private long studentId  ;
     private String gender = null;
     private TextField txtInsert;
-
-
-
-
-
-
-
-
-
-
+    private TextField txtInsertAbsence;
     private int passedStudentNumber;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private  JFXToggleButton toggleButtonAddUnitMaster;
+
+
+
+
+
+    public TextField getTxtInsertAbsence() {
+        return txtInsertAbsence;
+    }
+
+    public void setTxtInsertAbsence(TextField txtInsertAbsence) {
+        this.txtInsertAbsence = txtInsertAbsence;
+    }
+
+
+
+
+    public JFXToggleButton getToggleButtonAddUnitMaster() {
+        return toggleButtonAddUnitMaster;
+    }
+
+    public void setToggleButtonAddUnitMaster(JFXToggleButton toggleButtonAddUnitMaster) {
+        this.toggleButtonAddUnitMaster = toggleButtonAddUnitMaster;
+    }
 
     //Choose units
     public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
@@ -115,7 +145,7 @@ public class personDataCenter {
 
     }
 
-    public  personDataCenter(int row,String lesson ,int lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
+    public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
         this.row = row;
         this.lesson = lesson;
         this. lessonCod = lessonCod;
@@ -134,24 +164,47 @@ public class personDataCenter {
 //
 //    }
 
-    public personDataCenter(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
+    public personDataCenter(int row,String lastName, String firstName,long studentId,int gender, TextField txtInsert){
 
         this.row= row;
         this.lastName= lastName;
         this.firstName=firstName;
         this.studentId= studentId;
-        this.gender= gender;
+        this.gender= gender+"";
         this.txtInsert = txtInsert;
+
+    }
+    public personDataCenter(String lessonName,long lessonCode,int unit,String classStartTime,JFXToggleButton toggleButton){
+        this.lesson = lessonName;
+        this.lessonCod = lessonCode;
+        this.unit = unit;
+        this.classStartTime = classStartTime;
+        this.togglebtnChooseUnit = toggleButton;
+
 
     }
 
 
+//(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton())
     public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
        this.row=row;
        this.lastName=lastName;
        this.firstName=firstName;
        this.studentId=studentId;
        this.numberOfAbsence= numberOfAbsence;
+
+    }
+
+    public personDataCenter(int row , String lastName, String firstName, long studentId, TextField  txtInsertAbsence){
+        this.row=row;
+        this.lastName=lastName;
+        this.firstName=firstName;
+        this.studentId=studentId;
+        this.txtInsertAbsence= txtInsertAbsence;
+
+
+
+
 
     }
 

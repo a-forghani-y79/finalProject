@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"  >
     <tabs>
         <Tab text="پروفایل شخصی">
             <content>
@@ -22,10 +22,10 @@
                         <AnchorPane layoutY="107.0" prefHeight="436.0" prefWidth="1007.0" style="-fx-background-color: F2A1CC;">
                             <children>
                                 <Label alignment="TOP_RIGHT" layoutX="923.0" layoutY="30.0" prefHeight="22.0" prefWidth="66.0" text="نام :" />
-                                <TextField fx:id="txtCollegeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="111.0" prefHeight="32.0" prefWidth="110.0" />
+<!--                                <TextField fx:id="txtCollegeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="111.0" prefHeight="32.0" prefWidth="110.0" />-->
                                 <Label alignment="TOP_RIGHT" layoutX="682.0" layoutY="30.0" prefHeight="22.0" prefWidth="121.0" text="نام خانوادگی :" />
                                 <Label alignment="TOP_RIGHT" layoutX="414.0" layoutY="30.0" prefHeight="22.0" prefWidth="137.0" text="شماره دانشجویی :" />
-                                <Label alignment="TOP_RIGHT" layoutX="922.0" layoutY="120.0" prefHeight="22.0" prefWidth="70.0" text="دانشکده:" />
+<!--                                <Label alignment="TOP_RIGHT" layoutX="922.0" layoutY="120.0" prefHeight="22.0" prefWidth="70.0" text="دانشکده:" />-->
                                 <TextField fx:id="txtLastNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="555.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0" />
                                 <TextField fx:id="txtIdProfile" alignment="CENTER_RIGHT" editable="false" layoutX="291.0" layoutY="24.0" prefHeight="32.0" prefWidth="110.0" />
                                 <TextField fx:id="txtNameProfile" alignment="CENTER_RIGHT" editable="false" layoutX="808.0" layoutY="25.0" prefHeight="32.0" prefWidth="110.0" />

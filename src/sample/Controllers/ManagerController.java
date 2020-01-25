@@ -64,14 +64,10 @@ public class ManagerController implements Initializable {
     public Label lblAlert;
     public ColumnConstraints gridPane;
     public Label labelAlert2;
-    TextField txtAddress;
+        TextField txtAddress;
     TextField txtYear;
     private FileChooser fileChooser;
-    private Stage stage;
-    private File file;
     private String addrCSV = "";
-    private ImportNewStudentDataCenter importNewStudent;
-    private ArchiveDataCenter archive;
 
 
     public boolean[] flag = {true};
@@ -91,7 +87,7 @@ public class ManagerController implements Initializable {
 //TODO complete Label status and use an text field for getting year
 
     public void onClickAddMaster() {
-        archive = new ArchiveDataCenter();
+        ArchiveDataCenter archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
         idGenerator = new StudentIdGeneratorDataCenter();
         idGenerator.setYearNumber(98);
@@ -155,9 +151,9 @@ public class ManagerController implements Initializable {
 
 
     public void onClickBrowse() {
-        stage = (Stage) btnBrowse.getScene().getWindow();
+        Stage stage = (Stage) btnBrowse.getScene().getWindow();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("CSV File", "*.csv", "*.CSV"), new FileChooser.ExtensionFilter("Text File", "*.txt"));
-        file = fileChooser.showOpenDialog(stage);
+        File file = fileChooser.showOpenDialog(stage);
         if (file != null) {
             addrCSV = file.getAbsolutePath();
             txtPath.setText(addrCSV);
@@ -172,7 +168,7 @@ public class ManagerController implements Initializable {
         System.out.println(numChecker(str));
         if (numChecker(str)) {
             int year = Integer.parseInt(str);
-            importNewStudent = new ImportNewStudentDataCenter(addrCSV, year);
+            ImportNewStudentDataCenter importNewStudent = new ImportNewStudentDataCenter(addrCSV, year);
             status.setText(importNewStudent.getStatus());
         } else {
 

@@ -68,7 +68,7 @@ public class StudentController implements Initializable {
     public TableColumn lessonNotPassed;
     public TableColumn unitNotPassed;
     //Profile
-    public TextField txtCollegeProfile;
+   // public TextField txtCollegeProfile;
     public TextField txtLastNameProfile;
     public TextField txtIdProfile;
     public TextField txtNameProfile;
@@ -212,7 +212,7 @@ public class StudentController implements Initializable {
     }
     public void onActionSetProfile() {
         student = archive.readStudent(student.getStudentNumber());
-        txtCollegeProfile.setText(student.getFaculty());
+      //  txtCollegeProfile.setText(student.getFaculty());
         txtLastNameProfile.setText(student.getLastName());
         txtNameProfile.setText(student.getFirstName());
         txtPhoneNumberProfile.setText(String.valueOf(student.getPhoneNumber()));
@@ -346,25 +346,20 @@ public class StudentController implements Initializable {
         ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<FieldDataCenter>();
 
         fields.addAll(archiveDataCenter.readAllFields());
-//TODO nomre 10 dadn borda olajax
-        for (
-                int i = 0; i < fields.size(); i++) {
+        for (int i = 0; i < fields.size(); i++) {
             for (int j = 0; j < lessonCods.length; j++) {
                 if (lessonCods[j] == fields.get(i).getFieldNumber()) {
                     fields.get(i).setScore(10);
                     fieldChoosed.add(fields.get(i));
-                    //    student.addField(fields.get(i));
                 }
             }
         }
         ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         student.setFieldsListForChooseUnit(fieldChoosed);
-// zaxire daeshjoo
         archiveDataCenter1.writeStudent(student);
     }
 
     public void deleteAndAddLesson(MouseEvent mouseEvent) {
-        //gereftane size table
         int tableSize = tableViewAddAndDeleteUnitChooseUnit.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<personDataCenter>();
 
@@ -375,7 +370,6 @@ public class StudentController implements Initializable {
                 personDataCenters.add(person);
             }
         }
-        //gereftane code dars
         long[] lessonCode = new long[personDataCenters.size()];
         for (int i = 0; i < personDataCenters.size(); i++) {
             lessonCode[i] = personDataCenters.get(i).getLessonCod();

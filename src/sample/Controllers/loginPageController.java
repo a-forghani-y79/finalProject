@@ -34,6 +34,10 @@ public class loginPageController implements Initializable {
     public JFXComboBox useCaseCombo;
     public TextArea txtInfo;
     public JFXButton btnExit;
+    public ImageView exitButton;
+    public ImageView infoBtn;
+    public JFXButton btnDeletePass;
+    public JFXButton btnDeleteUser;
     private ArchiveDataCenter archive;
     private StringBuilder stringBuilder;
     private int year;

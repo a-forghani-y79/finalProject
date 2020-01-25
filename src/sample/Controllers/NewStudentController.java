@@ -228,7 +228,6 @@ public class NewStudentController implements Initializable {
     }
 
     private boolean scanner() {
-        //TODO move color setting to emptyFinder method
         boolean flag = true;
 
         LocalDate localDate = DataPicker.getValue();

@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -35,7 +32,7 @@ public class NewStudentController implements Initializable {
     public TextField txtRate;
     public TextField txtField;
     public TextField txtFileNumber;
-    public TextField txtFaculty;
+
     public TextField txtLastName1;
     public TextField txtName1;
     public TextField txtPhoneNumber;
@@ -81,6 +78,7 @@ public class NewStudentController implements Initializable {
     public JFXButton btnExit3;
     public JFXButton btnBack3;
     public TextField txtGender2;
+    public TextArea txtArea;
 
     NewStudentDataCenter std;
 
@@ -168,7 +166,7 @@ public class NewStudentController implements Initializable {
         student.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
         student.setFatherPhoneNumber(Long.parseLong(txtFatherPhoneNumber.getText()));
         student.setFatherName(txtFatherName.getText());
-        student.setFaculty(txtFaculty.getText());
+
         student.setIDCardNumber(Long.parseLong(txtIDCardNumber.getText()));
         student.setAddress(txtAddress.getText());
         student.setSectionEducation(txtSectionEducation.getText());
@@ -249,6 +247,11 @@ public class NewStudentController implements Initializable {
         boolean flag = true;
 
         LocalDate localDate = DataPicker.getValue();
+        if (txtDiplomYear.getText().length()!=4){
+            txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
+            flag = false;
+
+        }
 
         try {
             localDate.getYear();
@@ -455,23 +458,13 @@ public class NewStudentController implements Initializable {
             txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
 
-        if (!emptyFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-background-color: #D70406;");
-            flag = false;
-        } else if (!NumberFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-text-inner-color: #D70406;");
-            flag = false;
-        }
-        if (emptyFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-background-color: #FFFFFF;");
-        } else if (NumberFinder(txtFaculty)) {
-            txtFaculty.setStyle(txtFaculty.getStyle() + "-fx-text-inner-color: #000000;");
-        }
+
+
 
         if (!emptyFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
-        } else if (!NumberFinder(txtFaculty)) {
+        } else if (!NumberFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
             flag = false;
         }
@@ -582,6 +575,12 @@ public class NewStudentController implements Initializable {
             System.out.println(id);
             ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
             archiveDataCenter.writeStudent(student);
+
+            txtArea.setVisible(true);
+            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!" +
+                    id +  "شما از این پس با نام کاربری : " +
+                  txtNationalID +  "و با پسورد :");
+
 
 
             //TODO show student number from Generator

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:controller="sample.Controllers.NewStudentController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="نمایش اطلاعات کاربری">
       <content>
@@ -21,13 +21,13 @@
                <children>
                   <AnchorPane prefHeight="600.0" prefWidth="998.0" style="-fx-background-color: FFB04C;">
                      <children>
-                        <TextField fx:id="txtFileNumber" layoutX="707.0" layoutY="405.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="112.0" />
+                        <TextField fx:id="txtFileNumber" layoutX="707.0" layoutY="405.0" editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="112.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="821.0" layoutY="243.0" prefHeight="32.0" prefWidth="79.0" text="رشته :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="167.0" prefHeight="32.0" prefWidth="79.0" text="نام :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="329.0" prefHeight="32.0" prefWidth="79.0" text="دوره :" />
-                        <TextField fx:id="txtFirstName" editable="false" layoutX="708.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtFirstName" editable="false" layoutX="708.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT"  prefHeight="32.0" prefWidth="110.0" />
                         <TextField fx:id="txtField" editable="false" layoutX="708.0" layoutY="243.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField fx:id="txtCourse" layoutX="706.0" layoutY="326.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0" prefWidth="114.0" />
+                        <TextField fx:id="txtCourse" editable="false" layoutX="706.0" layoutY="326.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0" prefWidth="114.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="167.0" prefHeight="32.0" prefWidth="79.0" text="نام خانوادگی :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="246.0" prefHeight="32.0" prefWidth="79.0" text="رتبه :" />
                         <TextField fx:id="txtLastName" editable="false" layoutX="421.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
@@ -40,7 +40,7 @@
                               <Image url="@../PNG/Student.png" />
                            </image></ImageView>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="405.0" prefHeight="32.0" prefWidth="79.0" text="جنسیت :" />
-                        <TextField fx:id="txtGender" layoutX="418.0" layoutY="404.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="115.0" />
+                        <TextField fx:id="txtGender" layoutX="418.0" layoutY="404.0" editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="115.0" />
                         <JFXButton fx:id="btnExit1" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                            <graphic>
                               <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
@@ -130,8 +130,10 @@
 
                    <Label alignment="TOP_RIGHT" layoutX="482.0" layoutY="305.0" prefHeight="22.0" prefWidth="90.0" text="سال اخذ دیپلم:" />
                    <Label alignment="TOP_RIGHT" layoutX="936.0" layoutY="390.0" prefHeight="22.0" prefWidth="64.0" text="تاریخ تولد:" />
-                  <Label layoutX="743.0" layoutY="146.0" prefHeight="18.0" prefWidth="71.0" text="شماره ملی :" />
-                  <Label alignment="CENTER" layoutX="949.0" layoutY="180.0" prefHeight="32.0" prefWidth="50.0" text="رتبه" />
+                <Label layoutX="743.0" layoutY="146.0" prefHeight="18.0" prefWidth="71.0" text="شماره ملی :" />
+                    <Label alignment="CENTER" layoutX="949.0" layoutY="180.0" prefHeight="32.0" prefWidth="50.0" text="رتبه" />
+
+
                   <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true" />
@@ -144,6 +146,7 @@
                   </JFXButton>
                   <Label alignment="CENTER_RIGHT" layoutX="260.0" layoutY="393.0" prefHeight="24.0" prefWidth="73.0" text="جنسیت :" />
                   <TextField fx:id="txtGender2" layoutX="105.0" layoutY="389.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
+                  <TextArea fx:id="txtArea" layoutX="259.0" layoutY="447.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="143.0" prefWidth="627.0" />
                </children></AnchorPane>
       </content>
          <graphic>

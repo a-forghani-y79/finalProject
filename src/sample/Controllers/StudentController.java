@@ -152,7 +152,7 @@ public class StudentController implements Initializable {
         timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
         ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
         for (int i = 0; i < field.size(); i++) {
-            tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
+          //  tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), btn));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
 
         }
@@ -236,7 +236,7 @@ public class StudentController implements Initializable {
         for (int i = 0; i < fields.size(); i++) {
             for (int j = 0; j < lessonCods.length; j++) {
                 if (lessonCods[j] == fields.get(i).getFieldNumber()) {
-                    fields.get(i).setScore(10);
+              //      fields.get(i).setScore(10);
                     student.addField(fields.get(i));
                 }
             }

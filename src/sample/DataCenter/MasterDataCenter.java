@@ -1,5 +1,7 @@
 package sample.DataCenter;
 
+import java.util.ArrayList;
+
 public class MasterDataCenter {
 
 
@@ -14,15 +16,19 @@ public class MasterDataCenter {
     private int studentNumber;
     private int passedStudent;
 
-    public FieldDataCenter[] getMasField() {
+    public ArrayList<FieldDataCenter> getMasField() {
         return masField;
     }
 
-    public void setMasField(FieldDataCenter[] masField) {
+    public void setMasField(ArrayList<FieldDataCenter> masField) {
         this.masField = masField;
     }
 
-    private  FieldDataCenter [] masField;
+    private ArrayList<FieldDataCenter>  masField;
+
+
+
+
 
 
     public String getFirstName() {

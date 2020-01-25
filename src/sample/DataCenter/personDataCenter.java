@@ -25,19 +25,40 @@ public class personDataCenter {
     private String firstName = null;
     private String lastName = null;
     private long studentId  ;
-    private String gender = null;
-    private TextField txtInsert;
-
-
-
-
-
-
-
-
-
-
     private int passedStudentNumber;
+    private  JFXToggleButton toggleButtonAddUnitMaster;
+
+
+
+
+
+
+
+
+
+
+    public JFXToggleButton getToggleButtonAddUnitMaster() {
+        return toggleButtonAddUnitMaster;
+    }
+
+    public void setToggleButtonAddUnitMaster(JFXToggleButton toggleButtonAddUnitMaster) {
+        this.toggleButtonAddUnitMaster = toggleButtonAddUnitMaster;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Choose units
     public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
@@ -91,6 +112,8 @@ public class personDataCenter {
 
     }
 
+
+
     public int getRow() {
         return row;
     }
@@ -138,7 +161,7 @@ public class personDataCenter {
 //
 //    }
 
-    public personDataCenter(int row,String lastName, String firstName,long studentId,String gender, TextField txtInsert){
+    public personDataCenter(int row,String lastName, String firstName,long studentId,int gender, TextField txtInsert){
 
         this.row= row;
         this.lastName= lastName;
@@ -149,7 +172,7 @@ public class personDataCenter {
 
     }
 
-    public personDataCenter(int row,String lastName,String firstName,long studentId, int numberOfAbsence){
+    public personDataCenter(int row,String lastName,String firstName,long studentId, TextField txtInsert){
        this.row=row;
        this.lastName=lastName;
        this.firstName=firstName;
@@ -158,6 +181,17 @@ public class personDataCenter {
 
     }
 
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    private int gender ;
+    private TextField txtInsert;
 
 
     public String getLesson() {
@@ -286,13 +320,6 @@ public class personDataCenter {
         this.studentId = studentId;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
     public TextField getTxtInsert() {
         return txtInsert;

@@ -5,26 +5,10 @@ public class FieldDataCenter {
     private String fieldName;
     private long fieldNumber;
     private int unit;
-    private String masterName;
-    private String classStartTime;
-    private String timeToTakeExam;
-    private double score;
+    private String classStartTime ;
+    private String timeToTakeExam ;
 
-    public double getScore() {
-        return score;
-    }
 
-    public void setScore(double score) {
-        this.score = score;
-    }
-
-    public String getMasterName() {
-        return masterName;
-    }
-
-    public void setMasterName(String masterName) {
-        this.masterName = masterName;
-    }
 
 
 

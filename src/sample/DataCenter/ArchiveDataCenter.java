@@ -3,21 +3,60 @@ package sample.DataCenter;
 //this is a tool for up/downloading data to/from file
 //Every communications with Files should  be done by THIS class
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class ArchiveDataCenter {
 
+    //TODO remove master method  make master null;
+
     private String STUDENT_FILE;
     private String MASTER_FILE;
     private String NEW_STUDENT_FILE;
     private String FIELDS_FILE;
+    private File file;
 
     public ArchiveDataCenter() {
-        STUDENT_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\student.dat";
-        MASTER_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\master.dat";
-        NEW_STUDENT_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\newStudent.dat";
-        FIELDS_FILE = "C:\\Users\\Home\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\fields.dat";
+        STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\student.dat";
+        file = new File(STUDENT_FILE);
+        if (!(file.exists()))
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("problem in file creating");
+            e.printStackTrace();
+        }
+        MASTER_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\master.dat";
+        file = new File(MASTER_FILE);
+        if (!(file.exists()))
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("problem in file creating");
+            e.printStackTrace();
+        }
+        NEW_STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\newStudent.dat";
+        file = new File(NEW_STUDENT_FILE);
+        if (!(file.exists()))
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("problem in file creating");
+            e.printStackTrace();
+        }
+        FIELDS_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\fields.dat";
+        file = new File(FIELDS_FILE);
+        if (!(file.exists()))
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("problem in file creating");
+            e.printStackTrace();
+        }
+
+
     }
 
 //TODO error code AC
@@ -122,7 +161,8 @@ public class ArchiveDataCenter {
     }
 
     public ManagerDataCenter readManager() {
-        return new ManagerDataCenter();
+        ManagerDataCenter managerDataCenter = new ManagerDataCenter();
+        return managerDataCenter;
     }
 
     public NewStudentDataCenter readNewStudent(long nationalNumber) {
@@ -138,7 +178,7 @@ public class ArchiveDataCenter {
     }
 
     public ArrayList<NewStudentDataCenter> readAllNewStudents() {
-        ArrayList<NewStudentDataCenter> list = new ArrayList<NewStudentDataCenter>();
+        ArrayList<NewStudentDataCenter> list = new ArrayList<>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(NEW_STUDENT_FILE));
             list = (ArrayList<NewStudentDataCenter>) objectInputStream.readObject();
@@ -151,20 +191,19 @@ public class ArchiveDataCenter {
     }
 
     public ArrayList<MasterDataCenter> readAllMasters() {
-        ArrayList<MasterDataCenter> list = new ArrayList<MasterDataCenter>();
+        ArrayList<MasterDataCenter> list = new ArrayList<>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(MASTER_FILE));
             list = (ArrayList<MasterDataCenter>) objectInputStream.readObject();
             objectInputStream.close();
         } catch (Exception e) {
             System.out.println("problem in readAllMasters");
-            e.printStackTrace();
         }
         return list;
     }
 
     public ArrayList<StudentDataCenter> readAllStudents() {
-        ArrayList<StudentDataCenter> list = new ArrayList<StudentDataCenter>();
+        ArrayList<StudentDataCenter> list = new ArrayList<>();
         try {
             objectInputStream = new ObjectInputStream(new FileInputStream(STUDENT_FILE));
             list = (ArrayList<StudentDataCenter>) objectInputStream.readObject();
@@ -186,30 +225,5 @@ public class ArchiveDataCenter {
             }
         }
         return field;
-    }
-
-    public boolean removeMaster(long personalNumber) {
-        boolean flag = false;
-        ArrayList<MasterDataCenter> list = readAllMasters();
-        for (MasterDataCenter master : list
-        ) {
-            if (master.getPersonalNumber() == personalNumber) {
-                flag = list.remove(master);
-                break;
-            }
-        }
-        return flag;
-    }
-
-    public boolean removeField(long fieldNumber) {
-        ArrayList<FieldDataCenter> list = readAllFields();
-        boolean flag = false;
-        for (FieldDataCenter field : list) {
-            if (field.getFieldNumber() == fieldNumber){
-                flag = list.remove(field);
-                break;
-            }
-        }
-        return flag;
     }
 }

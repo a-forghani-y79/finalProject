@@ -273,7 +273,7 @@ public class MasterController implements Initializable {
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         students.addAll(archiveDataCenter.readAllStudents());
         for (int i = 0; i < students.size(); i++) {
-            ArrayList<FieldDataCenter> Field = students.get(i).getFieldsList();
+            ArrayList<FieldDataCenter> Field = students.get(i).getFieldsListForChooseUnit();
             for (int j = 0; j < Field.size(); j++) {
                 if (Field.get(j).getFieldNumber() == lessonCode) {
                     findStudents.add(students.get(i));
@@ -408,8 +408,8 @@ public class MasterController implements Initializable {
             archive = new ArchiveDataCenter();
 
             student = archive.readStudent(id);
-            for (int j = 0; j < student.getFieldsList().size(); j++) {
-                if (student.getFieldsList().get(i).getFieldNumber() == lessonCode) {
+            for (int j = 0; j < student.getFieldsListForChooseUnit().size(); j++) {
+                if (student.getFieldsListForChooseUnit().get(i).getFieldNumber() == lessonCode) {
 
                 }
 
@@ -431,7 +431,7 @@ public class MasterController implements Initializable {
         for (int i = 0; i < allStudent.size(); i++) {
             // student= new StudentDataCenter();
             ArrayList<FieldDataCenter> fieldDataCenters = new ArrayList<>();
-            fieldDataCenters.addAll(allStudent.get(i).getFieldsList());
+            fieldDataCenters.addAll(allStudent.get(i).getFieldsListForChooseUnit());
             for (int j = 0; j < fieldDataCenters.size(); j++) {
                 if (fieldDataCenters.get(i).getFieldNumber() == lessonCode) {
                     numberOfStudent++;

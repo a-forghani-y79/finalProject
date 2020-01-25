@@ -60,7 +60,7 @@ public class StudentIdGeneratorDataCenter {
         else if (str.length() == 3)
             str = "0" + str;
 
-        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERSTUDENT * Math.pow(10, 4)) + numberOfStudents);
+        resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERSTUDENT * Math.pow(10, 4)) + Integer.valueOf(str));
 
         return resultNumber;
     }

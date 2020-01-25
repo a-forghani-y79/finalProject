@@ -145,6 +145,7 @@ public class personDataCenter {
 
     }
 
+
     public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
        this.row=row;
        this.lastName=lastName;

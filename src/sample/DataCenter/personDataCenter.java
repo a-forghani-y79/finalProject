@@ -25,6 +25,18 @@ public class personDataCenter {
     private String firstName = null;
     private String lastName = null;
     private long studentId  ;
+
+    private int gender ;
+    private TextField txtInsert;
+
+
+
+
+
+
+
+
+
     private int passedStudentNumber;
     private  JFXToggleButton toggleButtonAddUnitMaster;
 
@@ -112,8 +124,6 @@ public class personDataCenter {
 
     }
 
-
-
     public int getRow() {
         return row;
     }
@@ -190,8 +200,7 @@ public class personDataCenter {
         this.gender = gender;
     }
 
-    private int gender ;
-    private TextField txtInsert;
+
 
 
     public String getLesson() {

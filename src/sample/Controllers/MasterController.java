@@ -113,6 +113,7 @@ public class MasterController implements Initializable {
     private ArrayList<Double> passedNumber;
     private boolean flag;
     private long lessonCode;
+    private String[] comboItem;
 
     public void setMaster(MasterDataCenter master) {
         this.master = master;
@@ -302,10 +303,11 @@ public class MasterController implements Initializable {
 
      //   MField =  getmasterChoseUnit();
         for (int i = 0; i < MField.size(); i++) {
-            String comboItem = masterChoseUnit.get(i).getLesson();
-            combolessonMaster.getItems().add(comboItem);
-            comboLessonMaster2.getItems().add(comboItem);
+             comboItem[i] = masterChoseUnit.get(i).getLesson();
+
         }
+        combolessonMaster.getItems().add(comboItem);
+        comboLessonMaster2.getItems().add(comboItem);
 
         setName();
         AddFields();

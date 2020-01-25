@@ -253,7 +253,7 @@ public class loginPageController implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new ArchiveDataCenter(year, ArchiveDataCenter.NEW_STUDENT);
+        archive = new ArchiveDataCenter();
         NewStudentDataCenter std = archive.readNewStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)
@@ -267,7 +267,7 @@ public class loginPageController implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new ArchiveDataCenter(year, ArchiveDataCenter.STUDENT);
+        archive = new ArchiveDataCenter();
         StudentDataCenter std = archive.readStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)
@@ -281,7 +281,7 @@ public class loginPageController implements Initializable {
         stringBuilder = new StringBuilder("" + userName);
         strYear = (String) stringBuilder.subSequence(0, 2);
         year = Integer.parseInt(strYear);
-        archive = new ArchiveDataCenter(year, ArchiveDataCenter.STUDENT);
+        archive = new ArchiveDataCenter();
         StudentDataCenter std = archive.readStudent(userName);
         if (!(std == null))
             if (std.getFileNumber() == passWord)

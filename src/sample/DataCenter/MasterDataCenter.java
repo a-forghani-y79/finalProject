@@ -1,6 +1,8 @@
 package sample.DataCenter;
 
-public class MasterDataCenter {
+import java.io.Serializable;
+
+public class MasterDataCenter implements Serializable {
 
 
     private String firstName;

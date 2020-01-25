@@ -43,17 +43,13 @@ public class ImportNewStudentDataCenter {
 
 
     private void writeListToFile() {
-        NewStudentDataCenter std = new NewStudentDataCenter();
 
-        for (int i = 0; i < students.size(); i++) {
-            std = students.get(i);
-            try {
-                objectOutputStream.writeObject(std);
-            } catch (IOException e) {
-                if (statusCode == 0) {
-                    status += e.getMessage();
-                    statusCode = -3;
-                }
+        try {
+            objectOutputStream.writeObject(students);
+        } catch (IOException e) {
+            if (statusCode == 0) {
+                status += e.getMessage();
+                statusCode = -3;
             }
         }
     }
@@ -73,9 +69,9 @@ public class ImportNewStudentDataCenter {
                 student.setField(information[4]);
                 student.setDay_night(information[5].equals("روزانه"));
                 student.setFileNumber(Long.parseLong(information[6]));
-                if (information[7].equals("مذکر")){
+                if (information[7].equals("مذکر")) {
                     student.setGender(1);
-                }else if (information[7].equals("مونث")){
+                } else if (information[7].equals("مونث")) {
                     student.setGender(0);
                 }
                 students.add(student);

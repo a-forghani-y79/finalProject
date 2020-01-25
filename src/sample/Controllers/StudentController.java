@@ -245,7 +245,7 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+       // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
         student = new StudentDataCenter();
         student = archive.readStudent(student.getStudentNumber());
 
@@ -293,9 +293,12 @@ public class StudentController implements Initializable {
 //rixtan kod haie droos dar araye
             lessonCods[i] = personDataCenters.get(i).getLessonCod();
 
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
+        ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
+        };
         }
 //ijad objact az kelass archive
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
 //ijade arrayList az jense Field  baraye garar dadn tmam droos dar an
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>();
         //ijade arrayList az jense Field baraye garar dadn droos entexab shode
@@ -312,9 +315,9 @@ public class StudentController implements Initializable {
                 }
             }
         }
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         student.setFieldsListForChooseUnit(fieldChoosed);
 // zaxire daeshjoo
-        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
         archiveDataCenter1.writeStudent(student);
     }
 
@@ -339,9 +342,9 @@ public class StudentController implements Initializable {
             lessonCode[i]=personDataCenters.get(i).getLessonCod();
         }
         ArrayList<FieldDataCenter> fieldDataCenters = new ArrayList<>();
-        archive= new ArchiveDataCenter(98,ArchiveDataCenter.FIELD);
+        archive= new ArchiveDataCenter();
         for (int i = 0; i <lessonCode.length ; i++) {
-            fieldDataCenters.add(archive.readFields(lessonCode[i]));
+            fieldDataCenters.add(archive.readField(lessonCode[i]));
         }
         student.setFieldsListForChooseUnit(fieldDataCenters);
     }
@@ -353,7 +356,7 @@ public class StudentController implements Initializable {
 
     //TODO megdar dehi tamam droos  be allFields Student
     public void addFieldsForStudent() {
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         student.setListAllFields(archiveDataCenter.readAllFields());
     }
 }

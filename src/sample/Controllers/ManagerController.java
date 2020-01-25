@@ -71,7 +71,7 @@ public class ManagerController implements Initializable {
     private String addrCSV = "";
     private ImportNewStudentDataCenter importNewStudent;
     private ArchiveDataCenter archive;
-    private int year;
+
 
     public boolean [] flag = {true};
 
@@ -86,7 +86,7 @@ public class ManagerController implements Initializable {
 //TODO complete Label status and use an text field for getting year
 
     public void onClickAddMaster() {
-        archive = new ArchiveDataCenter(year, ArchiveDataCenter.MASTER);
+        archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
         idGenerator = new StudentIdGeneratorDataCenter();
         idGenerator.setYearNumber(98);
@@ -102,7 +102,11 @@ public class ManagerController implements Initializable {
             master.setPersonalNumber(id);
             System.out.println(id);
             archive.writeMaster(master);
+
+
         }
+
+        //TODO show master personal id && clear text fields
     }
 
     void setDefaultColor() {
@@ -162,7 +166,7 @@ public class ManagerController implements Initializable {
         String str = "98";
         System.out.println(numChecker(str));
         if (numChecker(str)) {
-            year = Integer.parseInt(str);
+            int year = Integer.parseInt(str);
             importNewStudent = new ImportNewStudentDataCenter(addrCSV, year);
             status.setText(importNewStudent.getStatus());
         } else {
@@ -419,6 +423,7 @@ public class ManagerController implements Initializable {
         comboGenderMaster.getItems().addAll(gender);
         comboGenderMaster.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         setImage();
+        gridPaneProgram.setOpacity(1);
 
     }
 }

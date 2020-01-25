@@ -256,7 +256,7 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+       // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
         student = new StudentDataCenter();
         student = archive.readStudent(student.getStudentNumber());
 
@@ -356,7 +356,7 @@ public class StudentController implements Initializable {
             lessonCods[i] = personDataCenters.get(i).getLessonCod();
         }
 
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter(98, ArchiveDataCenter.FIELD);
+        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>() {
         };
         fields.addAll(archiveDataCenter.readAllFields());
@@ -368,7 +368,7 @@ public class StudentController implements Initializable {
                 }
             }
         }
-        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         archiveDataCenter1.writeStudent(student);
     }
 

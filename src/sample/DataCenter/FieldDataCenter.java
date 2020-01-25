@@ -1,7 +1,5 @@
 package sample.DataCenter;
 
-import java.util.Date;
-
 public class FieldDataCenter {
 
     private String fieldName;
@@ -10,7 +8,7 @@ public class FieldDataCenter {
     private String masterName;
     private String classStartTime;
     private String timeToTakeExam;
-    private double score = 10.0;
+    private double score ;
     private int numberOfAbsence;
 
     //TODO create place Getter and Setter

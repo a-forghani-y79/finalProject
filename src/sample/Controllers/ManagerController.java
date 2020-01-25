@@ -1,17 +1,28 @@
 package sample.Controllers;
 
 import com.jfoenix.controls.*;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.DataCenter.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -34,6 +45,18 @@ public class ManagerController implements Initializable {
     public JFXComboBox comboChooseMaster;
     public JFXComboBox comboGenderMaster;
 
+    public JFXButton btnExit1;
+    public JFXButton btnBack1;
+    public ImageView imageExit1;
+    public ImageView imageBack1;
+    public JFXButton btnExit2;
+    public ImageView imageExit2;
+    public JFXButton btnBack2;
+    public ImageView imageBack2;
+    public JFXButton btnExit3;
+    public JFXButton btnBack3;
+    public ImageView imageExit3;
+    public ImageView imageBack3;
     TextField txtAddress;
     TextField txtYear;
     private FileChooser fileChooser;
@@ -155,6 +178,64 @@ public class ManagerController implements Initializable {
             flag = false;
         return flag;
     }
+    public void setImage(){
+        Image img ;
+        img = new Image("./sample/PNG/Exit.png");
+        imageExit1.setImage(img);
+        imageExit2.setImage(img);
+        imageExit3.setImage(img);
+        img = new Image("./sample/PNG/Back.png");
+        imageBack1.setImage(img);
+        imageBack2.setImage(img);
+        imageBack3.setImage(img);
+    }
+
+    @FXML
+    private void exit() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+                System.exit(0);
+            }
+        }
+    }
+
+    @FXML
+    private void back() {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.YES) {
+
+                Parent root;
+
+                try {
+                    Stage stage = (Stage) btnBack1.getScene().getWindow();
+                    stage.close();
+
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
+                    root = loader.load();
+                    stage = new Stage();
+
+                    Stage finalStage = stage;
+
+                    finalStage.setResizable(false);
+                    finalStage.initStyle(StageStyle.TRANSPARENT);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
     @Override
@@ -164,6 +245,7 @@ public class ManagerController implements Initializable {
         String[] gender = {"خانم", "آقا"};
         comboGenderMaster.getItems().addAll(gender);
         comboGenderMaster.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        setImage();
 
     }
 }

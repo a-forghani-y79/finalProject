@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -12,8 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="نمایش اطلاعات کاربری">
       <content>
@@ -41,6 +41,19 @@
                            </image></ImageView>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="405.0" prefHeight="32.0" prefWidth="79.0" text="جنسیت :" />
                         <TextField fx:id="txtGender" layoutX="418.0" layoutY="404.0" prefHeight="32.0" prefWidth="115.0" />
+                        <JFXButton fx:id="btnExit1" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
+                           <graphic>
+                              <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../PNG/Exit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                        <JFXButton fx:id="btnBack1" layoutX="83.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
+                           <graphic>
+                              <ImageView fx:id="imageViewBack" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic></JFXButton>
+
                      </children>
                   </AnchorPane>
                </children></AnchorPane>
@@ -118,7 +131,16 @@
                   <TextField fx:id="txtCourse1" layoutX="99.0" layoutY="180.0" prefHeight="30.0" prefWidth="116.0" />
                   <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" prefHeight="28.0" prefWidth="108.0" promptText="ردی/قبولی" />
                   <JFXButton fx:id="btnSubmit" layoutX="100.0" layoutY="463.0" onMouseClicked="#btnSubmit" prefHeight="36.0" prefWidth="107.0" text="Submit" />
-
+                  <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack2" layoutX="87.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                </children></AnchorPane>
       </content>
          <graphic>
@@ -132,16 +154,29 @@
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="930.0" style="-fx-background-color: FFB04C;">
                <children>
-                  <TextArea layoutX="324.0" layoutY="131.0" prefHeight="234.0" prefWidth="268.0" text="در این صفحات   دانشجو  اطلاعات موجود&#10;&#10; خود  را در  محل  نمایش   اطلاعات کاربری&#10;&#10;مشاهده نموده و  پس از آن در محل تکمیل&#10;&#10;اطلاعات  کاربری  باقی اطلاعات را  کامل &#10;&#10;خواهد کرد .&#10;&#10; " />
+                  <TextArea editable="false" layoutX="324.0" layoutY="131.0" prefHeight="260.0" prefWidth="259.0" text="در این صفحات   دانشجو  اطلاعات موجود&#10;&#10; خود  را در  محل  نمایش   اطلاعات کاربری&#10;&#10;مشاهده نموده و  پس از آن در محل تکمیل&#10;&#10;اطلاعات  کاربری  باقی اطلاعات را  کامل &#10;&#10;خواهد کرد .                                          &#10;&#10; " />
                   <Label alignment="CENTER" layoutX="330.0" layoutY="83.0" prefHeight="38.0" prefWidth="254.0" text="راهنمای ورود دانشجویان جدید">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
+                  <JFXButton fx:id="btnExit3" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack3" layoutX="85.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                </children></AnchorPane>
           </content>
           <graphic>
-              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/sample/PNG/Blue_question_mark_icon.svg.png" />
+               </image></ImageView>
           </graphic>
     </Tab>
   </tabs>

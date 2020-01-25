@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.scene.control.Label?>
@@ -11,27 +10,38 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="600.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ManagerController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ManagerController">
   <tabs>
     <Tab text="اضافه کردن دانشجویان جدید">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1058.0" style="-fx-background-color: #E3F2FD;">
                <children>
-                  <Label fx:id="status"  layoutX="62.0" layoutY="115.0" prefHeight="50" prefWidth="412.0" />
-                  <JFXButton fx:id="btnBrowse" onMouseClicked="#onClickBrowse" buttonType="RAISED" layoutX="481.0" layoutY="63.0" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب فایل" />
-                  <TextField fx:id="txtPath" editable="false" layoutX="62.0" layoutY="67.0" prefHeight="25.0" prefWidth="411.0" />
-                  <Label layoutX="23.0" layoutY="69.0" text="Path:">
+                  <Label fx:id="status" layoutX="62.0" layoutY="115.0" prefHeight="50" prefWidth="412.0" />
+                  <JFXButton fx:id="btnBrowse" buttonType="RAISED" layoutX="708.0" layoutY="149.0" onMouseClicked="#onClickBrowse" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب فایل" />
+                  <TextField fx:id="txtPath" editable="false" layoutX="268.0" layoutY="152.0" prefHeight="25.0" prefWidth="411.0" />
+                  <Label layoutX="222.0" layoutY="152.0" text="Path:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="btnConfirm" onMouseClicked="#onClickConfirm" buttonType="RAISED" layoutX="62.0" layoutY="328.0" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="تایید" />
+                  <JFXButton fx:id="btnConfirm" buttonType="RAISED" layoutX="203.0" layoutY="417.0" onMouseClicked="#onClickConfirm" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="تایید" />
+                  <JFXButton fx:id="btnExit1" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack1" onMouseClicked="#back" layoutX="85.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -39,12 +49,22 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                <children>
-                  <JFXTextField fx:id="txtFirstNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="382.0" layoutY="50.0" promptText="نام" />
-                  <JFXTextField fx:id="txtLastNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="199.0" layoutY="50.0" promptText="نام خانوادگی" />
-                  <JFXTextField fx:id="txtNationalNumberMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="25.0" layoutY="50.0" promptText="کد ملی" />
-                  <Separator layoutX="25.0" layoutY="150.0" prefHeight="0.0" prefWidth="521.0" />
-                  <JFXButton fx:id="btnAddMaster" onMouseClicked="#onClickAddMaster" buttonType="RAISED" layoutX="25.0" layoutY="110.0" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
-                   <JFXComboBox fx:id="comboGenderMaster" layoutX="382" layoutY="95" prefWidth="175 " focusColor="#141414" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" promptText="جنسیت" unFocusColor="#141414" ></JFXComboBox>
+                  <JFXTextField fx:id="txtFirstNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="616.0" layoutY="110.0" promptText="نام" />
+                  <JFXTextField fx:id="txtLastNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="413.0" layoutY="110.0" promptText="نام خانوادگی" />
+                  <JFXTextField fx:id="txtNationalNumberMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="230.0" layoutY="110.0" promptText="کد ملی" />
+                  <Separator layoutX="230.0" layoutY="227.0" prefHeight="6.0" prefWidth="522.0" />
+                  <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="188.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
+                   <JFXComboBox fx:id="comboGenderMaster" focusColor="#141414" labelFloat="true" layoutX="619.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="136.0" promptText="جنسیت" unFocusColor="#141414" />
+                  <JFXButton fx:id="btnExit2" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit2"  fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack2" onMouseClicked="#back" layoutX="82.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -52,12 +72,11 @@
           <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                   <children>
-                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="382.0" layoutY="50.0" promptText="نام درس" />
-                      <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="199.0" layoutY="50.0" promptText="تعداد واحد" />
-                      <JFXTextField fx:id="txtFieldCode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="25.0" layoutY="50.0" promptText="کد درس" />
-                      <Separator layoutX="25.0" layoutY="208.0" prefHeight="1.0" prefWidth="521.0" />
-                  <JFXComboBox fx:id="comboChooseMaster" layoutX="382.0" layoutY="106.0" prefHeight="25.0" prefWidth="135.0" promptText="نام استاد" />
-                  <GridPane fx:id="gridPaneProgram" alignment="CENTER" gridLinesVisible="true" layoutX="14.0" layoutY="131.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: center;">
+                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="603.0" layoutY="220.0" promptText="نام درس" />
+                      <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="420.0" layoutY="220.0" promptText="تعداد واحد" />
+                      <JFXTextField fx:id="txtFieldCode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="244.0" layoutY="220.0" promptText="کد درس" />
+                      <Separator layoutX="253.0" layoutY="330.0" prefHeight="1.0" prefWidth="521.0" />
+                  <GridPane fx:id="gridPaneProgram" alignment="CENTER" gridLinesVisible="true" layoutX="312.0" layoutY="314.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: center;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -127,9 +146,19 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <JFXButton fx:id="btnChooseClassTime" buttonType="RAISED" layoutX="228.0" layoutY="106.0" prefHeight="25.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب زمان کلاس" />
-                  <JFXTimePicker fx:id="timePicker" layoutX="7.0" layoutY="105.0" />
-                  <JFXDatePicker fx:id="datePicker" layoutX="375.0" layoutY="146.0" />
+                  <JFXButton fx:id="btnChooseClassTime" buttonType="RAISED" layoutX="430.0" layoutY="260.0" prefHeight="25.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب زمان کلاس" />
+                  <JFXTimePicker fx:id="timePicker" layoutX="244.0" layoutY="294.0" />
+                  <JFXDatePicker fx:id="datePicker" layoutX="603.0" layoutY="286.0" />
+                  <JFXButton fx:id="btnExit3" onMouseClicked="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack3" onMouseClicked="#back" layoutX="96.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
                   </children></AnchorPane>
           </content>
       </Tab>

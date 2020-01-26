@@ -20,7 +20,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.DataCenter.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +27,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 
 public class ManagerController implements Initializable {
     public JFXButton btnBrowse;
@@ -48,6 +46,32 @@ public class ManagerController implements Initializable {
     public Label status;
     public JFXComboBox comboChooseMaster;
     public JFXComboBox comboGenderMaster;
+    public JFXButton btn10;
+    public JFXButton btn11;
+    public JFXButton btn12;
+    public JFXButton btn13;
+    public JFXButton btn14;
+    public JFXButton btn20;
+    public JFXButton btn21;
+    public JFXButton btn22;
+    public JFXButton btn23;
+    public JFXButton btn24;
+    public JFXButton btn30;
+    public JFXButton btn31;
+    public JFXButton btn32;
+    public JFXButton btn33;
+    public JFXButton btn34;
+    public JFXButton btn40;
+    public JFXButton btn41;
+    public JFXButton btn42;
+    public JFXButton btn43;
+    public JFXButton btn44;
+    public JFXButton btn50;
+    public JFXButton btn51;
+    public JFXButton btn52;
+    public JFXButton btn53;
+    public JFXButton btn54;
+    private JFXButton[] btns;
     public JFXButton btnExit1;
     public JFXButton btnBack1;
     public ImageView imageExit1;
@@ -74,12 +98,11 @@ public class ManagerController implements Initializable {
     public boolean[] flag5 = {true};
     public boolean[] flagGrid = {false};
     StudentIdGeneratorDataCenter idGenerator;
+    ArchiveDataCenter archive;
     //passengers
     MasterDataCenter master;
     FieldDataCenter field;
-
 //TODO complete Label status and use an text field for getting year
-
     public void onClickAddMaster() {
         ArchiveDataCenter archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
@@ -333,6 +356,9 @@ public class ManagerController implements Initializable {
         if (flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && flagGrid[0]) {
             completeFieldDataCenter();
         } else if (flag[0] && flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && !(flagGrid[0])) {
+            cleanGradePane();
+
+        } else if (flag[0] && flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && !(flagGrid[0])) {
             labelAlert2.setVisible(true);
             lblAlert.setVisible(false);
         } else {
@@ -401,5 +427,13 @@ public class ManagerController implements Initializable {
         comboGenderMaster.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         setImage();
         gridPaneProgram.setOpacity(1);
+        btns = new JFXButton[]{btn10, btn11, btn12, btn13, btn14, btn20, btn21, btn22, btn23, btn24, btn30, btn31, btn32, btn33, btn34, btn40, btn41, btn42, btn43, btn44, btn50, btn51, btn52, btn53, btn54};
+         archive = new ArchiveDataCenter();
+    }
+
+    void cleanGradePane() {
+        for (int i = 0; i < btns.length; i++) {
+            btns[i].setStyle("");
+        }
     }
 }

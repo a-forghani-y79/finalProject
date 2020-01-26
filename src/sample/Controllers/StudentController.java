@@ -240,6 +240,7 @@ public class StudentController implements Initializable {
         txtNationalCodProfile.setText(student.getNationalCode() + "");
         txtMaritalStatusProfile.setText(student.getMatrimony());
         txtReligion2Profile.setText(student.getReligion());
+        txtDiplomaYearProfile.setText(student.getDiplomYear()+"");
     }
 
     @Override

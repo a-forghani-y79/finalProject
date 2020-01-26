@@ -276,7 +276,7 @@ public class StudentController implements Initializable {
     }
     @FXML
     private void back() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید برگردید؟ " , ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -302,7 +302,7 @@ public class StudentController implements Initializable {
     }
     @FXML
     private void exit() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا میخواهید خارج شوید؟ "  , ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();

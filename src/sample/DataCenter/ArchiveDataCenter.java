@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class ArchiveDataCenter {
 
-    //TODO remove master method  make master null;
-
     private String STUDENT_FILE;
     private String MASTER_FILE;
     private String NEW_STUDENT_FILE;

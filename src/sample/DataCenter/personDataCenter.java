@@ -18,7 +18,7 @@ public class personDataCenter {
     private int unit ;
     private String classStartTime = null;
     private String timeToTakeExam = null;
-    private JFXToggleButton togglebtnChooseUnit = null;
+    private JFXToggleButton togglebtnChooseUnit ;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
@@ -31,7 +31,6 @@ public class personDataCenter {
     private TextField txtInsert;
     private TextField txtInsertAbsence;
     private int passedStudentNumber;
-    private  JFXToggleButton toggleButtonAddUnitMaster;
     public TextField getTxtInsertAbsence() {
         return txtInsertAbsence;
     }
@@ -40,13 +39,8 @@ public class personDataCenter {
         this.txtInsertAbsence = txtInsertAbsence;
     }
 
-    public JFXToggleButton getToggleButtonAddUnitMaster() {
-        return toggleButtonAddUnitMaster;
-    }
 
-    public void setToggleButtonAddUnitMaster(JFXToggleButton toggleButtonAddUnitMaster) {
-        this.toggleButtonAddUnitMaster = toggleButtonAddUnitMaster;
-    }
+
     //Choose units
     public personDataCenter(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
         this.row = row;

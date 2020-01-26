@@ -68,7 +68,7 @@ public class StudentController implements Initializable {
     public TableColumn lessonNotPassed;
     public TableColumn unitNotPassed;
     //Profile
-    // public TextField txtCollegeProfile;
+    public TextField txtCollegeProfile;
     public TextField txtLastNameProfile;
     public TextField txtIdProfile;
     public TextField txtNameProfile;
@@ -191,7 +191,6 @@ public class StudentController implements Initializable {
             }
         }
     }
-
     public void onActionDeleteAndAddLesson() {
         if (student.getFieldsListForChooseUnit() != null) {
 
@@ -224,7 +223,6 @@ public class StudentController implements Initializable {
             }
         }
     }
-
     public void onActionChooseUnit() {
         if (student.getFieldsListForChooseUnit() != null) {
 
@@ -245,7 +243,6 @@ public class StudentController implements Initializable {
             }
         }
     }
-
     public void onActionSetProfile() {
         // student = archive.readStudent(student.getStudentNumber());
         //  txtCollegeProfile.setText(student.getFaculty());
@@ -291,10 +288,9 @@ public class StudentController implements Initializable {
         onActionSetProfile();
         setImage();
     }
-
     @FXML
     private void back() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید برگردید؟ " , ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -318,10 +314,9 @@ public class StudentController implements Initializable {
             }
         }
     }
-
     @FXML
     private void exit() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا میخواهید خارج شوید؟ "  , ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -344,7 +339,6 @@ public class StudentController implements Initializable {
         average = sumScore / sumUnit;
         student.setAverage(average);
     }
-
     //Choose Unit
     public void choosingUnit() {
 
@@ -390,15 +384,18 @@ public class StudentController implements Initializable {
                 if (lessonCods[j] == fields.get(i).getFieldNumber()) {
                     fields.get(i).setScore(10);
                     fieldChoosed.add(fields.get(i));
+                    //    student.addField(fields.get(i));
                 }
             }
         }
         ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
         student.setFieldsListForChooseUnit(fieldChoosed);
+// zaxire daeshjoo
         archiveDataCenter1.writeStudent(student);
     }
 
     public void deleteAndAddLesson(MouseEvent mouseEvent) {
+        //gereftane size table
         int tableSize = tableViewAddAndDeleteUnitChooseUnit.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<personDataCenter>();
 
@@ -409,6 +406,7 @@ public class StudentController implements Initializable {
                 personDataCenters.add(person);
             }
         }
+        //gereftane code dars
         long[] lessonCode = new long[personDataCenters.size()];
         for (int i = 0; i < personDataCenters.size(); i++) {
             lessonCode[i] = personDataCenters.get(i).getLessonCod();
@@ -432,12 +430,10 @@ public class StudentController implements Initializable {
             }
         }
     }
-
     public void checkFailOrPassed() {
         student.setHistoryListField(student.getFieldsListForChooseUnit());
 
     }
-
     //TODO megdar dehi tamam droos  be allFields Student
     public void addFieldsForStudent() {
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();

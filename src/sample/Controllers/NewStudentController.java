@@ -86,6 +86,7 @@ public class NewStudentController implements Initializable {
         this.std = std;
     }
 
+
     private void Show() {
         txtFirstName.setText(std.getFirstName());
         txtName1.setText(std.getFirstName());
@@ -214,6 +215,8 @@ public class NewStudentController implements Initializable {
         if (IndexDyplomType == 2) {
             student.setDiplomType("انسانی");
         }
+
+
         LocalDate localDate = DataPicker.getValue();
         student.setBYear(localDate.getYear());
         student.setBMonth(localDate.getMonthValue());
@@ -444,18 +447,21 @@ public class NewStudentController implements Initializable {
         } else {
             comboCondition.setStyle("-fx-background-color: #FFFFFF");
         }
+
         if (findComboIndex(comboNationality) == -1) {
             comboNationality.setStyle("-fx-background-color: #D70406");
             flag = false;
         } else {
             comboNationality.setStyle("-fx-background-color: #FFFFFF");
         }
+
         if (findComboIndex(comboMatrimony) == -1) {
             comboMatrimony.setStyle("-fx-background-color: #D70406");
             flag = false;
         } else {
             comboMatrimony.setStyle("-fx-background-color: #FFFFFF");
         }
+
         if (findComboIndex(comboDyplomType) == -1) {
             comboDyplomType.setStyle("-fx-background-color: #D70406");
             flag = false;
@@ -464,9 +470,12 @@ public class NewStudentController implements Initializable {
         }
         return flag;
     }
+
     @FXML
     private void exit() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید خارج شوید؟ " , ButtonType.YES, ButtonType.NO);
+
+
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
@@ -474,30 +483,41 @@ public class NewStudentController implements Initializable {
             }
         }
     }
+
     @FXML
     private void back() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید برگردید؟"  , ButtonType.YES, ButtonType.NO);
+
+
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
+
                 Parent root;
+
                 try {
                     Stage stage = (Stage) btnBack1.getScene().getWindow();
                     stage.close();
+
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
                     root = loader.load();
                     stage = new Stage();
+
                     Stage finalStage = stage;
+
                     finalStage.setResizable(false);
                     finalStage.initStyle(StageStyle.TRANSPARENT);
                     stage.setScene(new Scene(root));
                     stage.show();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
+
 
     public void btnSubmit() {
         if (scanner()) {
@@ -507,29 +527,40 @@ public class NewStudentController implements Initializable {
             System.out.println(id);
             ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
             archiveDataCenter.writeStudent(student);
+            student.setFileNumber(0);
             txtArea.setVisible(true);
-            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!" +
-                    id + "شما از این پس با نام کاربری : " +
-                    txtNationalID + "و با پسورد :");
+            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!"+
+                    "\n"+id +  "شما از این پس با نام کاربری : "+ "\n"+
+                  txtNationalID.getText() +  "و با پسورد :");
+
+
+
             //TODO show student number from Generator
         } else {
             //TODO show suitable message
         }
+
     }
+
+
     private boolean emptyFinder(TextField txtField) {
         boolean empty = true;
         if (txtField.getText().equals("")) {
             empty = false;
+
         }
         return empty;
     }
 
     private boolean NumberFinder(TextField txtField) {
+
         boolean exit = true;
+
         for (int i = 0; i < txtField.getText().length(); i++) {
             int c = txtField.getText().charAt(i);
             if (c >= 48 && c <= 57) {
                 exit = false;
+
             }
         }
         return exit;
@@ -537,6 +568,7 @@ public class NewStudentController implements Initializable {
 
     private boolean StringFinder(TextField txtField) {
         boolean exit = true;
+
         for (int i = 0; i < txtField.getText().length(); i++) {
             int c = txtField.getText().charAt(i);
             if (!(c >= 48 && c <= 57)) {
@@ -565,7 +597,7 @@ public class NewStudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         student = new StudentDataCenter();
-        String[] Faith = {"زرتشت", "یهودی", "مسیحی", "مسلمان"};
+        String[] Faith = {"زرتشت", "یهودی", "مسیهی", "مسلمان"};
         comboFaith.getItems().addAll(Faith);
         String[] StartSeason = {"نیمسال اول", "نیمسال دوم"};
         comboStartSeason.getItems().addAll(StartSeason);
@@ -575,11 +607,13 @@ public class NewStudentController implements Initializable {
         comboMatrimony.getItems().addAll(Matrimony);
         String[] condition = {"فارغ التحصیل", "درحال تحصیل"};
         comboCondition.getItems().addAll(condition);
-        String[] diplomType = {"تجربی", "انسانی", "ریاضی فیزیک"};
+        String[] diplomType = {"تجربی", "انسانی","ریاضی فیزیک"};
         comboDyplomType.getItems().addAll(diplomType);
         setImage();
         Show();
         studentIdGeneratorDataCenter = new StudentIdGeneratorDataCenter();
         studentIdGeneratorDataCenter.setYearNumber(98);
+
     }
+
 }

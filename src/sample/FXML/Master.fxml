@@ -232,7 +232,7 @@
                                           <TableColumn fx:id="DeleteMaster" prefWidth="182.0" text="حذف کردن" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0" onMouseClicked="#showDeleteTable" prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
+                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0"  prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
@@ -349,7 +349,7 @@
                                     <ComboBox fx:id="comboLessonMaster2" layoutX="669.0" layoutY="26.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="235.0" promptText="لطفا گروه مورد نظر خود را انتخاب کنبد" />
                                     <JFXButton fx:id="choseLesson2" layoutX="915.0" layoutY="21.0" prefHeight="39.0" prefWidth="35.0" text="  ">
                                        <graphic>
-                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0" onMouseClicked="#" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="btnSearchPrAb" fitHeight="39.0" fitWidth="40.0"  pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../PNG/search-var-flat.png" />
                                              </image>

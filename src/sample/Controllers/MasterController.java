@@ -39,15 +39,6 @@ public class MasterController implements Initializable {
     public TableColumn addPlaceMaster;
     public TableColumn addMaster;
 
-
-    public TableView DeleteTableMaster;
-    public TableColumn DeleteLessonMaster;
-    public TableColumn DeleteLessonCodeMaster;
-    public TableColumn DeleteUnitMaster;
-    public TableColumn DeletePlaceMaster;
-    public TableColumn DeleteMaster;
-
-
     public TableView newWeekMaster;
     public TableColumn rowNewWeekMaster;
     public TableColumn lessonNewWeekMaster;
@@ -55,8 +46,7 @@ public class MasterController implements Initializable {
     public TableColumn UnitNewWeekTableMaster;
     public TableColumn numberStudentNewWeekMaster;
     public TableColumn startTimeNewWeekTableMaster;
-    public TableColumn placeNewWeekMaster;
-    public JFXButton showDeleteTable;
+
     public TextField txtNameMaster;
     public TextField txtFamilyMaster;
     public TextField txtPersonalCodeMaster;
@@ -81,28 +71,8 @@ public class MasterController implements Initializable {
     public TableColumn AbsentPrAbMaster;
     public ArchiveDataCenter archive;
     public ComboBox combolessonMaster;
-    public JFXButton exitButtonMaster1;
     public JFXButton backButtonMaster1;
-    public JFXButton exitButtonMaster2;
-    public JFXButton backButtonMaster2;
-    public JFXButton exitButtonMaster3;
-    public JFXButton backButtonMaster3;
-    public JFXButton exitButtonMaster4;
-    public JFXButton backButtonMaster4;
-    public JFXButton choseLesson1;
-    public JFXButton exitButtonMaster5;
-    public JFXButton backButtonMaster5;
-    public JFXButton exitButtonMaster6;
-    public JFXButton backBittonMaster6;
     public ComboBox comboLessonMaster2;
-    public JFXButton choseLesson2;
-    public JFXButton finalConfirmAdd;
-    public JFXButton finalConfirmDelete;
-    public JFXButton btnCompleteInfoMaster;
-    public Tab newWeektableMaster;
-    public ImageView btnsearchforGrade;
-    public JFXButton btnConfirmGrade;
-    public ImageView btnSearchPrAb;
     private MasterDataCenter master;
     private StudentDataCenter student;
     private ArrayList<StudentDataCenter> findStudent;
@@ -147,8 +117,11 @@ public class MasterController implements Initializable {
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         addPlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         addMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        for (int i = 0; i < fieldMaster.size(); i++) {
-                AddTableMaster.getItems().add(new personDataCenter(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
+
+        System.out.println(fieldMaster.get(0).toString());
+        for (int i = 0; i < 10 ; i++) {
+        AddTableMaster.getItems().add(new personDataCenter("riazi",512001,3,"12:30",new JFXToggleButton()));
+
         }
     }
 
@@ -160,8 +133,7 @@ public class MasterController implements Initializable {
         numberStudentNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         startTimeNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         //placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
-        for (int i = 0; i < masterChoseUnit.size(); i++) {
-            if(masterChoseUnit.get(i).getLesson()!=null)
+            for (int i = 0; i < masterChoseUnit.size(); i++) {
             newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), ""));
         }
     }

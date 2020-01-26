@@ -575,11 +575,11 @@ public class NewStudentController implements Initializable {
             System.out.println(id);
             ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
             archiveDataCenter.writeStudent(student);
-
+            student.setFileNumber(0);
             txtArea.setVisible(true);
-            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!" +
-                    id +  "شما از این پس با نام کاربری : " +
-                  txtNationalID +  "و با پسورد :");
+            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!"+
+                    "\n"+id +  "شما از این پس با نام کاربری : "+ "\n"+
+                  txtNationalID.getText() +  "و با پسورد :");
 
 
 

@@ -6,14 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import javafx.geometry.NodeOrientation;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
@@ -64,6 +62,21 @@ public class ManagerController implements Initializable {
     public Label lblAlert;
     public ColumnConstraints gridPane;
     public Label labelAlert2;
+    public Label lblsuc;
+    public Label lblAdd;
+    public TextArea txtAreaAddMaster;
+    public ImageView imageHint2;
+    public JFXButton btnHint2;
+    public ImageView imageHint1;
+    public JFXButton btnHint1;
+    public JFXButton btnHint3;
+    public ImageView imageHint3;
+    public TextArea textHint3;
+    public AnchorPane anchorPane3;
+    public AnchorPane anchorPane2;
+    public AnchorPane anchorPane1;
+    public TextArea textHint2;
+    public TextArea textHint1;
     TextField txtAddress;
     TextField txtYear;
     private FileChooser fileChooser;
@@ -97,7 +110,7 @@ public class ManagerController implements Initializable {
         idGenerator.setYearNumber(98);
         long id = idGenerator.createIdMaster();
         int comboIndex = comboGenderMaster.getSelectionModel().getSelectedIndex();
-
+        lblAdd.setVisible(false);
         setDefaultColor();
         if (checkTextFieldMaster() && comboChecker(comboGenderMaster)) {
             master.setFirstName(txtFirstNameMaster.getText());
@@ -107,7 +120,13 @@ public class ManagerController implements Initializable {
             master.setPersonalNumber(id);
             System.out.println(id);
             archive.writeMaster(master);
-
+            lblAdd.setVisible(true);
+            txtNationalNumberMaster.setText("");
+            txtLastNameMaster.setText("");
+            txtFirstNameMaster.setText("");
+            txtAreaAddMaster.setVisible(true);
+            txtAreaAddMaster.setText("استاد با مئفقیت اضافه شد !" +
+                    "\n" + id + "شماره پرسنلی استاد :" + "\n");
 
         }
 
@@ -173,10 +192,10 @@ public class ManagerController implements Initializable {
         if (numChecker(str)) {
             int year = Integer.parseInt(str);
             importNewStudent = new ImportNewStudentDataCenter(addrCSV, year);
-            status.setText(importNewStudent.getStatus());
+            status.setText("عملیات با موفقیت انجام شد .");
         } else {
 
-            status.setText("year not valid");
+            status.setText("سال دارای اعتبار نیست !");
         }
     }
 
@@ -207,6 +226,10 @@ public class ManagerController implements Initializable {
         imageBack1.setImage(img);
         imageBack2.setImage(img);
         imageBack3.setImage(img);
+        img = new Image("./sample/PNG/Blue_question_mark_icon.svg.png");
+        imageHint1.setImage(img);
+        imageHint2.setImage(img);
+        imageHint3.setImage(img);
     }
 
 
@@ -256,11 +279,11 @@ public class ManagerController implements Initializable {
             if (txtField.equals(txtFieldName)) {
                 flag[0] = false;
             }
-            if (txtField.equals(txtFieldUnit)){
-                flag2[0]=false;
+            if (txtField.equals(txtFieldUnit)) {
+                flag2[0] = false;
             }
-            if (txtField.equals(txtFieldCode)){
-                flag3[0]=false;
+            if (txtField.equals(txtFieldCode)) {
+                flag3[0] = false;
             }
 
         } else {
@@ -268,11 +291,11 @@ public class ManagerController implements Initializable {
             if (txtField.equals(txtFieldName)) {
                 flag[0] = true;
             }
-            if (txtField.equals(txtFieldUnit)){
-                flag2[0]=true;
+            if (txtField.equals(txtFieldUnit)) {
+                flag2[0] = true;
             }
-            if (txtField.equals(txtFieldCode)){
-                flag3[0]=true;
+            if (txtField.equals(txtFieldCode)) {
+                flag3[0] = true;
             }
         }
 
@@ -304,19 +327,19 @@ public class ManagerController implements Initializable {
             int c = txtField.getText().charAt(i);
             if (!(c >= 48 && c <= 57)) {
                 txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #D70406;");
-                if (txtField.equals(txtFieldUnit)){
-                    flag2[0]=false;
+                if (txtField.equals(txtFieldUnit)) {
+                    flag2[0] = false;
                 }
-                if (txtField.equals(txtFieldCode)){
-                    flag3[0]=false;
+                if (txtField.equals(txtFieldCode)) {
+                    flag3[0] = false;
                 }
             } else {
                 txtField.setStyle(txtField.getStyle() + "-fx-text-inner-color: #000000;");
-                if (txtField.equals(txtFieldUnit)){
-                    flag2[0]=true;
+                if (txtField.equals(txtFieldUnit)) {
+                    flag2[0] = true;
                 }
-                if (txtField.equals(txtFieldCode)){
-                    flag3[0]=true;
+                if (txtField.equals(txtFieldCode)) {
+                    flag3[0] = true;
                 }
             }
         }
@@ -374,10 +397,16 @@ public class ManagerController implements Initializable {
         }
 
 
-        if (flag[0]&&flag2[0]&& flag3[0]&& flag4[0]&& flag5[0]&&  flagGrid[0]) {
+        if (flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && flagGrid[0]) {
+            labelAlert2.setVisible(false);
+            lblAlert.setVisible(false);
+            lblsuc.setVisible(true);
             completeFieldDataCenter();
+            txtFieldName.setText("");
+            txtFieldCode.setText("");
+            txtFieldUnit.setText("");
 
-        } else if (flag[0] && flag[0]&&flag2[0]&& flag3[0]&& flag4[0]&& flag5[0]&& !(flagGrid[0])) {
+        } else if (flag[0] && flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && !(flagGrid[0])) {
             labelAlert2.setVisible(true);
             lblAlert.setVisible(false);
 
@@ -454,6 +483,41 @@ public class ManagerController implements Initializable {
         }
     }
 
+    private void setTextInTextArea(){
+        textHint1.setText("سپس با انتخاب فایل دانشجویال دکمه تایید را بزنید"+"\n"+ "در این صفحه باید روی دکمه ^ انتخاب فایل ^ کلیک کنید : ");
+        textHint2.setText("در این صفحه پس از انتخاب مشخحصات استاد دکمه افزودن را بزنید");
+        textHint3.setText("در این صفحه پس از انتخاب مشخحصات هر ذرس دکمه افزودن را بزنید");
+    }
+
+
+    public void hintVisible1() {
+        if (!textHint1.isVisible()) {
+            textHint1.setVisible(true);
+        }
+        if (textHint1.isVisible()) {
+            textHint1.setVisible(false);
+        }
+    }
+
+    public void hintVisible2() {
+        if (!textHint2.isVisible()) {
+            textHint2.setVisible(true);
+        }
+        if (textHint2.isVisible()) {
+            textHint2.setVisible(false);
+        }
+    }
+
+    public void hintVisible3() {
+        if (!textHint3.isVisible()) {
+            textHint3.setVisible(true);
+        }
+        if (textHint3.isVisible()) {
+            textHint3.setVisible(false);
+        }
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -464,6 +528,6 @@ public class ManagerController implements Initializable {
         comboGenderMaster.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         setImage();
         gridPaneProgram.setOpacity(1);
-
+        setTextInTextArea();
     }
 }

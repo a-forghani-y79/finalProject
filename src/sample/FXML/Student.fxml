@@ -88,12 +88,12 @@
                         <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="54.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                   <JFXButton fx:id="btnBack" layoutX="24.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageExit1" onMousePressed="#exit" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnBack1" layoutX="93.0" layoutY="18.0" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageBack1" onMousePressed="#back" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
                     </children>
@@ -127,12 +127,12 @@
                                                         <TableColumn fx:id="situationReport" prefWidth="181.5999755859375" text="وضع" />
                                                     </columns>
                                                 </TableView>
-                                    <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                                    <JFXButton fx:id="btnExit2" onMousePressed="#exit" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
                                        <graphic>
                                           <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnBack2" layoutX="86.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                                    <JFXButton fx:id="btnBack2" onMousePressed="#back" layoutX="86.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
                                        <graphic>
                                           <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                        </graphic>

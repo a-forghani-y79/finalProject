@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,9 +22,9 @@
   <tabs>
     <Tab text="اضافه کردن دانشجویان جدید">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1058.0" style="-fx-background-color: #E3F2FD;">
+        <AnchorPane fx:id="anchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1058.0" style="-fx-background-color: #E3F2FD;">
                <children>
-                  <Label fx:id="status" layoutX="62.0" layoutY="115.0" prefHeight="50" prefWidth="412.0" />
+                  <Label fx:id="status" layoutX="62.0" layoutY="329.0" prefHeight="50" prefWidth="412.0" />
                   <JFXButton fx:id="btnBrowse" buttonType="RAISED" layoutX="708.0" layoutY="149.0" onMouseClicked="#onClickBrowse" prefHeight="32.0" prefWidth="73.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب فایل" />
                   <TextField fx:id="txtPath" editable="false" layoutX="268.0" layoutY="152.0" prefHeight="25.0" prefWidth="411.0" />
                   <Label layoutX="222.0" layoutY="152.0" text="Path:">
@@ -42,19 +43,25 @@
                         <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
+                  <JFXButton fx:id="btnHint1" layoutX="192.0" layoutY="18.0" onMouseClicked="#hintVisible1" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageHint1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <TextArea fx:id="textHint1" layoutX="374.0" layoutY="18.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="407.0" visible="false" />
                </children></AnchorPane>
       </content>
     </Tab>
     <Tab text="اضافه کردن استاد">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
+        <AnchorPane fx:id="anchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                <children>
                   <JFXTextField fx:id="txtFirstNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="616.0" layoutY="110.0" promptText="نام" />
                   <JFXTextField fx:id="txtLastNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="413.0" layoutY="110.0" promptText="نام خانوادگی" />
                   <JFXTextField fx:id="txtNationalNumberMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="230.0" layoutY="110.0" promptText="کد ملی" />
                   <Separator layoutX="230.0" layoutY="227.0" prefHeight="6.0" prefWidth="522.0" />
-                  <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="188.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
-                   <JFXComboBox fx:id="comboGenderMaster" focusColor="#141414" labelFloat="true" layoutX="619.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="136.0" promptText="جنسیت" unFocusColor="#141414" />
+                  <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="250.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
+                   <JFXComboBox fx:id="comboGenderMaster" focusColor="#141414" labelFloat="true" layoutX="619.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="136.0" promptText="آقا / خانم" unFocusColor="#141414" />
                   <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
@@ -65,14 +72,21 @@
                         <ImageView fx:id="imageBack2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
+                  <TextArea fx:id="txtAreaAddMaster" layoutX="348.0" layoutY="250.0" prefHeight="66.0" prefWidth="406.0" visible="false" />
+                  <JFXButton fx:id="btnHint2" layoutX="204.0" layoutY="10.0" onMouseClicked="#hintVisible2" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageHint2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <TextArea fx:id="textHint2" layoutX="381.0" layoutY="18.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="59.0" prefWidth="370.0" visible="false" />
                </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="اضافه کردن درس">
           <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#gridPne" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
+              <AnchorPane fx:id="anchorPane3" minHeight="0.0" minWidth="0.0" onMouseClicked="#gridPne"  prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                   <children>
-                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="603.0" layoutY="171.0" promptText="نام درس" />
+                      <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="638.0" layoutY="171.0" promptText="نام درس" />
                       <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="419.0" layoutY="171.0" promptText="تعداد واحد" />
                       <JFXTextField fx:id="txtFieldCode" alignment="CENTER_RIGHT" labelFloat="true" layoutX="244.0" layoutY="171.0" promptText="کد درس" />
                   <GridPane fx:id="gridPaneProgram" alignment="CENTER" gridLinesVisible="true" layoutX="311.0" layoutY="310.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: center;" visible="false">
@@ -172,8 +186,8 @@
                      </children>
                   </GridPane>
                   <JFXButton fx:id="btnChooseClassTime" buttonType="RAISED" layoutX="429.0" layoutY="246.0" onMouseClicked="#gridPaneVisible" prefHeight="25.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="انتخاب زمان کلاس" />
-                  <JFXTimePicker fx:id="timePicker" layoutX="226.0" layoutY="245.0" />
-                  <JFXDatePicker fx:id="datePicker" layoutX="603.0" layoutY="245.0" />
+                  <JFXTimePicker fx:id="timePicker" layoutX="211.0" layoutY="245.0" nodeOrientation="RIGHT_TO_LEFT" promptText="ساعت امتحان" />
+                  <JFXDatePicker fx:id="datePicker" layoutX="603.0" layoutY="245.0" nodeOrientation="RIGHT_TO_LEFT" promptText="تاریخ امتحان" />
                   <JFXButton fx:id="btnExit3" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
@@ -184,9 +198,16 @@
                         <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnSubmit" onMouseClicked="#btnSubmit" buttonType="RAISED" layoutX="97.0" layoutY="448.0" prefHeight="32.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="SUBMIT" />
+                  <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="97.0" layoutY="448.0" onMouseClicked="#btnSubmit" prefHeight="32.0" prefWidth="115.0" ripplerFill="#0288d1" style="-fx-background-color: #B2EBF2;" text="SUBMIT" />
                   <Label fx:id="lblAlert" alignment="CENTER" layoutX="43.0" layoutY="393.0" prefHeight="34.0" prefWidth="193.0" text="لطفا اطلاعات را کامل کنید !" textFill="#f83e3e" visible="false" />
                   <Label fx:id="labelAlert2" alignment="CENTER" layoutX="14.0" layoutY="395.0" prefHeight="30.0" prefWidth="282.0" text="&quot;لطفا حدافل یکی از برنامه های درسی را انتحاب کنید&quot;" textFill="#f04f4f" visible="false" />
+                  <Label fx:id="lblsuc" alignment="CENTER" layoutX="47.0" layoutY="393.0" prefHeight="35.0" prefWidth="228.0" text="درس با موفقیت افزوده شد !" visible="false" />
+                  <JFXButton fx:id="btnHint3" layoutX="214.0" layoutY="18.0" onMouseClicked="#hintVisible3" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageHint3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </JFXButton>
+                  <TextArea fx:id="textHint3" layoutX="414.0" layoutY="14.0" prefHeight="130.0" prefWidth="355.0" />
                   </children></AnchorPane>
           </content>
       </Tab>

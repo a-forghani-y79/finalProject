@@ -324,14 +324,15 @@ public class MasterController implements Initializable {
         for (int i = 0; i < tableSize; i++) {
             personDataCenter person = (personDataCenter) insertGradeMaster.getItems().get(i);
             Double grade = Double.parseDouble(person.getTxtInsert().getText());
-            if(grade>=10){
-                passedNumber.add(grade);
-            }
+//            if(grade>=10){
+//                passedNumber.add(grade);
+//            }
             long id = person.getStudentId();
             student = archive.readStudent(id);
             for (int j = 0; j < student.getFieldsListForChooseUnit().size(); j++) {
                 if (student.getFieldsListForChooseUnit().get(i).getFieldNumber() == lessonCode) {
-//TODO borda dagigan nia shart goyobsn vli ishladmibsn
+                    student.getFieldsListForChooseUnit().get(i).setScore(grade);
+
                 }
             }
         }

@@ -11,22 +11,16 @@ import java.util.Scanner;
 // و با متد import کار خود را انجام داده و تمام
 public class ImportNewStudentDataCenter {
 
-
     private String CSV_addr;
     private String Bin_addr;
     private ArrayList<NewStudentDataCenter> students;
-
-
     private FileReader fileReader;
     private Scanner scanner;
     private FileOutputStream fileOutputStream;
     private ObjectOutputStream objectOutputStream;
     private File file;
-
-
     private String status;
     private int statusCode = 0;
-
 
     public ImportNewStudentDataCenter(String CSV_address, int year) {
         file = new File("./src/sample/Files/y" + year + "");
@@ -37,13 +31,9 @@ public class ImportNewStudentDataCenter {
         compleateList();
         writeListToFile();
         close();
-
-
     }
 
-
     private void writeListToFile() {
-
         try {
             objectOutputStream.writeObject(students);
         } catch (IOException e) {
@@ -53,7 +43,6 @@ public class ImportNewStudentDataCenter {
             }
         }
     }
-
 
     private void compleateList() {
         try {
@@ -76,17 +65,13 @@ public class ImportNewStudentDataCenter {
                 }
                 students.add(student);
             }
-
-
         } catch (Exception e) {
             if (statusCode == 0) {
                 status += e.getMessage();
                 statusCode = -2;
             }
-
         }
     }
-
 
     public String getStatus() {
         return this.status;
@@ -105,15 +90,12 @@ public class ImportNewStudentDataCenter {
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             status = "successful";
             statusCode = 0;
-
-
         } catch (Exception e) {
             if (statusCode == 0) {
                 statusCode = 1;
                 status += e.getMessage();
             }
         }
-
     }
 
     void close() {
@@ -121,7 +103,6 @@ public class ImportNewStudentDataCenter {
             fileReader.close();
             fileOutputStream.close();
             objectOutputStream.close();
-
             statusCode = 0;
         } catch (Exception e) {
             if (statusCode == 0) {
@@ -130,6 +111,4 @@ public class ImportNewStudentDataCenter {
             }
         }
     }
-
-
 }

@@ -32,7 +32,6 @@ public class NewStudentController implements Initializable {
     public TextField txtRate;
     public TextField txtField;
     public TextField txtFileNumber;
-
     public TextField txtLastName1;
     public TextField txtName1;
     public TextField txtPhoneNumber;
@@ -79,9 +78,9 @@ public class NewStudentController implements Initializable {
     public JFXButton btnBack3;
     public TextField txtGender2;
     public TextArea txtArea;
-
-    NewStudentDataCenter std;
-
+    private NewStudentDataCenter std;
+    private StudentDataCenter student;
+    private StudentIdGeneratorDataCenter studentIdGeneratorDataCenter;
 
     public void setStd(sample.DataCenter.NewStudentDataCenter std) {
         this.std = std;
@@ -101,9 +100,7 @@ public class NewStudentController implements Initializable {
         txtFiled1.setText(String.valueOf(std.getField()));
         txtFileNumber.setText(String.valueOf(std.getFileNumber()));
         txtFileNumber1.setText(String.valueOf(std.getFileNumber()));
-
         Image img;
-
         if (std.getGender() == 0) {
             txtGender.setText("مونث");
             student.setGender(0);
@@ -115,38 +112,26 @@ public class NewStudentController implements Initializable {
             img = new Image("./sample/PNG/Student.png");
             Tab1PIC.setImage(img);
         }
-
         if (std.getGender() == 0) {
             txtGender2.setText("مونث");
             student.setGender(0);
-
         } else if (std.getGender() == 1) {
             student.setGender(1);
             txtGender2.setText("مذکر");
-
         }
-
-
-
         if (std.isDay_night() == true) {
             txtCourse.setText("روزانه");
             txtCourse1.setText("روزانه");
-
         } else {
             txtCourse.setText("شبانه");
             txtCourse1.setText("شبانه");
         }
-
-
     }
 
     private int findComboIndex(JFXComboBox Box) {
         int index = Box.getSelectionModel().getSelectedIndex();
         return index;
     }
-
-    StudentDataCenter student;
-    StudentIdGeneratorDataCenter studentIdGeneratorDataCenter;
 
 
     private void student() {
@@ -157,8 +142,6 @@ public class NewStudentController implements Initializable {
         student.setField(txtField.getText());
         if (std.isDay_night() == true) {
             student.setDay(true);
-
-
         } else {
             student.setDay(false);
         }
@@ -166,7 +149,6 @@ public class NewStudentController implements Initializable {
         student.setPhoneNumber(Long.parseLong(txtPhoneNumber.getText()));
         student.setFatherPhoneNumber(Long.parseLong(txtFatherPhoneNumber.getText()));
         student.setFatherName(txtFatherName.getText());
-
         student.setIDCardNumber(Long.parseLong(txtIDCardNumber.getText()));
         student.setAddress(txtAddress.getText());
         student.setSectionEducation(txtSectionEducation.getText());
@@ -178,10 +160,9 @@ public class NewStudentController implements Initializable {
         student.setReligion(txtReligion.getText());
         student.setCityBorn(txtCityBorn.getText());
         student.setEmail(txtEmail.getText());
-        student.setZIPCode(Integer.parseInt(txtZIPCode.getText()));
+        student.setZIPCode(Long.parseLong(txtZIPCode.getText()));
         student.setAreaBorn(txtAreaBorn.getText());
         student.setFileNumber(Long.parseLong(txtFileNumber.getText()));
-
 
         int IndexFaith = findComboIndex(comboFaith);
         if (IndexFaith == 0) {
@@ -243,26 +224,20 @@ public class NewStudentController implements Initializable {
     }
 
     private boolean scanner() {
-        //TODO move color setting to emptyFinder method
         boolean flag = true;
-
         LocalDate localDate = DataPicker.getValue();
-        if (txtDiplomYear.getText().length()!=4){
+        if (txtDiplomYear.getText().length() != 4) {
             txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
-
         }
-
         try {
             localDate.getYear();
             localDate.getMonth();
             localDate.getDayOfMonth();
-
         } catch (NullPointerException e) {
             DataPicker.setStyle(DataPicker.getStyle() + "-fx-background-color: #D70406 ;");
             flag = false;
         }
-
         if (!(emptyFinder(txtIDCardNumber))) {
             txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-background-color: #D70406 ;");
             flag = false;
@@ -275,7 +250,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtIDCardNumber)) {
             txtIDCardNumber.setStyle(txtIDCardNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtPhoneNumber)) {
             txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -288,7 +262,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtPhoneNumber)) {
             txtPhoneNumber.setStyle(txtPhoneNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtFatherPhoneNumber)) {
             txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -301,7 +274,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtFatherPhoneNumber)) {
             txtFatherPhoneNumber.setStyle(txtFatherPhoneNumber.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtZIPCode)) {
             txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -313,7 +285,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtZIPCode)) {
             txtZIPCode.setStyle(txtZIPCode.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtFileNumber1)) {
             txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -326,7 +297,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtFileNumber1)) {
             txtFileNumber1.setStyle(txtFileNumber1.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtDiplomYear)) {
             txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -339,7 +309,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtDiplomYear)) {
             txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtRate)) {
             txtRate.setStyle(txtRate.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -352,7 +321,6 @@ public class NewStudentController implements Initializable {
         } else if (StringFinder(txtRate)) {
             txtRate.setStyle(txtRate.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtSectionEducation)) {
             txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -365,7 +333,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtSectionEducation)) {
             txtSectionEducation.setStyle(txtSectionEducation.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtFatherName)) {
             txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -378,7 +345,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtFatherName)) {
             txtFatherName.setStyle(txtFatherName.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtLocalBorn)) {
             txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -391,7 +357,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtLocalBorn)) {
             txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtFiled1)) {
             txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -404,7 +369,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtFiled1)) {
             txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtUBorn)) {
             txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -417,7 +381,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtUBorn)) {
             txtUBorn.setStyle(txtUBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtReligion)) {
             txtReligion.setStyle(txtReligion.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -430,7 +393,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtReligion)) {
             txtReligion.setStyle(txtReligion.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
         if (!emptyFinder(txtCityBorn)) {
             txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -443,8 +405,6 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtCityBorn)) {
             txtCityBorn.setStyle(txtCityBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
-
         if (!emptyFinder(txtAreaBorn)) {
             txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
@@ -457,38 +417,30 @@ public class NewStudentController implements Initializable {
         } else if (NumberFinder(txtAreaBorn)) {
             txtAreaBorn.setStyle(txtAreaBorn.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
-
-
-
         if (!emptyFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
-        } else if (!NumberFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
-            flag = false;
+//        } else if (!NumberFinder(txtAddress)) {
+//            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
+//            flag = false;
         }
         if (emptyFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #FFFFFF;");
-        } else if (NumberFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #000000;");
+//        } else if (NumberFinder(txtAddress)) {
+//            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #000000;");
         }
-
-
         if (findComboIndex(comboFaith) == -1) {
             comboFaith.setStyle("-fx-background-color: #D70406");
             flag = false;
         } else {
             comboFaith.setStyle("-fx-background-color: #FFFFFF");
         }
-
         if (findComboIndex(comboStartSeason) == -1) {
             comboStartSeason.setStyle("-fx-background-color: #D70406");
             flag = false;
         } else {
             comboStartSeason.setStyle("-fx-background-color: #FFFFFF");
         }
-
         if (findComboIndex(comboCondition) == -1) {
             comboCondition.setStyle("-fx-background-color: #D70406");
             flag = false;

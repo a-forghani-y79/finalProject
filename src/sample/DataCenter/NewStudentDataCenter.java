@@ -76,7 +76,6 @@ public class NewStudentDataCenter implements Serializable {
         this.isDay = day_night;
     }
 
-
     public void setFileNumber(long fileNumber) {
         this.fileNumber = fileNumber;
     }

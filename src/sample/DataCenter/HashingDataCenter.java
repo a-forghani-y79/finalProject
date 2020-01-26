@@ -12,14 +12,10 @@ public class HashingDataCenter {
 
     public HashingDataCenter(int message) {
         text = String.valueOf(message);
-
     }
-
 
     public HashingDataCenter(long message) {
         text = String.valueOf(message);
-
-
     }
 
     public HashingDataCenter(String message) {
@@ -34,7 +30,6 @@ public class HashingDataCenter {
         }
         md.update(text.getBytes(StandardCharsets.UTF_8));
         byte[] digest = md.digest();
-
         txtHash = String.format("%064x", new BigInteger(1, digest));
     }
 
@@ -46,6 +41,4 @@ public class HashingDataCenter {
     public void setMessage(String txt) {
         text = txt;
     }
-
-
 }

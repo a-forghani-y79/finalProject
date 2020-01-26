@@ -21,27 +21,27 @@
                <children>
                   <AnchorPane prefHeight="600.0" prefWidth="998.0" style="-fx-background-color: FFB04C;">
                      <children>
-                        <TextField fx:id="txtFileNumber" editable="false" layoutX="707.0" layoutY="405.0" prefHeight="30.0" prefWidth="112.0" />
+                        <TextField fx:id="txtFileNumber" layoutX="707.0" layoutY="405.0" editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="112.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="821.0" layoutY="243.0" prefHeight="32.0" prefWidth="79.0" text="رشته :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="167.0" prefHeight="32.0" prefWidth="79.0" text="نام :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="329.0" prefHeight="32.0" prefWidth="79.0" text="دوره :" />
-                        <TextField fx:id="txtFirstName" editable="false" layoutX="708.0" layoutY="167.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField fx:id="txtField" editable="false" layoutX="708.0" layoutY="243.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField fx:id="txtCourse" editable="false" layoutX="706.0" layoutY="326.0" prefHeight="34.0" prefWidth="114.0" />
+                        <TextField fx:id="txtFirstName" editable="false" layoutX="708.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT"  prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtField" editable="false" layoutX="708.0" layoutY="243.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtCourse" editable="false" layoutX="706.0" layoutY="326.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0" prefWidth="114.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="167.0" prefHeight="32.0" prefWidth="79.0" text="نام خانوادگی :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="246.0" prefHeight="32.0" prefWidth="79.0" text="رتبه :" />
-                        <TextField fx:id="txtLastName" editable="false" layoutX="421.0" layoutY="167.0" prefHeight="32.0" prefWidth="110.0" />
-                        <TextField fx:id="txtRate" editable="false" layoutX="421.0" layoutY="246.0" prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtLastName" editable="false" layoutX="421.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtRate" editable="false" layoutX="421.0" layoutY="246.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="331.0" prefHeight="32.0" prefWidth="79.0" text="شماره ملی :" />
-                        <TextField fx:id="txtNationalID" editable="false" layoutX="421.0" layoutY="327.0" prefHeight="32.0" prefWidth="110.0" />
+                        <TextField fx:id="txtNationalID" editable="false" layoutX="421.0" layoutY="327.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="821.0" layoutY="405.0" prefHeight="32.0" prefWidth="79.0" text="شماره پرونده :" />
                         <ImageView fx:id="Tab1PIC" fitHeight="200.0" fitWidth="200.0" layoutX="153.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../PNG/Student.png" />
                            </image></ImageView>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="560.0" layoutY="405.0" prefHeight="32.0" prefWidth="79.0" text="جنسیت :" />
-                        <TextField fx:id="txtGender" editable="false" layoutX="418.0" layoutY="404.0" prefHeight="32.0" prefWidth="115.0" />
-                        <JFXButton fx:id="btnExit1"  layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
+                        <TextField fx:id="txtGender" layoutX="418.0" layoutY="404.0" editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="115.0" />
+                        <JFXButton fx:id="btnExit1" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                            <graphic>
                               <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

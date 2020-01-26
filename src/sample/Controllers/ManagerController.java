@@ -18,7 +18,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.DataCenter.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +25,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 
 public class ManagerController implements Initializable {
     public JFXButton btnBrowse;
@@ -46,7 +44,32 @@ public class ManagerController implements Initializable {
     public Label status;
     public JFXComboBox comboChooseMaster;
     public JFXComboBox comboGenderMaster;
-
+    public JFXButton btn10;
+    public JFXButton btn11;
+    public JFXButton btn12;
+    public JFXButton btn13;
+    public JFXButton btn14;
+    public JFXButton btn20;
+    public JFXButton btn21;
+    public JFXButton btn22;
+    public JFXButton btn23;
+    public JFXButton btn24;
+    public JFXButton btn30;
+    public JFXButton btn31;
+    public JFXButton btn32;
+    public JFXButton btn33;
+    public JFXButton btn34;
+    public JFXButton btn40;
+    public JFXButton btn41;
+    public JFXButton btn42;
+    public JFXButton btn43;
+    public JFXButton btn44;
+    public JFXButton btn50;
+    public JFXButton btn51;
+    public JFXButton btn52;
+    public JFXButton btn53;
+    public JFXButton btn54;
+    private JFXButton[] btns;
     public JFXButton btnExit1;
     public JFXButton btnBack1;
     public ImageView imageExit1;
@@ -92,17 +115,12 @@ public class ManagerController implements Initializable {
     public boolean[] flag3 = {true};
     public boolean[] flag4 = {true};
     public boolean[] flag5 = {true};
-
     public boolean[] flagGrid = {false};
     StudentIdGeneratorDataCenter idGenerator;
-
     //passengers
     MasterDataCenter master;
     FieldDataCenter field;
-
-
 //TODO complete Label status and use an text field for getting year
-
     public void onClickAddMaster() {
         archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
@@ -129,7 +147,6 @@ public class ManagerController implements Initializable {
                     "\n" + id + "شماره پرسنلی استاد :" + "\n");
 
         }
-
         //TODO show master personal id && clear text fields
     }
 
@@ -140,7 +157,6 @@ public class ManagerController implements Initializable {
         comboGenderMaster.setStyle("");
     }
 
-
     boolean comboChecker(JFXComboBox comboBox) {
         if (comboBox.getSelectionModel().getSelectedIndex() >= 0)
             return true;
@@ -149,7 +165,6 @@ public class ManagerController implements Initializable {
             return false;
         }
     }
-
 
     boolean checkTextFieldMaster() {
         boolean flag = true;
@@ -171,7 +186,6 @@ public class ManagerController implements Initializable {
         }
         return flag;
     }
-
 
     public void onClickBrowse() {
         stage = (Stage) btnBrowse.getScene().getWindow();
@@ -232,14 +246,12 @@ public class ManagerController implements Initializable {
         imageHint3.setImage(img);
     }
 
-
     public void onClickGridPane(MouseEvent event) {
         JFXButton btn = (JFXButton) event.getSource();
         if (btn.getStyle().equals(""))
             btn.setStyle("-fx-background-color: green;");
         else
             btn.setStyle("");
-
         if (btn.getId().charAt(4) == '4') {
             flagGrid[0] = true;
             fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "شنبه");
@@ -256,7 +268,6 @@ public class ManagerController implements Initializable {
             flagGrid[0] = true;
             fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "چهار شنبه");
         }
-
         if (btn.getId().charAt(3) == '4') {
             fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "14-16");
         } else if (btn.getId().charAt(3) == '3') {
@@ -268,13 +279,10 @@ public class ManagerController implements Initializable {
         } else if (btn.getId().charAt(3) == '5') {
             fieldDataCenter.setClassStartTime(fieldDataCenter.getClassStartTime() + "," + "14-16");
         }
-
     }
 
     private void emptyFinder(TextField txtField) {
-
         if (txtField.getText().equals("")) {
-
             txtField.setStyle(txtField.getStyle() + "-fx-background-color: red;");
             if (txtField.equals(txtFieldName)) {
                 flag[0] = false;
@@ -314,15 +322,11 @@ public class ManagerController implements Initializable {
                 if (txtField.equals(txtFieldName)) {
                     flag[0] = true;
                 }
-
             }
         }
-
     }
 
     private void StringFinder(TextField txtField) {
-
-
         for (int i = 0; i < txtField.getText().length(); i++) {
             int c = txtField.getText().charAt(i);
             if (!(c >= 48 && c <= 57)) {
@@ -343,17 +347,12 @@ public class ManagerController implements Initializable {
                 }
             }
         }
-
     }
 
     public void gridPne(MouseEvent event) {
-
         if (!event.getEventType().equals(new JFXButton())) {
             gridPaneProgram.setVisible(false);
-
         }
-
-
     }
 
     public void gridPaneVisible() {
@@ -361,20 +360,15 @@ public class ManagerController implements Initializable {
     }
 
     public void btnSubmit() {
-
-
         emptyFinder(txtFieldCode);
         emptyFinder(txtFieldName);
         emptyFinder(txtFieldUnit);
         NumberFinder(txtFieldName);
         StringFinder(txtFieldUnit);
         StringFinder(txtFieldCode);
-
         LocalDate localDate = datePicker.getValue();
         LocalTime localTime = timePicker.getValue();
-
         try {
-
             localDate.getYear();
             localDate.getMonth();
             localDate.getDayOfMonth();
@@ -385,10 +379,8 @@ public class ManagerController implements Initializable {
             flag4[0] = false;
         }
         try {
-
             localTime.getHour();
             localTime.getMinute();
-
             timePicker.setStyle(timePicker.getStyle() + "-fx-background-color: #ffffff ;");
             flag5[0] = true;
         } catch (NullPointerException e) {
@@ -405,16 +397,15 @@ public class ManagerController implements Initializable {
             txtFieldName.setText("");
             txtFieldCode.setText("");
             txtFieldUnit.setText("");
+            cleanGradePane();
 
         } else if (flag[0] && flag[0] && flag2[0] && flag3[0] && flag4[0] && flag5[0] && !(flagGrid[0])) {
             labelAlert2.setVisible(true);
             lblAlert.setVisible(false);
-
         } else {
             lblAlert.setVisible(true);
             labelAlert2.setVisible(false);
         }
-
     }
 
     FieldDataCenter fieldDataCenter = new FieldDataCenter();
@@ -428,18 +419,13 @@ public class ManagerController implements Initializable {
         fieldDataCenter.setTimeToTakeExam("year :" + localDate.getYear());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "month :" + localDate.getMonth());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "day :" + localDate.getDayOfMonth());
-
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "hour :" + localTime.getHour());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "minute :" + localTime.getMinute());
-
-
     }
 
     @FXML
     private void exit() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
-
-
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
@@ -448,34 +434,24 @@ public class ManagerController implements Initializable {
         }
     }
 
-
     @FXML
     private void back() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
-
-
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
-
                 Parent root;
-
                 try {
                     Stage stage = (Stage) btnBack1.getScene().getWindow();
                     stage.close();
-
-
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
                     root = loader.load();
                     stage = new Stage();
-
                     Stage finalStage = stage;
-
                     finalStage.setResizable(false);
                     finalStage.initStyle(StageStyle.TRANSPARENT);
                     stage.setScene(new Scene(root));
                     stage.show();
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -529,5 +505,13 @@ public class ManagerController implements Initializable {
         setImage();
         gridPaneProgram.setOpacity(1);
         setTextInTextArea();
+        btns = new JFXButton[]{btn10, btn11, btn12, btn13, btn14, btn20, btn21, btn22, btn23, btn24, btn30, btn31, btn32, btn33, btn34, btn40, btn41, btn42, btn43, btn44, btn50, btn51, btn52, btn53, btn54};
+         archive = new ArchiveDataCenter();
+    }
+
+    void cleanGradePane() {
+        for (int i = 0; i < btns.length; i++) {
+            btns[i].setStyle("");
+        }
     }
 }

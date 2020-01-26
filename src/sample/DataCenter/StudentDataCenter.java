@@ -373,11 +373,9 @@ public class StudentDataCenter implements Serializable {
     }
     public void addField(FieldDataCenter field){
         fieldsListForChooseUnit.add(field);
-
     }
 
     public void setFieldsListForChooseUnit(ArrayList<FieldDataCenter> fieldsListForChooseUnit) {
         this.fieldsListForChooseUnit = fieldsListForChooseUnit;
     }
-
 }

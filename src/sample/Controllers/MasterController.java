@@ -147,20 +147,9 @@ public class MasterController implements Initializable {
         addPlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         addMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
         for (int i = 0; i < fieldMaster.size(); i++) {
-            if(fieldMaster.get(i).getFieldName()!=null) {
                 AddTableMaster.getItems().add(new personDataCenter(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
-            }
         }
     }
-
-//    public void DeleteField() {
-//        DeleteLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
-//        DeleteLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
-//        DeleteUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
-//        DeletePlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-//        DeleteMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-//        DeleteTableMaster.getItems().add(new personDataCenter("sas", 515, 5, "seshanbe", new JFXToggleButton()));
-//    }
 
     public void newWeekMaster() {
         rowNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
@@ -169,10 +158,10 @@ public class MasterController implements Initializable {
         UnitNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         numberStudentNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         startTimeNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
+        //placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
         for (int i = 0; i < masterChoseUnit.size(); i++) {
             if(masterChoseUnit.get(i).getLesson()!=null)
-            newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), masterChoseUnit.get(i).getClassPlace()));
+            newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), ""));
         }
     }
 
@@ -296,9 +285,8 @@ public class MasterController implements Initializable {
             }
 
         }
-        for (int i = 0; i < personDataCenters.size(); i++) {
-            masterChoseUnit.add(personDataCenters.get(i));
-        }
+        masterChoseUnit.addAll(personDataCenters);
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -309,6 +297,7 @@ public class MasterController implements Initializable {
          masterChoseUnit = new ArrayList<>();
          listStd = new ArrayList<>();
          passedNumber = new ArrayList<>();
+         master.setMasField(archive.readAllFields());
 
 
      //   MField =  getmasterChoseUnit();
@@ -318,15 +307,16 @@ public class MasterController implements Initializable {
             comboLessonMaster2.getItems().add(comboItem);
         }
 
+        setName();
+       // AddFields();
+
         finalConfirm();
-//        if(flag)
         choseField();
         insertGrade();
         WeeklyTable();
-        AddFields();
-//        DeleteField();
+
         newWeekMaster();
-         setName();
+
          setImage();
         insertGrade();
         tablePrAb();

@@ -232,7 +232,7 @@
                                           <TableColumn fx:id="DeleteMaster" prefWidth="182.0" text="حذف کردن" />
                                       </columns>
                                     </TableView>
-                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0" onMouseClicked="#showDeleteTable" prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
+                                    <JFXButton fx:id="showDeleteTable" alignment="CENTER" layoutX="320.0" layoutY="332.0"  prefHeight="36.0" prefWidth="425.0" ripplerFill="BLACK" text=" در صورت تمایل برای حذف کردن درس درحال تدریس کلیک کنید!!" textFill="#7c0606" visible="false">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>

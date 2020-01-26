@@ -605,7 +605,7 @@ public class NewStudentController implements Initializable {
         comboNationality.getItems().addAll(Nationality);
         String[] Matrimony = {"مجرد", "متاهل"};
         comboMatrimony.getItems().addAll(Matrimony);
-        String[] condition = {"فارق تحصیل", "درحال تحصیل"};
+        String[] condition = {"فارغ التحصیل", "درحال تحصیل"};
         comboCondition.getItems().addAll(condition);
         String[] diplomType = {"تجربی", "انسانی","ریاضی فیزیک"};
         comboDyplomType.getItems().addAll(diplomType);

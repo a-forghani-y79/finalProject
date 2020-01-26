@@ -159,7 +159,7 @@ public class NewStudentController implements Initializable {
         student.setReligion(txtReligion.getText());
         student.setCityBorn(txtCityBorn.getText());
         student.setEmail(txtEmail.getText());
-        student.setZIPCode(Integer.parseInt(txtZIPCode.getText()));
+        student.setZIPCode(Long.parseLong(txtZIPCode.getText()));
         student.setAreaBorn(txtAreaBorn.getText());
         student.setFileNumber(Long.parseLong(txtFileNumber.getText()));
 
@@ -417,14 +417,14 @@ public class NewStudentController implements Initializable {
         if (!emptyFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
-        } else if (!NumberFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
-            flag = false;
+//        } else if (!NumberFinder(txtAddress)) {
+//            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #D70406;");
+//            flag = false;
         }
         if (emptyFinder(txtAddress)) {
             txtAddress.setStyle(txtAddress.getStyle() + "-fx-background-color: #FFFFFF;");
-        } else if (NumberFinder(txtAddress)) {
-            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #000000;");
+//        } else if (NumberFinder(txtAddress)) {
+//            txtAddress.setStyle(txtAddress.getStyle() + "-fx-text-inner-color: #000000;");
         }
         if (findComboIndex(comboFaith) == -1) {
             comboFaith.setStyle("-fx-background-color: #D70406");
@@ -565,7 +565,7 @@ public class NewStudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         student = new StudentDataCenter();
-        String[] Faith = {"زرتشت", "یهودی", "مسیهی", "مسلمان"};
+        String[] Faith = {"زرتشت", "یهودی", "مسیحی", "مسلمان"};
         comboFaith.getItems().addAll(Faith);
         String[] StartSeason = {"نیمسال اول", "نیمسال دوم"};
         comboStartSeason.getItems().addAll(StartSeason);
@@ -573,7 +573,7 @@ public class NewStudentController implements Initializable {
         comboNationality.getItems().addAll(Nationality);
         String[] Matrimony = {"مجرد", "متاهل"};
         comboMatrimony.getItems().addAll(Matrimony);
-        String[] condition = {"فارق تحصیل", "درحال تحصیل"};
+        String[] condition = {"فارغ التحصیل", "درحال تحصیل"};
         comboCondition.getItems().addAll(condition);
         String[] diplomType = {"تجربی", "انسانی", "ریاضی فیزیک"};
         comboDyplomType.getItems().addAll(diplomType);

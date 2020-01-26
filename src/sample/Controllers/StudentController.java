@@ -194,7 +194,8 @@ public class StudentController implements Initializable {
         //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
     }
     public void onActionChooseUnit() {
-        student = archive.readStudent(student.getStudentNumber());
+       // student = archive.readStudent(student.getStudentNumber());
+        System.out.println(student.getFirstName());
         ArrayList<FieldDataCenter> field = student.getFieldsListForChooseUnit();
         rowChoose.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonChoose.setCellValueFactory(new PropertyValueFactory<>("lesson"));
@@ -211,7 +212,7 @@ public class StudentController implements Initializable {
         }
     }
     public void onActionSetProfile() {
-        student = archive.readStudent(student.getStudentNumber());
+       // student = archive.readStudent(student.getStudentNumber());
       //  txtCollegeProfile.setText(student.getFaculty());
         txtLastNameProfile.setText(student.getLastName());
         txtNameProfile.setText(student.getFirstName());
@@ -244,14 +245,13 @@ public class StudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
-        student = new StudentDataCenter();
-        student = archive.readStudent(student.getStudentNumber());
+       // student = archive.readStudent(student.getStudentNumber());
 
-        onActionChooseUnit();
-        onActionPassed();
-        onActionNotPassed();
-        onActionCurriculum();
-        onActionReport();
+//FIXME        onActionChooseUnit();
+ //FIXME       onActionPassed();
+     // FIXME  onActionNotPassed();
+        // FIXME  onActionCurriculum();
+    //FIXME    onActionReport();
         onActionSetProfile();
         setImage();
     }

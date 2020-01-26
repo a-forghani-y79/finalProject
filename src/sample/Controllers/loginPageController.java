@@ -141,7 +141,7 @@ public class loginPageController implements Initializable {
                     openFxmlNewStudent();
                 }
                 else {
-                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
+                    alert("کاربری با این مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -149,7 +149,7 @@ public class loginPageController implements Initializable {
                 if (AuthStudent(UserNum, PassNum))
                     openFxmlStudent();
                 else {
-                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
+                    alert("کاربری با این مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -157,7 +157,7 @@ public class loginPageController implements Initializable {
                 if (AuthMaster(UserNum, PassNum))
                     openFxmlMaster();
                 else {
-                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
+                    alert("کاربری با این مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -165,7 +165,7 @@ public class loginPageController implements Initializable {
                 if (AuthManager(UserNum, PassNum))
                     openFxmlManager();
                 else {
-                    alert("کاربری با ایم مشخصات یافت نشد", lblAlert, "red");
+                    alert("کاربری با این مشخصات یافت نشد", lblAlert, "red");
                     return;
                 }
                 break;
@@ -195,9 +195,6 @@ public class loginPageController implements Initializable {
     }
 
     private boolean AuthNewStudent(long userName, long passWord) {
-        stringBuilder = new StringBuilder("" + userName);
-        strYear = (String) stringBuilder.subSequence(0, 2);
-        year = Integer.parseInt(strYear);
         archive = new ArchiveDataCenter();
         NewStudentDataCenter std = archive.readNewStudent(userName);
         if (!(std == null))
@@ -209,28 +206,29 @@ public class loginPageController implements Initializable {
     }
 
     private boolean AuthStudent(long userName, long passWord) {
-        stringBuilder = new StringBuilder("" + userName);
-        strYear = (String) stringBuilder.subSequence(0, 2);
-        year = Integer.parseInt(strYear);
+        System.out.println("std auth");
         archive = new ArchiveDataCenter();
         StudentDataCenter std = archive.readStudent(userName);
-        if (!(std == null))
-            if (std.getFileNumber() == passWord)
-                return true;
+        if (!(std == null)){
+            System.out.println("std not");
+            System.out.println();
+            if (std.getNationalCode() == passWord){
+                passengerStudent = std;
+                System.out.println("passenger setting");
+                return true;}
             else
-                return false;
+                return false;}
         else return false;
     }
 
     private boolean AuthMaster(long userName, long passWord) {
-        stringBuilder = new StringBuilder("" + userName);
-        strYear = (String) stringBuilder.subSequence(0, 2);
-        year = Integer.parseInt(strYear);
+
         archive = new ArchiveDataCenter();
-        StudentDataCenter std = archive.readStudent(userName);
-        if (!(std == null))
-            if (std.getFileNumber() == passWord)
-                return true;
+        MasterDataCenter master = archive.readMaster(userName);
+        if (!(master == null))
+            if (master.getNationalNumber() == passWord){
+                passengerMaster = master;
+                return true;}
             else
                 return false;
         else return false;

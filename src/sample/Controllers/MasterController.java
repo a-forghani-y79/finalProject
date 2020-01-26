@@ -297,9 +297,9 @@ public class MasterController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
-        master = new MasterDataCenter();
-        master = archive.readMaster(master.getPersonalNumber());
-        //  FieldDataCenter[] MField = master.getMasField();
+
+
+        MField = master.getMasField();
         for (int i = 0; i < MField.size(); i++) {
             String comboItem = MField.get(i).getFieldName();
             combolessonMaster.getItems().add(comboItem);

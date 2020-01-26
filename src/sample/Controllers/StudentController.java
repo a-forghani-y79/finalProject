@@ -243,7 +243,7 @@ public class StudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // archive = new ArchiveDataCenter(98, ArchiveDataCenter.STUDENT);
+        archive = new ArchiveDataCenter();
         student = new StudentDataCenter();
         student = archive.readStudent(student.getStudentNumber());
 

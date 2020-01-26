@@ -80,7 +80,6 @@ public class MasterController implements Initializable {
     public TableColumn IDPrAbMaster;
     public TableColumn AbsentPrAbMaster;
     public ArchiveDataCenter archive;
-
     public ComboBox combolessonMaster;
     public JFXButton exitButtonMaster1;
     public JFXButton backButtonMaster1;
@@ -88,10 +87,8 @@ public class MasterController implements Initializable {
     public JFXButton backButtonMaster2;
     public JFXButton exitButtonMaster3;
     public JFXButton backButtonMaster3;
-
     public JFXButton exitButtonMaster4;
     public JFXButton backButtonMaster4;
-
     public JFXButton choseLesson1;
     public JFXButton exitButtonMaster5;
     public JFXButton backButtonMaster5;
@@ -108,7 +105,6 @@ public class MasterController implements Initializable {
     public ImageView btnSearchPrAb;
     private MasterDataCenter master;
     private StudentDataCenter student;
-
     private ArrayList<StudentDataCenter> findStudent;
     private ArrayList<FieldDataCenter> MField;
     private ArrayList<FieldDataCenter> masField;
@@ -116,34 +112,23 @@ public class MasterController implements Initializable {
     private ArrayList<FieldDataCenter> listStd;
     private ArrayList<Double> passedNumber;
     private boolean flag;
-
-
     private long lessonCode;
 
     public void setMaster(MasterDataCenter master) {
         this.master = master;
     }
 
-
     public void UnVisible() {
-
         insertGradeMaster.setVisible(false);
-
     }
 
 
     public void WeeklyTable() {
-
-
-
-
         MasterLessonsWeeklyRecord.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         LessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         LessonUnitMasterRecord.setCellValueFactory(new PropertyValueFactory<>("unit"));
         StudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         PassedStudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("passedStudentNumber"));
-
-
         for (int i = 0; i <masterChoseUnit.size() ; i++) {
             weeklyTableView.getItems().add(new personDataCenter(masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(),numberOfStudent(masField.get(i).getFieldNumber()) , 0));
 
@@ -151,12 +136,9 @@ public class MasterController implements Initializable {
 
 
     }
-
     //Takmil
     public void AddFields() {
-
         ArrayList<FieldDataCenter> fieldMaster = master.getMasField();
-
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         addLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -166,29 +148,18 @@ public class MasterController implements Initializable {
             AddTableMaster.getItems().add(new personDataCenter(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
 
         }
-
-
     }
 
 //    public void DeleteField() {
-//
-//
 //        DeleteLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
 //        DeleteLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
 //        DeleteUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
 //        DeletePlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
 //        DeleteMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-//
-//
 //        DeleteTableMaster.getItems().add(new personDataCenter("sas", 515, 5, "seshanbe", new JFXToggleButton()));
-//
-//
 //    }
 
-
     public void newWeekMaster() {
-
-
         rowNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
         lessonNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         LessonCodeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
@@ -199,29 +170,21 @@ public class MasterController implements Initializable {
         for (int i = 0; i < masterChoseUnit.size(); i++) {
             newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), masterChoseUnit.get(i).getClassPlace()));
         }
-
-
     }
 
-
     public void insertGrade() {
-
         rowInsertGrade.setCellValueFactory(new PropertyValueFactory<>("row"));
         lastNameInsetGrade.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         FirstNameInssertGrade.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         IdInsertGrade.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         genderInsertGrade.setCellValueFactory(new PropertyValueFactory<>("gender"));
         insertGradeMasterCLM.setCellValueFactory(new PropertyValueFactory<>("txtInsert"));
-
         for (int i = 0; i < findStudent.size(); i++) {
             insertGradeMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), findStudent.get(i).getGender(), new TextField()));
         }
-
     }
 
     public void tablePrAb() {
-
-
         RadifPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("row"));
         LastNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         FirstNamePrAbMaster.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -229,7 +192,6 @@ public class MasterController implements Initializable {
         AbsentPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
         for (int i = 0; i < findStudent.size(); i++) {
             TableViewPrAbMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), new TextField()));
-
         }
     }
 
@@ -237,7 +199,6 @@ public class MasterController implements Initializable {
     public void showDeleteTable() {
         DeleteTableMaster.setVisible(true);
     }
-
 
     public void setName() {
         txtNameMaster.setText(master.getFirstName());
@@ -257,20 +218,13 @@ public class MasterController implements Initializable {
 
 
     public void choseField() {
-
         int ind = combolessonMaster.getSelectionModel().getSelectedIndex();
         if(ind>0) {
             lessonCode = MField.get(ind).getFieldNumber();
-
             findStudent.addAll(findList(lessonCode));
             insertGrade();
         }
-
-
-
-
     }
-
 
     public ArrayList<StudentDataCenter> findList(long lessonCode) {
         ArrayList<StudentDataCenter> students = new ArrayList<StudentDataCenter>();
@@ -286,63 +240,39 @@ public class MasterController implements Initializable {
                 }
             }
         }
-
         return findStudents;
     }
 
-
-
-
-
     public void exit() {
-
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
-
-
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent())
             if (result.get() == ButtonType.YES)
-
                 System.exit(0);
-
-
     }
 
     public void back() {
         Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
-
-
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
                 Parent root;
-
                 try {
                     Stage stage = (Stage) backButtonMaster1.getScene().getWindow();
                     stage.close();
-
-
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/loginPage.fxml"));
-
                     root = loader.load();
                     stage = new Stage();
-
                     Stage finalStage = stage;
-
                     finalStage.setResizable(false);
                     finalStage.initStyle(StageStyle.TRANSPARENT);
                     stage.setScene(new Scene(root));
                     stage.show();
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
-
         }
-
     }
 //chose unit
     public void finalConfirm() {
@@ -359,26 +289,17 @@ public class MasterController implements Initializable {
                     }
                 }
             });
-
         }
-
         for (int i = 0; i < personDataCenters.size(); i++) {
             masterChoseUnit.add(personDataCenters.get(i));
-
         }
-
-
     }
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
         master = new MasterDataCenter();
-
         master = archive.readMaster(master.getPersonalNumber());
         //  FieldDataCenter[] MField = master.getMasField();
-
         for (int i = 0; i < MField.size(); i++) {
             String comboItem = MField.get(i).getFieldName();
             combolessonMaster.getItems().add(comboItem);
@@ -395,9 +316,7 @@ public class MasterController implements Initializable {
          setImage();
       //  insertGrade();
         tablePrAb();
-
     }
-
 // braye sabte nomre
     public void confirmGrade(MouseEvent mouseEvent) {
         int tableSize = insertGradeMaster.getItems().size();
@@ -408,33 +327,21 @@ public class MasterController implements Initializable {
             if(grade>=10){
                 passedNumber.add(grade);
             }
-
             long id = person.getStudentId();
-            archive = new ArchiveDataCenter();
-
             student = archive.readStudent(id);
             for (int j = 0; j < student.getFieldsListForChooseUnit().size(); j++) {
                 if (student.getFieldsListForChooseUnit().get(i).getFieldNumber() == lessonCode) {
-
+//TODO borda dagigan nia shart goyobsn vli ishladmibsn
                 }
-
             }
-
-
         }
     }
 
-
-
-
-
     public int numberOfStudent(long lessonCode) {
         ArrayList<StudentDataCenter> allStudent = new ArrayList<>();
-        ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
-        allStudent.addAll(archiveDataCenter.readAllStudents());
+        allStudent.addAll(archive.readAllStudents());
         int numberOfStudent = 0;
         for (int i = 0; i < allStudent.size(); i++) {
-            // student= new StudentDataCenter();
             ArrayList<FieldDataCenter> fieldDataCenters = new ArrayList<>();
             fieldDataCenters.addAll(allStudent.get(i).getFieldsListForChooseUnit());
             for (int j = 0; j < fieldDataCenters.size(); j++) {
@@ -443,11 +350,7 @@ public class MasterController implements Initializable {
                     break;
                 }
             }
-
         }
-
         return numberOfStudent;
     }
-
-
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class MasterDataCenter implements Serializable {
 
-
     private String firstName;
     private String lastName;
     private long nationalNumber;
@@ -18,7 +17,6 @@ public class MasterDataCenter implements Serializable {
     private int passedStudent;
     private ArrayList<FieldDataCenter>  masField;
 
-
     public ArrayList<FieldDataCenter> getMasField() {
         return masField;
     }
@@ -27,8 +25,6 @@ public class MasterDataCenter implements Serializable {
         this.masField = masField;
     }
 
-
-
     public long getLessonCode() {
         return lessonCode;
     }
@@ -36,8 +32,6 @@ public class MasterDataCenter implements Serializable {
     public void setLessonCode(long lessonCode) {
         this.lessonCode = lessonCode;
     }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -86,14 +80,6 @@ public class MasterDataCenter implements Serializable {
     public void setLesson(String lesson) {
         this.lesson = lesson;
     }
-
-//    public int getLessonCode() {
-//        return lessonCode;
-//    }
-//
-//    public void setLessonCode(int lessonCode) {
-//        this.lessonCode = lessonCode;
-//    }
 
     public int getUnit() {
         return unit;

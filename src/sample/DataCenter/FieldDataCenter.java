@@ -37,8 +37,6 @@ public class FieldDataCenter {
         this.masterName = masterName;
     }
 
-
-
     public String getFieldName() {
         return fieldName;
     }
@@ -62,8 +60,6 @@ public class FieldDataCenter {
     public void setUnit(int unit) {
         this.unit = unit;
     }
-
-
 
     public String getClassStartTime() {
         return classStartTime;

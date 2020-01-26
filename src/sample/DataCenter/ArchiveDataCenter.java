@@ -17,6 +17,9 @@ public class ArchiveDataCenter {
     private String NEW_STUDENT_FILE;
     private String FIELDS_FILE;
     private File file;
+    private ObjectOutputStream objectOutputStream;
+    private ObjectInputStream objectInputStream;
+
 
     public ArchiveDataCenter() {
         STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\student.dat";
@@ -55,15 +58,9 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-
-
     }
 
 //TODO error code AC
-
-    private ObjectOutputStream objectOutputStream;
-    private ObjectInputStream objectInputStream;
-
     public void writeAllFields(FieldDataCenter[] fields) {
         ArrayList<FieldDataCenter> list = new ArrayList<>();
         for (int i = 0; i < fields.length; i++) {
@@ -89,7 +86,6 @@ public class ArchiveDataCenter {
         } catch (Exception e) {
             System.out.println("problem in readAllFields");
             e.printStackTrace();
-
         }
         return fields;
     }
@@ -153,7 +149,6 @@ public class ArchiveDataCenter {
             objectOutputStream = new ObjectOutputStream(new FileOutputStream(MASTER_FILE));
             objectOutputStream.writeObject(list);
             objectOutputStream.close();
-
         } catch (Exception e) {
             System.out.println("problem in writeMaster");
             e.printStackTrace();

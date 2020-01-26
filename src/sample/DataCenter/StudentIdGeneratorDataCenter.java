@@ -6,21 +6,17 @@ public class StudentIdGeneratorDataCenter {
     private int yearNumber = 0;
     private int numberOfStudents = 0;
     private int numberOfManagers = 0;
-
     private int NUMBERSTUDENT = 536;
     private int NUMBERMASTER = 546;
     private int NUMBERMANAGER = 556;
+    private ArchiveDataCenter archive ;
+
 
     public StudentIdGeneratorDataCenter() {
          archive = new ArchiveDataCenter();
-
     }
 
-    ArchiveDataCenter archive ;
-
     public int getYearNumber() {
-
-
         return yearNumber;
     }
 
@@ -43,7 +39,6 @@ public class StudentIdGeneratorDataCenter {
     public void setNUMBER(int NUMBER) {
         this.NUMBERSTUDENT = NUMBER;
     }
-
     //Creat ID For Student
     public long creatIdStudent() {
         ArrayList<StudentDataCenter> students = new ArrayList<StudentDataCenter>();
@@ -59,17 +54,13 @@ public class StudentIdGeneratorDataCenter {
             str = "00" + str;
         else if (str.length() == 3)
             str = "0" + str;
-
         resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERSTUDENT * Math.pow(10, 4)) + Integer.valueOf(str));
-
         return resultNumber;
     }
 
     //Creat ID For Master
     public long createIdMaster() {
-
         archive = new ArchiveDataCenter();
-
         int numberOfMasters = archive.readAllMasters().size();
         System.out.println(numberOfMasters);
         long resultNumber = 0;
@@ -82,10 +73,8 @@ public class StudentIdGeneratorDataCenter {
             str = "00" + str;
         else if (str.length() == 3)
             str = "0" + str;
-
         resultNumber = (long) ((yearNumber * Math.pow(10, 7)) + (NUMBERMASTER * Math.pow(10, 4)) + Integer.valueOf(str));
         System.out.println(resultNumber);
         return resultNumber;
     }
-
 }

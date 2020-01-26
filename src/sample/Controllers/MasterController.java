@@ -298,8 +298,17 @@ public class MasterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
 
+        findStudent = new ArrayList <>();
+        MField = new ArrayList <>();
+        masField = new ArrayList <>();
+        masterChoseUnit = new ArrayList <>();
+        listStd = new ArrayList <>();
+        passedNumber = new ArrayList <>();
 
-        MField = master.getMasField();
+
+
+
+
         for (int i = 0; i < MField.size(); i++) {
             String comboItem = MField.get(i).getFieldName();
             combolessonMaster.getItems().add(comboItem);

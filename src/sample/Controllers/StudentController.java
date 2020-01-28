@@ -194,19 +194,33 @@ public class StudentController implements Initializable {
     public void onActionDeleteAndAddLesson() {
         if (student.getFieldsListForChooseUnit() != null) {
 
-            JFXToggleButton btn = new JFXToggleButton();
+            ArrayList <FieldDataCenter> fields = new ArrayList<>();
+            fields=archive.readAllFields();
+            ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<>();
+            fieldChoosed = student.getFieldsListForChooseUnit();
+
+
 
             //TODO read Fields File in field file for chooseLesson
             rowAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("row"));
             lessonCodeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
             lessonAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("lesson"));
             unitNumberAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
-            chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+            chooseUnitAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("toggleButtonAddUnitMaster"));
             masterAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("master"));
             classStartTimeAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
             timeToTakeTheExamAddAndDeleteUnitChooseUnit.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
-            tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1, "math", 1234l, "tanha", 3, "12-12-12", "21-32-34", btn));
-            //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
+            for (int i = 0; i <fields.size() ; i++) {
+                JFXToggleButton btn = new JFXToggleButton();
+                for (int j = 0; j <fieldChoosed.size() ; j++) {
+                    if (fields.get(i).getFieldNumber()==fieldChoosed.get(j).getFieldNumber()) {
+                        btn.setSelected(true);
+                        break;
+                    }
+                }
+                tableViewAddAndDeleteUnitChooseUnit.getItems().add(new personDataCenter(1, "math", 1234l, "tanha", 3, "12-12-12", "21-32-34", btn));
+                //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
+            }
         }
     }
     public void onActionChooseUnit() {
@@ -222,7 +236,7 @@ public class StudentController implements Initializable {
             masterChoose.setCellValueFactory(new PropertyValueFactory<>("master"));
             classStartTimeChoose.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
             timeToTakeTheExamChoose.setCellValueFactory(new PropertyValueFactory<>("timeToTakeExam"));
-            ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+            ChooseUnit.setCellValueFactory(new PropertyValueFactory<>("toggleButtonAddUnitMaster"));
             for (int i = 0; i < field.size(); i++) {
                 tableViewChoose.getItems().add(new personDataCenter(i + 1, field.get(i).getFieldName(), field.get(i).getFieldNumber(), field.get(i).getMasterName(), field.get(i).getUnit(), field.get(i).getClassStartTime(), field.get(i).getTimeToTakeExam(), new JFXToggleButton()));
 //                                        (int row, String lesson, long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, Button btnChooseUnit)
@@ -403,13 +417,27 @@ public class StudentController implements Initializable {
             fieldDataCenters.add(archive.readField(lessonCode[i]));
         }
         student.setFieldsListForChooseUnit(fieldDataCenters);
+
+        ArrayList <FieldDataCenter> history = new ArrayList<>();
+        history.addAll(student.getHistoryListField());
+
+        ArrayList<FieldDataCenter> allFieldForStudent = new ArrayList<>();
+        allFieldForStudent.addAll(student.getListAllFields());
+        for (int i = 0; i <allFieldForStudent.size() ; i++) {
+            for (int j = 0; j <history.size() ; j++) {
+                if (history.get(j).getFieldNumber()==allFieldForStudent.get(i).getFieldNumber())
+                    allFieldForStudent.remove(i);
+            }
+        }
     }
     public void checkFailOrPassed() {
         student.setHistoryListField(student.getFieldsListForChooseUnit());
+
     }
     //TODO megdar dehi tamam droos  be allFields Student
     public void addFieldsForStudent() {
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
         student.setListAllFields(archiveDataCenter.readAllFields());
+
     }
 }

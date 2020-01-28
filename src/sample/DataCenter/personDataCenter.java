@@ -19,6 +19,16 @@ public class personDataCenter {
     private String classStartTime = null;
     private String timeToTakeExam = null;
     private JFXToggleButton togglebtnChooseUnit ;
+
+    public ToggleButton getTg() {
+        return tg;
+    }
+
+    public void setTg(ToggleButton tg) {
+        this.tg = tg;
+    }
+
+    private ToggleButton tg;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;
@@ -108,6 +118,13 @@ public class personDataCenter {
         this.unit = unit;
         this.classStartTime =  classStartTime;
         this.togglebtnChooseUnit =  btnChooseUnit;
+    }
+    public  personDataCenter (String lesson, int lessonCod, int unit, String classStartTime, ToggleButton btnChooseUnit){
+        this.lesson = lesson;
+        this.lessonCod = lessonCod;
+        this.unit = unit;
+        this.classStartTime =  classStartTime;
+        this.tg =  btnChooseUnit;
     }
 
     public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){

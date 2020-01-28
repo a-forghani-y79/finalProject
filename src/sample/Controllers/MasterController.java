@@ -136,7 +136,10 @@ public class MasterController implements Initializable {
 
 
     public void AddFields() {
-        //ArrayList<FieldDataCenter> fieldMaster = master.
+        FieldDataCenter fieldDataCenter = new FieldDataCenter();
+
+         ArrayList<FieldDataCenter> fieldMaster = archive.readAllFields();
+
 
 
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("presentedLesson"));
@@ -147,7 +150,7 @@ public class MasterController implements Initializable {
 
 
         for (int i = 0; i < 10; i++) {
-            AddTableMaster.getItems().add(new personDataCenterMaster("riazi", 512001, 3, "12:30", new JFXToggleButton()));
+            AddTableMaster.getItems().add(new personDataCenterMaster(fieldDataCenter.getFieldName(), fieldDataCenter.getFieldNumber() ,fieldDataCenter.getUnit(), fieldDataCenter.getClassStartTime(), new JFXToggleButton()));
 
 
         }

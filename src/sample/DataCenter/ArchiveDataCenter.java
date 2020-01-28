@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class ArchiveDataCenter {
 
-    //TODO remove master method  make master null;
-
     private String STUDENT_FILE;
     private String MASTER_FILE;
     private String NEW_STUDENT_FILE;
@@ -22,7 +20,7 @@ public class ArchiveDataCenter {
 
 
     public ArchiveDataCenter() {
-        STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\student.dat";
+        STUDENT_FILE = "C:\\Users\\Hossein\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\student.dat";
         file = new File(STUDENT_FILE);
         if (!(file.exists()))
         try {
@@ -31,7 +29,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        MASTER_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\master.dat";
+        MASTER_FILE = "C:\\Users\\Hossein\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\master.dat";
         file = new File(MASTER_FILE);
         if (!(file.exists()))
         try {
@@ -40,7 +38,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        NEW_STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\newStudent.dat";
+        NEW_STUDENT_FILE = "C:\\Users\\Hossein\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\newStudent.dat";
         file = new File(NEW_STUDENT_FILE);
         if (!(file.exists()))
         try {
@@ -49,7 +47,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        FIELDS_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\fields.dat";
+        FIELDS_FILE = "C:\\Users\\Hossein\\IdeaProjects\\finalProject\\src\\sample\\Files\\y98\\fields.dat";
         file = new File(FIELDS_FILE);
         if (!(file.exists()))
         try {

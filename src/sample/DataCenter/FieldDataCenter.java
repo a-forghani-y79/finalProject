@@ -1,6 +1,19 @@
 package sample.DataCenter;
 
 public class FieldDataCenter {
+    @Override
+    public String toString() {
+        return "FieldDataCenter{" +
+                "fieldName='" + fieldName + '\'' +
+                ", fieldNumber=" + fieldNumber +
+                ", unit=" + unit +
+                ", masterName='" + masterName + '\'' +
+                ", classStartTime='" + classStartTime + '\'' +
+                ", timeToTakeExam='" + timeToTakeExam + '\'' +
+                ", score=" + score +
+                ", numberOfAbsence=" + numberOfAbsence +
+                '}';
+    }
 
     private String fieldName;
     private long fieldNumber;

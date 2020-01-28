@@ -113,6 +113,7 @@ public class MasterController implements Initializable {
     private ArrayList<Double> passedNumber;
     private boolean flag;
     private long lessonCode;
+    private String[] comboItem;
 
     public void setMaster(MasterDataCenter master) {
         this.master = master;
@@ -130,6 +131,7 @@ public class MasterController implements Initializable {
         StudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         PassedStudentNumberMasterRecord.setCellValueFactory(new PropertyValueFactory<>("passedStudentNumber"));
         for (int i = 0; i <masterChoseUnit.size() ; i++) {
+            if (masterChoseUnit.get(i).getLesson()!=null)
             weeklyTableView.getItems().add(new personDataCenter(masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(),numberOfStudent(masField.get(i).getFieldNumber()) , 0));
 
         }
@@ -139,13 +141,16 @@ public class MasterController implements Initializable {
     //Takmil
     public void AddFields() {
         ArrayList<FieldDataCenter> fieldMaster = master.getMasField();
+
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         addLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         addPlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
         addMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
-        for (int i = 0; i < fieldMaster.size(); i++) {
-            AddTableMaster.getItems().add(new personDataCenter(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
+
+        System.out.println(fieldMaster.get(0).toString());
+        for (int i = 0; i < 10 ; i++) {
+        AddTableMaster.getItems().add(new personDataCenter("riazi",512001,3,"12:30",new JFXToggleButton()));
 
         }
     }
@@ -166,9 +171,9 @@ public class MasterController implements Initializable {
         UnitNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         numberStudentNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("studentNumber"));
         startTimeNewWeekTableMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
-        for (int i = 0; i < masterChoseUnit.size(); i++) {
-            newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), masterChoseUnit.get(i).getClassPlace()));
+        //placeNewWeekMaster.setCellValueFactory(new PropertyValueFactory<>("classPlace"));
+            for (int i = 0; i < masterChoseUnit.size(); i++) {
+            newWeekMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, masterChoseUnit.get(i).getLesson(), masterChoseUnit.get(i).getLessonCod(), masterChoseUnit.get(i).getUnit(), 45, masterChoseUnit.get(i).getClassStartTime(), ""));
         }
     }
 
@@ -180,6 +185,7 @@ public class MasterController implements Initializable {
         genderInsertGrade.setCellValueFactory(new PropertyValueFactory<>("gender"));
         insertGradeMasterCLM.setCellValueFactory(new PropertyValueFactory<>("txtInsert"));
         for (int i = 0; i < findStudent.size(); i++) {
+            if(findStudent.get(i).getLastName()!=null)
             insertGradeMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), findStudent.get(i).getGender(), new TextField()));
         }
     }
@@ -192,6 +198,9 @@ public class MasterController implements Initializable {
         AbsentPrAbMaster.setCellValueFactory(new PropertyValueFactory<>("numberOfAbsence"));
         for (int i = 0; i < findStudent.size(); i++) {
             TableViewPrAbMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), new TextField()));
+            if(findStudent.get(i).getLastName()!=null)
+                TableViewPrAbMaster.getItems().add(new sample.DataCenter.personDataCenter(i + 1, findStudent.get(i).getLastName(), findStudent.get(i).getFirstName(), findStudent.get(i).getStudentNumber(), new TextField()));
+
         }
     }
 
@@ -244,7 +253,10 @@ public class MasterController implements Initializable {
     }
 
     public void exit() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا میخواهید خارج شوید؟ " , ButtonType.YES, ButtonType.NO);
+
+
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent())
             if (result.get() == ButtonType.YES)
@@ -252,7 +264,9 @@ public class MasterController implements Initializable {
     }
 
     public void back() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure " + "?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید به صفحه اصلی برگردید؟ " , ButtonType.YES, ButtonType.NO);
+
+
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.YES) {
@@ -281,66 +295,62 @@ public class MasterController implements Initializable {
         for (int i = 0; i < tableSize; i++) {
             personDataCenter person = (personDataCenter) AddTableMaster.getItems().get(i);
             JFXToggleButton jfxToggleButton = person.getTogglebtnChooseUnit();
-            jfxToggleButton.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    if (jfxToggleButton.isSelected()) {
-                        personDataCenters.add(person);
-                    }
-                }
-            });
+            if (jfxToggleButton.isSelected()) {
+                personDataCenters.add(person);
+            }
+
         }
-        for (int i = 0; i < personDataCenters.size(); i++) {
-            masterChoseUnit.add(personDataCenters.get(i));
-        }
+        masterChoseUnit.addAll(personDataCenters);
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         archive = new ArchiveDataCenter();
-
-        findStudent = new ArrayList <>();
-        MField = new ArrayList <>();
-        masField = new ArrayList <>();
-        masterChoseUnit = new ArrayList <>();
-        listStd = new ArrayList <>();
-        passedNumber = new ArrayList <>();
-
-
+         findStudent = new ArrayList<>();
+          MField= new ArrayList<>();
+          masField  = new ArrayList<>();
+         masterChoseUnit = new ArrayList<>();
+         listStd = new ArrayList<>();
+         passedNumber = new ArrayList<>();
+         master.setMasField(archive.readAllFields());
 
 
-
+     //   MField =  getmasterChoseUnit();
         for (int i = 0; i < MField.size(); i++) {
-            String comboItem = MField.get(i).getFieldName();
-            combolessonMaster.getItems().add(comboItem);
+             comboItem[i] = masterChoseUnit.get(i).getLesson();
+
         }
+        combolessonMaster.getItems().add(comboItem);
+        comboLessonMaster2.getItems().add(comboItem);
+
+        setName();
+        AddFields();
+
         finalConfirm();
-//        if(flag)
         choseField();
         insertGrade();
         WeeklyTable();
-        AddFields();
-//        DeleteField();
+
         newWeekMaster();
-         setName();
+
          setImage();
-      //  insertGrade();
+        insertGrade();
         tablePrAb();
     }
-// braye sabte nomre
+
     public void confirmGrade(MouseEvent mouseEvent) {
         int tableSize = insertGradeMaster.getItems().size();
         ArrayList<personDataCenter> personDataCenters = new ArrayList<>();
         for (int i = 0; i < tableSize; i++) {
             personDataCenter person = (personDataCenter) insertGradeMaster.getItems().get(i);
             Double grade = Double.parseDouble(person.getTxtInsert().getText());
-            if(grade>=10){
-                passedNumber.add(grade);
-            }
+            person.getTxtInsert().setText("");
+
             long id = person.getStudentId();
             student = archive.readStudent(id);
             for (int j = 0; j < student.getFieldsListForChooseUnit().size(); j++) {
                 if (student.getFieldsListForChooseUnit().get(i).getFieldNumber() == lessonCode) {
-//TODO borda dagigan nia shart goyobsn vli ishladmibsn
+                student.getFieldsListForChooseUnit().get(i).setScore(grade);
                 }
             }
         }
@@ -354,12 +364,13 @@ public class MasterController implements Initializable {
             ArrayList<FieldDataCenter> fieldDataCenters = new ArrayList<>();
             fieldDataCenters.addAll(allStudent.get(i).getFieldsListForChooseUnit());
             for (int j = 0; j < fieldDataCenters.size(); j++) {
-                if (fieldDataCenters.get(i).getFieldNumber() == lessonCode) {
+                if (fieldDataCenters.get(j).getFieldNumber() == lessonCode) {
                     numberOfStudent++;
-                    break;
+//                    break;
                 }
             }
         }
+
         return numberOfStudent;
     }
 }

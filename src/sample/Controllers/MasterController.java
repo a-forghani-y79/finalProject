@@ -150,7 +150,7 @@ public class MasterController implements Initializable {
 
 
         for (int i = 0; i < 10; i++) {
-            AddTableMaster.getItems().add(new personDataCenterMaster(fieldDataCenter.getFieldName(), fieldDataCenter.getFieldNumber() ,fieldDataCenter.getUnit(), fieldDataCenter.getClassStartTime(), new JFXToggleButton()));
+            AddTableMaster.getItems().add(new personDataCenterMaster(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber() ,fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
 
 
         }

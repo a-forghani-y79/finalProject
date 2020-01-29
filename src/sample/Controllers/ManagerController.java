@@ -128,7 +128,7 @@ public class ManagerController implements Initializable {
         idGenerator.setYearNumber(98);
         long id = idGenerator.createIdMaster();
         int comboIndex = comboGenderMaster.getSelectionModel().getSelectedIndex();
-        lblAdd.setVisible(false);
+        txtAreaAddMaster.setVisible(false);
         setDefaultColor();
         if (checkTextFieldMaster() && comboChecker(comboGenderMaster)) {
             master.setFirstName(txtFirstNameMaster.getText());
@@ -138,7 +138,7 @@ public class ManagerController implements Initializable {
             master.setPersonalNumber(id);
             System.out.println(id);
             archive.writeMaster(master);
-            lblAdd.setVisible(true);
+            txtAreaAddMaster.setVisible(true);
             txtNationalNumberMaster.setText("");
             txtLastNameMaster.setText("");
             txtFirstNameMaster.setText("");
@@ -467,29 +467,29 @@ public class ManagerController implements Initializable {
 
 
     public void hintVisible1() {
-        if (!textHint1.isVisible()) {
-            textHint1.setVisible(true);
-        }
         if (textHint1.isVisible()) {
             textHint1.setVisible(false);
+        }
+        else {
+            textHint1.setVisible(true);
         }
     }
 
     public void hintVisible2() {
-        if (!textHint2.isVisible()) {
-            textHint2.setVisible(true);
-        }
         if (textHint2.isVisible()) {
             textHint2.setVisible(false);
+        }
+        else {
+            textHint2.setVisible(true);
         }
     }
 
     public void hintVisible3() {
-        if (!textHint3.isVisible()) {
-            textHint3.setVisible(true);
-        }
         if (textHint3.isVisible()) {
             textHint3.setVisible(false);
+        }
+        else {
+            textHint3.setVisible(true);
         }
     }
 

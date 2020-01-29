@@ -110,17 +110,18 @@ public class MasterController implements Initializable {
     }
     //Takmil
     public void AddFields() {
+
         ArrayList<FieldDataCenter> fieldMaster = master.getMasField();
 
         addLessonMaster.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         addLessonCodeMaster.setCellValueFactory(new PropertyValueFactory<>("lessonCod"));
         addUnitMaster.setCellValueFactory(new PropertyValueFactory<>("unit"));
         addPlaceMaster.setCellValueFactory(new PropertyValueFactory<>("classStartTime"));
-        addMaster.setCellValueFactory(new PropertyValueFactory<>("btnChooseUnit"));
+        addMaster.setCellValueFactory(new PropertyValueFactory<>("togglebtnChooseUnit"));
 
-        System.out.println(fieldMaster.get(0).toString());
-        for (int i = 0; i < 10 ; i++) {
-        AddTableMaster.getItems().add(new personDataCenter("riazi",512001,3,"12:30",new JFXToggleButton()));
+//        System.out.println(fieldMaster.get(0).toString());
+        for (int i = 0; i < fieldMaster.size() ; i++) {
+            AddTableMaster.getItems().add(new personDataCenter(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber(), fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
 
         }
     }
@@ -270,7 +271,14 @@ public class MasterController implements Initializable {
          masterChoseUnit = new ArrayList<>();
          listStd = new ArrayList<>();
          passedNumber = new ArrayList<>();
-         master.setMasField(archive.readAllFields());
+         ArrayList<FieldDataCenter> list = new ArrayList<>();
+         FieldDataCenter field = new FieldDataCenter();
+         field.setFieldName("ریاضی");
+         field.setClassStartTime("8");
+         field.setTimeToTakeExam("12/10/2020");
+         field.setUnit(3);
+         list.add(field);
+         master.setMasField(list);
 
 
      //   MField =  getmasterChoseUnit();
@@ -284,16 +292,15 @@ public class MasterController implements Initializable {
         setName();
         AddFields();
 
-        finalConfirm();
-        choseField();
-        insertGrade();
-        WeeklyTable();
 
-        newWeekMaster();
+        //insertGrade();
+       // WeeklyTable();
+
+      //  newWeekMaster();
 
          setImage();
-        insertGrade();
-        tablePrAb();
+       // insertGrade();
+
     }
 
     public void confirmGrade(MouseEvent mouseEvent) {

@@ -18,7 +18,7 @@ public class personDataCenter {
     private int unit ;
     private String classStartTime = null;
     private String timeToTakeExam = null;
-    private JFXToggleButton togglebtnChooseUnit ;
+     JFXToggleButton togglebtnChooseUnit ;
     private double score ;
     private String situation = null;
     private int numberOfAbsence ;

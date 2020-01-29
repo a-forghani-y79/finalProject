@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="اضافه کردن دانشجویان جدید">
       <content>
@@ -38,12 +38,12 @@
                         <ImageView fx:id="imageExit1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack1" layoutX="85.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnBack1" layoutX="82.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageBack1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnHint1" layoutX="192.0" layoutY="18.0" onMouseClicked="#hintVisible1" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnHint1" layoutX="164.0" layoutY="14.0" onMouseClicked="#hintVisible1" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageHint1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -73,18 +73,15 @@
                      </graphic>
                   </JFXButton>
                   <TextArea fx:id="txtAreaAddMaster" layoutX="348.0" layoutY="250.0" prefHeight="66.0" prefWidth="406.0" visible="false" />
-                  <JFXButton fx:id="btnHint2" layoutX="204.0" layoutY="10.0" onMouseClicked="#hintVisible2" prefHeight="60.0" prefWidth="60.0">
-                     <graphic>
-                        <ImageView fx:id="imageHint2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
-                  </JFXButton>
-                  <TextArea fx:id="textHint2" layoutX="381.0" layoutY="18.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="59.0" prefWidth="370.0" visible="false" />
+                  <JFXButton fx:id="btnHint2" layoutX="164.0" layoutY="14.0" onMouseClicked="#hintVisible2" prefHeight="60.0" prefWidth="60.0" />
+                  <TextArea fx:id="textHint2" layoutX="361.0" layoutY="18.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="408.0" visible="false" />
+                  <ImageView fx:id="imageHint2" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="اضافه کردن درس">
           <content>
-              <AnchorPane fx:id="anchorPane3" minHeight="0.0" minWidth="0.0" onMouseClicked="#gridPne"  prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
+              <AnchorPane fx:id="anchorPane3" minHeight="0.0" minWidth="0.0" onMouseClicked="#gridPne" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #E3F2FD;">
                   <children>
                       <JFXTextField fx:id="txtFieldName" alignment="CENTER_RIGHT" labelFloat="true" layoutX="638.0" layoutY="171.0" promptText="نام درس" />
                       <JFXTextField fx:id="txtFieldUnit" alignment="CENTER_RIGHT" labelFloat="true" layoutX="419.0" layoutY="171.0" promptText="تعداد واحد" />
@@ -193,7 +190,7 @@
                         <ImageView fx:id="imageExit3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack3" layoutX="96.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnBack3" layoutX="82.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageBack3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -202,12 +199,12 @@
                   <Label fx:id="lblAlert" alignment="CENTER" layoutX="43.0" layoutY="393.0" prefHeight="34.0" prefWidth="193.0" text="لطفا اطلاعات را کامل کنید !" textFill="#f83e3e" visible="false" />
                   <Label fx:id="labelAlert2" alignment="CENTER" layoutX="14.0" layoutY="395.0" prefHeight="30.0" prefWidth="282.0" text="&quot;لطفا حدافل یکی از برنامه های درسی را انتحاب کنید&quot;" textFill="#f04f4f" visible="false" />
                   <Label fx:id="lblsuc" alignment="CENTER" layoutX="47.0" layoutY="393.0" prefHeight="35.0" prefWidth="228.0" text="درس با موفقیت افزوده شد !" visible="false" />
-                  <JFXButton fx:id="btnHint3" layoutX="214.0" layoutY="18.0" onMouseClicked="#hintVisible3" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnHint3" layoutX="164.0" layoutY="14.0" onMouseClicked="#hintVisible3" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageHint3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
-                  <TextArea fx:id="textHint3" layoutX="414.0" layoutY="14.0" prefHeight="130.0" prefWidth="355.0" />
+                  <TextArea fx:id="textHint3" layoutX="399.0" layoutY="34.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="418.0" visible="false" />
                   </children></AnchorPane>
           </content>
       </Tab>

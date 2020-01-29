@@ -15,14 +15,14 @@ public class MasterDataCenter implements Serializable {
     private int unit;
     private int studentNumber;
     private int passedStudent;
-    private ArrayList<FieldDataCenter>  masField;
+    private ArrayList<FieldDataCenter>  masterField;
 
     public ArrayList<FieldDataCenter> getMasField() {
-        return masField;
+        return masterField;
     }
 
     public void setMasField(ArrayList<FieldDataCenter> masField) {
-        this.masField = masField;
+        this.masterField = masField;
     }
 
     public long getLessonCode() {

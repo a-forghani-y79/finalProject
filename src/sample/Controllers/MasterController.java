@@ -190,6 +190,7 @@ public class MasterController implements Initializable {
     }
 
 
+
     public void setName() {
         txtNameMaster.setText(master.getFirstName());
         txtFamilyMaster.setText(master.getLastName());

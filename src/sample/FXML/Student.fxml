@@ -255,7 +255,7 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1440.0">
                                 <children>
-                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0"  prefHeight="554.0" prefWidth="1367.0">
+                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0" prefHeight="554.0" prefWidth="1367.0">
                                         <columns>
                                             <TableColumn fx:id="rowAddAndDeleteUnitChooseUnit" text="ردیف" />
                                             <TableColumn fx:id="lessonCodeAddAndDeleteUnitChooseUnit" prefWidth="119.2000732421875" text="کد درس" />

@@ -64,11 +64,11 @@ public class personDataCenter {
     }
 
     public personDataCenter  (String lesson, long lessonCode,int unit,int studentNumber,int passedStudentNumber){
-    this.lesson=lesson;
-    this.lessonCod = lessonCode;
-    this.unit=unit;
-    this.studentNumber=studentNumber;
-    this.passedStudentNumber=passedStudentNumber;
+        this.lesson=lesson;
+        this.lessonCod = lessonCode;
+        this.unit=unit;
+        this.studentNumber=studentNumber;
+        this.passedStudentNumber=passedStudentNumber;
     }
     //Report
     public personDataCenter(int row, String lesson, int unit, String master, double Score, String situation) {
@@ -155,11 +155,11 @@ public class personDataCenter {
     }
 
     public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
-       this.row=row;
-       this.lastName=lastName;
-       this.firstName=firstName;
-       this.studentId=studentId;
-       this.numberOfAbsence= numberOfAbsence;
+        this.row=row;
+        this.lastName=lastName;
+        this.firstName=firstName;
+        this.studentId=studentId;
+        this.numberOfAbsence= numberOfAbsence;
     }
 
     public personDataCenter(int row , String lastName, String firstName, long studentId, TextField  txtInsertAbsence){

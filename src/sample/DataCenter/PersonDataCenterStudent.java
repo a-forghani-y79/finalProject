@@ -1,0 +1,275 @@
+package sample.DataCenter;
+
+import com.jfoenix.controls.JFXButton;
+
+import com.jfoenix.controls.JFXToggleButton;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+
+import java.util.Date;
+
+
+public class PersonDataCenterStudent {
+    private int row;
+    private String lesson = null;
+    private long lessonCod;
+    private String master = null;
+    private int unit;
+    private String classStartTime = null;
+    private String timeToTakeExam = null;
+    private JFXToggleButton togglebtnChooseUnit;
+    private double score ;
+    private String situation = null;
+    private int numberOfAbsence ;
+   // private int studentNumber;
+    private String classPlace=null;
+   // private String firstName = null;
+ //   private String lastName = null;
+    private String gender = null;
+
+
+    private int passedStudentNumber;
+
+
+
+    //Choose units
+    public PersonDataCenterStudent(int row, String lesson, Long lessonCode, String master, int unit, String classStartTime, String timeToTakeExam, JFXToggleButton btnChooseUnit) {
+        this.row = row;
+        this.lesson = lesson;
+        this.lessonCod = lessonCode;
+        this.master = master;
+        this.unit = unit;
+        this.classStartTime = classStartTime;
+        this.timeToTakeExam = timeToTakeExam;
+        this.togglebtnChooseUnit = btnChooseUnit;
+    }
+
+//    public personDataCenter  (String lesson, long lessonCode,int unit,int studentNumber,int passedStudentNumber){
+//    this.lesson=lesson;
+//    this.lessonCod = lessonCode;
+//    this.unit=unit;
+//    this.studentNumber=studentNumber;
+//    this.passedStudentNumber=passedStudentNumber;
+//    }
+    //Report
+    public PersonDataCenterStudent(int row, String lesson, int unit, String master, double Score, String situation) {
+        this.row = row;
+        this.lesson = lesson;
+        this.master = master;
+        this.unit = unit;
+        this.score = Score;
+        this.situation = situation;
+    }
+    //Curriculum
+    public PersonDataCenterStudent(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
+        this.row = row;
+        this.lesson = lesson;
+        this.master = master;
+        this.unit = unit;
+        this.classStartTime = classStartTime;
+        this.timeToTakeExam = timeToTakeExam;
+        this.numberOfAbsence = numberOfAbsence;
+    }
+    //Passed
+    public PersonDataCenterStudent(int row, String lesson, int unit, String master, double score) {
+        this.row = row;
+        this.lesson = lesson;
+        this.master = master;
+        this.unit = unit;
+        this.score = score;
+    }
+    //not Passed
+    public PersonDataCenterStudent(int row, String lesson, int unit) {
+        this.row = row;
+        this.lesson = lesson;
+        this.unit = unit;
+    }
+
+//    public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
+//        this.lesson = lesson;
+//        this.lessonCod = lessonCod;
+//        this.unit = unit;
+//        this.studentNumber = studentNumber;
+//        this.passedStudentNumber = passedStudentNumber;
+//    }
+
+    public PersonDataCenterStudent(String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit){
+        this.lesson = lesson;
+        this.lessonCod = lessonCod;
+        this.unit = unit;
+        this.classStartTime =  classStartTime;
+        this.togglebtnChooseUnit =  btnChooseUnit;
+    }
+//    public  personDataCenter (String lesson, int lessonCod, int unit, String classStartTime, ToggleButton btnChooseUnit){
+//        this.lesson = lesson;
+//        this.lessonCod = lessonCod;
+//        this.unit = unit;
+//        this.classStartTime =  classStartTime;
+//        this.tg =  btnChooseUnit;
+//    }
+
+//    public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
+//        this.row = row;
+//        this.lesson = lesson;
+//        this. lessonCod = lessonCod;
+//        this.unit = unit;
+//        this.studentNumber = studentNumber;
+//        this.classStartTime = classStartTime;
+//        this.classPlace = classPlace;
+//    }
+
+//    public personDataCenter(int row,String lastName, String firstName,long studentId,int gender, TextField txtInsert){
+//        this.row= row;
+//        this.lastName= lastName;
+//        this.firstName=firstName;
+//        this.studentId= studentId;
+//        this.gender= gender+"";
+//        this.txtInsert = txtInsert;
+//    }
+
+    public PersonDataCenterStudent(String lessonName, long lessonCode, int unit, String classStartTime, JFXToggleButton toggleButton){
+        this.lesson = lessonName;
+        this.lessonCod = lessonCode;
+        this.unit = unit;
+        this.classStartTime = classStartTime;
+        this.togglebtnChooseUnit = toggleButton;
+    }
+
+//    public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
+//       this.row=row;
+//       this.lastName=lastName;
+//       this.firstName=firstName;
+//       this.studentId=studentId;
+//       this.numberOfAbsence= numberOfAbsence;
+//    }
+//
+//    public personDataCenter(int row , String lastName, String firstName, long studentId, TextField  txtInsertAbsence){
+//        this.row=row;
+//        this.lastName=lastName;
+//        this.firstName=firstName;
+//        this.studentId=studentId;
+//        this.txtInsertAbsence= txtInsertAbsence;
+//    }
+
+    public String getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
+
+    public long getLessonCod() {
+        return lessonCod;
+    }
+
+    public void setLessonCod(int lessonCod) {
+        this.lessonCod = lessonCod;
+    }
+
+    public String getMaster() {
+        return master;
+    }
+
+    public void setMaster(String master) {
+        this.master = master;
+    }
+
+    public int getUnit() {
+        return unit;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
+    }
+
+    public String getClassStartTime() {
+        return classStartTime;
+    }
+
+    public void setClassStartTime(String classStartTime) {
+        this.classStartTime = classStartTime;
+    }
+
+    public String getTimeToTakeExam() {
+        return timeToTakeExam;
+    }
+
+    public void setTimeToTakeExam(String timeToTakeExam) {
+        this.timeToTakeExam = timeToTakeExam;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public String getSituation() {
+        return situation;
+    }
+
+    public void setSituation(String situation) {
+        this.situation = situation;
+    }
+
+    public int getNumberOfAbsence() {
+        return numberOfAbsence;
+    }
+
+
+    public int getPassedStudentNumber() {
+        return passedStudentNumber;
+    }
+
+    public void setPassedStudentNumber(int passedStudentNumber) {
+        this.passedStudentNumber = passedStudentNumber;
+    }
+
+    public void setNumberOfAbsence(int numberOfAbsence) {
+        this.numberOfAbsence = numberOfAbsence;
+    }
+
+    public void setLessonCod(long lessonCod) {
+        this.lessonCod = lessonCod;
+    }
+
+    public String getClassPlace() {
+        return classPlace;
+    }
+
+    public void setClassPlace(String classPlace) {
+        this.classPlace = classPlace;
+    }
+
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
+    public JFXToggleButton getToggleBtnChooseUnit() {
+        return togglebtnChooseUnit;
+    }
+
+    public void setTogglebtnChooseUnit(JFXToggleButton togglebtnChooseUnit) {
+        this.togglebtnChooseUnit = togglebtnChooseUnit;
+    }
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+
+}

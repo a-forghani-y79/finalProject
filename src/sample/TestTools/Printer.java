@@ -73,7 +73,6 @@ public class Printer {
 
                     break;
                 case 3:
-                    dist = "";// address of student
                     ArrayList <StudentDataCenter> listS = new ArrayList();
                     listS = (ArrayList <StudentDataCenter>) objectInputStream.readObject();
                     for (StudentDataCenter std : listS
@@ -90,7 +89,7 @@ public class Printer {
 
                     break;
                 case 4:
-                    dist = ""; //address of newStudents
+
                     ArrayList <NewStudentDataCenter> listN = new ArrayList();
                     listN = (ArrayList<NewStudentDataCenter>)objectInputStream.readObject();
                     for (NewStudentDataCenter std:listN

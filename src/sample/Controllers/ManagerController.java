@@ -128,7 +128,7 @@ public class ManagerController implements Initializable {
         idGenerator.setYearNumber(98);
         long id = idGenerator.createIdMaster();
         int comboIndex = comboGenderMaster.getSelectionModel().getSelectedIndex();
-        lblAdd.setVisible(false);
+       // lblAdd.setVisible(false);
         setDefaultColor();
         if (checkTextFieldMaster() && comboChecker(comboGenderMaster)) {
             master.setFirstName(txtFirstNameMaster.getText());
@@ -138,7 +138,7 @@ public class ManagerController implements Initializable {
             master.setPersonalNumber(id);
             System.out.println(id);
             archive.writeMaster(master);
-            lblAdd.setVisible(true);
+           // lblAdd.setVisible(true);
             txtNationalNumberMaster.setText("");
             txtLastNameMaster.setText("");
             txtFirstNameMaster.setText("");
@@ -406,6 +406,7 @@ public class ManagerController implements Initializable {
             lblAlert.setVisible(true);
             labelAlert2.setVisible(false);
         }
+
     }
 
     FieldDataCenter fieldDataCenter = new FieldDataCenter();
@@ -421,6 +422,8 @@ public class ManagerController implements Initializable {
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "day :" + localDate.getDayOfMonth());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "hour :" + localTime.getHour());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "minute :" + localTime.getMinute());
+
+        archive.writeAllFields(new FieldDataCenter[]{fieldDataCenter});
     }
 
     @FXML

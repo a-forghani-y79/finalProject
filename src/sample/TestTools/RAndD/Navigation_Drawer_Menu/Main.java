@@ -16,7 +16,7 @@ public class Main extends Application {
         Parent root;
         loader.setLocation(getClass().getResource("/sample/TestTools/RAndD/Navigation_Drawer_Menu/main.fxml"));
         root = loader.load();
-        primaryStage.setScene(new Scene(root, 1058, 600));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 
 

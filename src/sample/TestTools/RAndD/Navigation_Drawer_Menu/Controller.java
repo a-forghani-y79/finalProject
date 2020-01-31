@@ -16,7 +16,7 @@ public class Controller implements Initializable {
     public AnchorPane anchor;
     public JFXHamburger jfxHamberger;
     public JFXDrawer jfxDrawer;
-    HamburgerBackArrowBasicTransition burgerTask2;
+    private HamburgerBackArrowBasicTransition burgerTask2;
 
 
     @Override

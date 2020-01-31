@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.NewStudentController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" rotateGraphic="true" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="نمایش اطلاعات کاربری">
       <content>
@@ -74,7 +74,7 @@
                    <TextField fx:id="txtName1" editable="false" layoutX="825.0" layoutY="100.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtLastName1" editable="false" layoutX="587.0" layoutY="100.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtIDCardNumber" layoutX="344.0" layoutY="100.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
-                  <TextField fx:id="txtSectionEducation" editable="false" layoutX="101.0" layoutY="104.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="117.0" text="کارشناسی" />
+                  <TextField fx:id="txtSectionEducation" editable="false" layoutX="101.0" layoutY="104.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" text="کارشناسی" />
                    <TextField fx:id="txtFatherName" layoutX="825.0" layoutY="139.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                   <TextField fx:id="txtNationalID1" editable="false" layoutX="587.0" layoutY="139.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtLocalBorn" layoutX="344.0" layoutY="139.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
@@ -83,12 +83,12 @@
                    <TextField fx:id="txtPhoneNumber" layoutX="587.0" layoutY="179.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtFatherPhoneNumber" layoutX="344.0" layoutY="179.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
 
-                  <TextField fx:id="txtCourse1" layoutX="99.0" layoutY="180.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="116.0" />
+                  <TextField fx:id="txtCourse1" layoutX="105.0" layoutY="180.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtAddress" layoutX="103.0" layoutY="219.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="830.0" />
-                  <JFXComboBox fx:id="comboNationality" layoutX="824.0" layoutY="267.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="106.0" promptText="داخلی/خارجی" />
+                  <JFXComboBox fx:id="comboNationality" layoutX="824.0" layoutY="267.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="106.0" promptText="بومی / غیر بومی" />
                   <JFXComboBox fx:id="comboStartSeason" layoutX="583.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="109.0" promptText="اول / دوم" />
-                  <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="108.0" promptText="ردی/قبولی" />
-                  <JFXComboBox fx:id="comboCondition" layoutX="104.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="103.0" promptText="درحال تحصیل / فارق تحصیل" />
+                  <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="108.0" />
+                  <JFXComboBox fx:id="comboCondition" layoutX="104.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="103.0" promptText="درحال تحصیل / فارغ التحصیل" />
                   <JFXComboBox fx:id="comboFaith" editable="true" layoutX="824.0" layoutY="304.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="110.0" />
                    <TextField fx:id="txtUBorn" layoutX="586.0" layoutY="300.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtDiplomYear" layoutX="344.0" layoutY="300.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
@@ -116,7 +116,7 @@
                    <Label alignment="TOP_RIGHT" layoutX="455.0" layoutY="144.0" prefHeight="22.0" prefWidth="130.0" text="محل صدور شناسنامه:" />
                    <Label alignment="TOP_RIGHT" layoutX="946.0" layoutY="264.0" prefHeight="22.0" prefWidth="43.0" text="ملیت:" />
                    <Label alignment="TOP_RIGHT" layoutX="946.0" layoutY="305.0" prefHeight="22.0" prefWidth="43.0" text="دین:" />
-                   <Label alignment="TOP_RIGHT" layoutX="946.0" layoutY="348.0" prefHeight="22.0" prefWidth="43.0" text="مذهب:" />
+                   <Label alignment="TOP_RIGHT" layoutX="952.0" layoutY="348.0" prefHeight="22.0" prefWidth="43.0" text="مذهب:" />
                    <Label alignment="TOP_RIGHT" layoutX="714.0" layoutY="266.0" prefHeight="22.0" prefWidth="101.0" text="نیم سال ورودی:" />
                    <Label alignment="TOP_RIGHT" layoutX="713.0" layoutY="305.0" prefHeight="22.0" prefWidth="102.0" text="استان محل تولد:" />
                    <Label alignment="TOP_RIGHT" layoutX="714.0" layoutY="348.0" prefHeight="22.0" prefWidth="101.0" text="شهر محل تولد :" />
@@ -132,9 +132,9 @@
                    <Label alignment="TOP_RIGHT" layoutX="936.0" layoutY="390.0" prefHeight="22.0" prefWidth="64.0" text="تاریخ تولد:" />
                   <Label layoutX="743.0" layoutY="146.0" prefHeight="18.0" prefWidth="71.0" text="شماره ملی :" />
                   <Label alignment="CENTER" layoutX="949.0" layoutY="180.0" prefHeight="32.0" prefWidth="50.0" text="رتبه" />
-                  <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0">
+                  <JFXButton fx:id="btnExist2" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
-                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnBack2" layoutX="87.0" layoutY="14.0" onMouseClicked="#back" prefHeight="60.0" prefWidth="60.0">
@@ -144,6 +144,7 @@
                   </JFXButton>
                   <Label alignment="CENTER_RIGHT" layoutX="260.0" layoutY="393.0" prefHeight="24.0" prefWidth="73.0" text="جنسیت :" />
                   <TextField fx:id="txtGender2" layoutX="105.0" layoutY="389.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
+                  <TextArea fx:id="txtArea" layoutX="234.0" layoutY="434.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="146.0" prefWidth="469.0" visible="false" />
                </children></AnchorPane>
       </content>
          <graphic>

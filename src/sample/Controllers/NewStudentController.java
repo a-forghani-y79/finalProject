@@ -530,8 +530,8 @@ public class NewStudentController implements Initializable {
             student.setFileNumber(0);
             txtArea.setVisible(true);
             txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!"+
-                    "\n"+id +  "شما از این پس با نام کاربری : "+ "\n"+
-                  txtNationalID.getText() +  "و با پسورد :");
+                    "\n"+id +  "شما از این پس با نام کاربری : "+ "\n"+ id +
+                    "و با پسورد :"+ txtNationalID.getText());
 
 
 
@@ -597,7 +597,7 @@ public class NewStudentController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         student = new StudentDataCenter();
-        String[] Faith = {"زرتشت", "یهودی", "مسیهی", "مسلمان"};
+        String[] Faith = {"زرتشت", "یهودی", "مسحهی", "مسلمان"};
         comboFaith.getItems().addAll(Faith);
         String[] StartSeason = {"نیمسال اول", "نیمسال دوم"};
         comboStartSeason.getItems().addAll(StartSeason);

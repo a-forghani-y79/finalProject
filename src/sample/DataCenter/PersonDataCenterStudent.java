@@ -12,25 +12,24 @@ import java.util.Date;
 
 public class PersonDataCenterStudent {
     private int row;
-    private String lesson = null;
+    private String lesson;
     private long lessonCod;
-    private String master = null;
+    private String master;
     private int unit;
-    private String classStartTime = null;
-    private String timeToTakeExam = null;
+    private String classStartTime;
+    private String timeToTakeExam;
     private JFXToggleButton togglebtnChooseUnit;
-    private double score ;
-    private String situation = null;
-    private int numberOfAbsence ;
-   // private int studentNumber;
-    private String classPlace=null;
-   // private String firstName = null;
- //   private String lastName = null;
-    private String gender = null;
+    private double score;
+    private String situation;
+    private int numberOfAbsence;
+    // private int studentNumber;
+    private String classPlace;
+    // private String firstName = null;
+    //   private String lastName = null;
+    private String gender;
 
 
     private int passedStudentNumber;
-
 
 
     //Choose units
@@ -45,13 +44,7 @@ public class PersonDataCenterStudent {
         this.togglebtnChooseUnit = btnChooseUnit;
     }
 
-//    public personDataCenter  (String lesson, long lessonCode,int unit,int studentNumber,int passedStudentNumber){
-//    this.lesson=lesson;
-//    this.lessonCod = lessonCode;
-//    this.unit=unit;
-//    this.studentNumber=studentNumber;
-//    this.passedStudentNumber=passedStudentNumber;
-//    }
+
     //Report
     public PersonDataCenterStudent(int row, String lesson, int unit, String master, double Score, String situation) {
         this.row = row;
@@ -61,6 +54,7 @@ public class PersonDataCenterStudent {
         this.score = Score;
         this.situation = situation;
     }
+
     //Curriculum
     public PersonDataCenterStudent(int row, String lesson, int unit, String master, String classStartTime, String timeToTakeExam, int numberOfAbsence) {
         this.row = row;
@@ -71,6 +65,7 @@ public class PersonDataCenterStudent {
         this.timeToTakeExam = timeToTakeExam;
         this.numberOfAbsence = numberOfAbsence;
     }
+
     //Passed
     public PersonDataCenterStudent(int row, String lesson, int unit, String master, double score) {
         this.row = row;
@@ -79,6 +74,7 @@ public class PersonDataCenterStudent {
         this.unit = unit;
         this.score = score;
     }
+
     //not Passed
     public PersonDataCenterStudent(int row, String lesson, int unit) {
         this.row = row;
@@ -86,49 +82,22 @@ public class PersonDataCenterStudent {
         this.unit = unit;
     }
 
-//    public personDataCenter(String lesson, int lessonCod, int unit, int studentNumber, int passedStudentNumber) {
+
+
+//    public PersonDataCenterStudent(String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit) {
 //        this.lesson = lesson;
 //        this.lessonCod = lessonCod;
 //        this.unit = unit;
-//        this.studentNumber = studentNumber;
-//        this.passedStudentNumber = passedStudentNumber;
-//    }
-
-    public PersonDataCenterStudent(String lesson, int lessonCod, int unit, String classStartTime, JFXToggleButton btnChooseUnit){
-        this.lesson = lesson;
-        this.lessonCod = lessonCod;
-        this.unit = unit;
-        this.classStartTime =  classStartTime;
-        this.togglebtnChooseUnit =  btnChooseUnit;
-    }
-//    public  personDataCenter (String lesson, int lessonCod, int unit, String classStartTime, ToggleButton btnChooseUnit){
-//        this.lesson = lesson;
-//        this.lessonCod = lessonCod;
-//        this.unit = unit;
-//        this.classStartTime =  classStartTime;
-//        this.tg =  btnChooseUnit;
-//    }
-
-//    public  personDataCenter(int row,String lesson ,long lessonCod , int unit ,int studentNumber ,String classStartTime ,String classPlace){
-//        this.row = row;
-//        this.lesson = lesson;
-//        this. lessonCod = lessonCod;
-//        this.unit = unit;
-//        this.studentNumber = studentNumber;
 //        this.classStartTime = classStartTime;
-//        this.classPlace = classPlace;
+//        this.togglebtnChooseUnit = btnChooseUnit;
 //    }
 
-//    public personDataCenter(int row,String lastName, String firstName,long studentId,int gender, TextField txtInsert){
-//        this.row= row;
-//        this.lastName= lastName;
-//        this.firstName=firstName;
-//        this.studentId= studentId;
-//        this.gender= gender+"";
-//        this.txtInsert = txtInsert;
-//    }
 
-    public PersonDataCenterStudent(String lessonName, long lessonCode, int unit, String classStartTime, JFXToggleButton toggleButton){
+
+
+
+
+    public PersonDataCenterStudent(String lessonName, long lessonCode, int unit, String classStartTime, JFXToggleButton toggleButton) {
         this.lesson = lessonName;
         this.lessonCod = lessonCode;
         this.unit = unit;
@@ -136,21 +105,7 @@ public class PersonDataCenterStudent {
         this.togglebtnChooseUnit = toggleButton;
     }
 
-//    public personDataCenter(int row, String lastName, String firstName, long studentId, int numberOfAbsence){
-//       this.row=row;
-//       this.lastName=lastName;
-//       this.firstName=firstName;
-//       this.studentId=studentId;
-//       this.numberOfAbsence= numberOfAbsence;
-//    }
-//
-//    public personDataCenter(int row , String lastName, String firstName, long studentId, TextField  txtInsertAbsence){
-//        this.row=row;
-//        this.lastName=lastName;
-//        this.firstName=firstName;
-//        this.studentId=studentId;
-//        this.txtInsertAbsence= txtInsertAbsence;
-//    }
+
 
     public String getLesson() {
         return lesson;
@@ -246,7 +201,6 @@ public class PersonDataCenterStudent {
     }
 
 
-
     public String getGender() {
         return gender;
     }
@@ -263,6 +217,7 @@ public class PersonDataCenterStudent {
     public void setTogglebtnChooseUnit(JFXToggleButton togglebtnChooseUnit) {
         this.togglebtnChooseUnit = togglebtnChooseUnit;
     }
+
     public int getRow() {
         return row;
     }

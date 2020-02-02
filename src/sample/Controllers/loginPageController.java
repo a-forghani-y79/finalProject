@@ -187,7 +187,7 @@ public class loginPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        AnchorTime();
+        //AnchorTime();
         txtInfo.setVisible(false);
         String[] comboItems = {"دانشجو جدید الورود", "دانشجو", "استاد", "کارمند آموزش"};
         useCaseCombo.getItems().addAll(comboItems);

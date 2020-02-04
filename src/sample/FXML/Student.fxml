@@ -267,7 +267,7 @@
                                             <TableColumn fx:id="chooseUnitAddAndDeleteUnitChooseUnit" text="انتخاب" />
                                         </columns>
                                     </TableView>
-                           <JFXButton layoutX="910.0" layoutY="14.0" onMouseClicked="#deletAndAddLesson" prefHeight="26.0" prefWidth="74.0" text="تایید " />
+                           <JFXButton layoutX="910.0" onMouseClicked="#deleteAndAddLesson" layoutY="14.0" prefHeight="26.0" prefWidth="74.0" text="تایید " />
 
                                 </children>
                             </AnchorPane>

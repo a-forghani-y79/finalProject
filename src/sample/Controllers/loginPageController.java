@@ -56,7 +56,6 @@ public class loginPageController implements Initializable {
     private void AnchorTime() {
         Image img;
         LocalDateTime KnowTime = LocalDateTime.now();
-        System.out.println(KnowTime.getHour());
         if (KnowTime.getHour() >= 2 && KnowTime.getHour() < 4) {
             img = new Image("./sample/PNG/1pic.png");
             imgbackpane.setImage(img);

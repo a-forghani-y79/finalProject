@@ -225,6 +225,24 @@ public class NewStudentController implements Initializable {
 
     private boolean scanner() {
         boolean flag = true;
+        boolean flage2 = true ;
+        for (int i = 0; i < txtEmail.getText().length(); i++) {
+            int c = txtEmail.getText().charAt(i);
+            int b = 'آ';
+            int e = 'ی';
+            if (c>=b && c<=e ) {
+                txtEmail.setStyle(txtEmail.getStyle() + "-fx-text-inner-color: #D70406;");
+                flag = false;
+                flage2= false;
+            }
+            if (flage2){
+                txtEmail.setStyle(txtEmail.getStyle() + "-fx-text-inner-color: #000000;");
+            }
+
+
+        }
+
+
         LocalDate localDate = DataPicker.getValue();
         if (txtDiplomYear.getText().length() != 4) {
             txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
@@ -530,7 +548,7 @@ public class NewStudentController implements Initializable {
             student.setFileNumber(0);
             txtArea.setVisible(true);
             txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!"+
-                    "\n"+id +  "شما از این پس با نام کاربری : "+ "\n"+ id +
+                     "\n" + "شما از این پس با نام کاربری : "+ "\n"+ id +
                     "و با پسورد :"+ txtNationalID.getText());
 
 

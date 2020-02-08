@@ -21,7 +21,7 @@
                <children>
                   <AnchorPane prefHeight="600.0" prefWidth="998.0" style="-fx-background-color: FFB04C;">
                      <children>
-                        <TextField fx:id="txtFileNumber" layoutX="707.0" layoutY="405.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="112.0" />
+                        <TextField fx:id="txtFileNumber" editable="false" layoutX="707.0" layoutY="405.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="112.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="821.0" layoutY="243.0" prefHeight="32.0" prefWidth="79.0" text="رشته :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="167.0" prefHeight="32.0" prefWidth="79.0" text="نام :" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="825.0" layoutY="329.0" prefHeight="32.0" prefWidth="79.0" text="دوره :" />
@@ -87,9 +87,9 @@
                    <TextField fx:id="txtAddress" layoutX="103.0" layoutY="219.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="830.0" />
                   <JFXComboBox fx:id="comboNationality" layoutX="824.0" layoutY="267.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="106.0" promptText="بومی / غیر بومی" />
                   <JFXComboBox fx:id="comboStartSeason" layoutX="583.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="109.0" promptText="اول / دوم" />
-                  <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="108.0" />
+                  <JFXComboBox fx:id="comboDyplomType" layoutX="344.0" layoutY="269.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="108.0" promptText="انتخاب کنید" />
                   <JFXComboBox fx:id="comboCondition" layoutX="104.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="103.0" promptText="درحال تحصیل / فارغ التحصیل" />
-                  <JFXComboBox fx:id="comboFaith" editable="true" layoutX="824.0" layoutY="304.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="110.0" />
+                  <JFXComboBox fx:id="comboFaith" editable="true" layoutX="824.0" layoutY="304.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="110.0" promptText="انتخاب کنید" />
                    <TextField fx:id="txtUBorn" layoutX="586.0" layoutY="300.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                    <TextField fx:id="txtDiplomYear" layoutX="344.0" layoutY="300.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="110.0" />
                   <JFXComboBox fx:id="comboMatrimony" layoutX="104.0" layoutY="304.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="102.0" promptText="متاهل/مجرد" />
@@ -114,7 +114,7 @@
 
                    <Label alignment="TOP_RIGHT" layoutX="454.0" layoutY="184.0" prefHeight="22.0" prefWidth="119.0" text="شماره تلفن پدر:" />
                    <Label alignment="TOP_RIGHT" layoutX="455.0" layoutY="144.0" prefHeight="22.0" prefWidth="130.0" text="محل صدور شناسنامه:" />
-                   <Label alignment="TOP_RIGHT" layoutX="946.0" layoutY="264.0" prefHeight="22.0" prefWidth="43.0" text="ملیت:" />
+                   <Label alignment="TOP_RIGHT" layoutX="937.0" layoutY="264.0" prefHeight="22.0" prefWidth="52.0" text="تابعیت :" />
                    <Label alignment="TOP_RIGHT" layoutX="946.0" layoutY="305.0" prefHeight="22.0" prefWidth="43.0" text="دین:" />
                    <Label alignment="TOP_RIGHT" layoutX="952.0" layoutY="348.0" prefHeight="22.0" prefWidth="43.0" text="مذهب:" />
                    <Label alignment="TOP_RIGHT" layoutX="714.0" layoutY="266.0" prefHeight="22.0" prefWidth="101.0" text="نیم سال ورودی:" />

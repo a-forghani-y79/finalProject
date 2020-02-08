@@ -354,43 +354,48 @@ public class StudentController implements Initializable {
         imageBack2.setImage(img);
         imageBack3.setImage(img);
     }
-
+//choosing units
     public void onMouseCliked(MouseEvent mouseEvent) {
+        //size of ChooseUnitTable
         int sizeOfTable = tableViewChoose.getItems().size();
+        //create arrayListForSaveTableItemsContent
         ArrayList<PersonDataCenterStudent> PersonDataCenterStudents = new ArrayList<>();
         for (int i = 0; i < sizeOfTable; i++) {
 
             PersonDataCenterStudent person1 = (PersonDataCenterStudent) tableViewChoose.getItems().get(i);
 
-            JFXToggleButton jfxToggleButton = person1.getToggleBtnChooseUnit();
-
-            if (jfxToggleButton.isSelected())
+            if (person1.getToggleBtnChooseUnit().isSelected())
+                //add to arrayList in line 362
                 PersonDataCenterStudents.add(person1);
         }
+        //creat array for save lessons cods
         long[] lessonCods = new long[PersonDataCenterStudents.size()];
 
         for (int i = 0; i < PersonDataCenterStudents.size(); i++) {
             lessonCods[i] = PersonDataCenterStudents.get(i).getLessonCod();
         }
+        ///////////////////////////////////////////////////////////////////////choose unit ended and start for set in arrayList Field from Student data center
         ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
+
+        //extract field in file and insert in arrayList
         ArrayList<FieldDataCenter> fields = new ArrayList<FieldDataCenter>();
-
-        ArrayList<FieldDataCenter> fieldChoosed = new ArrayList<FieldDataCenter>();
-
         fields.addAll(archiveDataCenter.readAllFields());
+
+        ArrayList<FieldDataCenter> fieldChoose = new ArrayList<FieldDataCenter>();
+//Checking choose fields and insert in fieldChoose arrayList
         for (int i = 0; i < fields.size(); i++) {
             for (int j = 0; j < lessonCods.length; j++) {
                 if (lessonCods[j] == fields.get(i).getFieldNumber()) {
                     fields.get(i).setScore(10);
-                    fieldChoosed.add(fields.get(i));
-                    //    student.addField(fields.get(i));
+                    fieldChoose.add(fields.get(i));
+                       student.addField(fields.get(i));
                 }
             }
         }
-        ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
-        student.setFieldsListForChooseUnit(fieldChoosed);
+        //ArchiveDataCenter archiveDataCenter1 = new ArchiveDataCenter();
+       // student.setFieldsListForChooseUnit(fieldChoose);
 // zaxire daeshjoo
-        archiveDataCenter1.writeStudent(student);
+        archiveDataCenter.writeStudent(student);
     }
 
     public void deleteAndAddLesson(MouseEvent mouseEvent) {

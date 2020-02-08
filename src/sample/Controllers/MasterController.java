@@ -149,12 +149,11 @@ public class MasterController implements Initializable {
         addMaster.setCellValueFactory(new PropertyValueFactory<>("addPresentedLessonToggleButton"));
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < fieldMaster.size(); i++) {
             AddTableMaster.getItems().add(new personDataCenterMaster(fieldMaster.get(i).getFieldName(), fieldMaster.get(i).getFieldNumber() ,fieldMaster.get(i).getUnit(), fieldMaster.get(i).getClassStartTime(), new JFXToggleButton()));
 
 
         }
-
     }
 
 

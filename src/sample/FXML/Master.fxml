@@ -96,8 +96,6 @@
                                           <TextField fx:id="txtNationalCodeMater" editable="false" layoutX="161.0" layoutY="120.0" nodeOrientation="RIGHT_TO_LEFT" />
                                        </children>
                                     </AnchorPane>
-                                    <JFXDrawer layoutX="229.0" layoutY="321.0" prefHeight="0.0" prefWidth="100.0" />
-                                    <JFXDrawer layoutX="11.0" layoutY="347.0" prefHeight="239.0" prefWidth="219.0" />
                                  </children>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -331,7 +329,7 @@
                                           </ImageView>
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnConfirmGrade" buttonType="RAISED" layoutX="146.0" layoutY="25.0" onMouseClicked="#confirmInsertedGrades" prefHeight="44.0" prefWidth="83.0" ripplerFill="#07ff28" style="-fx-background-color: #07ff28;" text="ثبت نمره" />
+                                    <JFXButton fx:id="btnConfirmGrade" buttonType="RAISED" layoutX="165.0" layoutY="20.0" onMouseClicked="#confirmInsertedGrades" prefHeight="44.0" prefWidth="83.0" ripplerFill="#07ff28" text="ثبت نمره" />
 <!--                                       <font>-->
 <!--                                          <Font name="System Bold" size="15.0" />-->
 <!--                                       </font></JFXButton>-->

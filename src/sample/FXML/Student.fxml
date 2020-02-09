@@ -66,7 +66,7 @@
                                 <Label alignment="TOP_RIGHT" layoutX="425.0" layoutY="205.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت:" />
                                 <Label alignment="TOP_RIGHT" layoutX="428.0" layoutY="249.0" prefHeight="22.0" prefWidth="119.0" text="وضعیت تاهل:" />
                                 <TextField fx:id="txtMaritalStatusProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="244.0" prefHeight="32.0" prefWidth="110.0" />
-                                <TextField fx:id="txtPostalCodeProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0" />
+                                <TextField fx:id="txtPostalCodeProfile" alignment="TOP_LEFT" editable="false" layoutX="290.0" layoutY="289.0" prefHeight="32.0" prefWidth="110.0" />
                                 <Label alignment="TOP_RIGHT" layoutX="431.0" layoutY="338.0" prefHeight="22.0" prefWidth="119.0" text="ایمیل :" />
                                 <TextField fx:id="txtEmailProfile" alignment="CENTER_RIGHT" editable="false" layoutX="290.0" layoutY="333.0" prefHeight="32.0" prefWidth="110.0" />
                                 <TextField fx:id="txtNationalCodProfile" layoutX="555.0" layoutY="243.0" prefHeight="32.0" prefWidth="110.0" />
@@ -255,7 +255,7 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1440.0">
                                 <children>
-                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0"  prefHeight="554.0" prefWidth="1367.0">
+                                    <TableView fx:id="tableViewAddAndDeleteUnitChooseUnit" layoutY="46.0" prefHeight="554.0" prefWidth="1367.0">
                                         <columns>
                                             <TableColumn fx:id="rowAddAndDeleteUnitChooseUnit" text="ردیف" />
                                             <TableColumn fx:id="lessonCodeAddAndDeleteUnitChooseUnit" prefWidth="119.2000732421875" text="کد درس" />
@@ -267,7 +267,7 @@
                                             <TableColumn fx:id="chooseUnitAddAndDeleteUnitChooseUnit" text="انتخاب" />
                                         </columns>
                                     </TableView>
-                           <JFXButton layoutX="910.0" layoutY="14.0" onMouseClicked="#deletAndAddLesson" prefHeight="26.0" prefWidth="74.0" text="تایید " />
+                           <JFXButton layoutX="910.0" onMouseClicked="#deleteAndAddLesson" layoutY="14.0" prefHeight="26.0" prefWidth="74.0" text="تایید " />
 
                                 </children>
                             </AnchorPane>

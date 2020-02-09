@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="191.0" xmlns="http://javafx.com/javafx/8.0.221">
+   <children>
+      <ImageView fitHeight="191.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@PNG/sidePane.png" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="50.0" prefWidth="205.0" ripplerFill="RED" style="-fx-background-color: #20012A; -fx-border-color: #D808DD; -fx-border-width: 3px;" text="hi baby" textAlignment="RIGHT">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@PNG/sidePane.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" prefHeight="50.0" prefWidth="205.0" ripplerFill="RED" style="-fx-background-color: #20012A; -fx-border-color: #00CDEB; -fx-border-width: 3px;" />
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" prefHeight="50.0" prefWidth="205.0" ripplerFill="RED" style="-fx-background-color: #20012A; -fx-border-color: #D808DD; -fx-border-width: 3px;" />
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" prefHeight="50.0" prefWidth="205.0" ripplerFill="RED" style="-fx-background-color: #20012A; -fx-border-color: #00CDEB; -fx-border-width: 3px;" />
+   </children>
+</VBox>

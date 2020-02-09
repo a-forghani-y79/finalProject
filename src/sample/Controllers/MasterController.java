@@ -85,6 +85,8 @@ public class MasterController implements Initializable {
     private long lessonCode;
     private String[] comboItem;
     ArrayList<personDataCenterMaster> personDataCenters = new ArrayList<>();
+    ArrayList<FieldDataCenter> fields = new ArrayList<>();
+
     private  int numberOfPassedStudent = 0;
 
     public void setMaster(MasterDataCenter master) {
@@ -264,6 +266,7 @@ public class MasterController implements Initializable {
 
     //chose unit
     public void ConfirmAddingFieldMaster() {
+
         int tableSize = AddTableMaster.getItems().size();
         ArrayList<personDataCenterMaster> personDataCenters = new ArrayList<>();
         for (int i = 0; i < tableSize; i++) {
@@ -271,7 +274,22 @@ public class MasterController implements Initializable {
             JFXToggleButton jfxToggleButton = person.getAddPresentedLessonToggleButton();
             if (jfxToggleButton.isSelected()) {
                 personDataCenters.add(person);
-                //TODO putting master name in the field Object
+
+
+                 fields.addAll(archive.readAllFields());
+
+                // putting master name in the field Object
+                for (int j = 0; j <fields.size() ; j++) {
+                    if(person.getPresentedLessonCode()==fields.get(j).getFieldNumber()){
+                        fields.get(j).setMasterName(master.getFirstName() + " " +master.getLastName());
+
+                    }
+                }
+
+
+
+
+
             }
 
         }
@@ -350,7 +368,7 @@ public class MasterController implements Initializable {
             personDataCenters.add(person);
 
 //clearing the txtInsertGrade
-            person.getTxtInsertAbsenceNumberOfStudent().setText("");
+            person.getTxtInsertGradeForMaster().setText("");
             long id = person.getStudentId();
             student = archive.readStudent(id);
 //searching for the student that have choosedUnitMasterLessonCode and putting the grade in the object of student

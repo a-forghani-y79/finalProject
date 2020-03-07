@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.DataCenter.*;
@@ -64,6 +65,7 @@ public class MasterController implements Initializable {
     public TableColumn genderInsertGrade;
     public TableColumn lessonCodeInsertGrade;
     public TableColumn insertGradeMasterCLM;
+
     public TableView TableViewPrAbMaster;
     public TableColumn LastNamePrAbMaster;
     public TableColumn FirstNamePrAbMaster;
@@ -74,6 +76,9 @@ public class MasterController implements Initializable {
     public ComboBox combolessonMaster;
     public JFXButton backButtonMaster1;
     public ComboBox comboLessonMaster2;
+    public JFXButton finalConfirmAdd;
+    public Label lblAlert;
+    public Tab newWeektableMaster;
     private MasterDataCenter master;
     private StudentDataCenter student;
     private ArrayList<StudentDataCenter> findStudent;
@@ -83,11 +88,25 @@ public class MasterController implements Initializable {
     private ArrayList<FieldDataCenter> listStd;
     private ArrayList<Double> passedNumber;
     private long lessonCode;
+    private long lessonCodePrAb;
     private String[] comboItem;
     ArrayList<personDataCenterMaster> personDataCenters = new ArrayList<>();
     ArrayList<FieldDataCenter> fields = new ArrayList<>();
-
     private  int numberOfPassedStudent = 0;
+
+    public MenuButton personalInfoMenu;
+    public MenuItem personalInfoMenuItem;
+    public MenuItem historyMenuItem;
+    //
+    public MenuButton weeklyMenu;
+    public MenuItem weeklyMenuItem;
+    public MenuItem ChoseUnitMenuItem;
+    //
+    public MenuButton studentsMenu;
+    public MenuItem insertGradeMenuItem;
+    public MenuItem presentAbsentMenuItem;
+    //
+    public AnchorPane mainAnchorPane;
 
     public void setMaster(MasterDataCenter master) {
         this.master = master;
@@ -297,6 +316,7 @@ public class MasterController implements Initializable {
         masterChosedUnits.addAll(personDataCenters);
 
         newWeekMaster();
+        WeeklyTable();
 
 
     }
@@ -314,7 +334,7 @@ public class MasterController implements Initializable {
     public void choseFieldForInsertingAbsenceNumber() {
         int ind = comboLessonMaster2.getSelectionModel().getSelectedIndex();
         if (ind > 0) {
-            lessonCode = masterChosedUnits.get(ind).getPresentedLessonCode();
+            lessonCodePrAb = masterChosedUnits.get(ind).getPresentedLessonCode();
             findStudent.addAll(findListOfStudents(lessonCode));
             tablePrAb();
         }
@@ -399,4 +419,37 @@ public class MasterController implements Initializable {
 
         return numberOfStudent;
     }
+   public void confirmInsertAbsenceNumber(){
+       int tableSize = TableViewPrAbMaster.getItems().size();
+
+
+       for (int i = 0; i < tableSize; i++) {
+           personDataCenterMaster person = (personDataCenterMaster) TableViewPrAbMaster.getItems().get(i);
+           int Absence = Integer.parseInt(person.getTxtInsertGradeForMaster().getText());
+
+           personDataCenters.add(person);
+
+
+           person.getTxtInsertGradeForMaster().setText("");
+           long id = person.getStudentId();
+           student = archive.readStudent(id);
+
+           for (int j = 0; j < student.getFieldsListForChooseUnit().size(); j++) {
+               if (student.getFieldsListForChooseUnit().get(i).getFieldNumber() == lessonCodePrAb) {
+                   student.getFieldsListForChooseUnit().get(i).setNumberOfAbsence(Absence);
+
+               }
+
+           }
+
+       }
+
+
+
+
+   }
+
+
+
+
 }

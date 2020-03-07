@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import sample.DataCenter.NewStudentDataCenter;
 
 public class Main extends Application {
 
@@ -15,9 +13,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
         Parent root;
-        loader.setLocation(getClass().getResource("/sample/FXML/loginPage.fxml"));
+        loader.setLocation(getClass().getResource("/sample/FXML/MasterFxml/masterMainPage.fxml"));
         root = loader.load();
-        primaryStage.setScene(new Scene(root, 1058, 600));
+        primaryStage.setScene(new Scene(root, 851, 468));
         primaryStage.show();
 
 

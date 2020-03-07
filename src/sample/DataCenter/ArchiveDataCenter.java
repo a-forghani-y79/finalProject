@@ -135,10 +135,17 @@ public class ArchiveDataCenter {
             if (list.get(i).getPersonalNumber() == personalNumber) {
                 master = list.get(i);
                 break;
+
+
+
+
             }
         }
         return master;
     }
+
+
+
 
     public void writeMaster(MasterDataCenter master) {
         ArrayList<MasterDataCenter> list = readAllMasters();

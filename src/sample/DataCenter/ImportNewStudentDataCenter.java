@@ -25,7 +25,7 @@ public class ImportNewStudentDataCenter {
     public ImportNewStudentDataCenter(String CSV_address, int year) {
         file = new File("./src/sample/Files/y" + year + "");
         file.mkdir();
-        this.Bin_addr = ".\\src\\sample\\Files\\y" + year + "\\newStudent.dat";
+        this.Bin_addr = System.getProperty("user.home")+"\\Desktop\\newStudent.dat";
         this.CSV_addr = CSV_address;
         setup();
         compleateList();

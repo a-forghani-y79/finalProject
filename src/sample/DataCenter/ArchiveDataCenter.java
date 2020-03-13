@@ -2,9 +2,6 @@ package sample.DataCenter;
 
 //this is a tool for up/downloading data to/from file
 //Every communications with Files should  be done by THIS class
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -20,7 +17,7 @@ public class ArchiveDataCenter {
 
 
     public ArchiveDataCenter() {
-        STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\student.dat";
+        STUDENT_FILE = System.getProperty("user.home")+"\\Desktop\\student.dat";
         file = new File(STUDENT_FILE);
         if (!(file.exists()))
         try {
@@ -29,7 +26,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        MASTER_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\master.dat";
+        MASTER_FILE = System.getProperty("user.home")+"\\Desktop\\master.dat";
         file = new File(MASTER_FILE);
         if (!(file.exists()))
         try {
@@ -38,7 +35,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        NEW_STUDENT_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\newStudent.dat";
+        NEW_STUDENT_FILE = System.getProperty("user.home")+"\\Desktop\\newStudent.dat";
         file = new File(NEW_STUDENT_FILE);
         if (!(file.exists()))
         try {
@@ -47,7 +44,7 @@ public class ArchiveDataCenter {
             System.out.println("problem in file creating");
             e.printStackTrace();
         }
-        FIELDS_FILE = "C:\\Users\\Asus\\IdeaProjects\\finalProject1\\src\\sample\\Files\\y98\\fields.dat";
+        FIELDS_FILE = System.getProperty("user.home")+"\\Desktop\\fields.dat";
         file = new File(FIELDS_FILE);
         if (!(file.exists()))
         try {
@@ -61,12 +58,27 @@ public class ArchiveDataCenter {
 //TODO error code AC
     public void writeAllFields(FieldDataCenter[] fields) {
         ArrayList<FieldDataCenter> list = new ArrayList<>();
+        list=readAllFields();
         for (int i = 0; i < fields.length; i++) {
             list.add(fields[i]);
         }
         try {
             objectOutputStream = new ObjectOutputStream(new FileOutputStream(FIELDS_FILE));
             objectOutputStream.writeObject(list);
+            objectOutputStream.flush();
+            objectOutputStream.close();
+        } catch (Exception e) {
+            System.out.println("problem in writeAllFields");
+            e.printStackTrace();
+        }
+    }
+    public void writeAllFields(ArrayList<FieldDataCenter> fields) {
+        ArrayList<FieldDataCenter> list = new ArrayList<>();
+        list=readAllFields();
+        list.addAll(fields);
+        try {
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(FIELDS_FILE));
+            objectOutputStream.writeObject(fields);
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (Exception e) {

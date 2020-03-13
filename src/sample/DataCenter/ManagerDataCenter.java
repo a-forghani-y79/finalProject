@@ -43,8 +43,8 @@ public class ManagerDataCenter {
     public ManagerDataCenter() {
         firstName = "علی";
         lastName = "پاکزاد";
-        userNameHash = "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f";
-        passwordNameHash = "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4";
+        userNameHash = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3";
+        passwordNameHash = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3";
 
     }
 }

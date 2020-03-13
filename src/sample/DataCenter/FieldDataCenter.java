@@ -1,6 +1,8 @@
 package sample.DataCenter;
 
-public class FieldDataCenter {
+import java.io.Serializable;
+
+public class FieldDataCenter implements Serializable {
     @Override
     public String toString() {
         return "FieldDataCenter{" +
@@ -24,7 +26,6 @@ public class FieldDataCenter {
     private double score ;
     private int numberOfAbsence;
 
-    //TODO create place Getter and Setter
 
     public int getNumberOfAbsence() {
         return numberOfAbsence;

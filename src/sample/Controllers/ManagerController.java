@@ -143,7 +143,7 @@ public class ManagerController implements Initializable {
             txtLastNameMaster.setText("");
             txtFirstNameMaster.setText("");
             txtAreaAddMaster.setVisible(true);
-            txtAreaAddMaster.setText("استاد با مئفقیت اضافه شد !" +
+            txtAreaAddMaster.setText("استاد با موفقیت اضافه شد !" +
                     "\n" + id + "شماره پرسنلی استاد :" + "\n");
 
         }
@@ -360,6 +360,9 @@ public class ManagerController implements Initializable {
     }
 
     public void btnSubmit() {
+        lblAlert.setVisible(false);
+        labelAlert2.setVisible(false);
+        lblsuc.setVisible(false);
         emptyFinder(txtFieldCode);
         emptyFinder(txtFieldName);
         emptyFinder(txtFieldUnit);
@@ -463,8 +466,8 @@ public class ManagerController implements Initializable {
 
     private void setTextInTextArea(){
         textHint1.setText("سپس با انتخاب فایل دانشجویال دکمه تایید را بزنید"+"\n"+ "در این صفحه باید روی دکمه ^ انتخاب فایل ^ کلیک کنید : ");
-        textHint2.setText("در این صفحه پس از انتخاب مشخحصات استاد دکمه افزودن را بزنید");
-        textHint3.setText("در این صفحه پس از انتخاب مشخحصات هر ذرس دکمه افزودن را بزنید");
+        textHint2.setText("در این صفحه پس از انتخاب مشخصات استاد دکمه افزودن را بزنید");
+        textHint3.setText("در این صفحه پس از انتخاب مشخصات هر درس دکمه افزودن را بزنید");
     }
 
 

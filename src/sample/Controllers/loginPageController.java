@@ -3,6 +3,7 @@ package sample.Controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
@@ -44,6 +45,8 @@ public class loginPageController implements Initializable {
     private NewStudentDataCenter passengerNewStudent;
     private MasterDataCenter passengerMaster;
     private StudentDataCenter passengerStudent;
+    private Stage stage;
+    private double x,y;
 
     public TextArea getTxtInfo() {
         return txtInfo;
@@ -299,17 +302,25 @@ public class loginPageController implements Initializable {
     private void openFxmlNewStudent() {
         Parent root;
         try {
-            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
             NewStudentController newStudentController = new NewStudentController();
             newStudentController.setStd(passengerNewStudent);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/NewStudent.fxml"));
             loader.setController(newStudentController);
             root = loader.load();
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            //Stage finalStage = stage;
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+            stage.setResizable(false);
             stage = new Stage();
-            Stage finalStage = stage;
-            finalStage.setResizable(false);
-            finalStage.initStyle(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -320,16 +331,24 @@ public class loginPageController implements Initializable {
     private void openFxmlManager() {
         Parent root;
         try {
-            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
             ManagerController manager = new ManagerController();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Manager.fxml"));
             loader.setController(manager);
             root = loader.load();
             stage = new Stage();
-            Stage finalStage = stage;
-            finalStage.setResizable(false);
-            finalStage.initStyle(StageStyle.TRANSPARENT);
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            //Stage finalStage = stage;
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -340,7 +359,7 @@ public class loginPageController implements Initializable {
     private void openFxmlStudent() {
         Parent root;
         try {
-            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
             StudentController studentController = new StudentController();
             studentController.setStudent(passengerStudent);
@@ -348,9 +367,16 @@ public class loginPageController implements Initializable {
             loader.setController(studentController);
             root = loader.load();
             stage = new Stage();
-            Stage finalStage = stage;
-            finalStage.setResizable(false);
-            finalStage.initStyle(StageStyle.TRANSPARENT);
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -359,19 +385,31 @@ public class loginPageController implements Initializable {
     }
 
     private void openFxmlMaster() {
+        System.out.println("master FXML opening");
         Parent root;
         try {
-            Stage stage = (Stage) btnExit.getScene().getWindow();
+            stage = (Stage) btnExit.getScene().getWindow();
             stage.close();
             MasterController masterController = new MasterController();
             masterController.setMaster(passengerMaster);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/FXML/Master.fxml"));
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("./sample/FXML/Master.fxml"));
             loader.setController(masterController);
             root = loader.load();
+
             stage = new Stage();
-            Stage finalStage = stage;
-            finalStage.setResizable(false);
-            finalStage.initStyle(StageStyle.TRANSPARENT);
+//            root.setOnMousePressed(event -> {
+//                x = event.getSceneX();
+//                y = event.getSceneY();
+//            });
+//            //Stage finalStage = stage;
+//            root.setOnMouseDragged(event -> {
+//                stage.setX(event.getScreenX() - x);
+//                stage.setY(event.getScreenY() - y);
+//            });
+//            stage.setResizable(false);
+//            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

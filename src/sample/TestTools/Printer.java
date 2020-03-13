@@ -21,16 +21,16 @@ public class Printer {
         int selection = sc.nextInt();
         switch (selection) {
             case 1:
-                dist = "C:\\Users\\a.forghan\\Desktop\\idea_projects\\finalProject\\src\\sample\\Files\\y98\\fields.dat"; //address of fields
+                dist = "C:\\Users\\a.forghan\\Desktop\\fields.dat"; //address of fields
                 break;
             case 2:
-                dist = "C:\\Users\\a.forghan\\Desktop\\idea_projects\\finalProject\\src\\sample\\Files\\y98\\master.dat"; //address of master
+                dist = "C:\\Users\\a.forghan\\Desktop\\master.dat"; //address of master
                 break;
             case 3:
-                dist = "C:\\Users\\a.forghan\\Desktop\\idea_projects\\finalProject\\src\\sample\\Files\\y98\\student.dat";// address of student
+                dist = "C:\\Users\\a.forghan\\Desktop\\student.dat";// address of student
                 break;
             case 4:
-                dist = "C:\\Users\\a.forghan\\Desktop\\idea_projects\\finalProject\\src\\sample\\Files\\y98\\newStudent.dat"; //address of newStudents
+                dist = "C:\\Users\\a.forghan\\Desktop\\newStudent.dat"; //address of newStudents
                 break;
             default:
                 System.out.println("invalid selection");
@@ -68,7 +68,18 @@ public class Printer {
                         System.out.println("\t"+master.getPersonalNumber());
                         System.out.println("National Code: ");
                         System.out.println("\t"+master.getNationalNumber());
+                        System.out.println("Fields");
+                        try {
+
+
+                        for (FieldDataCenter field:
+                             master.getMasField()) {
+                            System.out.println(field.getFieldName());
+                        }}catch (Exception e){
+                            System.out.println(e.getMessage());
+                        }
                         System.out.println("\\**********//");
+
                     }
 
                     break;

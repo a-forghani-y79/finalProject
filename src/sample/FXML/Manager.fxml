@@ -3,12 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
@@ -17,9 +17,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import com.jfoenix.controls.JFXTabPane?>
 
-<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1058.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="اضافه کردن دانشجویان جدید">
       <content>
@@ -61,8 +60,8 @@
                   <JFXTextField fx:id="txtLastNameMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="413.0" layoutY="110.0" promptText="نام خانوادگی" />
                   <JFXTextField fx:id="txtNationalNumberMaster" alignment="CENTER_RIGHT" labelFloat="true" layoutX="230.0" layoutY="110.0" promptText="کد ملی" />
                   <Separator layoutX="230.0" layoutY="227.0" prefHeight="6.0" prefWidth="522.0" />
-                  <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="250.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
                    <JFXComboBox fx:id="comboGenderMaster" focusColor="#141414" labelFloat="true" layoutX="619.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="39.0" prefWidth="136.0" promptText="آقا / خانم" unFocusColor="#141414" />
+                  <JFXButton fx:id="btnAddMaster" buttonType="RAISED" layoutX="230.0" layoutY="250.0" onMouseClicked="#onClickAddMaster" prefHeight="32.0" prefWidth="67.0" style="-fx-background-color: #B2EBF2;" text="افزودن" />
                   <JFXButton fx:id="btnExit2" layoutX="14.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="60.0" prefWidth="60.0">
                      <graphic>
                         <ImageView fx:id="imageExit2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
@@ -74,9 +73,11 @@
                      </graphic>
                   </JFXButton>
                   <TextArea fx:id="txtAreaAddMaster" layoutX="348.0" layoutY="250.0" prefHeight="66.0" prefWidth="406.0" visible="false" />
-                  <JFXButton fx:id="btnHint2" layoutX="164.0" layoutY="14.0" onMouseClicked="#hintVisible2" prefHeight="60.0" prefWidth="60.0" />
+                  <JFXButton fx:id="btnHint2" layoutX="164.0" layoutY="14.0" onMouseClicked="#hintVisible2" prefHeight="60.0" prefWidth="60.0">
+                     <graphic>
+                        <ImageView fx:id="imageHint2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></JFXButton>
                   <TextArea fx:id="textHint2" layoutX="361.0" layoutY="18.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="408.0" visible="false" />
-                  <ImageView fx:id="imageHint2" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
       </content>
     </Tab>

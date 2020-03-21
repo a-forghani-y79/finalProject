@@ -1,6 +1,7 @@
 package sample.DataCenter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class FieldDataCenter implements Serializable {
     @Override
@@ -25,7 +26,28 @@ public class FieldDataCenter implements Serializable {
     private String timeToTakeExam;
     private double score ;
     private int numberOfAbsence;
+    private boolean isPresented = false;
+    ArrayList<Long> studentsList = new ArrayList<>();
 
+    public ArrayList<Long> getStudentsList() {
+        return studentsList;
+    }
+
+    public void join(long studentNumber){
+       if (!studentsList.contains(studentNumber))
+           studentsList.add(studentNumber);
+    }
+    public void left(long studentNumber){
+        studentsList.remove(studentNumber);
+    }
+
+    public boolean isPresented() {
+        return isPresented;
+    }
+
+    public void setPresented(boolean presented) {
+        isPresented = presented;
+    }
 
     public int getNumberOfAbsence() {
         return numberOfAbsence;

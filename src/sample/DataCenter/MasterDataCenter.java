@@ -15,7 +15,10 @@ public class MasterDataCenter implements Serializable {
     private int unit;
     private int studentNumber;
     private int passedStudent;
-    private ArrayList<FieldDataCenter>  masterField;
+    private ArrayList<FieldDataCenter>  masterField = new ArrayList<>();
+
+
+
 
     public ArrayList<FieldDataCenter> getMasField() {
         return masterField;

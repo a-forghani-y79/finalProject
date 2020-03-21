@@ -12,8 +12,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Printer {
+    static int i = 6;
+
     public static void main(String[] args) {
         System.out.println("FinalProject Printer");
+        System.out.println(i);
+        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<ArrayList<String>> list;
+
         System.out.println("Select File for Printing:\n\t[1].fields.dat\n\t[2].master.dat\n\t[3].student.dat\n\t[4].newStudent.dat");
         Scanner sc = new Scanner(System.in);
 
@@ -21,16 +27,16 @@ public class Printer {
         int selection = sc.nextInt();
         switch (selection) {
             case 1:
-                dist = "C:\\Users\\a.forghan\\Desktop\\fields.dat"; //address of fields
+                dist = System.getProperty("user.home") + "\\Desktop\\fields.dat";
                 break;
             case 2:
-                dist = "C:\\Users\\a.forghan\\Desktop\\master.dat"; //address of master
+                dist =System.getProperty("user.home") + "\\Desktop\\master.dat";
                 break;
             case 3:
-                dist = "C:\\Users\\a.forghan\\Desktop\\student.dat";// address of student
+                dist = System.getProperty("user.home") + "\\Desktop\\student.dat";// address of student
                 break;
             case 4:
-                dist = "C:\\Users\\a.forghan\\Desktop\\newStudent.dat"; //address of newStudents
+                dist = System.getProperty("user.home") + "\\Desktop\\newStudent.dat"; //address of newStudents
                 break;
             default:
                 System.out.println("invalid selection");
@@ -45,7 +51,7 @@ public class Printer {
                     ArrayList <FieldDataCenter> listF = new ArrayList();
                     listF = (ArrayList <FieldDataCenter>) objectInputStream.readObject();
 
-                    for (FieldDataCenter fieldDataCenter : listF
+                 for (FieldDataCenter fieldDataCenter : listF
                     ) {
                         System.out.println("Name: ");
                         System.out.println("\t"+fieldDataCenter.getFieldName());
@@ -53,6 +59,7 @@ public class Printer {
                         System.out.println("\t"+fieldDataCenter.getFieldNumber());
                         System.out.println("Class Time: ");
                         System.out.println("\t"+fieldDataCenter.getClassStartTime());
+                     System.out.println(fieldDataCenter.getMasterName());
                         System.out.println("\\**********//");
                     }
 
@@ -75,7 +82,8 @@ public class Printer {
                         for (FieldDataCenter field:
                              master.getMasField()) {
                             System.out.println(field.getFieldName());
-                        }}catch (Exception e){
+                        }
+                    }catch (Exception e){
                             System.out.println(e.getMessage());
                         }
                         System.out.println("\\**********//");

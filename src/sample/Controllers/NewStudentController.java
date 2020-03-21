@@ -77,7 +77,7 @@ public class NewStudentController implements Initializable {
     public JFXButton btnExit3;
     public JFXButton btnBack3;
     public TextField txtGender2;
-    public TextArea txtArea;
+    public Label txtArea;
     private NewStudentDataCenter std;
     private StudentDataCenter student;
     private StudentIdGeneratorDataCenter studentIdGeneratorDataCenter;
@@ -135,12 +135,13 @@ public class NewStudentController implements Initializable {
 
 
     private void student() {
+        student = new StudentDataCenter();
         student.setFirstName(txtFirstName.getText());
         student.setLastName(txtLastName.getText());
         student.setNationalCode(Long.parseLong(txtNationalID.getText()));
         student.setRate(Long.parseLong(txtRate.getText()));
         student.setField(txtField.getText());
-        if (std.isDay_night() == true) {
+        if (std.isDay_night()) {
             student.setDay(true);
         } else {
             student.setDay(false);
@@ -225,17 +226,17 @@ public class NewStudentController implements Initializable {
 
     private boolean scanner() {
         boolean flag = true;
-        boolean flage2 = true ;
+        boolean flage2 = true;
         for (int i = 0; i < txtEmail.getText().length(); i++) {
             int c = txtEmail.getText().charAt(i);
             int b = 'آ';
             int e = 'ی';
-            if (c>=b && c<=e ) {
+            if (c >= b && c <= e) {
                 txtEmail.setStyle(txtEmail.getStyle() + "-fx-text-inner-color: #D70406;");
                 flag = false;
-                flage2= false;
+                flage2 = false;
             }
-            if (flage2){
+            if (flage2) {
                 txtEmail.setStyle(txtEmail.getStyle() + "-fx-text-inner-color: #000000;");
             }
 
@@ -244,7 +245,7 @@ public class NewStudentController implements Initializable {
 
 
         LocalDate localDate = DataPicker.getValue();
-        if (txtDiplomYear.getText().length() != 4) {
+        if (txtDiplomYear.getText().length() <1) {
             txtDiplomYear.setStyle(txtDiplomYear.getStyle() + "-fx-background-color: #D70406;");
             flag = false;
         }
@@ -373,7 +374,7 @@ public class NewStudentController implements Initializable {
         if (emptyFinder(txtLocalBorn)) {
             txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-background-color: #FFFFFF;");
         } else if (NumberFinder(txtLocalBorn)) {
-            txtLocalBorn.setStyle(txtLocalBorn.getStyle() + "-fx-text-inner-color: #000000;");
+            txtLocalBorn.setStyle("-fx-text-inner-color: #000000;");
         }
         if (!emptyFinder(txtFiled1)) {
             txtFiled1.setStyle(txtFiled1.getStyle() + "-fx-background-color: #D70406;");
@@ -491,7 +492,7 @@ public class NewStudentController implements Initializable {
 
     @FXML
     private void exit() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید خارج شوید؟ " , ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید خارج شوید؟ ", ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -504,7 +505,7 @@ public class NewStudentController implements Initializable {
 
     @FXML
     private void back() {
-        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید برگردید؟"  , ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "آیا می خواهید برگردید؟", ButtonType.YES, ButtonType.NO);
 
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -538,24 +539,23 @@ public class NewStudentController implements Initializable {
 
 
     public void btnSubmit() {
-        if (scanner()) {
+        boolean flag = scanner();
+        System.out.println("fucking scanner"+flag);
+
+        if (flag) {
             student();
             long id = studentIdGeneratorDataCenter.creatIdStudent();
-            student.setStudentNumber(id);
             System.out.println(id);
+            student.setStudentNumber(id);
             ArchiveDataCenter archiveDataCenter = new ArchiveDataCenter();
             archiveDataCenter.writeStudent(student);
-            student.setFileNumber(0);
-            txtArea.setVisible(true);
-            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!"+
-                     "\n" + "شما از این پس با نام کاربری : "+ "\n"+ id +
-                    "و با پسورد :"+ txtNationalID.getText());
-
-
-
-            //TODO show student number from Generator
+            std.setFileNumber(0  );
+            txtArea.setText("ثبت نام شما با موفقیت انجام پذیرفت!!" +
+                    "\n" + "شما از این پس با نام کاربری : " + "\n" + id +
+                    "و با پسورد :" + txtNationalID.getText()+"و به عنوان دانشجو می توانبد وارد شوید.");
+            System.out.println(id);
         } else {
-            //TODO show suitable message
+            txtArea.setText("لطفا اطلاعات را کامل کنید.");
         }
 
     }
@@ -625,7 +625,7 @@ public class NewStudentController implements Initializable {
         comboMatrimony.getItems().addAll(Matrimony);
         String[] condition = {"فارغ التحصیل", "درحال تحصیل"};
         comboCondition.getItems().addAll(condition);
-        String[] diplomType = {"تجربی", "انسانی","ریاضی فیزیک"};
+        String[] diplomType = {"تجربی", "انسانی", "ریاضی فیزیک"};
         comboDyplomType.getItems().addAll(diplomType);
         setImage();
         Show();

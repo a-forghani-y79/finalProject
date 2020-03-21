@@ -2,8 +2,11 @@ package sample.DataCenter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class StudentDataCenter implements Serializable {
+
+    private static final long serialVersionUID = -1595287529950289202L;
 
     private String firstName;
     private String lastName;
@@ -45,6 +48,62 @@ public class StudentDataCenter implements Serializable {
     private int BDay;
     private double score;
     private String position;
+    private HashMap<Long, Integer> absenceReport ;
+    private HashMap<Long, Double> gradeReport ;
+    public StudentDataCenter(){
+        absenceReport = new HashMap<>();
+        gradeReport = new HashMap<>();
+    }
+
+    public void setAbsenceReport(HashMap<Long, Integer> absenceReport) {
+        this.absenceReport = absenceReport;
+    }
+
+    public void setGradeReport(HashMap<Long, Double> gradeReport) {
+        this.gradeReport = gradeReport;
+    }
+
+    public HashMap<Long, Double> getGradeReport() {
+        return gradeReport;
+    }
+
+    public HashMap<Long, Integer> getAbsenceReport() {
+        return absenceReport;
+    }
+
+    public void join(long lessonCode) {
+        if (!absenceReport.containsKey(lessonCode))
+            absenceReport.put(lessonCode, 0);
+        if (!gradeReport.containsKey(lessonCode))
+            gradeReport.put(lessonCode, 10.0);
+    }
+
+    public void left(long lessonCode) {
+        absenceReport.remove(lessonCode);
+        gradeReport.remove(lessonCode);
+    }
+
+    public double getGrade(long lessonCode) {
+        return gradeReport.get(lessonCode);
+    }
+
+    public void setGrade(long lessonCode, double grade)throws Exception {
+        System.out.println("put");
+        if (gradeReport.containsKey(lessonCode)){
+
+            gradeReport.put(lessonCode, grade);
+        }
+    }
+
+    public int getNumberOfAbsence(long lessonCode) {
+        return absenceReport.get(lessonCode);
+    }
+
+    public void setAbsence(long lessonCode, int numberOfAbsence) {
+        if (absenceReport.containsKey(lessonCode))
+            absenceReport.put(lessonCode, numberOfAbsence);
+    }
+
 
     public ArrayList<FieldDataCenter> getHistoryListField() {
         return historyListField;
@@ -86,7 +145,7 @@ public class StudentDataCenter implements Serializable {
         Gender = gender;
     }
 
-    private int Gender ;
+    private int Gender;
 
     public int getBYear() {
         return BYear;
@@ -371,7 +430,8 @@ public class StudentDataCenter implements Serializable {
     public ArrayList<FieldDataCenter> getFieldsListForChooseUnit() {
         return fieldsListForChooseUnit;
     }
-    public void addField(FieldDataCenter field){
+
+    public void addField(FieldDataCenter field) {
         fieldsListForChooseUnit.add(field);
     }
 

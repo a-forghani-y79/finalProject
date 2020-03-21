@@ -136,7 +136,7 @@ public class ManagerController implements Initializable {
             master.setGender(comboIndex);
             master.setNationalNumber(Long.parseLong(txtNationalNumberMaster.getText()));
             master.setPersonalNumber(id);
-            System.out.println(id);
+
             archive.writeMaster(master);
             txtAreaAddMaster.setVisible(true);
             txtNationalNumberMaster.setText("");
@@ -146,7 +146,7 @@ public class ManagerController implements Initializable {
             txtAreaAddMaster.setText("استاد با موفقیت اضافه شد !" +
                     "\n" + id + "شماره پرسنلی استاد :" + "\n");
 
-        }
+        }System.out.println(id);
         //TODO show master personal id && clear text fields
     }
 
@@ -425,7 +425,7 @@ public class ManagerController implements Initializable {
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "hour :" + localTime.getHour());
         fieldDataCenter.setTimeToTakeExam(fieldDataCenter.getTimeToTakeExam() + "," + "minute :" + localTime.getMinute());
 
-        archive.writeAllFields(new FieldDataCenter[]{fieldDataCenter});
+        archive.writeFields(fieldDataCenter);
     }
 
     @FXML
